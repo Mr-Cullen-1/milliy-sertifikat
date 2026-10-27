@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/*
+ * Dizayn tokenlari: Figma "dizayn-test-platform (Copy)", sahifa "Redesign — До / После", B variant ("O'yin").
+ * Manba va kelishuvlar: docs/design.md.
+ */
+@theme {
+  --color-ink: #1e1b39;
+  --color-muted: #6f6b8a;
+  --color-faint: #a9a5c0;
+  --color-line: #e6e3f2;
+  --color-surface: #f6f5fb;
+  --color-track: #eceaf5;
+
+  --color-brand: #e8590c;
+  --color-brand-current: #fa4f28;
+  --color-brand-soft: #ffd2b8;
+  --color-brand-edge: #b84306;
+  --color-brand-tint: #fff0e6;
+  --color-brand-ink: #b03f05;
+
+  --color-accent: #4b2fd0;
+  --color-accent-soft: #f0ecff;
+
+  --color-success: #2fa84f;
+  --color-success-soft: #e6f7ea;
+  --color-success-line: #bfe6c9;
+  --color-success-ink: #1c6e33;
+  --color-gold: #f5a400;
+  --color-gold-edge: #c98700;
+  --color-selected: #6c47ff;
+  --color-line-strong: #d5d1e8;
+  --color-ink-soft: #4f4b6b;
+  --color-warn-soft: #fff6db;
+  --color-danger: #d92d3a;
+
+  --color-disabled-bg: #eceaf4;
+  --color-disabled-edge: #dedbeb;
+
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-onest), var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+/* Markdown + KaTeX matnlari (components/math/markdown.tsx) */
+.math-md p {
+  margin: 0;
+}
+.math-md p + p {
+  margin-top: 0.75rem;
+}
+.math-md .katex-display {
+  margin: 0.75rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
