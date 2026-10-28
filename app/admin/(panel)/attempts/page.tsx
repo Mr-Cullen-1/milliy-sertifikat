@@ -1,8 +1,10 @@
 import { Badge, Card, fmtDateTime, PageTitle, Pager, pageParam, strParam, Table } from '@/components/admin/ui';
 import { attemptsPageSchema, overviewSchema, PAGE_SIZE } from '@/lib/admin/schemas';
 import { createClient } from '@/lib/supabase/server';
+import { Suspense } from 'react';
+import { BlockSkeleton } from '@/components/page-skeleton';
 
-export default async function AdminAttemptsPage({ searchParams }: PageProps<'/admin/attempts'>) {
+async function AdminAttemptsPageContent({ searchParams }: PageProps<'/admin/attempts'>) {
   const sp = await searchParams;
   const page = pageParam(sp.page);
   const exam = strParam(sp.exam);
@@ -79,5 +81,14 @@ export default async function AdminAttemptsPage({ searchParams }: PageProps<'/ad
         ))}
       </Table>
     </>
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function AdminAttemptsPage(props: Parameters<typeof AdminAttemptsPageContent>[0]) {
+  return (
+    <Suspense fallback={<BlockSkeleton />}>
+      <AdminAttemptsPageContent {...props} />
+    </Suspense>
   );
 }

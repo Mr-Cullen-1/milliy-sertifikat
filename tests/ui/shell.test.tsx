@@ -8,6 +8,7 @@ import { uz } from '@/lib/i18n/dictionaries/uz';
 
 vi.mock('next/navigation', () => ({ useRouter: () => ({ refresh: () => {} }), usePathname: () => '/' }));
 vi.mock('@/app/language-actions', () => ({ setLanguageAction: async () => {} }));
+vi.mock('@/app/auth-actions', () => ({ logoutParticipant: async () => {} }));
 
 const render = (node: React.ReactNode, lang: 'uz' | 'en' = 'uz') =>
   renderToStaticMarkup(
@@ -24,21 +25,26 @@ describe('navbar va footer', () => {
     expect(out).toContain(`aria-label="${uz.nav.menu}"`);
   });
 
+  it("kirgan ishtirokchiga dumaloq chiqish tugmasi ko'rsatiladi, aks holda yo'q", () => {
+    expect(render(<SiteHeader signedIn />)).toContain(`aria-label="${uz.nav.logout}"`);
+    expect(render(<SiteHeader />)).not.toContain(`aria-label="${uz.nav.logout}"`);
+  });
+
   it("minimal navbar bo'limlar menyusisiz", () => {
     const out = render(<SiteHeader minimal />);
     expect(out).not.toContain('href="/history"');
   });
 
-  it("to'liq footer: bo'limlar, maxfiylik, ogohlantirish va yil", () => {
-    const out = render(<SiteFooter />, 'en');
+  it("to'liq footer: maxfiylik, ogohlantirish va yil; bo'limlar navigatsiyasi yo'q (navbarda bor)", () => {
+    const out = render(<SiteFooter year={new Date().getFullYear()} />, 'en');
     expect(out).toContain('href="/privacy"');
-    expect(out).toContain('href="/dtm"');
+    expect(out).not.toContain('href="/dtm"');
     expect(out).toContain(en.footer.disclaimer);
     expect(out).toContain(String(new Date().getFullYear()));
   });
 
-  it('ixcham footer bitta qatorda, bo\'limlar ro\'yxatisiz', () => {
-    const out = render(<SiteFooter compact />);
+  it("ixcham footer bitta qatorda, bo'limlar ro'yxatisiz", () => {
+    const out = render(<SiteFooter year={2026} compact />);
     expect(out).toContain('href="/privacy"');
     expect(out).not.toContain('href="/mistakes"');
   });

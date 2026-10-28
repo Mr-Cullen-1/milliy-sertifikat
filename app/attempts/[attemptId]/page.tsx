@@ -8,8 +8,10 @@ import { blockCodeOf } from '@/lib/i18n/blocks';
 import { getI18n } from '@/lib/i18n/server';
 import { getParticipant } from '@/lib/participant.server';
 import { createClient } from '@/lib/supabase/server';
+import { Suspense } from 'react';
+import { BlockSkeleton } from '@/components/page-skeleton';
 
-export default async function AttemptPage({ params }: PageProps<'/attempts/[attemptId]'>) {
+async function AttemptPageContent({ params }: PageProps<'/attempts/[attemptId]'>) {
   const { attemptId } = await params;
   if (!/^[0-9a-f-]{36}$/i.test(attemptId)) notFound();
 
@@ -61,5 +63,14 @@ export default async function AttemptPage({ params }: PageProps<'/attempts/[atte
       initialSpent={initialSpent}
       watermark={watermark}
     />
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function AttemptPage(props: Parameters<typeof AttemptPageContent>[0]) {
+  return (
+    <Suspense fallback={<BlockSkeleton className="mx-auto max-w-[860px] px-4 py-10" />}>
+      <AttemptPageContent {...props} />
+    </Suspense>
   );
 }

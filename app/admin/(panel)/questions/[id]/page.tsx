@@ -7,10 +7,12 @@ import { BLOCK_CODES } from '@/config/topics';
 import { parsePayload } from '@/lib/exam/payload';
 import { LANGS, type Lang } from '@/lib/i18n/config';
 import { createClient } from '@/lib/supabase/server';
+import { Suspense } from 'react';
+import { BlockSkeleton } from '@/components/page-skeleton';
 
 type Localized = { stem_md?: string; payload?: unknown; solution_md?: string; mistake_note_md?: string };
 
-export default async function AdminQuestionPreview({ params, searchParams }: PageProps<'/admin/questions/[id]'>) {
+async function AdminQuestionPreviewContent({ params, searchParams }: PageProps<'/admin/questions/[id]'>) {
   const [{ id }, sp] = await Promise.all([params, searchParams]);
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
   const lang: Lang = LANGS.find((l) => l === sp.lang) ?? 'uz';
@@ -111,5 +113,14 @@ export default async function AdminQuestionPreview({ params, searchParams }: Pag
         </Card>
       </div>
     </>
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function AdminQuestionPreview(props: Parameters<typeof AdminQuestionPreviewContent>[0]) {
+  return (
+    <Suspense fallback={<BlockSkeleton />}>
+      <AdminQuestionPreviewContent {...props} />
+    </Suspense>
   );
 }

@@ -41,7 +41,7 @@ export function AnswerY1({ payload, value, onChange }: Props) {
             >
               {letter}
             </span>
-            <span className="min-w-0 flex-1 overflow-x-auto">
+            <span className="-my-2 min-w-0 flex-1 overflow-x-auto overflow-y-hidden py-2">
               <Markdown inline>{payload.options[letter]}</Markdown>
             </span>
           </button>

@@ -11,8 +11,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  // Cache Components/PPR YO'Q: nonce asosidagi CSP (proxy.ts) faqat har so'rovda dinamik chiziladigan sahifalarda ishlaydi.
+  // Statik qobiq nonce olmaydi va brauzer Next skriptlarini bloklaydi (production'da sahifa "o'lik" bo'lib qolardi).
   poweredByHeader: false,
   // Faqat `next dev` dagi pastki-chap "N" belgisi; production'ga ta'sir qilmaydi.
   devIndicators: false,

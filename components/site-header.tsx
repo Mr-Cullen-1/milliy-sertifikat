@@ -6,11 +6,12 @@ import { ArtIcon, MascotBadge } from '@/components/art';
 import type { IconName } from '@/components/art-data';
 import { LangSwitcher } from '@/components/i18n/lang-switcher';
 import { useT } from '@/components/i18n/provider';
+import { LogoutButton } from '@/components/logout-button';
 
 type Active = 'exams' | 'history' | 'mistakes' | 'dtm';
 
 /** Umumiy navbar: mascot logotipi, bo'limlar (faol bo'lim ajratib ko'rsatiladi), til almashtirgich, mobil menyu. */
-export function SiteHeader({ minimal = false, active }: { minimal?: boolean; active?: Active }) {
+export function SiteHeader({ minimal = false, active, signedIn = false }: { minimal?: boolean; active?: Active; signedIn?: boolean }) {
   const t = useT();
   const [open, setOpen] = useState(false);
   const [brand, sub] = t('common.appName').split(' · ');
@@ -59,6 +60,7 @@ export function SiteHeader({ minimal = false, active }: { minimal?: boolean; act
             </nav>
           )}
           <LangSwitcher />
+          {signedIn && <LogoutButton />}
           {!minimal && (
             <button
               type="button"

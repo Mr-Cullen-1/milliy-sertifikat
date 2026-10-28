@@ -47,3 +47,10 @@ Variantlar:
 1. **Mehmon hisobni haqiqiy hisobga ulash (natijalar saqlanadi):** `auth.admin.updateUserById(id, { email })` yoki OAuth identity'ni ulash; `user.id` o'zgarmaydi, shuning uchun attempt va javoblar yo'qolmaydi.
 2. **Ichki platforma bilan SSO:** ichki platforma o'quvchini imzolangan token bilan yuboradi; Supabase'da shu token orqali sessiya beriladi (third-party auth yoki custom JWT). Shunda `/start` formasi kerak bo'lmasligi mumkin: ism/sinf/telefon ichki platformadan olinadi.
 3. **Iframe:** ichki platforma sayti bu platformani `<iframe>` ichida ochsa, `.env` da `ALLOWED_FRAME_ANCESTORS="https://ichki.platforma.uz"` ni bering (CSP `frame-ancestors`). Cookie'lar uchun bir registrable-domen (masalan `mock.platforma.uz`) ishlatilsa, ular birinchi tomon bo'lib qoladi; boshqa domen bo'lsa 2-variant (SSO) kerak.
+
+## Admin va ishtirokchi sessiyalari ajratilgan (2026-10-28)
+Bitta brauzerda ham admin, ham ishtirokchi bo'lib ishlash mumkin: sessiya cookie'lari hududga qarab ajratiladi (`lib/supabase/area.ts`).
+- `/admin...` — Supabase'ning standart cookie nomi; qolgan sahifalar — `sb-participant`.
+- `proxy.ts` so'rovga `x-area` sarlavhasini qo'yadi; `lib/supabase/server.ts` va `lib/supabase/proxy.ts` shundan cookie nomini tanlaydi.
+- Sabab: ilgari admin kirganda ishtirokchi sessiyasi almashib ketardi, natijada ishtirokchi sahifalarida qoralama variantlar ko'rinardi (admin RLS bilan hammasini ko'radi) va o'z natija sahifasi 404 berardi.
+- Sinov: `npm run smoke` ikkala cookie bilan so'rov yuborib tekshiradi.

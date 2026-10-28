@@ -8,6 +8,7 @@ export const uz = {
     loading: 'Yuklanmoqda…',
     back: 'Orqaga',
     next: 'Keyingi',
+    close: 'Yopish',
     cancel: 'Bekor qilish',
     retry: 'Qayta urinish',
     home: 'Bosh sahifa',
@@ -33,6 +34,12 @@ export const uz = {
   nav: {
 
     menu: "Menyu",
+
+    logout: "Chiqish",
+
+    logoutTitle: "Tizimdan chiqasizmi?",
+
+    logoutLead: "Chiqsangiz, shu brauzerdagi natijalar tarixi va davom etayotgan imtihonga qayta kirib bo'lmaydi.",
     exams: 'Imtihonlar',
     history: 'Natijalarim',
     mistakes: 'Xatolar daftari',
@@ -86,6 +93,8 @@ export const uz = {
 
   home: {
     hello: 'Salom, {name}',
+    helloBack: "Qaytib kelganingiz bilan, {name}",
+    lastResult: "Oxirgi natija: ≈ {score}",
     lead: "Mock imtihonni boshlash uchun imtihonlar ro'yxatiga o'ting.",
     edit: "Ma'lumotlarni o'zgartirish",
     hintExams: "45 topshiriq · 150 daqiqa",

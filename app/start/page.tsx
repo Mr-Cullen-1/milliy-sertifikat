@@ -5,8 +5,10 @@ import { Chip } from '@/components/ui/chip';
 import { getI18n } from '@/lib/i18n/server';
 import { getParticipant } from '@/lib/participant.server';
 import { StartForm } from './start-form';
+import { Suspense } from 'react';
+import { PageSkeleton } from '@/components/page-skeleton';
 
-export default async function StartPage({ searchParams }: PageProps<'/start'>) {
+async function StartPageContent({ searchParams }: PageProps<'/start'>) {
   const [{ t }, participant, params] = await Promise.all([getI18n(), getParticipant(), searchParams]);
   const next = typeof params.next === 'string' ? params.next : '/';
   const features = [t('start.f1'), t('start.f2'), t('start.f3'), t('start.f4')];
@@ -23,7 +25,7 @@ export default async function StartPage({ searchParams }: PageProps<'/start'>) {
               className: 'left-[47%] top-6 rotate-6',
             },
             {
-              name: 'gift',
+              name: 'books',
               width: 56,
               className: 'left-[1%] bottom-4 -rotate-12 opacity-90',
             },
@@ -63,5 +65,14 @@ export default async function StartPage({ searchParams }: PageProps<'/start'>) {
         </section>
       </main>
     </PageShell>
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function StartPage(props: Parameters<typeof StartPageContent>[0]) {
+  return (
+    <Suspense fallback={<PageSkeleton minimal />}>
+      <StartPageContent {...props} />
+    </Suspense>
   );
 }

@@ -1,8 +1,10 @@
 import { Card, fmtDateTime, PageTitle, Pager, pageParam, strParam, Table } from '@/components/admin/ui';
 import { PAGE_SIZE, participantsPageSchema } from '@/lib/admin/schemas';
 import { createClient } from '@/lib/supabase/server';
+import { Suspense } from 'react';
+import { BlockSkeleton } from '@/components/page-skeleton';
 
-export default async function AdminParticipantsPage({ searchParams }: PageProps<'/admin/participants'>) {
+async function AdminParticipantsPageContent({ searchParams }: PageProps<'/admin/participants'>) {
   const sp = await searchParams;
   const page = pageParam(sp.page);
   const q = strParam(sp.q)?.slice(0, 60);
@@ -43,5 +45,14 @@ export default async function AdminParticipantsPage({ searchParams }: PageProps<
         ))}
       </Table>
     </>
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function AdminParticipantsPage(props: Parameters<typeof AdminParticipantsPageContent>[0]) {
+  return (
+    <Suspense fallback={<BlockSkeleton />}>
+      <AdminParticipantsPageContent {...props} />
+    </Suspense>
   );
 }

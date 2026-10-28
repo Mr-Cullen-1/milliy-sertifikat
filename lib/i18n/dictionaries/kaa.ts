@@ -7,6 +7,7 @@ export const kaa: Dict = {
     loading: 'Júklenbekte…',
     back: 'Artqa',
     next: 'Keyingi',
+    close: 'Jabıw',
     cancel: 'Biykar etiw',
     retry: 'Qayta urınıp kóriw',
     home: 'Bas bet',
@@ -32,6 +33,12 @@ export const kaa: Dict = {
   nav: {
 
     menu: "Menyu",
+
+    logout: "Shıǵıw",
+
+    logoutTitle: "Sistemadan shıǵasızba?",
+
+    logoutLead: "Shıqsańız, usı brauzerdegi nátiyjeler tariyxı hám dawam etip atırǵan imtixanǵa qaytıp bolmaydı.",
     exams: 'Imtihanlar',
     history: 'Nátiyjelerim',
     mistakes: 'Qátelikler dápteri',
@@ -85,6 +92,8 @@ export const kaa: Dict = {
 
   home: {
     hello: 'Assalawma áleykum, {name}',
+    helloBack: "Qaytıp kelgenińiz benen, {name}",
+    lastResult: "Sońǵı nátiyje: ≈ {score}",
     lead: 'Sınaq imtihanın baslaw ushın imtihanlar dizimine ótiń.',
     edit: 'Maǵlıwmatlardı ózgertiw',
     hintExams: "45 tapsırma · 150 minut",

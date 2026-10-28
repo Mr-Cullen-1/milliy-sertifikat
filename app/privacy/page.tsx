@@ -8,7 +8,7 @@ export default async function PrivacyPage() {
   return (
     <PageShell minimal>
       <main className="mx-auto flex w-full max-w-[720px] flex-1 flex-col gap-5 px-4 py-10">
-        <PageHero art="mascot-reading" artWidth={96}>
+        <PageHero art="books">
           <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink">{t('privacy.title')}</h1>
         </PageHero>
         {paragraphs.map((k) => (

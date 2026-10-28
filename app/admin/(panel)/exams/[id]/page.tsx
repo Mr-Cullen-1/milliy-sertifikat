@@ -3,8 +3,10 @@ import { notFound } from 'next/navigation';
 import { Badge, Card, EXAM_STATUS, fmtDateTime, PageTitle, Stat, Table } from '@/components/admin/ui';
 import { questionStatsSchema } from '@/lib/admin/schemas';
 import { createClient } from '@/lib/supabase/server';
+import { Suspense } from 'react';
+import { BlockSkeleton } from '@/components/page-skeleton';
 
-export default async function AdminExamDetail({ params }: PageProps<'/admin/exams/[id]'>) {
+async function AdminExamDetailContent({ params }: PageProps<'/admin/exams/[id]'>) {
   const { id } = await params;
   if (!/^[0-9a-f-]{36}$/i.test(id)) notFound();
 
@@ -74,5 +76,14 @@ export default async function AdminExamDetail({ params }: PageProps<'/admin/exam
         Shu variant urinishlari →
       </Link>
     </>
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function AdminExamDetail(props: Parameters<typeof AdminExamDetailContent>[0]) {
+  return (
+    <Suspense fallback={<BlockSkeleton />}>
+      <AdminExamDetailContent {...props} />
+    </Suspense>
   );
 }

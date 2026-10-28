@@ -1,5 +1,6 @@
 import type { NextRequest } from 'next/server';
 import { buildCsp, parseFrameAncestors } from './lib/security/csp';
+import { AREA_HEADER, areaOf } from './lib/supabase/area';
 import { updateSession } from './lib/supabase/proxy';
 
 export async function proxy(request: NextRequest) {
@@ -14,6 +15,8 @@ export async function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-nonce', nonce);
   requestHeaders.set('Content-Security-Policy', csp);
+  // Server komponent/amallar qaysi sessiya cookie'sini ishlatishini shu sarlavhadan biladi (lib/supabase/area.ts).
+  requestHeaders.set(AREA_HEADER, areaOf(request.nextUrl.pathname));
 
   return updateSession(request, requestHeaders, csp);
 }

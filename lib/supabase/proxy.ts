@@ -1,6 +1,7 @@
 import { createServerClient } from '@supabase/ssr';
 import { NextResponse, type NextRequest } from 'next/server';
 import { publicEnv } from '../env';
+import { AREA_HEADER, cookieOptionsFor } from './area';
 import type { Database } from './database.types';
 
 // Sessiya talab qiladigan yo'llar. /admin alohida: kirishsiz /admin/login ga yo'naltiriladi (rol sahifada tekshiriladi).
@@ -19,6 +20,7 @@ export async function updateSession(request: NextRequest, requestHeaders: Header
   let response = next();
 
   const supabase = createServerClient<Database>(publicEnv.NEXT_PUBLIC_SUPABASE_URL, publicEnv.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY, {
+    cookieOptions: cookieOptionsFor(requestHeaders.get(AREA_HEADER)),
     cookies: {
       getAll: () => request.cookies.getAll(),
       setAll(list) {

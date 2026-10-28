@@ -15,7 +15,7 @@ export default async function ExamsPage() {
   const supabase = await createClient();
 
   const [exams, active, done] = await Promise.all([
-    supabase.from('exams').select('id, title, exam_formats(duration_min)').order('sort').order('published_at', { ascending: false }),
+    supabase.from('exams').select('id, title, exam_formats(duration_min)').eq('status', 'published').order('sort').order('published_at', { ascending: false }),
     supabase.from('attempts').select('id, exam_id').eq('status', 'in_progress'),
     supabase.from('attempts').select('id, exam_id, scaled_score, level, submitted_at').eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(10),
   ]);
@@ -26,14 +26,14 @@ export default async function ExamsPage() {
 
   return (
     <PageShell active="exams">
-      <main className="mx-auto flex w-full max-w-[1080px] flex-1 flex-col gap-6 px-4 py-6 sm:px-6">
-        <PageHero art="mascot-point">
+      <main className="mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-5 px-4 py-6 sm:px-6 lg:gap-6">
+        <PageHero art="mascot-pencil">
           <Chip>{t('common.appName')}</Chip>
           <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">{t('exams.title')}</h1>
         </PageHero>
 
-        <section className="grid gap-4 md:grid-cols-2" aria-label={t('exams.title')}>
-          {(exams.data ?? []).length === 0 && <p className="text-[19px] font-semibold text-muted md:col-span-2">{t('exams.none')}</p>}
+        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5" aria-label={t('exams.title')}>
+          {(exams.data ?? []).length === 0 && <p className="text-[19px] font-semibold text-muted md:col-span-2 lg:col-span-3">{t('exams.none')}</p>}
           {(exams.data ?? []).map((exam) => {
             const attemptId = activeByExam.get(exam.id);
             return (
@@ -63,7 +63,7 @@ export default async function ExamsPage() {
         {(done.data ?? []).length > 0 && (
           <section className="flex flex-col gap-3" aria-label={t('exams.previous')}>
             <h2 className="font-heading text-[22px] font-semibold text-ink">{t('exams.previous')}</h2>
-            <ul className="flex flex-col gap-3">
+            <ul className="grid gap-3 md:grid-cols-2 lg:gap-4">
               {(done.data ?? []).map((a) => (
                 <li key={a.id}>
                   <Link

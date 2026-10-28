@@ -2,8 +2,10 @@ import Link from 'next/link';
 import { Badge, Card, EXAM_STATUS, fmtDateTime, PageTitle, Stat, Table } from '@/components/admin/ui';
 import { attemptsPageSchema, overviewSchema } from '@/lib/admin/schemas';
 import { createClient } from '@/lib/supabase/server';
+import { Suspense } from 'react';
+import { BlockSkeleton } from '@/components/page-skeleton';
 
-export default async function AdminDashboard({ searchParams }: PageProps<'/admin'>) {
+async function AdminDashboardContent({ searchParams }: PageProps<'/admin'>) {
   const supabase = await createClient();
   const [params, overviewRes, recentRes] = await Promise.all([
     searchParams,
@@ -97,5 +99,14 @@ export default async function AdminDashboard({ searchParams }: PageProps<'/admin
         </Link>
       </Card>
     </>
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function AdminDashboard(props: Parameters<typeof AdminDashboardContent>[0]) {
+  return (
+    <Suspense fallback={<BlockSkeleton />}>
+      <AdminDashboardContent {...props} />
+    </Suspense>
   );
 }

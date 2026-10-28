@@ -30,6 +30,13 @@ export async function getParticipant(): Promise<Participant | null> {
   };
 }
 
+/** Brauzerda ishtirokchi sessiyasi bor-yo'qligi (JWT lokal tekshiriladi, bazaga murojaat yo'q). */
+export async function hasSession(): Promise<boolean> {
+  const supabase = await createClient();
+  const { data } = await supabase.auth.getClaims();
+  return !!data?.claims.sub;
+}
+
 /** Ro'yxatga olingan (ism, telefon, sinf to'liq) ishtirokchi; aks holda /start ga yo'naltiradi. */
 export async function requireParticipant(next: string): Promise<Participant> {
   const participant = await getParticipant();

@@ -3,12 +3,14 @@ import { Badge, Card, Pager, pageParam, QUESTION_STATUS, strParam, PageTitle, Ta
 import { PAGE_SIZE } from '@/lib/admin/schemas';
 import { BLOCK_CODES } from '@/config/topics';
 import { createClient } from '@/lib/supabase/server';
+import { Suspense } from 'react';
+import { BlockSkeleton } from '@/components/page-skeleton';
 
 const TYPES = ['y1', 'y2', 'o'] as const;
 const STATUSES = ['draft', 'review', 'published', 'archived'] as const;
 const LEVELS = ['L1', 'L2', 'L3'] as const;
 
-export default async function AdminQuestionsPage({ searchParams }: PageProps<'/admin/questions'>) {
+async function AdminQuestionsPageContent({ searchParams }: PageProps<'/admin/questions'>) {
   const sp = await searchParams;
   const page = pageParam(sp.page);
   const block = strParam(sp.block);
@@ -119,5 +121,14 @@ export default async function AdminQuestionsPage({ searchParams }: PageProps<'/a
         })}
       </Table>
     </>
+  );
+}
+
+// Kontent URL ma'lumotiga (params/searchParams) bog'liq: Suspense ichida o'qiladi, qobiq esa darrov chiqadi.
+export default function AdminQuestionsPage(props: Parameters<typeof AdminQuestionsPageContent>[0]) {
+  return (
+    <Suspense fallback={<BlockSkeleton />}>
+      <AdminQuestionsPageContent {...props} />
+    </Suspense>
   );
 }

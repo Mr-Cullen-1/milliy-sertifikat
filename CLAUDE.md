@@ -21,7 +21,8 @@ Muhim kelishuvlar:
 - Nashr etilgan savol/mock o'zgarmaydi (trigger): tuzatish uchun yangi variant yuklab, eskisini arxivlang. Bazaga sinov ma'lumoti yozmang (test:live o'zi tozalaydi).
 - Rasmiy manbalar tekshiruvi: nima tasdiqlangan, nima faraz: docs/rasmiy-manbalar.md (Y-2 tuzilishi, O javob formati, DTM 93/63/11 va ÷65 uchinchi tomon).
 - Kalitlar: .env (NEXT_PUBLIC_*) va .env.local (SUPABASE_SECRET_KEY, SUPABASE_DB_URL): ichini o'qimang, chatga chiqarmang.
-- Cache Components yoqilgan: runtime ma'lumot (cookie/searchParams) Suspense ichida; root layout I18nRoot shuni ta'minlaydi. Next 16: middleware emas proxy.ts; cookies() async. AGENTS.md: kod yozishdan oldin node_modules/next/dist/docs/ ni o'qing.
+- Cache Components/PPR O'CHIRILGAN (2026-10-28): nonce asosidagi CSP (proxy.ts) faqat har so'rovda dinamik chiziladigan sahifalarda ishlaydi; statik qobiq nonce olmaydi va production'da brauzer Next skriptlarini bloklardi (sahifa interaktiv bo'lmasdi, dev'da ko'rinmaydi). `npm run smoke` barcha <script> nonce bilan kelishini tekshiradi. Yoqmang. Root layout I18nRoot cookie'dan til o'qiydi (<Suspense> ichida). Next 16: middleware emas proxy.ts; cookies() async. AGENTS.md: kod yozishdan oldin node_modules/next/dist/docs/ ni o'qing.
+- Haqiqiy brauzerda tekshirish (headless Chrome + CDP) usuli: dev serverdan alohida `next start` + guest sessiya cookie'si (`sb-participant`); imtihon ekrani 1440x900 va 1366x680 da scrollsiz.
 - Figma o'qish chaqiruvlari cheklangan bo'lishi mumkin (aniq freymni so'rang): docs/design.md.
 
 Relizdan keyin: ichki platformaga ulash (docs/auth.md), Rasch (1PL) kalibrovkasi (100+ natija), kontent va qoraqalpoq tarjimasini mutaxassis tekshiruvi (docs/content.md).

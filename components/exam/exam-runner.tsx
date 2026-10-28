@@ -223,11 +223,11 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
   const busy = phase !== 'running';
 
   return (
-    <div className="flex min-h-dvh flex-col">
+    <div className="flex min-h-dvh flex-col lg:h-dvh lg:overflow-hidden">
       <Watermark text={watermark} />
 
       <header className="sticky top-0 z-10 border-b-2 border-line bg-white shadow-nav">
-        <div className="mx-auto flex h-[72px] w-full max-w-[1180px] items-center gap-4 px-4 lg:px-8">
+        <div className="mx-auto flex h-[72px] w-full max-w-[1480px] items-center gap-4 px-4 lg:px-8">
           <div className="min-w-0 flex-1">
             <p className="truncate font-heading text-[18px] font-semibold text-ink">{title}</p>
             <p className="text-[14px] font-bold text-muted">{t('exam.noCalc')}</p>
@@ -294,13 +294,13 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
         </div>
       )}
 
-      <div className="mx-auto flex w-full max-w-[1180px] flex-1 gap-10 px-4 py-6 lg:px-8">
-        <main className="min-w-0 max-w-[760px] flex-1 pb-28">
-          <div className="rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card sm:p-7">
+      <div className="mx-auto flex w-full max-w-[1480px] min-h-0 flex-1 gap-5 px-4 py-4 pb-28 lg:gap-6 lg:px-8 lg:pb-4">
+        <main className="min-w-0 flex-1 lg:flex lg:min-h-0 lg:flex-col">
+          <div className="rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card sm:p-7 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
             <QuestionView item={current} value={answers[current.questionId]} onChange={setAnswer} />
           </div>
 
-          <details className="mt-8 rounded-2xl border-2 border-line bg-white p-4 shadow-card lg:hidden">
+          <details className="mt-5 rounded-2xl border-2 border-line bg-white p-4 shadow-card lg:hidden">
             <summary className="cursor-pointer text-[17px] font-extrabold text-ink">{t('exam.allQuestions')}</summary>
             <div className="mt-4">
               <Navigator items={navItems} onSelect={goTo} />
@@ -308,16 +308,16 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
           </details>
         </main>
 
-        <aside className="hidden w-[280px] shrink-0 lg:block">
-          <div className="sticky top-[96px] flex flex-col gap-4 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card">
+        <aside className="hidden w-[300px] shrink-0 lg:block">
+          <div className="flex h-full flex-col gap-[clamp(6px,1.2dvh,12px)] overflow-y-auto rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-[clamp(10px,1.8dvh,16px)] shadow-card">
             <h2 className="font-heading text-[20px] font-semibold text-ink">{t('exam.panel')}</h2>
             <Navigator items={navItems} onSelect={goTo} />
           </div>
         </aside>
       </div>
 
-      <footer className="fixed inset-x-0 bottom-0 z-10 border-t-2 border-line bg-white shadow-[0_-6px_16px_-10px_rgba(38,24,110,0.25)]">
-        <div className="mx-auto flex h-[88px] w-full max-w-[1180px] items-center justify-between gap-3 px-4 lg:px-8">
+      <footer className="fixed inset-x-0 bottom-0 z-10 shrink-0 border-t-2 border-line bg-white lg:static shadow-[0_-6px_16px_-10px_rgba(38,24,110,0.25)]">
+        <div className="mx-auto flex h-[88px] w-full max-w-[1480px] lg:h-[76px] items-center justify-between gap-3 px-4 lg:px-8">
           <Button variant="secondary" onClick={() => goTo(index - 1)} disabled={index === 0 || busy} aria-label={t('exam.prev')}>
             <ArrowLeft />
             <span className="ml-2 hidden sm:inline">{t('exam.back')}</span>

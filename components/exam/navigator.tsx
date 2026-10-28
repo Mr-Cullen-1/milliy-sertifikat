@@ -19,8 +19,8 @@ const styles: Record<NavState, string> = {
 export function Navigator({ items, onSelect }: { items: NavItem[]; onSelect: (index: number) => void }) {
   const t = useT();
   return (
-    <nav aria-label={t('exam.panelAria')} className="flex flex-col gap-4">
-      <ol className="grid grid-cols-6 gap-2 sm:grid-cols-9 lg:grid-cols-5">
+    <nav aria-label={t('exam.panelAria')} className="flex flex-col gap-3">
+      <ol className="grid grid-cols-6 gap-2 sm:grid-cols-9 lg:grid-cols-5 lg:gap-[clamp(4px,0.9dvh,8px)]">
         {items.map((item, i) => (
           <li key={item.position}>
             <button
@@ -29,7 +29,7 @@ export function Navigator({ items, onSelect }: { items: NavItem[]; onSelect: (in
               aria-label={t('exam.questionAria', { n: item.position })}
               aria-current={item.state === 'current' ? 'step' : undefined}
               className={
-                'h-11 w-full rounded-xl border-2 border-b-4 text-[16px] font-extrabold transition ' +
+                'h-11 w-full rounded-xl border-2 border-b-4 text-[16px] lg:h-[clamp(30px,4.8dvh,46px)] font-extrabold transition ' +
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ' +
                 styles[item.state]
               }

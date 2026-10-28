@@ -7,10 +7,23 @@ import { PageShell } from '@/components/page-shell';
 import { buttonClass } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { getI18n } from '@/lib/i18n/server';
+import { formatScore } from '@/lib/format';
 import { requireParticipant } from '@/lib/participant.server';
+import { createClient } from '@/lib/supabase/server';
 
 export default async function Home() {
-  const [{ t }, participant] = await Promise.all([getI18n(), requireParticipant('/')]);
+  const [{ t, lang }, participant] = await Promise.all([getI18n(), requireParticipant('/')]);
+  // Qaytib kelgan ishtirokchi: shu sessiyada yakunlangan urinish bor
+  const supabase = await createClient();
+  const { data: last } = await supabase
+    .from('attempts')
+    .select('scaled_score')
+    .eq('status', 'submitted')
+    .not('scaled_score', 'is', null)
+    .order('submitted_at', { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  const returning = last !== null;
   const cards: {
     href: string;
     label: string;
@@ -61,7 +74,7 @@ export default async function Home() {
               className: 'left-[44%] top-8 rotate-6',
             },
             {
-              name: 'gift',
+              name: 'books',
               width: 62,
               className: 'left-[27%] bottom-[14%] rotate-6',
             },
@@ -75,9 +88,14 @@ export default async function Home() {
         <section className="relative z-10 flex flex-col gap-4">
           <Chip>{t('common.appName')}</Chip>
           <h1 className="font-heading text-[34px] leading-[42px] font-semibold text-ink lg:text-[44px] lg:leading-[52px]">
-            {t('home.hello', { name: participant.fullName })}
+            {t(returning ? 'home.helloBack' : 'home.hello', { name: participant.fullName })}
           </h1>
           <p className="max-w-[460px] text-[18px] leading-7 font-semibold text-muted">{t('home.lead')}</p>
+          {last?.scaled_score != null && (
+            <p className="w-fit rounded-xl bg-success-soft px-3.5 py-2 text-[16px] font-extrabold text-success-ink">
+              {t('home.lastResult', { score: formatScore(last.scaled_score, lang) })}
+            </p>
+          )}
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/exams" className={buttonClass('primary')}>
               {t('nav.exams')}

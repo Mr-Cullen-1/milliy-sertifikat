@@ -7,6 +7,7 @@ export const en: Dict = {
     loading: 'Loading…',
     back: 'Back',
     next: 'Next',
+    close: 'Close',
     cancel: 'Cancel',
     retry: 'Try again',
     home: 'Home',
@@ -32,6 +33,12 @@ export const en: Dict = {
   nav: {
 
     menu: "Menu",
+
+    logout: "Log out",
+
+    logoutTitle: "Log out?",
+
+    logoutLead: "If you log out, your results history and any unfinished exam in this browser can no longer be opened.",
     exams: 'Exams',
     history: 'My results',
     mistakes: 'Mistakes notebook',
@@ -85,6 +92,8 @@ export const en: Dict = {
 
   home: {
     hello: 'Hello, {name}',
+    helloBack: "Welcome back, {name}",
+    lastResult: "Last result: ≈ {score}",
     lead: 'Go to the list of exams to start a mock exam.',
     edit: 'Edit my details',
     hintExams: "45 tasks · 150 minutes",
