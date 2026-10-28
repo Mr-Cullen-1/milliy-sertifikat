@@ -38,7 +38,12 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
 
   const [answers, setAnswers] = useState(initialAnswers);
   const [flags, setFlags] = useState(initialFlags);
-  const [index, setIndex] = useState(() => Math.max(0, items.findIndex((i) => !isAnswered(i.payload.type, initialAnswers[i.questionId]))));
+  const [index, setIndex] = useState(() =>
+    Math.max(
+      0,
+      items.findIndex((i) => !isAnswered(i.payload.type, initialAnswers[i.questionId])),
+    ),
+  );
   const [save, setSave] = useState<{ status: QueueStatus; pending: number }>({ status: 'idle', pending: 0 });
   const [offsetMs, setOffsetMs] = useState<number | null>(null);
   const [remaining, setRemaining] = useState<number | null>(null);
@@ -227,27 +232,20 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
       <Watermark text={watermark} />
 
       <header className="sticky top-0 z-10 border-b-2 border-line bg-white shadow-nav">
-        <div className="mx-auto flex h-[72px] w-full max-w-[1480px] items-center gap-4 px-4 lg:px-8">
+        <div className="mx-auto flex w-full max-w-[1480px] items-center gap-x-3 px-4 py-2.5 lg:h-[72px] lg:gap-4 lg:px-8 lg:py-0">
           <div className="min-w-0 flex-1">
-            <p className="truncate font-heading text-[18px] font-semibold text-ink">{title}</p>
-            <p className="text-[14px] font-bold text-muted">{t('exam.noCalc')}</p>
+            <p className="truncate font-heading text-[17px] leading-tight font-semibold text-ink lg:text-[18px]">{title}</p>
+            <p className="truncate text-[13px] font-bold text-muted lg:text-[14px]">{t('exam.noCalc')}</p>
           </div>
 
-          <div
-            className="hidden items-center gap-3 md:flex"
-            aria-label={t('exam.progressAria', { a: answeredCount, b: items.length })}
-          >
+          <div className="hidden items-center gap-3 lg:flex" aria-label={t('exam.progressAria', { a: answeredCount, b: items.length })}>
             <div className="flex w-[300px] gap-[2px]" aria-hidden>
               {items.map((item, i) => (
                 <span
                   key={item.questionId}
                   className={
                     'h-3 flex-1 rounded-sm ' +
-                    (i === index
-                      ? 'border-2 border-brand-soft bg-brand-current'
-                      : isAnswered(item.payload.type, answers[item.questionId])
-                        ? 'bg-brand'
-                        : 'bg-track')
+                    (i === index ? 'border-2 border-brand-soft bg-brand-current' : isAnswered(item.payload.type, answers[item.questionId]) ? 'bg-brand' : 'bg-track')
                   }
                 />
               ))}
@@ -257,18 +255,15 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
             </span>
           </div>
 
-          <SaveIndicator status={save.status} pending={save.pending} />
-
-          <LangSwitcher className="hidden sm:inline-flex" />
+          <div className="hidden items-center gap-3 lg:flex">
+            <SaveIndicator status={save.status} pending={save.pending} />
+            <LangSwitcher />
+          </div>
 
           <div
             className={
-              'flex items-center gap-2 rounded-2xl px-3.5 py-2 text-[20px] font-black tabular-nums ' +
-              (timer === 'over'
-                ? 'bg-danger text-white'
-                : timer === 'warning'
-                  ? 'bg-brand-tint text-brand-ink'
-                  : 'bg-surface text-ink')
+              'flex shrink-0 items-center gap-1.5 rounded-2xl px-3 py-1.5 text-[18px] font-black tabular-nums lg:gap-2 lg:px-3.5 lg:py-2 lg:text-[20px] ' +
+              (timer === 'over' ? 'bg-danger text-white' : timer === 'warning' ? 'bg-brand-tint text-brand-ink' : 'bg-surface text-ink')
             }
             role="timer"
             aria-label={t('exam.timerAria')}
@@ -277,9 +272,23 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
             <span suppressHydrationWarning>{remaining === null ? '--:--' : formatRemaining(remaining)}</span>
           </div>
 
-          <Button variant="secondary" className="hidden h-11 text-[16px] sm:inline-flex" onClick={() => setDialogOpen(true)} disabled={busy}>
+          <Button variant="secondary" size="sm" className="shrink-0" onClick={() => setDialogOpen(true)} disabled={busy}>
             {t('exam.submit')}
           </Button>
+        </div>
+
+        {/* Kichik ekranlarda: progress, saqlash holati va til ikkinchi qatorda (sarlavha va taymer bilan ustma-ust tushmaydi) */}
+        <div className="mx-auto flex w-full max-w-[1480px] items-center gap-3 border-t border-line px-4 py-2 lg:hidden">
+          <div className="flex min-w-0 flex-1 items-center gap-2" aria-label={t('exam.progressAria', { a: answeredCount, b: items.length })}>
+            <div className="h-2.5 min-w-0 flex-1 overflow-hidden rounded-full bg-track" aria-hidden>
+              <div className="h-full rounded-full bg-brand transition-[width]" style={{ width: `${(answeredCount / items.length) * 100}%` }} />
+            </div>
+            <span className="shrink-0 text-[14px] font-extrabold text-muted">
+              {answeredCount}/{items.length}
+            </span>
+          </div>
+          <SaveIndicator status={save.status} pending={save.pending} />
+          <LangSwitcher />
         </div>
       </header>
 
@@ -294,7 +303,7 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
         </div>
       )}
 
-      <div className="mx-auto flex w-full max-w-[1480px] min-h-0 flex-1 gap-5 px-4 py-4 pb-28 lg:gap-6 lg:px-8 lg:pb-4">
+      <div className="mx-auto flex w-full max-w-[1480px] min-h-0 flex-1 gap-5 px-4 py-4 pb-24 lg:gap-6 lg:px-8 lg:pb-4">
         <main className="min-w-0 flex-1 lg:flex lg:min-h-0 lg:flex-col">
           <div className="rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card sm:p-7 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
             <QuestionView item={current} value={answers[current.questionId]} onChange={setAnswer} />
@@ -316,31 +325,39 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
         </aside>
       </div>
 
-      <footer className="fixed inset-x-0 bottom-0 z-10 shrink-0 border-t-2 border-line bg-white lg:static shadow-[0_-6px_16px_-10px_rgba(38,24,110,0.25)]">
-        <div className="mx-auto flex h-[88px] w-full max-w-[1480px] lg:h-[76px] items-center justify-between gap-3 px-4 lg:px-8">
-          <Button variant="secondary" onClick={() => goTo(index - 1)} disabled={index === 0 || busy} aria-label={t('exam.prev')}>
+      <footer className="fixed inset-x-0 bottom-0 z-10 shrink-0 border-t-2 border-line bg-white shadow-[0_-6px_16px_-10px_rgba(38,24,110,0.25)] lg:static">
+        <div className="mx-auto flex h-[68px] w-full max-w-[1480px] items-center justify-between gap-2 px-3 sm:px-4 lg:h-[76px] lg:gap-3 lg:px-8">
+          <Button
+            variant="secondary"
+            size="sm"
+            className="shrink-0 lg:h-14! lg:px-6! lg:text-[19px]!"
+            onClick={() => goTo(index - 1)}
+            disabled={index === 0 || busy}
+            aria-label={t('exam.prev')}
+          >
             <ArrowLeft />
-            <span className="ml-2 hidden sm:inline">{t('exam.back')}</span>
+            <span className="hidden sm:inline">{t('exam.back')}</span>
           </Button>
 
           <Button
             variant="secondary"
+            size="sm"
+            className={`min-w-0 lg:h-14! lg:px-6! lg:text-[19px]! ${flags[current.questionId] ? 'border-gold-edge bg-warn-soft' : ''}`}
             onClick={toggleFlag}
             disabled={busy}
             aria-pressed={!!flags[current.questionId]}
-            className={flags[current.questionId] ? 'border-gold-edge bg-warn-soft' : ''}
           >
             <Flag />
-            <span className="ml-2">{flags[current.questionId] ? t('exam.flagged') : t('exam.flag')}</span>
+            <span className="truncate">{flags[current.questionId] ? t('exam.flagged') : t('exam.flag')}</span>
           </Button>
 
           {isLast ? (
-            <Button onClick={() => setDialogOpen(true)} disabled={busy}>
+            <Button size="sm" className="shrink-0 lg:h-14! lg:px-6! lg:text-[19px]!" onClick={() => setDialogOpen(true)} disabled={busy}>
               {t('exam.submit')}
             </Button>
           ) : (
-            <Button onClick={() => goTo(index + 1)} disabled={busy} aria-label={t('exam.nextQ')}>
-              <span className="mr-2 hidden sm:inline">{t('exam.next')}</span>
+            <Button size="sm" className="shrink-0 lg:h-14! lg:px-6! lg:text-[19px]!" onClick={() => goTo(index + 1)} disabled={busy} aria-label={t('exam.nextQ')}>
+              <span className="hidden sm:inline">{t('exam.next')}</span>
               <ArrowRight />
             </Button>
           )}
@@ -373,7 +390,7 @@ function SaveIndicator({ status, pending }: { status: QueueStatus; pending: numb
   };
   const { text, tone } = map[status];
   return (
-    <p role="status" aria-live="polite" className={`hidden text-[14px] font-extrabold lg:block ${tone}`}>
+    <p role="status" aria-live="polite" className={`truncate text-[13px] font-extrabold lg:text-[14px] ${tone}`}>
       {text}
     </p>
   );

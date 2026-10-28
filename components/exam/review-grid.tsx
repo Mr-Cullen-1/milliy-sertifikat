@@ -58,7 +58,7 @@ export function ReviewGrid({ items }: { items: ReviewItem[] }) {
               type="button"
               onClick={() => setOpen(i)}
               className={
-                'flex h-[112px] w-full flex-col justify-between rounded-2xl border-2 border-b-[5px] px-3.5 py-3 text-left shadow-card transition ' +
+                'flex h-[124px] w-full flex-col justify-between sm:h-[112px] rounded-2xl border-2 border-b-[5px] px-3.5 py-3 text-left shadow-card transition ' +
                 'hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ' +
                 tile[it.status]
               }
@@ -67,8 +67,10 @@ export function ReviewGrid({ items }: { items: ReviewItem[] }) {
                 <span className={`flex size-8 shrink-0 items-center justify-center rounded-[10px] text-[16px] font-black text-white ${badge[it.status]}`}>
                   {it.position}
                 </span>
-                <span className="min-w-0 flex-1 truncate text-[16px] font-extrabold text-ink">{statusLabel(it.status)}</span>
-                <span className="shrink-0 text-[15px] font-extrabold text-ink-soft">{it.scoreText}</span>
+                <span className="flex min-w-0 flex-1 flex-col leading-tight">
+                  <span className="truncate text-[16px] font-extrabold text-ink">{statusLabel(it.status)}</span>
+                  <span className="text-[13px] font-extrabold text-ink-soft">{it.scoreText}</span>
+                </span>
               </span>
               <span className="text-[12px] leading-4 font-bold text-muted">{it.block}</span>
             </button>

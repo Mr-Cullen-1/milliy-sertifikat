@@ -6,9 +6,9 @@ const xmlEscape = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '
  */
 export function Watermark({ text }: { text: string }) {
   const svg =
-    `<svg xmlns='http://www.w3.org/2000/svg' width='340' height='210'>` +
-    `<text x='24' y='115' transform='rotate(-24 170 105)' font-family='sans-serif' font-size='16' font-weight='700' ` +
-    `fill='#1e1b39' fill-opacity='0.065'>${xmlEscape(text)}</text></svg>`;
+    `<svg xmlns='http://www.w3.org/2000/svg' width='420' height='270'>` +
+    `<text x='30' y='145' transform='rotate(-24 210 135)' font-family='sans-serif' font-size='15' font-weight='700' ` +
+    `fill='#1e1b39' fill-opacity='0.045'>${xmlEscape(text)}</text></svg>`;
   return (
     <div
       aria-hidden

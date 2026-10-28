@@ -42,7 +42,7 @@ export function SiteHeader({ minimal = false, active, signedIn = false }: { mini
       <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between gap-3 px-4 sm:px-6">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label={t('common.home')}>
           <MascotBadge size={44} />
-          <span className="min-w-0 leading-tight">
+          <span className="hidden min-w-0 leading-tight min-[480px]:block">
             <span className="block truncate font-heading text-[17px] font-semibold text-ink">{brand}</span>
             {sub && <span className="block truncate text-[13px] font-extrabold text-brand-ink">{sub}</span>}
           </span>

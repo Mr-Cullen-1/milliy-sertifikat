@@ -107,11 +107,11 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
                 aria-label={t('result.overall')}
                 className="flex flex-col justify-between gap-6 rounded-3xl border-2 border-b-[5px] border-success-line bg-success-soft p-5 shadow-card sm:p-6 lg:min-h-[260px]"
               >
-                <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
                   <h2 className="font-heading text-[24px] leading-8 font-semibold text-ink first-letter:uppercase">{t('result.levelHint')}</h2>
                   <p className="flex shrink-0 items-end gap-1.5 leading-none">
-                    <span className="text-[56px] font-black text-success-ink">≈ {formatScore(scaled, lang)}</span>
-                    <span className="pb-1.5 text-[24px] font-extrabold text-muted">/ 75</span>
+                    <span className="text-[44px] font-black text-success-ink sm:text-[56px]">≈ {formatScore(scaled, lang)}</span>
+                    <span className="pb-1.5 text-[20px] font-extrabold text-muted sm:text-[24px]">/ 75</span>
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-3 border-t-2 border-success-line pt-4">
@@ -124,7 +124,9 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
                   </p>
                   {attempt.submit_reason === 'timeout' && <p className="text-[16px] font-bold text-brand-ink">{t('result.timeout')}</p>}
                   {level ? (
-                    <span className="rounded-2xl border-2 border-b-[5px] border-gold-edge bg-gold px-5 py-1.5 text-[28px] leading-none font-black text-white">{level}</span>
+                    <span className="rounded-2xl border-2 border-b-[5px] border-gold-edge bg-gold px-5 py-1.5 text-[28px] leading-none font-black text-white">
+                      {level}
+                    </span>
                   ) : (
                     <p className="rounded-xl bg-white px-3.5 py-2 text-[16px] font-extrabold text-muted">{t('result.noLevel')}</p>
                   )}
@@ -149,33 +151,35 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
             </div>
 
             <section
-              className="flex min-w-0 flex-col gap-3 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-4 shadow-card sm:p-5 lg:h-0 lg:min-h-full"
+              className="relative min-w-0 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white shadow-card lg:min-h-[320px]"
               aria-label={t('result.byBlock')}
             >
-              <h2 className="font-heading text-[22px] font-semibold text-ink">{t('result.byBlock')}</h2>
-              <ul className="flex min-h-0 flex-col gap-2.5 lg:flex-1 lg:overflow-y-auto lg:pr-2 lg:[scrollbar-color:#cfc9ec_transparent] lg:[scrollbar-width:thin]">
-                {rows.map((r) => {
-                  const pct = r.maxScore > 0 ? Math.round((r.score / r.maxScore) * 100) : 0;
-                  return (
-                    <li key={r.blockId} className="flex flex-col gap-1.5 rounded-2xl border-2 border-line bg-surface px-4 py-3">
-                      <div className="flex flex-wrap items-baseline justify-between gap-x-4">
-                        <span className="text-[16px] font-extrabold text-ink">{blockLabel(r.blockId)}</span>
-                        <span className="text-[14px] font-bold text-muted">
-                          {t('result.blockLine', {
-                            correct: r.correct,
-                            total: r.total,
-                            score: formatScore(r.score, lang),
-                            max: formatScore(r.maxScore, lang),
-                          })}
-                        </span>
-                      </div>
-                      <div className="h-2.5 overflow-hidden rounded-full bg-track" role="img" aria-label={`${pct}%`}>
-                        <div className="h-full rounded-full bg-success" style={{ width: `${pct}%` }} />
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
+              <div className="flex flex-col gap-3 p-4 sm:p-5 lg:absolute lg:inset-0">
+                <h2 className="font-heading text-[22px] font-semibold text-ink">{t('result.byBlock')}</h2>
+                <ul className="flex min-h-0 flex-col gap-2.5 lg:flex-1 lg:overflow-y-auto lg:pr-2 lg:[scrollbar-color:#cfc9ec_transparent] lg:[scrollbar-width:thin]">
+                  {rows.map((r) => {
+                    const pct = r.maxScore > 0 ? Math.round((r.score / r.maxScore) * 100) : 0;
+                    return (
+                      <li key={r.blockId} className="flex flex-col gap-1.5 rounded-2xl border-2 border-line bg-surface px-4 py-3">
+                        <div className="flex flex-wrap items-baseline justify-between gap-x-4">
+                          <span className="text-[16px] font-extrabold text-ink">{blockLabel(r.blockId)}</span>
+                          <span className="text-[14px] font-bold text-muted">
+                            {t('result.blockLine', {
+                              correct: r.correct,
+                              total: r.total,
+                              score: formatScore(r.score, lang),
+                              max: formatScore(r.maxScore, lang),
+                            })}
+                          </span>
+                        </div>
+                        <div className="h-2.5 overflow-hidden rounded-full bg-track" role="img" aria-label={`${pct}%`}>
+                          <div className="h-full rounded-full bg-success" style={{ width: `${pct}%` }} />
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </section>
           </div>
 
