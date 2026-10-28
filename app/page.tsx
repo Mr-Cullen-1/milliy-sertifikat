@@ -85,9 +85,9 @@ export default async function Home() {
             },
           ]}
         />
-        <section className="relative z-10 flex flex-col gap-4">
+        <section className="relative z-10 flex flex-col gap-4 lg:gap-[clamp(8px,1.6dvh,16px)]">
           <Chip>{t('common.appName')}</Chip>
-          <h1 className="font-heading text-[34px] leading-[42px] font-semibold text-ink lg:text-[44px] lg:leading-[52px]">
+          <h1 className="font-heading text-[34px] leading-[42px] font-semibold text-ink lg:text-[clamp(30px,5.4dvh,44px)] lg:leading-[1.18]">
             {t(returning ? 'home.helloBack' : 'home.hello', { name: participant.fullName })}
           </h1>
           <p className="max-w-[460px] text-[18px] leading-7 font-semibold text-muted">{t('home.lead')}</p>
@@ -104,7 +104,8 @@ export default async function Home() {
               {t('home.edit')}
             </Link>
           </div>
-          <Art name="mascot-laptop" width={190} priority className="mt-1 hidden self-start lg:block" />
+          {/* mascot balandligi ekran balandligiga moslashadi: sahifa scrollsiz sig'adi */}
+          <Art name="mascot-laptop" width={190} priority className="mt-1 hidden h-[clamp(90px,21dvh,190px)]! w-auto! self-start lg:block" />
         </section>
 
         <section className="relative z-10 grid grid-cols-1 gap-3 min-[420px]:grid-cols-2 sm:gap-4">
