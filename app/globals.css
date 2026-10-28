@@ -8,7 +8,9 @@
   --color-ink: #1e1b39;
   --color-muted: #6f6b8a;
   --color-faint: #a9a5c0;
-  --color-line: #e6e3f2;
+  /* kartalar chegarasi fondan ajralib turishi uchun Figma'dagi #e6e3f2 dan to'qroq */
+  --color-line: #d6d2ec;
+  --color-page: #f3f1fb;
   --color-surface: #f6f5fb;
   --color-track: #eceaf5;
 
@@ -34,6 +36,9 @@
   --color-warn-soft: #fff6db;
   --color-danger: #d92d3a;
 
+  --shadow-card: 0 1px 2px rgba(30, 27, 57, 0.06), 0 12px 26px -12px rgba(30, 27, 57, 0.22);
+  --shadow-nav: 0 6px 18px -12px rgba(30, 27, 57, 0.35);
+
   --color-disabled-bg: #eceaf4;
   --color-disabled-edge: #dedbeb;
 
@@ -42,7 +47,12 @@
 }
 
 body {
-  background: #ffffff;
+  /* yumshoq binafsha fon + ikki dekorativ nur: oq kartalar fondan aniq ajralib turadi */
+  background-color: var(--color-page);
+  background-image:
+    radial-gradient(60rem 28rem at 8% -6%, #ffe6d6 0%, transparent 60%),
+    radial-gradient(56rem 30rem at 100% 4%, #e5deff 0%, transparent 62%);
+  background-attachment: fixed;
   color: var(--color-ink);
   font-family: var(--font-sans);
 }

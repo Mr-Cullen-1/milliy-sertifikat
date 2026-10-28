@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Node yordamchi skriptlari (CommonJS): rasm tayyorlash
+    "scripts/*.cjs",
   ]),
 ]);
 

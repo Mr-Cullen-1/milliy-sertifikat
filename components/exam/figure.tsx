@@ -12,7 +12,7 @@ export function FigureImage({ figure }: { figure: Figure }) {
       src={src}
       alt={figure.alt}
       draggable={false}
-      className="mx-auto max-h-[340px] w-auto max-w-full rounded-2xl border-2 border-line bg-white p-3"
+      className="mx-auto max-h-[340px] w-auto max-w-full rounded-2xl border-2 border-line bg-white p-3 shadow-card"
     />
   );
 }

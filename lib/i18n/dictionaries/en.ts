@@ -14,7 +14,24 @@ export const en: Dict = {
     approx: 'estimated',
   },
 
+  footer: {
+
+    tagline: "A mock exam platform to prepare for the National Certificate (Mathematics).",
+
+    disclaimer: "Results are estimates and not an official certificate score.",
+
+    rights: "© {year} Mock exam platform",
+
+    sections: "Sections",
+
+    info: "Information",
+
+  },
+
+
   nav: {
+
+    menu: "Menu",
     exams: 'Exams',
     history: 'My results',
     mistakes: 'Mistakes notebook',
@@ -70,6 +87,10 @@ export const en: Dict = {
     hello: 'Hello, {name}',
     lead: 'Go to the list of exams to start a mock exam.',
     edit: 'Edit my details',
+    hintExams: "45 tasks · 150 minutes",
+    hintHistory: "Score trend and weak topics",
+    hintMistakes: "Questions you missed, with solutions",
+    hintDtm: "Certificate score → DTM points",
   },
 
   exams: {
@@ -175,6 +196,9 @@ export const en: Dict = {
     pendingTitle: 'Your result is not ready yet',
     pendingLead: 'The score has not been calculated. Refresh the page in a moment; your answers are saved.',
     toExams: 'Exam list',
+    cheerHigh: "Great result! Keep it up.",
+    cheerMid: "A good start! Strengthen it with the mistakes notebook.",
+    cheerLow: "More practice is needed: review your mistakes.",
     toDtm: 'Calculate DTM score',
     toMistakes: 'Mistakes notebook',
   },

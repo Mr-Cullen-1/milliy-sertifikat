@@ -139,7 +139,7 @@ export function DtmCalculator({ initialScore, initialLevel }: { initialScore?: n
 
       <section className="flex flex-col gap-3" aria-label={t('dtm.tableTitle')}>
         <h2 className="font-heading text-[22px] font-semibold text-ink">{t('dtm.tableTitle')}</h2>
-        <div className="overflow-x-auto rounded-2xl border-2 border-line">
+        <div className="overflow-x-auto rounded-2xl border-2 border-line bg-white shadow-card">
           <table className="w-full min-w-[420px] border-collapse text-left text-[16px]">
             <thead className="bg-surface text-[14px] font-extrabold text-muted">
               <tr>
@@ -169,7 +169,7 @@ export function DtmCalculator({ initialScore, initialLevel }: { initialScore?: n
         </div>
       </section>
 
-      <section className="flex flex-col gap-2 rounded-2xl border-2 border-line p-4" aria-label={t('dtm.rulesTitle')}>
+      <section className="flex flex-col gap-2 rounded-2xl border-2 border-line bg-white p-4 shadow-card" aria-label={t('dtm.rulesTitle')}>
         <h2 className="font-heading text-[20px] font-semibold text-ink">{t('dtm.rulesTitle')}</h2>
         <ul className="flex list-disc flex-col gap-1.5 pl-5 text-[16px] leading-6 font-semibold text-ink-soft">
           <li>{t('dtm.ruleTop')}</li>

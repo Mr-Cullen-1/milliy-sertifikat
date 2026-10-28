@@ -223,10 +223,10 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
   const busy = phase !== 'running';
 
   return (
-    <div className="flex min-h-dvh flex-col bg-white">
+    <div className="flex min-h-dvh flex-col">
       <Watermark text={watermark} />
 
-      <header className="sticky top-0 z-10 border-b-2 border-line bg-white">
+      <header className="sticky top-0 z-10 border-b-2 border-line bg-white shadow-nav">
         <div className="mx-auto flex h-[72px] w-full max-w-[1180px] items-center gap-4 px-4 lg:px-8">
           <div className="min-w-0 flex-1">
             <p className="truncate font-heading text-[18px] font-semibold text-ink">{title}</p>
@@ -296,9 +296,11 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
 
       <div className="mx-auto flex w-full max-w-[1180px] flex-1 gap-10 px-4 py-6 lg:px-8">
         <main className="min-w-0 max-w-[760px] flex-1 pb-28">
-          <QuestionView item={current} value={answers[current.questionId]} onChange={setAnswer} />
+          <div className="rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card sm:p-7">
+            <QuestionView item={current} value={answers[current.questionId]} onChange={setAnswer} />
+          </div>
 
-          <details className="mt-8 rounded-2xl border-2 border-line p-4 lg:hidden">
+          <details className="mt-8 rounded-2xl border-2 border-line bg-white p-4 shadow-card lg:hidden">
             <summary className="cursor-pointer text-[17px] font-extrabold text-ink">{t('exam.allQuestions')}</summary>
             <div className="mt-4">
               <Navigator items={navItems} onSelect={goTo} />
@@ -307,14 +309,14 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
         </main>
 
         <aside className="hidden w-[280px] shrink-0 lg:block">
-          <div className="sticky top-[96px] flex flex-col gap-4 rounded-3xl border-2 border-b-[5px] border-line bg-white p-5">
+          <div className="sticky top-[96px] flex flex-col gap-4 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card">
             <h2 className="font-heading text-[20px] font-semibold text-ink">{t('exam.panel')}</h2>
             <Navigator items={navItems} onSelect={goTo} />
           </div>
         </aside>
       </div>
 
-      <footer className="fixed inset-x-0 bottom-0 z-10 border-t-2 border-line bg-white">
+      <footer className="fixed inset-x-0 bottom-0 z-10 border-t-2 border-line bg-white shadow-[0_-6px_16px_-10px_rgba(38,24,110,0.25)]">
         <div className="mx-auto flex h-[88px] w-full max-w-[1180px] items-center justify-between gap-3 px-4 lg:px-8">
           <Button variant="secondary" onClick={() => goTo(index - 1)} disabled={index === 0 || busy} aria-label={t('exam.prev')}>
             <ArrowLeft />

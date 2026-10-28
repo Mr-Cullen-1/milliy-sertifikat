@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { z } from 'zod';
 import { ScoreChart } from '@/components/score-chart';
-import { SiteHeader } from '@/components/site-header';
+import { PageShell } from '@/components/page-shell';
+import { EmptyState, PageHero } from '@/components/page-hero';
 import { buttonClass } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { summarize, topicStatSchema, weakTopics } from '@/lib/exam/stats';
@@ -42,25 +43,30 @@ export default async function HistoryPage() {
   }));
   const summary = summarize(rows.map((r) => r.score));
   const fmtDate = (d: Date | null) => (d ? d.toLocaleDateString(lang === 'kaa' ? 'uz-UZ' : lang === 'en' ? 'en-GB' : lang === 'ru' ? 'ru-RU' : 'uz-UZ') : '—');
-  const chartPoints = rows.slice(-12).map((r) => ({ id: r.id, label: r.at ? `${r.at.getDate()}.${String(r.at.getMonth() + 1).padStart(2, '0')}` : '', score: r.score }));
-  const weak = weakTopics(z.array(topicStatSchema).parse(stats.data ?? []), { minTotal: MIN_TOPIC_QUESTIONS });
+  const chartPoints = rows.slice(-12).map((r) => ({
+    id: r.id,
+    label: r.at ? `${r.at.getDate()}.${String(r.at.getMonth() + 1).padStart(2, '0')}` : '',
+    score: r.score,
+  }));
+  const weak = weakTopics(z.array(topicStatSchema).parse(stats.data ?? []), {
+    minTotal: MIN_TOPIC_QUESTIONS,
+  });
 
   return (
-    <>
-      <SiteHeader active="history" />
+    <PageShell active="history">
       <main className="mx-auto flex w-full max-w-[860px] flex-1 flex-col gap-8 px-4 py-10">
-        <header className="flex flex-col gap-3">
+        <PageHero art="chart" artWidth={120}>
           <Chip>{t('common.appName')}</Chip>
           <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">{t('history.title')}</h1>
-        </header>
+        </PageHero>
 
         {rows.length === 0 ? (
-          <div className="flex flex-col items-start gap-4">
+          <EmptyState art="mascot-reading">
             <p className="text-[19px] font-semibold text-muted">{t('history.empty')}</p>
             <Link href="/exams" className={buttonClass('primary')}>
               {t('history.startFirst')}
             </Link>
-          </div>
+          </EmptyState>
         ) : (
           <>
             <section className="grid gap-3 sm:grid-cols-3" aria-label={t('history.title')}>
@@ -69,13 +75,13 @@ export default async function HistoryPage() {
               <Stat label={t('history.average')} value={`≈ ${formatScore(summary.average ?? 0, lang)}`} />
             </section>
 
-            <section className="flex flex-col gap-3 rounded-3xl border-2 border-b-[5px] border-line p-4 sm:p-5">
+            <section className="flex flex-col gap-3 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-4 shadow-card sm:p-5">
               <h2 className="font-heading text-[22px] font-semibold text-ink">{t('history.chart')}</h2>
               <ScoreChart points={chartPoints} ariaLabel={t('history.chartAria')} lang={lang} />
             </section>
 
             <section className="flex flex-col gap-3" aria-label={t('history.title')}>
-              <div className="overflow-x-auto rounded-2xl border-2 border-line">
+              <div className="overflow-x-auto rounded-2xl border-2 border-line bg-white">
                 <table className="w-full min-w-[460px] border-collapse text-left text-[16px]">
                   <thead className="bg-surface text-[14px] font-extrabold text-muted">
                     <tr>
@@ -113,11 +119,15 @@ export default async function HistoryPage() {
                   {weak.map((w) => {
                     const code = blockCodeOf(w.block_id);
                     return (
-                      <li key={w.topic_id} className="flex flex-col gap-2 rounded-2xl border-2 border-line px-4 py-3.5">
+                      <li key={w.topic_id} className="flex flex-col gap-2 rounded-2xl border-2 border-line bg-white px-4 py-3.5 shadow-card">
                         <div className="flex flex-wrap items-baseline justify-between gap-x-4">
                           <span className="text-[17px] font-extrabold text-ink">{topicName(w.topic_id, lang, uzName.get(w.topic_id))}</span>
                           <span className="text-[15px] font-bold text-muted">
-                            {t('history.accuracy', { correct: w.correct, total: w.total, pct: w.pct })}
+                            {t('history.accuracy', {
+                              correct: w.correct,
+                              total: w.total,
+                              pct: w.pct,
+                            })}
                           </span>
                         </div>
                         {code && <span className="text-[14px] font-bold text-muted">{t(`blocks.${code}`)}</span>}
@@ -136,13 +146,13 @@ export default async function HistoryPage() {
           </>
         )}
       </main>
-    </>
+    </PageShell>
   );
 }
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex flex-col gap-1 rounded-2xl border-2 border-b-[5px] border-line px-4 py-3.5">
+    <div className="flex flex-col gap-1 rounded-2xl border-2 border-b-[5px] border-line-strong bg-white px-4 py-3.5 shadow-card">
       <span className="text-[14px] font-extrabold text-muted">{label}</span>
       <span className="text-[28px] font-black text-ink">{value}</span>
     </div>

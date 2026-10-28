@@ -2,7 +2,8 @@ import Link from 'next/link';
 import { z } from 'zod';
 import { FigureImage } from '@/components/exam/figure';
 import { Markdown } from '@/components/math/markdown';
-import { SiteHeader } from '@/components/site-header';
+import { PageShell } from '@/components/page-shell';
+import { EmptyState, PageHero } from '@/components/page-hero';
 import { buttonClass } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { describeAnswer, describeKey } from '@/lib/exam/answer-state';
@@ -19,10 +20,7 @@ export default async function MistakesPage() {
   const [{ t, lang }] = await Promise.all([getI18n(), requireParticipant('/mistakes')]);
   const supabase = await createClient();
 
-  const [mistakesRes, topics] = await Promise.all([
-    supabase.rpc('get_my_mistakes', { p_lang: lang }),
-    supabase.from('topics').select('id, name_uz'),
-  ]);
+  const [mistakesRes, topics] = await Promise.all([supabase.rpc('get_my_mistakes', { p_lang: lang }), supabase.from('topics').select('id, name_uz')]);
   if (mistakesRes.error) throw new Error(`get_my_mistakes: ${mistakesRes.error.message}`);
   if (topics.error) throw new Error(`topics: ${topics.error.message}`);
 
@@ -38,22 +36,21 @@ export default async function MistakesPage() {
   };
 
   return (
-    <>
-      <SiteHeader active="mistakes" />
+    <PageShell active="mistakes">
       <main className="mx-auto flex w-full max-w-[860px] flex-1 flex-col gap-8 px-4 py-10">
-        <header className="flex flex-col gap-3">
+        <PageHero art="mascot-think">
           <Chip tone="brand">{t('mistakes.count', { n: mistakes.length })}</Chip>
           <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">{t('mistakes.title')}</h1>
           <p className="text-[19px] leading-7 font-semibold text-muted">{t('mistakes.lead')}</p>
-        </header>
+        </PageHero>
 
         {mistakes.length === 0 ? (
-          <div className="flex flex-col items-start gap-4">
+          <EmptyState art="mascot-thumbs">
             <p className="text-[19px] font-semibold text-muted">{t('mistakes.empty')}</p>
             <Link href="/exams" className={buttonClass('primary')}>
               {t('mistakes.startExam')}
             </Link>
-          </div>
+          </EmptyState>
         ) : (
           blocks.map(([blockId, list]) => (
             <section key={blockId} className="flex flex-col gap-3" aria-label={blockLabel(blockId)}>
@@ -72,7 +69,7 @@ export default async function MistakesPage() {
                   const correct = describeKey(m.type, m.correct_answer, y2Ids);
                   return (
                     <li key={m.question_id}>
-                      <details className="rounded-2xl border-2 border-line open:border-line-strong">
+                      <details className="rounded-2xl border-2 border-line bg-white shadow-card open:border-line-strong">
                         <summary className="flex cursor-pointer list-none flex-wrap items-center gap-x-3 gap-y-1 px-4 py-3.5">
                           <span className="rounded-full bg-brand-tint px-2.5 py-0.5 text-[14px] font-extrabold text-brand-ink">
                             {t('mistakes.times', { n: m.times_wrong })}
@@ -114,6 +111,6 @@ export default async function MistakesPage() {
           ))
         )}
       </main>
-    </>
+    </PageShell>
   );
 }

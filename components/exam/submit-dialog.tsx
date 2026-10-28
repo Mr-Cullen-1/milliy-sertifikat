@@ -33,7 +33,7 @@ export function SubmitDialog({ open, unanswered, flagged, submitting, error, onC
         e.preventDefault();
         if (!submitting) onCancel();
       }}
-      className="m-auto w-[min(92vw,460px)] rounded-3xl border-2 border-b-[6px] border-line bg-white p-6 text-ink shadow-xl backdrop:bg-ink/40"
+      className="m-auto w-[min(92vw,460px)] rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-6 text-ink shadow-xl backdrop:bg-ink/40"
     >
       <h2 className="font-heading text-[26px] leading-8 font-semibold">{t('exam.dialog.title')}</h2>
       <ul className="mt-4 flex flex-col gap-2 text-[18px] font-bold">

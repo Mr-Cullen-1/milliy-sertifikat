@@ -14,7 +14,24 @@ export const kaa: Dict = {
     approx: 'shama menen',
   },
 
+  footer: {
+
+    tagline: "Milliy sertifikat (Matematika) imtihanına tayarlıq ushın sınaq platforması.",
+
+    disclaimer: "Nátiyjeler shama menen hám rásmiy sertifikat balı emes.",
+
+    rights: "© {year} Sınaq platforması",
+
+    sections: "Bólimler",
+
+    info: "Maǵlıwmat",
+
+  },
+
+
   nav: {
+
+    menu: "Menyu",
     exams: 'Imtihanlar',
     history: 'Nátiyjelerim',
     mistakes: 'Qátelikler dápteri',
@@ -70,6 +87,10 @@ export const kaa: Dict = {
     hello: 'Assalawma áleykum, {name}',
     lead: 'Sınaq imtihanın baslaw ushın imtihanlar dizimine ótiń.',
     edit: 'Maǵlıwmatlardı ózgertiw',
+    hintExams: "45 tapsırma · 150 minut",
+    hintHistory: "Ball dinamikası hám ázzi temalar",
+    hintMistakes: "Qátelesken sorawlar hám sheshimler",
+    hintDtm: "Sertifikat balı → DTM balı",
   },
 
   exams: {
@@ -175,6 +196,9 @@ export const kaa: Dict = {
     pendingTitle: 'Nátiyje ele tayın emes',
     pendingLead: 'Bal esaplanbadı. Betti birazdan keyin jańalań; juwaplarıńız saqlanǵan.',
     toExams: 'Imtihanlar dizimi',
+    cheerHigh: "Ájayıp nátiyje! Usılay dawam etiń.",
+    cheerMid: "Jaqsı baslanıw! Qátelikler dápteri menen bekkemlań.",
+    cheerLow: "Tayarlıq kerek: qátelikler dápterin kórip shıǵıń.",
     toDtm: 'DTM balın esaplaw',
     toMistakes: 'Qátelikler dápteri',
   },

@@ -82,7 +82,7 @@ export default async function AdminQuestionPreview({ params, searchParams }: Pag
 
       <Card title={`Ko'rinishi (${lang.toUpperCase()}) — talaba shunday ko'radi`}>
         {payload ? (
-          <div className="rounded-2xl border-2 border-line p-4">
+          <div className="rounded-2xl border-2 border-line bg-white p-4 shadow-card">
             <QuestionView
               item={{ position: 0, questionId: row.id, blockName: BLOCK_CODES[row.block_id - 1] ?? '', stemMd: stem, payload }}
               value={undefined}

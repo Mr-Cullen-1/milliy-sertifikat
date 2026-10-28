@@ -14,6 +14,8 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,
+  // Faqat `next dev` dagi pastki-chap "N" belgisi; production'ga ta'sir qilmaydi.
+  devIndicators: false,
   experimental: {
     // Admin JSON import (savollar + tarjimalar + chizmalar) 1 MB dan katta bo'lishi mumkin
     serverActions: { bodySizeLimit: "5mb" },

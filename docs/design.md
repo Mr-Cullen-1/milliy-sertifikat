@@ -63,3 +63,8 @@ Imtihon ekrani (45 savol paneli, taymer, belgilash, saqlash holati), topshirishn
 - **Moslash → Y-2:** dizaynda sonlar va o'qilishlar; bizda chapda bandlar, o'ngda A–F variantlar. Bandni tanlang (binafsha), variantni bosing (yashil, nishonda juft raqami). Bir variant bir nechta bandga mos kelishi mumkin.
 - **Yakun → natija:** yashil ball kartasi saqlangan, "3 / 6" o'rnida taxminiy "≈ ball / 75", daraja nishoni (kubok rangida) va "taxminiy" ogohlantirishi qo'shilgan.
 - **Progress:** 15 segment o'rniga 45 ta ingichka segment (faqat keng ekranda) + 1–45 savollar paneli.
+
+## Bezak va qobiq (2026-10-28)
+- Qobiq: `components/page-shell.tsx` (navbar + kontent + footer; `fit` — katta ekranda scrollsiz, ixcham footer; `minimal` — menyusiz navbar). Navbar `site-header.tsx` (mascot logotipi, faol bo'lim, mobil menyu), footer `site-footer.tsx` (to'liq/ixcham).
+- Assetlar: `public/art` (tozalangan PNG + SVG ikonlar), `pnpm`siz: `node scripts/prepare-art.cjs` qayta generatsiya qiladi (`components/art-data.ts` ham). Komponentlar: `components/art.tsx` (`Art`, `ArtIcon`, `MascotBadge`), `decor.tsx` (fon bezaklari, faqat lg+), `page-hero.tsx` (`PageHero`, `EmptyState`).
+- Kartalar fondan ajralishi: `border-line-strong` + `bg-white` + `shadow-card`; sahifa foni lavanda (`--color-page`). Tugmalar: `components/ui/button.tsx` (primary/accent/secondary, 3D pastki chegara).

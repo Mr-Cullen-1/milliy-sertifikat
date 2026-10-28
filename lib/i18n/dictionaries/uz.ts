@@ -15,7 +15,24 @@ export const uz = {
     approx: 'taxminiy',
   },
 
+  footer: {
+
+    tagline: "Milliy sertifikat (Matematika) imtihoniga tayyorgarlik uchun mock platforma.",
+
+    disclaimer: "Natijalar taxminiy va rasmiy sertifikat balli emas.",
+
+    rights: "© {year} Mock platforma",
+
+    sections: "Bo'limlar",
+
+    info: "Ma'lumot",
+
+  },
+
+
   nav: {
+
+    menu: "Menyu",
     exams: 'Imtihonlar',
     history: 'Natijalarim',
     mistakes: 'Xatolar daftari',
@@ -71,6 +88,10 @@ export const uz = {
     hello: 'Salom, {name}',
     lead: "Mock imtihonni boshlash uchun imtihonlar ro'yxatiga o'ting.",
     edit: "Ma'lumotlarni o'zgartirish",
+    hintExams: "45 topshiriq · 150 daqiqa",
+    hintHistory: "Ball dinamikasi va zaif mavzular",
+    hintMistakes: "Xato qilgan savollar va yechimlar",
+    hintDtm: "Sertifikat balli → DTM ball",
   },
 
   exams: {
@@ -176,6 +197,9 @@ export const uz = {
     pendingTitle: 'Natija hali tayyor emas',
     pendingLead: "Ball hisoblanmadi. Sahifani bir ozdan keyin yangilang; javoblaringiz saqlangan.",
     toExams: "Imtihonlar ro'yxati",
+    cheerHigh: "Ajoyib natija! Shunday davom eting.",
+    cheerMid: "Yaxshi boshlanish! Xatolar daftari bilan kuchaytiring.",
+    cheerLow: "Hali tayyorgarlik kerak: xatolar daftarini ko'rib chiqing.",
     toDtm: 'DTM ballini hisoblash',
     toMistakes: 'Xatolar daftari',
   },

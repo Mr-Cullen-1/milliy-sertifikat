@@ -12,7 +12,7 @@ export function PageTitle({ title, children }: { title: string; children?: React
 
 export function Card({ title, children, className = '' }: { title?: string; children: ReactNode; className?: string }) {
   return (
-    <section className={`flex flex-col gap-3 rounded-2xl border-2 border-line bg-white p-4 ${className}`}>
+    <section className={`flex flex-col gap-3 rounded-2xl border-2 border-line bg-white p-4 shadow-card ${className}`}>
       {title && <h2 className="font-heading text-[18px] font-semibold text-ink">{title}</h2>}
       {children}
     </section>
@@ -21,7 +21,7 @@ export function Card({ title, children, className = '' }: { title?: string; chil
 
 export function Stat({ label, value, hint }: { label: string; value: ReactNode; hint?: string }) {
   return (
-    <div className="flex flex-col gap-0.5 rounded-2xl border-2 border-b-[5px] border-line bg-white px-4 py-3">
+    <div className="flex flex-col gap-0.5 rounded-2xl border-2 border-b-[5px] border-line-strong bg-white px-4 py-3 shadow-card">
       <span className="text-[13px] font-extrabold text-muted">{label}</span>
       <span className="text-[26px] font-black text-ink">{value}</span>
       {hint && <span className="text-[13px] font-bold text-muted">{hint}</span>}
