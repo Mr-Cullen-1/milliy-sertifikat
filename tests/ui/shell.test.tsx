@@ -2,6 +2,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 import { I18nProvider } from '@/components/i18n/provider';
 import { SiteFooter } from '@/components/site-footer';
+import { LangSwitcher } from '@/components/i18n/lang-switcher';
 import { SiteHeader } from '@/components/site-header';
 import { en } from '@/lib/i18n/dictionaries/en';
 import { uz } from '@/lib/i18n/dictionaries/uz';
@@ -47,5 +48,13 @@ describe('navbar va footer', () => {
     const out = render(<SiteFooter year={2026} compact />);
     expect(out).toContain('href="/privacy"');
     expect(out).not.toContain('href="/mistakes"');
+  });
+
+  it("til almashtirgich ixcham: bayroq va qisqa kod (UZ), ro'yxat yopiq", () => {
+    const out = render(<LangSwitcher />);
+    expect(out).toContain('>UZ<');
+    expect(out).toContain('aria-haspopup="listbox"');
+    expect(out).not.toContain('Qaraqalpaqsha');
+    expect(render(<LangSwitcher />, 'en')).toContain('>EN<');
   });
 });
