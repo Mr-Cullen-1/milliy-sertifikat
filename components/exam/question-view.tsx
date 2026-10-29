@@ -10,6 +10,7 @@ import { AnswerY1 } from './answer-y1';
 import { AnswerY2 } from './answer-y2';
 import { FigureImage } from './figure';
 import { FitText } from './fit-text';
+import { FitZoom } from './fit-zoom';
 
 export interface RunnerItem {
   position: number;
@@ -61,7 +62,7 @@ export function QuestionView({ item, value, onChange }: Props) {
       </div>
 
       {/* Savol: kartaning o'rtasida. Chizma bo'lsa: matn chapda, chizma o'ngda va mavjud balandlikka sig'adi (scrollsiz) */}
-      <div className="flex flex-col lg:min-h-[110px] lg:flex-1">
+      <div className="flex flex-col lg:min-h-[88px] lg:flex-1">
         {payload.data.figure ? (
           <div className="grid gap-5 py-3 lg:h-full lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)] lg:gap-10 lg:py-0">
             <FitText
@@ -90,12 +91,12 @@ export function QuestionView({ item, value, onChange }: Props) {
         )}
       </div>
 
-      {/* Javoblar: karta pastiga mahkamlangan, har savolda bir xil joyda */}
-      <div className="flex flex-col gap-5 lg:shrink-0 lg:border-t-2 lg:border-line lg:pt-5">
+      {/* Javoblar: karta pastiga mahkamlangan, har savolda bir xil joyda; ajratilgan joyga sig'maguncha kichrayadi (scrollsiz) */}
+      <FitZoom contentKey={item.questionId}>
         {payload.type === 'y1' && <AnswerY1 payload={payload.data} value={typeof value === 'string' ? value : undefined} onChange={onChange} />}
         {payload.type === 'y2' && <AnswerY2 payload={payload.data} value={asRecord(value)} onChange={onChange} />}
         {payload.type === 'o' && <AnswerO payload={payload.data} value={asRecord(value)} onChange={onChange} />}
-      </div>
+      </FitZoom>
     </section>
   );
 }
