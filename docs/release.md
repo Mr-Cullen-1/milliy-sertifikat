@@ -18,6 +18,7 @@ Reliz uchun kod tayyor; quyidagilar sizning hisoblaringiz va sozlamalaringiz bil
 | `SUPABASE_SECRET_KEY` | **Secret key** (faqat server; `NEXT_PUBLIC_` qo'shmang) |
 | `ALLOWED_FRAME_ANCESTORS` | (ixtiyoriy) ichki platforma iframe'i uchun: `https://ichki.platforma.uz` (bo'sh joy bilan bir nechta) |
 | `NEXT_PUBLIC_SITE_URL` | (ixtiyoriy) hozir ishlatilmaydi |
+| `NEXT_PUBLIC_PRO_URL` | (ixtiyoriy) Pro obunani rasmiylashtirish havolasi (to'lov/ichki platforma). Bo'lsa Pro oynasida "Obunani rasmiylashtirish" tugmasi chiqadi; bo'sh bo'lsa tugma ko'rsatilmaydi. Build vaqtida o'qiladi: o'zgargach qayta deploy qiling |
 
 `SUPABASE_DB_URL` Vercel'ga **kerak emas** (faqat migratsiya uchun, lokal).
 

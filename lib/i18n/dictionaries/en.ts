@@ -102,6 +102,25 @@ export const en: Dict = {
     hintDtm: "Certificate score → DTM points",
   },
 
+  pro: {
+    nav: "Pro plan",
+    cardButton: "Get Pro",
+    chip: "Pro",
+    title: "Pro plan for complete preparation",
+    lead: "Take every variant in real exam conditions and get an in-depth review of each result.",
+    listTitle: "What you unlock",
+    i1: "Review of every question: the correct answer with solution steps",
+    i2: "Working on mistakes: a mistakes notebook and repeat practice",
+    i3: "Topic-based explanations: see which topic each mistake belongs to and how to fix it",
+    i4: "Question bank: 9 full variants of 45 questions each, 405 tests in total",
+    i5: "Exam atmosphere: official format, timing and answering rules just like the real exam",
+    statVariants: "variants",
+    statQuestions: "test questions",
+    statMinutes: "minutes, official time",
+    cta: "Get the subscription",
+    close: "Close",
+  },
+
   exams: {
     title: 'Mock exams',
     start: 'Start',

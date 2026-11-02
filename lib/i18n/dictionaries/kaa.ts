@@ -102,6 +102,25 @@ export const kaa: Dict = {
     hintDtm: "Sertifikat balı → DTM balı",
   },
 
+  pro: {
+    nav: "Pro jazılıw",
+    cardButton: "Pro jazılıw alıw",
+    chip: "Pro",
+    title: "Tolıq tayarlıq ushın Pro jazılıw",
+    lead: "Barlıq variantlardı haqıyqıy imtihan ortalıǵında sheshiń hám hár bir nátiyjeni tereń talqılań.",
+    listTitle: "Ne ashıladı",
+    i1: "Hár bir soraw talqılawı: durıs juwap hám sheshim qádemleri menen",
+    i2: "Qátelerge islew: qáteler dápteri hám qayta shınıǵıw imkaniyatı",
+    i3: "Temalar tiykarında túsindiriw: qátelik qaysı temaǵa tiyisli ekenin hám onı qalay dúzetiwdi kóresiz",
+    i4: "Sorawlar bazası: 45 ten 9 tolıq variant, jámi 405 test",
+    i5: "Imtihan atmosferası: rásmiy format, waqıt hám juwap beriw tártibi haqıyqıy imtihandaǵıday",
+    statVariants: "variant",
+    statQuestions: "test sorawı",
+    statMinutes: "minut, rásmiy waqıt",
+    cta: "Jazılıwdı rásmiylestiriw",
+    close: "Jabıw",
+  },
+
   exams: {
     title: 'Sınaq imtihanları',
     start: 'Baslaw',

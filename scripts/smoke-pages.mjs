@@ -88,8 +88,8 @@ try {
   const unpub = (await admin.from('exams').select('id, title').neq('status', 'published')).data ?? [];
   const exList = await page('/exams', g.cookie());
   check(
-    "/exams: nashr etilmagan variantlar o'chirilgan karta sifatida, havolasiz",
-    exList.status === 200 && unpub.every((u) => exList.body.includes(u.title) && !exList.body.includes(u.id)) && (unpub.length === 0 || /<button[^>]*disabled/.test(exList.body)),
+    "/exams: nashr etilmagan variantlar yopiq karta sifatida (Pro obuna olish tugmasi bor), id'siz",
+    exList.status === 200 && unpub.every((u) => exList.body.includes(u.title) && !exList.body.includes(u.id)) && (unpub.length === 0 || exList.body.includes('Pro obuna olish')),
     `nashr etilmagan: ${unpub.length}`,
   );
 

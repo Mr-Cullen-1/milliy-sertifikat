@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { PageShell } from '@/components/page-shell';
 import { PageHero } from '@/components/page-hero';
-import { Button, buttonClass } from '@/components/ui/button';
+import { CrownIcon, ProOpenButton } from '@/components/pro/pro-modal';
+import { buttonClass } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { formatScore } from '@/lib/format';
 import { getI18n } from '@/lib/i18n/server';
@@ -51,13 +52,13 @@ export default async function ExamsPage() {
 
   return (
     <PageShell active="exams">
-      <main className="mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-5 px-4 py-6 sm:px-6 lg:gap-6">
+      <main className="mx-auto flex w-full max-w-[1280px] flex-1 flex-col gap-5 px-4 py-4 sm:px-6 lg:gap-5">
         <PageHero art="mascot-pencil">
           <Chip>{t('common.appName')}</Chip>
           <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">{t('exams.title')}</h1>
         </PageHero>
 
-        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5" aria-label={t('exams.title')}>
+        <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-6" aria-label={t('exams.title')}>
           {cards.length === 0 && <p className="text-[19px] font-semibold text-muted md:col-span-2 lg:col-span-3">{t('exams.none')}</p>}
           {cards.map((exam) => {
             const attemptId = exam.id ? activeByExam.get(exam.id) : undefined;
@@ -66,28 +67,29 @@ export default async function ExamsPage() {
               <article
                 key={exam.key}
                 className={
-                  'flex flex-col justify-between gap-4 rounded-3xl border-2 border-b-[5px] p-5 ' +
-                  (locked ? 'border-line bg-surface opacity-70' : 'border-line-strong bg-white shadow-card')
+                  'flex min-h-[150px] flex-col justify-between gap-4 rounded-3xl border-2 border-b-[5px] p-5 ' +
+                  (locked ? 'border-line bg-surface' : 'border-line-strong bg-white shadow-card')
                 }
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex flex-col gap-1">
-                    <h2 className={`font-heading text-[22px] font-semibold ${locked ? 'text-muted' : 'text-ink'}`}>{exam.title}</h2>
-                    <p className="text-[16px] font-bold text-muted">{t('exams.meta', { minutes: exam.minutes })}</p>
+                  <div className="flex min-w-0 flex-col gap-2.5">
+                    <h2 className={`font-heading text-[24px] leading-8 font-semibold ${locked ? 'text-muted' : 'text-ink'}`}>{exam.title}</h2>
+                    <div className="flex flex-wrap items-center gap-2 text-[14px] font-extrabold text-ink-soft">
+                      <span className="rounded-full border-2 border-line bg-white px-3 py-1">{t('intro.tasksPill', { n: 45 })}</span>
+                      <span className="rounded-full border-2 border-line bg-white px-3 py-1">{t('intro.minutesPill', { minutes: exam.minutes })}</span>
+                    </div>
                   </div>
                   {locked && (
-                    <span
-                      className="flex size-10 shrink-0 items-center justify-center rounded-full border-2 border-line bg-white text-muted"
-                      title={exam.status === 'archived' ? t('exams.closedExam') : t('exams.soon')}
-                    >
+                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full border-2 border-line bg-white text-muted">
                       <LockIcon />
                     </span>
                   )}
                 </div>
                 {locked ? (
-                  <Button variant="primary" disabled className="w-full">
-                    {exam.status === 'archived' ? t('exams.closedExam') : t('exams.soon')}
-                  </Button>
+                  <ProOpenButton className={buttonClass('accent', 'w-full')}>
+                    <CrownIcon size={20} />
+                    {t('pro.cardButton')}
+                  </ProOpenButton>
                 ) : attemptId ? (
                   <Link href={`/attempts/${attemptId}`} className={buttonClass('primary')}>
                     {t('exams.resume')}

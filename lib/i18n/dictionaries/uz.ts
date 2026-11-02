@@ -103,6 +103,25 @@ export const uz = {
     hintDtm: "Sertifikat balli → DTM ball",
   },
 
+  pro: {
+    nav: "Pro obuna",
+    cardButton: "Pro obuna olish",
+    chip: "Pro",
+    title: "To‘liq tayyorgarlik uchun Pro obuna",
+    lead: "Barcha variantlarni haqiqiy imtihon muhitida yeching va har bir natijani chuqur tahlil qiling.",
+    listTitle: "Nima ochiladi",
+    i1: "Har bir savol tahlili: to‘g‘ri javob va yechim qadamlari bilan",
+    i2: "Xatolar ustida ishlash: xatolar daftari va qayta mashq qilish imkoni",
+    i3: "Mavzular asosida tushuntirish: qaysi mavzuda xato qilganingizni va uni qanday to‘g‘rilashni ko‘rasiz",
+    i4: "Savollar bazasi: 45 tadan 9 ta to‘liq variant, jami 405 ta test",
+    i5: "Imtihon atmosferasi: rasmiy format, vaqt va javob berish tartibi haqiqiy imtihondagidek",
+    statVariants: "ta variant",
+    statQuestions: "ta test savoli",
+    statMinutes: "daqiqa, rasmiy vaqt",
+    cta: "Obunani rasmiylashtirish",
+    close: "Yopish",
+  },
+
   exams: {
     title: 'Mock imtihonlar',
     start: 'Boshlash',

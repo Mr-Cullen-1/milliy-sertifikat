@@ -7,6 +7,7 @@ import type { IconName } from '@/components/art-data';
 import { LangSwitcher } from '@/components/i18n/lang-switcher';
 import { useT } from '@/components/i18n/provider';
 import { LogoutButton } from '@/components/logout-button';
+import { CrownIcon, ProOpenButton } from '@/components/pro/pro-modal';
 
 type Active = 'exams' | 'history' | 'mistakes' | 'dtm';
 
@@ -59,6 +60,13 @@ export function SiteHeader({ minimal = false, active, signedIn = false }: { mini
               ))}
             </nav>
           )}
+          <ProOpenButton
+            aria-label={t('pro.nav')}
+            className="flex h-10 shrink-0 items-center gap-1.5 rounded-xl border-2 border-b-4 border-[#3a22a8] bg-linear-to-b from-[#7a5bff] to-accent px-2.5 text-[14px] font-extrabold text-white transition hover:brightness-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:px-3.5"
+          >
+            <CrownIcon size={18} />
+            <span className="hidden sm:inline">{t('pro.nav')}</span>
+          </ProOpenButton>
           <LangSwitcher />
           {signedIn && <LogoutButton />}
           {!minimal && (
