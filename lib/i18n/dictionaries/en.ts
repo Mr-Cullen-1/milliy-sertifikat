@@ -306,6 +306,7 @@ export const en: Dict = {
     count: '{n} questions',
     times: 'Wrong {n} times',
     lastAnswer: 'Your last answer',
+    view: "View analysis",
     noAnswer: 'Not answered',
     correct: 'Correct answer',
     solution: 'Solution',

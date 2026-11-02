@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useT } from '@/components/i18n/provider';
 import { Markdown } from '@/components/math/markdown';
-import { ProOpenButton } from '@/components/pro/pro-modal';
+import { ProOpenButton, useProModal } from '@/components/pro/pro-modal';
 import { Button } from '@/components/ui/button';
 import type { Figure } from '@/lib/exam/payload';
 import { FigureImage } from './figure';
@@ -55,6 +55,7 @@ export function ReviewGrid({
   listClassName?: string;
 }) {
   const t = useT();
+  const pro = useProModal();
   const [open, setOpen] = useState<number | null>(null);
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -168,7 +169,16 @@ export function ReviewGrid({
               <Button variant="secondary" size="sm" onClick={() => setOpen(null)}>
                 {t('common.close')}
               </Button>
-              <Button size="sm" onClick={() => setOpen(open + 1)} disabled={!items[open + 1] || items[open + 1].locked}>
+              <Button
+                size="sm"
+                onClick={() => {
+                  if (items[open + 1]?.locked) {
+                    setOpen(null);
+                    pro.open();
+                  } else setOpen(open + 1);
+                }}
+                disabled={!items[open + 1]}
+              >
                 {t('common.next')}
               </Button>
             </div>

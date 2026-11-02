@@ -307,6 +307,7 @@ export const uz = {
     count: '{n} ta savol',
     times: '{n} marta xato',
     lastAnswer: 'Oxirgi javobingiz',
+    view: "Tahlilni ko'rish",
     noAnswer: 'Javob berilmagan',
     correct: "To'g'ri javob",
     solution: 'Yechim',

@@ -306,6 +306,7 @@ export const ru: Dict = {
     count: 'Вопросов: {n}',
     times: 'Ошибок: {n}',
     lastAnswer: 'Ваш последний ответ',
+    view: "Смотреть разбор",
     noAnswer: 'Ответ не дан',
     correct: 'Правильный ответ',
     solution: 'Решение',

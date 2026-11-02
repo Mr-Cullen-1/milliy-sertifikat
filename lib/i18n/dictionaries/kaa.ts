@@ -306,6 +306,7 @@ export const kaa: Dict = {
     count: '{n} soraw',
     times: '{n} ret qátelesken',
     lastAnswer: 'Sońǵı juwabıńız',
+    view: "Talqılawdı kóriw",
     noAnswer: 'Juwap berilmegen',
     correct: 'Durıs juwap',
     solution: 'Sheshim',

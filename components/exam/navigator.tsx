@@ -11,7 +11,7 @@ export interface NavItem {
 const styles: Record<NavState, string> = {
   current: 'border-brand-edge bg-brand-current text-white',
   flagged: 'border-gold-edge bg-warn-soft text-ink',
-  answered: 'border-success bg-success-soft text-success-ink',
+  answered: 'border-accent bg-accent-soft text-accent',
   empty: 'border-line bg-white text-muted hover:bg-surface',
 };
 
@@ -40,7 +40,7 @@ export function Navigator({ items, onSelect }: { items: NavItem[]; onSelect: (in
         ))}
       </ol>
       <ul className="flex flex-wrap gap-x-4 gap-y-1.5 text-[14px] font-bold text-muted">
-        <Legend color="bg-success-soft border-success" label={t('exam.legendAnswered')} />
+        <Legend color="bg-accent-soft border-accent" label={t('exam.legendAnswered')} />
         <Legend color="bg-warn-soft border-gold-edge" label={t('exam.legendFlagged')} />
         <Legend color="bg-white border-line" label={t('exam.legendEmpty')} />
       </ul>
