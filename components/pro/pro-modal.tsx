@@ -24,10 +24,20 @@ export function CrownIcon({ size = 18 }: { size?: number }) {
 }
 
 /** Pro oynasini ochuvchi tugma. className: tashqaridan beriladi (buttonClass yoki navbar uslubi). */
-export function ProOpenButton({ className = '', children, 'aria-label': ariaLabel }: { className?: string; children: ReactNode; 'aria-label'?: string }) {
+export function ProOpenButton({
+  className = '',
+  children,
+  'aria-label': ariaLabel,
+  'aria-disabled': ariaDisabled,
+}: {
+  className?: string;
+  children: ReactNode;
+  'aria-label'?: string;
+  'aria-disabled'?: boolean | 'true' | 'false';
+}) {
   const { open } = useProModal();
   return (
-    <button type="button" onClick={open} aria-label={ariaLabel} className={className}>
+    <button type="button" onClick={open} aria-label={ariaLabel} aria-disabled={ariaDisabled} aria-haspopup="dialog" className={className}>
       {children}
     </button>
   );
@@ -123,6 +133,10 @@ export function ProProvider({ children }: { children: ReactNode }) {
                   <span className="text-[12px] leading-4 font-extrabold text-muted">{s.label}</span>
                 </div>
               ))}
+            </div>
+            <div className="flex w-full items-center justify-between gap-3 rounded-2xl bg-accent-soft px-5 py-3">
+              <span className="text-[14px] font-extrabold text-accent">{t('pro.priceTitle')}</span>
+              <span className="font-heading text-[26px] leading-8 font-semibold text-accent">{t('pro.price')}</span>
             </div>
             {proUrl && (
               <a href={proUrl} target="_blank" rel="noopener noreferrer" className={buttonClass('accent', 'w-full')}>

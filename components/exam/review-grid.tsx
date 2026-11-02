@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useT } from '@/components/i18n/provider';
 import { Markdown } from '@/components/math/markdown';
+import { ProOpenButton } from '@/components/pro/pro-modal';
 import { Button } from '@/components/ui/button';
 import type { Figure } from '@/lib/exam/payload';
 import { FigureImage } from './figure';
@@ -21,6 +22,17 @@ export interface ReviewItem {
   correct: string | null;
   solutionMd: string | null;
   mistakeNoteMd: string | null;
+  /** Pro obuna talab qiladigan savol: tafsilot serverda olib tashlanadi, bosganda Pro oynasi ochiladi. */
+  locked?: boolean;
+}
+
+function LockIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect x="5" y="11" width="14" height="9" rx="2.5" />
+      <path d="M8 11V8a4 4 0 0 1 8 0v3" />
+    </svg>
+  );
 }
 
 const badge: Record<ReviewStatus, string> = { ok: 'bg-success', wrong: 'bg-danger', empty: 'bg-faint' };
@@ -33,8 +45,15 @@ const tile: Record<ReviewStatus, string> = {
 /**
  * Savollar tahlili: bir xil o'lchamli kartalar to'ri; kartani bosganda yechim oynasi ochiladi (oldingi/keyingi savolga o'tish bilan).
  * Natija (to'g'ri/noto'g'ri/javobsiz) rangi va yorlig'i bilan ko'rinadi.
+ * `locked` kartalar o'chirilgan ko'rinishda, lekin bosilganda Pro obuna oynasi ochiladi.
  */
-export function ReviewGrid({ items }: { items: ReviewItem[] }) {
+export function ReviewGrid({
+  items,
+  listClassName = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-4',
+}: {
+  items: ReviewItem[];
+  listClassName?: string;
+}) {
   const t = useT();
   const [open, setOpen] = useState<number | null>(null);
   const ref = useRef<HTMLDialogElement>(null);
@@ -51,29 +70,46 @@ export function ReviewGrid({ items }: { items: ReviewItem[] }) {
 
   return (
     <>
-      <ol className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-4">
+      <ol className={`grid gap-3 ${listClassName}`}>
         {items.map((it, i) => (
           <li key={it.position}>
-            <button
-              type="button"
-              onClick={() => setOpen(i)}
-              className={
-                'flex h-[124px] w-full flex-col justify-between sm:h-[112px] rounded-2xl border-2 border-b-[5px] px-3.5 py-3 text-left shadow-card transition ' +
-                'hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ' +
-                tile[it.status]
-              }
-            >
-              <span className="flex items-center gap-2.5">
-                <span className={`flex size-8 shrink-0 items-center justify-center rounded-[10px] text-[16px] font-black text-white ${badge[it.status]}`}>
-                  {it.position}
+            {it.locked ? (
+              <ProOpenButton
+                aria-label={`${it.position}: ${t('pro.cardButton')}`}
+                aria-disabled="true"
+                className="flex h-[124px] w-full cursor-pointer flex-col justify-between rounded-2xl border-2 border-b-[5px] border-line bg-surface px-3.5 py-3 text-left text-muted transition sm:h-[112px] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                <span className="flex items-center gap-2.5">
+                  <span className="flex size-8 shrink-0 items-center justify-center rounded-[10px] bg-line-strong text-[16px] font-black text-white">{it.position}</span>
+                  <span className="flex min-w-0 flex-1 items-center gap-1.5 text-[16px] font-extrabold">
+                    <LockIcon />
+                    {t('pro.chip')}
+                  </span>
                 </span>
-                <span className="flex min-w-0 flex-1 flex-col leading-tight">
-                  <span className="truncate text-[16px] font-extrabold text-ink">{statusLabel(it.status)}</span>
-                  <span className="text-[13px] font-extrabold text-ink-soft">{it.scoreText}</span>
+                <span className="text-[12px] leading-4 font-bold">{it.block}</span>
+              </ProOpenButton>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setOpen(i)}
+                className={
+                  'flex h-[124px] w-full flex-col justify-between sm:h-[112px] rounded-2xl border-2 border-b-[5px] px-3.5 py-3 text-left shadow-card transition ' +
+                  'hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ' +
+                  tile[it.status]
+                }
+              >
+                <span className="flex items-center gap-2.5">
+                  <span className={`flex size-8 shrink-0 items-center justify-center rounded-[10px] text-[16px] font-black text-white ${badge[it.status]}`}>
+                    {it.position}
+                  </span>
+                  <span className="flex min-w-0 flex-1 flex-col leading-tight">
+                    <span className="truncate text-[16px] font-extrabold text-ink">{statusLabel(it.status)}</span>
+                    <span className="text-[13px] font-extrabold text-ink-soft">{it.scoreText}</span>
+                  </span>
                 </span>
-              </span>
-              <span className="text-[12px] leading-4 font-bold text-muted">{it.block}</span>
-            </button>
+                <span className="text-[12px] leading-4 font-bold text-muted">{it.block}</span>
+              </button>
+            )}
           </li>
         ))}
       </ol>
@@ -132,7 +168,7 @@ export function ReviewGrid({ items }: { items: ReviewItem[] }) {
               <Button variant="secondary" size="sm" onClick={() => setOpen(null)}>
                 {t('common.close')}
               </Button>
-              <Button size="sm" onClick={() => setOpen(open + 1)} disabled={open === items.length - 1}>
+              <Button size="sm" onClick={() => setOpen(open + 1)} disabled={!items[open + 1] || items[open + 1].locked}>
                 {t('common.next')}
               </Button>
             </div>

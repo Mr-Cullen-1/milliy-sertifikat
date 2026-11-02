@@ -3,9 +3,9 @@ import { notFound, redirect } from 'next/navigation';
 import { ReviewGrid, type ReviewItem } from '@/components/exam/review-grid';
 import { Watermark } from '@/components/exam/watermark';
 import { PageShell } from '@/components/page-shell';
-import { PageHero } from '@/components/page-hero';
+import { Art } from '@/components/art';
+import { ART } from '@/components/art-data';
 import { buttonClass } from '@/components/ui/button';
-import { Chip } from '@/components/ui/chip';
 import { describeAnswer, describeKey } from '@/lib/exam/answer-state';
 import { parseItems } from '@/lib/exam/attempt-state';
 import { resolveAttempt } from '@/lib/exam/attempt.server';
@@ -17,6 +17,9 @@ import { getParticipant } from '@/lib/participant.server';
 import { createClient } from '@/lib/supabase/server';
 import { Suspense } from 'react';
 import { PageSkeleton } from '@/components/page-skeleton';
+
+/** Savollar tahlilida Pro obunasiz ochiq savollar soni (qolganlari yopiq, tafsiloti mijozga yuborilmaydi). */
+const FREE_REVIEW_COUNT = 6;
 
 async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/result'>) {
   const { attemptId } = await params;
@@ -63,6 +66,22 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
     return code ? t(`blocks.${code}`) : String(id);
   };
   const reviewItems: ReviewItem[] = items.map((item) => {
+    if (item.position > FREE_REVIEW_COUNT) {
+      return {
+        position: item.position,
+        status: 'empty',
+        block: blockLabel(item.blockId),
+        scoreText: '',
+        stemMd: '',
+        figure: null,
+        given: '',
+        partsText: null,
+        correct: null,
+        solutionMd: null,
+        mistakeNoteMd: null,
+        locked: true,
+      };
+    }
     const a = answerOf.get(item.questionId);
     const y2Ids = item.payload.type === 'y2' ? item.payload.data.items.map((i) => i.id) : [];
     const noAnswer = t('answers.none');
@@ -84,6 +103,8 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
       mistakeNoteMd: item.mistakeNoteMd || null,
     };
   });
+  const art = scaled >= 55 ? 'mascot-celebrate' : scaled >= 46 ? 'mascot-checklist' : 'mascot-pencil';
+  const artWidth = Math.round((100 * ART[art].w) / ART[art].h);
   const dtmHref = `/dtm?score=${encodeURIComponent(String(scaled))}${level ? `&level=${encodeURIComponent(level)}` : ''}`;
 
   return (
@@ -91,69 +112,46 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
       {participant && <Watermark text={`${participant.fullName} · ${participant.phone?.slice(-4) ?? ''}`} />}
       <PageShell active="exams">
         <main className="mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-5 px-4 py-6 sm:px-6 lg:gap-6">
-          <PageHero art={scaled >= 55 ? 'mascot-celebrate' : scaled >= 46 ? 'mascot-checklist' : 'mascot-pencil'}>
-            <Chip tone="success">{t('result.chip')}</Chip>
-            <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">
-              {exam.data?.title ?? t('exams.fallbackTitle')}
-            </h1>
-            <p className="text-[17px] leading-6 font-bold text-muted">
-              {scaled >= 55 ? t('result.cheerHigh') : scaled >= 46 ? t('result.cheerMid') : t('result.cheerLow')}
-            </p>
-          </PageHero>
-
-          <div className="flex flex-col gap-5 lg:grid lg:grid-cols-[1.1fr_1fr] lg:gap-6">
-            <div className="flex min-w-0 flex-col gap-5">
-              <section
-                aria-label={t('result.overall')}
-                className="flex flex-col justify-between gap-6 rounded-3xl border-2 border-b-[5px] border-success-line bg-success-soft p-5 shadow-card sm:p-6 lg:min-h-[260px]"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-                  <h2 className="font-heading text-[24px] leading-8 font-semibold text-ink first-letter:uppercase">{t('result.levelHint')}</h2>
-                  <p className="flex shrink-0 items-end gap-1.5 leading-none">
-                    <span className="text-[44px] font-black text-success-ink sm:text-[56px]">≈ {formatScore(scaled, lang)}</span>
-                    <span className="pb-1.5 text-[20px] font-extrabold text-muted sm:text-[24px]">/ 75</span>
-                  </p>
-                </div>
-                <div className="flex flex-col items-start gap-3 border-t-2 border-success-line pt-4">
-                  <p className="text-[17px] font-bold text-ink-soft">
-                    {t('result.raw', {
-                      raw: formatScore(attempt.raw_score ?? 0, lang),
-                      max: formatScore(attempt.max_raw ?? 0, lang),
-                      correct: correctTotal,
-                    })}
-                  </p>
-                  {attempt.submit_reason === 'timeout' && <p className="text-[16px] font-bold text-brand-ink">{t('result.timeout')}</p>}
-                  {level ? (
-                    <span className="rounded-2xl border-2 border-b-[5px] border-gold-edge bg-gold px-5 py-1.5 text-[28px] leading-none font-black text-white">
-                      {level}
-                    </span>
-                  ) : (
-                    <p className="rounded-xl bg-white px-3.5 py-2 text-[16px] font-extrabold text-muted">{t('result.noLevel')}</p>
-                  )}
-                </div>
-              </section>
-
-              <div role="note" className="rounded-2xl bg-warn-soft px-4 py-3 text-[15px] leading-6 font-bold text-brand-ink">
-                {t('result.note')}
-              </div>
-
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                <Link href={dtmHref} className={buttonClass('secondary', 'w-full px-2! text-[15px]! whitespace-nowrap', 'sm')}>
-                  {t('result.toDtm')}
-                </Link>
-                <Link href="/mistakes" className={buttonClass('secondary', 'w-full px-2! text-[15px]! whitespace-nowrap', 'sm')}>
-                  {t('result.toMistakes')}
-                </Link>
-                <Link href="/exams" className={buttonClass('primary', 'w-full px-2! text-[15px]! whitespace-nowrap', 'sm')}>
-                  {t('result.toExams')}
-                </Link>
-              </div>
+          <section
+            aria-label={t('result.overall')}
+            className="flex flex-col gap-4 rounded-3xl border-2 border-b-[5px] border-success-line bg-success-soft p-5 shadow-card sm:px-7 sm:py-4 lg:flex-row lg:items-center lg:gap-8"
+          >
+            <div className="flex min-w-0 flex-col gap-1.5 lg:flex-1">
+              <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">
+                {exam.data?.title ?? t('exams.fallbackTitle')}
+              </h1>
+              <p className="text-[17px] leading-6 font-bold text-ink-soft">
+                {scaled >= 55 ? t('result.cheerHigh') : scaled >= 46 ? t('result.cheerMid') : t('result.cheerLow')}
+              </p>
+              <p className="text-[15px] leading-6 font-bold text-muted">
+                {t('result.raw', {
+                  raw: formatScore(attempt.raw_score ?? 0, lang),
+                  max: formatScore(attempt.max_raw ?? 0, lang),
+                  correct: correctTotal,
+                })}
+              </p>
+              {attempt.submit_reason === 'timeout' && <p className="text-[15px] leading-6 font-bold text-brand-ink">{t('result.timeout')}</p>}
             </div>
 
-            <section
-              className="relative min-w-0 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white shadow-card lg:min-h-[320px]"
-              aria-label={t('result.byBlock')}
-            >
+            <div className="flex shrink-0 flex-col gap-2 border-t-2 border-success-line pt-3 lg:w-[300px] lg:border-t-0 lg:border-l-2 lg:pt-0 lg:pl-8">
+              <h2 className="text-[14px] leading-4 font-extrabold tracking-wider text-muted uppercase">{t('result.levelHint')}</h2>
+              <div className="flex items-center gap-4">
+                <p className="flex items-end gap-1.5 leading-none">
+                  <span className="text-[48px] font-black text-success-ink">≈ {formatScore(scaled, lang)}</span>
+                  <span className="pb-1.5 text-[20px] font-extrabold text-muted">/ 75</span>
+                </p>
+                {level && (
+                  <span className="rounded-2xl border-2 border-b-[5px] border-gold-edge bg-gold px-4 py-1.5 text-[26px] leading-none font-black text-white">{level}</span>
+                )}
+              </div>
+              {!level && <p className="text-[15px] leading-5 font-extrabold text-muted">{t('result.noLevel')}</p>}
+            </div>
+
+            <Art name={art} width={artWidth} className="hidden shrink-0 drop-shadow-[0_8px_8px_rgba(38,24,110,0.16)] xl:block" />
+          </section>
+
+          <div className="flex flex-col gap-5 lg:grid lg:h-[480px] lg:grid-cols-[1fr_1fr] lg:gap-6">
+            <section className="relative min-w-0 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white shadow-card" aria-label={t('result.byBlock')}>
               <div className="flex flex-col gap-3 p-4 sm:p-5 lg:absolute lg:inset-0">
                 <h2 className="font-heading text-[22px] font-semibold text-ink">{t('result.byBlock')}</h2>
                 <ul className="flex min-h-0 flex-col gap-2.5 lg:flex-1 lg:overflow-y-auto lg:pr-2 lg:[scrollbar-color:#cfc9ec_transparent] lg:[scrollbar-width:thin]">
@@ -181,12 +179,27 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
                 </ul>
               </div>
             </section>
-          </div>
 
-          <section className="flex flex-col gap-3" aria-label={t('result.review')}>
-            <h2 className="font-heading text-[24px] font-semibold text-ink">{t('result.review')}</h2>
-            <ReviewGrid items={reviewItems} />
-          </section>
+            <div className="flex min-h-0 min-w-0 flex-col gap-4">
+              <div className="grid shrink-0 grid-cols-1 gap-3 sm:grid-cols-3">
+                <Link href={dtmHref} className={buttonClass('secondary', 'w-full px-2! text-[15px]! whitespace-nowrap', 'sm')}>
+                  {t('result.toDtm')}
+                </Link>
+                <Link href="/mistakes" className={buttonClass('secondary', 'w-full px-2! text-[15px]! whitespace-nowrap', 'sm')}>
+                  {t('result.toMistakes')}
+                </Link>
+                <Link href="/exams" className={buttonClass('primary', 'w-full px-2! text-[15px]! whitespace-nowrap', 'sm')}>
+                  {t('result.toExams')}
+                </Link>
+              </div>
+              <section className="flex min-h-0 flex-1 flex-col gap-3" aria-label={t('result.review')}>
+                <h2 className="font-heading text-[22px] font-semibold text-ink">{t('result.review')}</h2>
+                <div className="min-h-0 lg:flex-1 lg:overflow-y-auto lg:p-1 lg:pr-2 lg:[scrollbar-color:#cfc9ec_transparent] lg:[scrollbar-width:thin]">
+                  <ReviewGrid items={reviewItems} listClassName="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 lg:gap-3" />
+                </div>
+              </section>
+            </div>
+          </div>
         </main>
       </PageShell>
     </>
