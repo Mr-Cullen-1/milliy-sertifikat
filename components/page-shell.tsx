@@ -25,7 +25,7 @@ export async function PageShell({
     <div className={`flex min-h-dvh flex-col ${fit ? 'lg:h-dvh lg:overflow-hidden' : ''}`}>
       <SiteHeader minimal={minimal} active={active} signedIn={signedIn} />
       <div className="flex min-h-0 flex-1 flex-col">{children}</div>
-      <SiteFooter year={year} compact={fit || minimal} />
+      <SiteFooter year={year} />
     </div>
   );
 }

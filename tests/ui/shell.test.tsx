@@ -36,17 +36,13 @@ describe('navbar va footer', () => {
     expect(out).not.toContain('href="/history"');
   });
 
-  it("to'liq footer: maxfiylik, ogohlantirish va yil; bo'limlar navigatsiyasi yo'q (navbarda bor)", () => {
-    const out = render(<SiteFooter year={new Date().getFullYear()} />, 'en');
+  it("yagona footer: huquqlar, ogohlantirish belgisi (warn fon) va maxfiylik; boshqa havolalar yo'q", () => {
+    const out = render(<SiteFooter year={2026} />, 'en');
     expect(out).toContain('href="/privacy"');
-    expect(out).not.toContain('href="/dtm"');
+    expect(out).toContain('2026');
     expect(out).toContain(en.footer.disclaimer);
-    expect(out).toContain(String(new Date().getFullYear()));
-  });
-
-  it("ixcham footer bitta qatorda, bo'limlar ro'yxatisiz", () => {
-    const out = render(<SiteFooter year={2026} compact />);
-    expect(out).toContain('href="/privacy"');
+    expect(out).toContain('bg-warn-soft');
+    expect(out).not.toContain('href="/dtm"');
     expect(out).not.toContain('href="/mistakes"');
   });
 

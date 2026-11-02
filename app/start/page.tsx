@@ -10,7 +10,7 @@ import { PageSkeleton } from '@/components/page-skeleton';
 
 async function StartPageContent({ searchParams }: PageProps<'/start'>) {
   const [{ t }, participant, params] = await Promise.all([getI18n(), getParticipant(), searchParams]);
-  const next = typeof params.next === 'string' ? params.next : '/';
+  const next = typeof params.next === 'string' ? params.next : '/exams';
   const features = [t('start.f1'), t('start.f2'), t('start.f3'), t('start.f4')];
 
   return (

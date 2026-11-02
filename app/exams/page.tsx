@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import { PageShell } from '@/components/page-shell';
 import { PageHero } from '@/components/page-hero';
-import { buttonClass } from '@/components/ui/button';
+import { Button, buttonClass } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { formatScore } from '@/lib/format';
 import { getI18n } from '@/lib/i18n/server';
 import { requireParticipant } from '@/lib/participant.server';
+import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
 const durationOf = (formats: { duration_min: number } | { duration_min: number }[] | null) => (Array.isArray(formats) ? formats[0] : formats)?.duration_min;
@@ -15,13 +16,37 @@ export default async function ExamsPage() {
   const supabase = await createClient();
 
   const [exams, active, done] = await Promise.all([
-    supabase.from('exams').select('id, title, exam_formats(duration_min)').eq('status', 'published').order('sort').order('published_at', { ascending: false }),
+    supabase.from('exams').select('id, title, sort, exam_formats(duration_min)').eq('status', 'published').order('sort').order('published_at', { ascending: false }),
     supabase.from('attempts').select('id, exam_id').eq('status', 'in_progress'),
     supabase.from('attempts').select('id, exam_id, scaled_score, level, submitted_at').eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(10),
   ]);
+  // Nashr etilmagan variantlar (qoralama/arxiv): faqat nomi va holati bilan, o'chirilgan karta uchun. Savollar va id chiqarilmaydi.
+  const hidden = await createAdminClient().from('exams').select('title, status, sort, exam_formats(duration_min)').neq('status', 'published').order('sort');
+  if (hidden.error) throw new Error(`exams (nashr etilmagan): ${hidden.error.message}`);
   for (const r of [exams, active, done]) if (r.error) throw new Error(`exams: ${r.error.message}`);
 
   const titles = new Map((exams.data ?? []).map((e) => [e.id, e.title]));
+  // Hammasi bitta ro'yxatda, tartib bo'yicha: ochiq variantlar faol, qolganlari o'chirilgan (disabled)
+  const cards = [
+    ...(exams.data ?? []).map((e) => ({
+      kind: 'open' as const,
+      key: e.id,
+      id: e.id,
+      title: e.title,
+      sort: e.sort,
+      minutes: durationOf(e.exam_formats) ?? 150,
+      status: 'published',
+    })),
+    ...(hidden.data ?? []).map((e, i) => ({
+      kind: 'locked' as const,
+      key: `locked-${i}`,
+      id: null,
+      title: e.title,
+      sort: e.sort,
+      minutes: durationOf(e.exam_formats) ?? 150,
+      status: e.status,
+    })),
+  ].sort((x, y) => (x.sort ?? 0) - (y.sort ?? 0));
   const activeByExam = new Map((active.data ?? []).map((a) => [a.exam_id, a.id]));
 
   return (
@@ -33,20 +58,37 @@ export default async function ExamsPage() {
         </PageHero>
 
         <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-5" aria-label={t('exams.title')}>
-          {(exams.data ?? []).length === 0 && <p className="text-[19px] font-semibold text-muted md:col-span-2 lg:col-span-3">{t('exams.none')}</p>}
-          {(exams.data ?? []).map((exam) => {
-            const attemptId = activeByExam.get(exam.id);
+          {cards.length === 0 && <p className="text-[19px] font-semibold text-muted md:col-span-2 lg:col-span-3">{t('exams.none')}</p>}
+          {cards.map((exam) => {
+            const attemptId = exam.id ? activeByExam.get(exam.id) : undefined;
+            const locked = exam.kind === 'locked';
             return (
-              <article key={exam.id} className="flex flex-col justify-between gap-4 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card">
-                <div className="flex flex-col gap-1">
-                  <h2 className="font-heading text-[22px] font-semibold text-ink">{exam.title}</h2>
-                  <p className="text-[16px] font-bold text-muted">
-                    {t('exams.meta', {
-                      minutes: durationOf(exam.exam_formats) ?? 150,
-                    })}
-                  </p>
+              <article
+                key={exam.key}
+                className={
+                  'flex flex-col justify-between gap-4 rounded-3xl border-2 border-b-[5px] p-5 ' +
+                  (locked ? 'border-line bg-surface opacity-70' : 'border-line-strong bg-white shadow-card')
+                }
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex flex-col gap-1">
+                    <h2 className={`font-heading text-[22px] font-semibold ${locked ? 'text-muted' : 'text-ink'}`}>{exam.title}</h2>
+                    <p className="text-[16px] font-bold text-muted">{t('exams.meta', { minutes: exam.minutes })}</p>
+                  </div>
+                  {locked && (
+                    <span
+                      className="flex size-10 shrink-0 items-center justify-center rounded-full border-2 border-line bg-white text-muted"
+                      title={exam.status === 'archived' ? t('exams.closedExam') : t('exams.soon')}
+                    >
+                      <LockIcon />
+                    </span>
+                  )}
                 </div>
-                {attemptId ? (
+                {locked ? (
+                  <Button variant="primary" disabled className="w-full">
+                    {exam.status === 'archived' ? t('exams.closedExam') : t('exams.soon')}
+                  </Button>
+                ) : attemptId ? (
                   <Link href={`/attempts/${attemptId}`} className={buttonClass('primary')}>
                     {t('exams.resume')}
                   </Link>
@@ -86,5 +128,16 @@ export default async function ExamsPage() {
         )}
       </main>
     </PageShell>
+  );
+}
+
+/** Qulf belgisi: yopiq (arxiv) va hali ochilmagan (qoralama) variantlar kartasida. */
+function LockIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
+      <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
+      <circle cx="12" cy="15.5" r="1" fill="currentColor" />
+    </svg>
   );
 }

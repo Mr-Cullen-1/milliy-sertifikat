@@ -4,6 +4,7 @@ import { redirect } from 'next/navigation';
 import { createGuestSession } from '@/lib/auth/guest';
 import { getI18n } from '@/lib/i18n/server';
 import { participantSchema } from '@/lib/participant';
+import { safeNext } from '@/lib/safe-next';
 import { clientKey, rateLimit } from '@/lib/security/rate-limit';
 import { createClient } from '@/lib/supabase/server';
 
@@ -19,10 +20,6 @@ const text = (formData: FormData, name: Field): string => {
   const v = formData.get(name);
   return typeof v === 'string' ? v : '';
 };
-
-// Ochiq redirect'dan himoya: faqat ilova ichidagi yo'l.
-const safeNext = (v: FormDataEntryValue | null): string =>
-  typeof v === 'string' && v.startsWith('/') && !v.startsWith('//') && !v.startsWith('/start') ? v : '/';
 
 export async function registerParticipant(_prev: StartState, formData: FormData): Promise<StartState> {
   const { t, lang } = await getI18n();

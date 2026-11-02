@@ -84,6 +84,15 @@ try {
   const dtm = await page('/dtm?score=62.4&level=B%2B', g.cookie());
   check('dtm: natijadan to\'ldirilgan', dtm.status === 200 && dtm.body.includes('62,4'), `status ${dtm.status}`);
 
+  // /exams: nashr etilganlar faol, qolganlari o'chirilgan karta (id'siz, havolasiz)
+  const unpub = (await admin.from('exams').select('id, title').neq('status', 'published')).data ?? [];
+  const exList = await page('/exams', g.cookie());
+  check(
+    "/exams: nashr etilmagan variantlar o'chirilgan karta sifatida, havolasiz",
+    exList.status === 200 && unpub.every((u) => exList.body.includes(u.title) && !exList.body.includes(u.id)) && (unpub.length === 0 || /<button[^>]*disabled/.test(exList.body)),
+    `nashr etilmagan: ${unpub.length}`,
+  );
+
   // CSP nonce: statik qobiq (PPR) nonce olmaydi va brauzer Next skriptlarini bloklaydi; barcha <script> nonce bilan kelishi shart
   for (const p of ['/privacy', '/exams', '/dtm']) {
     const r = await page(p, g.cookie());
@@ -103,9 +112,9 @@ try {
 
   // ---------- Sessiyalar ajratilgan: bitta brauzerda ham admin, ham ishtirokchi ----------
   const both = [g.cookie(), a.cookie()].join('; ');
-  const draft = (await admin.from('exams').select('code, title').neq('status', 'published').limit(1)).data?.[0];
+  const draftRows = (await admin.from('exams').select('id, title').neq('status', 'published')).data ?? [];
   const mixedExams = await page('/exams', both);
-  check("ikkala sessiya bor: /exams faqat nashr etilganlarni ko'rsatadi",mixedExams.status === 200 && mixedExams.body.includes('Smoke Test') === false && (!draft || !mixedExams.body.includes(draft.title)), `status ${mixedExams.status}${draft ? ', qoralama: ' + draft.title : ''}`);
+  check("ikkala sessiya bor: /exams da qoralama variantlar havola/id sifatida chiqmaydi (admin RLS ta'sir qilmaydi)", mixedExams.status === 200 && draftRows.every((d) => !mixedExams.body.includes(d.id)), `status ${mixedExams.status}, qoralama: ${draftRows.length}`);
   const mixedResult = await page(`/attempts/${attemptId}/result`, both);
   check('ikkala sessiya bor: natija sahifasi ishtirokchi sessiyasi bilan ochiladi', mixedResult.status === 200 && mixedResult.body.includes('≈'), `status ${mixedResult.status}`);
   const mixedAdmin = await page('/admin/exams', both);
