@@ -19,7 +19,7 @@ import { parseAnswer } from '@/lib/exam/schemas';
 const FREE_MISTAKES_COUNT = 6;
 
 export default async function MistakesPage() {
-  const [{ t, lang }] = await Promise.all([getI18n(), requireParticipant('/mistakes')]);
+  const [{ t, lang }, participant] = await Promise.all([getI18n(), requireParticipant('/mistakes')]);
   const supabase = await createClient();
 
   const [mistakesRes, topics] = await Promise.all([supabase.rpc('get_my_mistakes', { p_lang: lang }), supabase.from('topics').select('id, name_uz')]);
@@ -56,7 +56,7 @@ export default async function MistakesPage() {
       blockId: g.blockId,
       label: blockLabel(g.blockId),
       rows: g.items.map(({ m, payload }, ri): MistakeRow => {
-        const locked = offset + ri >= FREE_MISTAKES_COUNT;
+        const locked = !participant.isPro && offset + ri >= FREE_MISTAKES_COUNT;
         const base = { id: m.question_id, timesText: t('mistakes.times', { n: m.times_wrong }), topicText: topicName(m.topic_id, lang, uzName.get(m.topic_id)), locked };
         if (locked) return { ...base, detail: null };
         const y2Ids = payload.type === 'y2' ? payload.data.items.map((i) => i.id) : [];

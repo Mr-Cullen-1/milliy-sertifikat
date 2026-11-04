@@ -17,12 +17,19 @@ export default async function ExamsPage() {
   const supabase = await createClient();
 
   const [exams, active, done] = await Promise.all([
-    supabase.from('exams').select('id, title, sort, exam_formats(duration_min)').eq('status', 'published').order('sort').order('published_at', { ascending: false }),
+    supabase
+      .from('exams')
+      .select('id, title, sort, status, exam_formats(duration_min)')
+      .in('status', ['published', 'draft', 'archived'])
+      .order('sort')
+      .order('published_at', { ascending: false }),
     supabase.from('attempts').select('id, exam_id').eq('status', 'in_progress'),
     supabase.from('attempts').select('id, exam_id, scaled_score, level, submitted_at').eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(10),
   ]);
-  // Nashr etilmagan variantlar (qoralama/arxiv): faqat nomi va holati bilan, o'chirilgan karta uchun. Savollar va id chiqarilmaydi.
-  const hidden = await createAdminClient().from('exams').select('title, status, sort, exam_formats(duration_min)').neq('status', 'published').order('sort');
+  // RLS: oddiy ishtirokchiga faqat nashr etilganlar, Pro huquqli ishtirokchiga qoralamalar ham keladi.
+  // Qolgan nashr etilmagan variantlar (qoralama/arxiv): faqat nomi va holati bilan, o'chirilgan karta uchun. Savollar va id mijozga chiqarilmaydi.
+  const hiddenRes = await createAdminClient().from('exams').select('id, title, status, sort, exam_formats(duration_min)').neq('status', 'published').order('sort');
+  const hidden = { ...hiddenRes, data: (hiddenRes.data ?? []).filter((e) => !(exams.data ?? []).some((o) => o.id === e.id)) };
   if (hidden.error) throw new Error(`exams (nashr etilmagan): ${hidden.error.message}`);
   for (const r of [exams, active, done]) if (r.error) throw new Error(`exams: ${r.error.message}`);
 
@@ -36,7 +43,7 @@ export default async function ExamsPage() {
       title: e.title,
       sort: e.sort,
       minutes: durationOf(e.exam_formats) ?? 150,
-      status: 'published',
+      status: e.status,
     })),
     ...(hidden.data ?? []).map((e, i) => ({
       kind: 'locked' as const,

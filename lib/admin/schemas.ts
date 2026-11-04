@@ -60,6 +60,8 @@ export const participantsPageSchema = z.object({
       lang: z.string().nullable(),
       created_at: z.string(),
       consent_at: z.string().nullable(),
+      is_pro: z.boolean(),
+      is_tester: z.boolean(),
       attempts: num,
       best_scaled: num.nullable(),
       last_attempt_at: z.string().nullable(),

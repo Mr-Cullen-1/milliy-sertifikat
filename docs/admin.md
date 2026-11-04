@@ -12,7 +12,7 @@ Manzil: `/admin` (kirish: `/admin/login`; hisob yaratish: [docs/auth.md](auth.md
 | Savol ko'rinishi | talaba ko'radigan holat (4 tilda almashtirish, KaTeX va chizma), kalit, yechim, tipik xato |
 | **Yuklash** | JSON import: **Tekshirish** (xatolar savol raqami va maydon yo'li bilan), **Tekshirib yuklash** (bitta tranzaksiya: hammasi yoki hech narsa) |
 | **Natijalar** | barcha urinishlar: ishtirokchi, telefon, sinf, variant, ball, daraja, sarflangan vaqt, tab almashtirish soni, topshirish sababi |
-| **Ishtirokchilar** | ro'yxat, ism/telefon bo'yicha qidiruv, urinishlar, eng yaxshi ball, rozilik |
+| **Ishtirokchilar** | ro'yxat, ism/telefon bo'yicha qidiruv, urinishlar, eng yaxshi ball, rozilik. Admin: **Pro berish / Pro ni olish**, **Test akkaunt yaratish** va test akkauntga **Kirish havolasi** |
 | **Audit** (admin) | kirish, nashr, arxiv, import amallari jurnali |
 
 ## Variantlar (A–F) va ochish tartibi
@@ -20,6 +20,10 @@ Manzil: `/admin` (kirish: `/admin/login`; hisob yaratish: [docs/auth.md](auth.md
 - Ochish: *Imtihonlar* → variant yonidagi **Ochish (nashr)**. Tizim avval tekshiradi: 45 topshiriq, bo'limlar 1–32 Y-1 / 33–35 Y-2 / 36–45 O, bo'limlar bo'yicha sonlar (2/11/8/3/4/14/3), kalitlar bor, arxivlangan savol yo'q. Muammo bo'lsa sababi ko'rsatiladi.
 - **Nashrdan keyin savollar o'zgarmas** (natijalar buzilmasligi uchun). Savolda xato topilsa: mockni **Yopish (arxiv)**, to'g'rilangan variantni yangi `external_id` yoki yangi kod bilan yuklash.
 - Yopilgan (arxiv) mock: yangi urinish boshlanmaydi, mavjud natijalar saqlanadi; **Qayta ochish** mumkin.
+
+## Pro huquqi va test akkaunt (ishtirokchilar sahifasi)
+- **Pro huquqi** (`profiles.is_pro`, faqat admin beradi) ishtirokchiga hamma variantni (qoralama va arxivdagilarni ham, nashr qilinmasdan) ochib topshirish va natijada/xatolar daftarida tahlilni to'liq ko'rish imkonini beradi. Boshqa ishtirokchilarga ta'sir qilmaydi. Foydalanuvchi bu ustunni o'zi o'zgartira olmaydi (UPDATE huquqi yo'q).
+- **Test akkaunt:** *Ishtirokchilar* → **Test akkaunt yaratish** (Pro bilan yaratiladi, `t-<uuid>@tester.invalid`; telefon va sinf formal to'ldiriladi). Kirish: qatordagi **Kirish havolasi** bir martalik havola beradi (`/enter?t=…`, taxminan 1 soat amal qiladi); havola ochilgan brauzerda ishtirokchi sessiyasi ochiladi (admin sessiyasi alohida qoladi). Havola faqat `@tester.invalid` akkauntlar uchun beriladi, hamma amallar audit jurnaliga yoziladi.
 
 ## JSON yuklash formati
 Namuna: *Yuklash* sahifasidagi "Namunaviy JSON" (yoki `content/variants/variant-A.json`).

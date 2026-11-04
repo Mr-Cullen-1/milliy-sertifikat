@@ -9,6 +9,8 @@ export interface Participant {
   grade: string | null;
   /** ism, telefon va sinf to'ldirilgan (imtihon boshlash uchun shart) */
   complete: boolean;
+  /** Pro huquqi (admin beradi): qoralama variantlar va to'liq tahlil ochiq */
+  isPro: boolean;
 }
 
 /** Joriy brauzer sessiyasidagi ishtirokchi; sessiya yoki profil bo'lmasa null. */
@@ -18,7 +20,7 @@ export async function getParticipant(): Promise<Participant | null> {
   const id = data?.claims.sub;
   if (!id) return null;
 
-  const { data: profile } = await supabase.from('profiles').select('name, phone, grade').eq('id', id).maybeSingle();
+  const { data: profile } = await supabase.from('profiles').select('name, phone, grade, is_pro').eq('id', id).maybeSingle();
   if (!profile) return null;
 
   return {
@@ -27,6 +29,7 @@ export async function getParticipant(): Promise<Participant | null> {
     phone: profile.phone,
     grade: profile.grade,
     complete: profile.name.trim() !== '' && !!profile.phone && !!profile.grade,
+    isPro: profile.is_pro,
   };
 }
 

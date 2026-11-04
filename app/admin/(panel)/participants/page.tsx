@@ -1,4 +1,5 @@
-import { Card, fmtDateTime, PageTitle, Pager, pageParam, strParam, Table } from '@/components/admin/ui';
+import { CreateTesterForm, ParticipantActions } from '@/components/admin/participant-actions';
+import { Badge, Card, fmtDateTime, PageTitle, Pager, pageParam, strParam, Table } from '@/components/admin/ui';
 import { PAGE_SIZE, participantsPageSchema } from '@/lib/admin/schemas';
 import { createClient } from '@/lib/supabase/server';
 import { Suspense } from 'react';
@@ -17,6 +18,14 @@ async function AdminParticipantsPageContent({ searchParams }: PageProps<'/admin/
   return (
     <>
       <PageTitle title="Ishtirokchilar" />
+      <Card title="Test o'quvchi akkaunti">
+        <p className="text-[14px] font-bold text-muted">
+          {
+            "Pro huquqi bor ishtirokchi qoralama variantlarni ham ochib topshira oladi va tahlil to'liq ochiq bo'ladi (variantlar nashr qilinmaydi). Pro'ni istalgan ishtirokchiga jadvaldan berishingiz mumkin."
+          }
+        </p>
+        <CreateTesterForm />
+      </Card>
       <Card>
         <form method="get" className="flex flex-wrap items-end gap-3">
           <label className="flex flex-col gap-1 text-[13px] font-extrabold text-muted">
@@ -29,10 +38,15 @@ async function AdminParticipantsPageContent({ searchParams }: PageProps<'/admin/
         </form>
       </Card>
       <Pager basePath="/admin/participants" params={{ q }} page={page} total={data.total} pageSize={PAGE_SIZE} />
-      <Table head={['Ism familiya', 'Telefon', 'Sinf', 'Til', 'Urinishlar', 'Eng yaxshi ball', 'Oxirgi urinish', "Ro'yxatdan o'tgan", 'Rozilik']} empty={data.rows.length === 0 ? 'Topilmadi' : undefined}>
+      <Table
+        head={['Ism familiya', 'Telefon', 'Sinf', 'Til', 'Urinishlar', 'Eng yaxshi ball', 'Oxirgi urinish', "Ro'yxatdan o'tgan", 'Rozilik', 'Pro', 'Amal']}
+        empty={data.rows.length === 0 ? 'Topilmadi' : undefined}
+      >
         {data.rows.map((p) => (
           <tr key={p.id}>
-            <td>{p.name}</td>
+            <td>
+              {p.name} {p.is_tester && <Badge tone="gray">test</Badge>}
+            </td>
             <td className="whitespace-nowrap">{p.phone ?? '—'}</td>
             <td>{p.grade ?? '—'}</td>
             <td>{p.lang ?? '—'}</td>
@@ -41,6 +55,10 @@ async function AdminParticipantsPageContent({ searchParams }: PageProps<'/admin/
             <td className="whitespace-nowrap">{fmtDateTime(p.last_attempt_at)}</td>
             <td className="whitespace-nowrap">{fmtDateTime(p.created_at)}</td>
             <td>{p.consent_at ? 'ha' : "yo'q"}</td>
+            <td>{p.is_pro ? <Badge tone="purple">Pro</Badge> : '—'}</td>
+            <td>
+              <ParticipantActions id={p.id} isPro={p.is_pro} isTester={p.is_tester} />
+            </td>
           </tr>
         ))}
       </Table>

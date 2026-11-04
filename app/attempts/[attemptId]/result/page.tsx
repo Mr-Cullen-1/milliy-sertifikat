@@ -66,7 +66,7 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
     return code ? t(`blocks.${code}`) : String(id);
   };
   const reviewItems: ReviewItem[] = items.map((item) => {
-    if (item.position > FREE_REVIEW_COUNT) {
+    if (!participant?.isPro && item.position > FREE_REVIEW_COUNT) {
       return {
         position: item.position,
         status: 'empty',

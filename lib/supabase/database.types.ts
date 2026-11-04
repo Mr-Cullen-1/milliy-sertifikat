@@ -141,14 +141,14 @@ isOneToOne: false
                   ]
                 },"profiles": {
                   Row: {
-                    "consent_at": string | null,"created_at": string,"grade": string | null,"id": string,"lang": string | null,"name": string,"phone": string | null,"role": Database["public"]['Enums']["user_role"]
+                    "consent_at": string | null,"created_at": string,"grade": string | null,"id": string,"is_pro": boolean,"lang": string | null,"name": string,"phone": string | null,"role": Database["public"]['Enums']["user_role"]
                   }
                   ComputedFields: never
                   Insert: {
-                    "consent_at"?: string | null,"created_at"?: string,"grade"?: string | null,"id": string,"lang"?: string | null,"name"?: string,"phone"?: string | null,"role"?: Database["public"]['Enums']["user_role"]
+                    "consent_at"?: string | null,"created_at"?: string,"grade"?: string | null,"id": string,"is_pro"?: boolean,"lang"?: string | null,"name"?: string,"phone"?: string | null,"role"?: Database["public"]['Enums']["user_role"]
                   }
                   Update: {
-                    "consent_at"?: string | null,"created_at"?: string,"grade"?: string | null,"id"?: string,"lang"?: string | null,"name"?: string,"phone"?: string | null,"role"?: Database["public"]['Enums']["user_role"]
+                    "consent_at"?: string | null,"created_at"?: string,"grade"?: string | null,"id"?: string,"is_pro"?: boolean,"lang"?: string | null,"name"?: string,"phone"?: string | null,"role"?: Database["public"]['Enums']["user_role"]
                   }
                   Relationships: [
                     

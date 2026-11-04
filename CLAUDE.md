@@ -8,11 +8,12 @@ Platforma reliz oldi holatida: foydalanuvchi qismi, admin paneli, 6 variant (270
 Tayyor:
 - Next.js 16 + TS + Tailwind 4 (pnpm), Vitest, PGlite (Docker kerak emas). Dizayn: Figma B variant "O'yin" (docs/design.md, tokenlar app/globals.css, components/ui/).
 - Imtihon yadrosi lib/exam/* (ball, daraja, normallashtirish, finalize, Zod sxemalar, saqlash navbati, taymer); format konfiguratsiyada: config/exam-format.math-v1.ts.
-- Baza (Supabase bulut, ap-southeast-2): supabase/migrations/ (7 ta: sxema, RLS, RPC dvigatel, ma'lumotnoma, ishtirokchi profili, platforma, import). Ma'lumotnoma migratsiyasi avto-generatsiya: `pnpm gen:reference`. Tiplar: `pnpm gen:types`. Qo'llash: `npx supabase@latest db push --db-url "$SUPABASE_DB_URL"`.
+- Baza (Supabase bulut, ap-southeast-2): supabase/migrations/ (9 ta: sxema, RLS, RPC dvigatel, ma'lumotnoma, ishtirokchi profili, platforma, import, Pro huquqi 2 ta). Ma'lumotnoma migratsiyasi avto-generatsiya: `pnpm gen:reference`. Tiplar: `pnpm gen:types`. Qo'llash: `npx supabase@latest db push --db-url "$SUPABASE_DB_URL"`.
 - Foydalanuvchi sahifalari: /start, /, /exams, /exams/[id], /attempts/[id], .../result, /history, /mistakes, /dtm, /privacy. Server actions: app/attempts/actions.ts, app/start/actions.ts.
 - Tillar: uz, ru, kaa (qoraqalpoq lotin), en: lib/i18n/ (cookie `lang`, tipli lug'at, `useT`/`getI18n`), savollar tarjimasi questions.i18n da.
 - Admin: /admin (docs/admin.md): boshqaruv paneli, imtihonlar (nashr/arxiv), savollar + ko'rinish, JSON import, natijalar, ishtirokchilar, audit. Faqat o'zbekcha.
 - Kontent: content/gen/* generatorlari (original savollar, javoblar kod bilan hisoblanadi) -> content/variants/variant-A..F.json -> `pnpm content:seed` (faqat A ochiq, B–F qoralama). docs/content.md.
+- Pro huquqi (`profiles.is_pro`, admin panelda beriladi): qoralama/arxiv variantlar va to'liq tahlil; test akkaunt `@tester.invalid` + `/enter` bir martalik havola (docs/admin.md).
 - Xavfsizlik: nonce asosida CSP (proxy.ts, lib/security/csp.ts), xavfsizlik sarlavhalari (next.config.ts), Postgres rate limit, audit jurnali, rozilik, suv belgisi, tab-almashtirish logi, mehmon hisoblarni tozalash.
 
 Muhim kelishuvlar:
