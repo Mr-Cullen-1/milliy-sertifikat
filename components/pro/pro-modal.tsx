@@ -84,7 +84,7 @@ export function ProProvider({ children }: { children: ReactNode }) {
           if (e.target === ref.current) setOpen(false);
         }}
         aria-labelledby="pro-title"
-        className="app-modal overflow-y-auto rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-0 text-ink shadow-xl"
+        className="m-auto w-[min(94vw,960px)] max-h-[92dvh] overflow-y-auto rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-0 text-ink shadow-xl backdrop:bg-ink/45"
       >
         <div className="relative grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
           <button

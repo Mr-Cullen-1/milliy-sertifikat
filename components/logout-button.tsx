@@ -40,7 +40,7 @@ export function LogoutButton() {
         onClick={(e) => {
           if (e.target === ref.current) setOpen(false);
         }}
-        className="app-modal rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-6 text-ink shadow-xl open:flex open:flex-col open:justify-center sm:p-10 [&>*]:mx-auto [&>*]:w-full [&>*]:max-w-[520px]"
+        className="m-auto w-[min(92vw,440px)] rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-6 text-ink shadow-xl backdrop:bg-ink/40"
       >
         <h2 className="font-heading text-[24px] leading-8 font-semibold">{t('nav.logoutTitle')}</h2>
         <p className="mt-2 text-[16px] leading-6 font-semibold text-muted">{t('nav.logoutLead')}</p>

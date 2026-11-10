@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Barcha modal oynalar (<dialog>): viewportning 80% i; orqa fon kuchli xiralashtirilgan, deyarli o'qib bo'lmaydi. */
+/* "Savollar tahlili" oynasi (<dialog>): viewportning 80% i; orqa fon kuchli xiralashtirilgan, deyarli o'qib bo'lmaydi. Boshqa modallar o'z o'lchamida. */
 @layer components {
   .app-modal {
     margin: auto;
