@@ -55,12 +55,15 @@ describe('navbar va footer', () => {
     expect(render(<LangSwitcher />, 'en')).toContain('>EN<');
   });
 
-  it("Pro obuna: navbarda tugma bor; oyna matni (nima ochiladi, 9 variant va 405 test) tayyor, havola bo'lmasa CTA yo'q", () => {
+  it("Pro obuna: navbarda tugma bor; oyna matni (to'liq yechimlar: imtihon tahlili, xatolar daftari, mashq; bank hajmi) tayyor, havola bo'lmasa CTA yo'q", () => {
     const out = render(<SiteHeader />).replaceAll('&#x27;', "'");
     expect(out).toContain(`aria-label="${uz.pro.nav}"`);
-    for (const text of [uz.pro.i1, uz.pro.i2, uz.pro.i3, uz.pro.i4, uz.pro.i5]) expect(out).toContain(text);
-    expect(out).toContain('>405<');
-    expect(out).toContain('>9<');
+    for (const text of [uz.pro.i1, uz.pro.i2, uz.pro.i3, uz.pro.i4]) expect(out).toContain(text);
+    expect(out).toContain('>1900+<');
+    expect(out).toContain('>6<');
+    // eskirgan va'dalar qaytmasin: variantlar endi hamma uchun ochiq, bank 9 variant/405 test emas
+    expect(out).not.toContain('405');
+    expect(out).not.toContain('9 ta to');
     expect(out).not.toContain(uz.pro.cta);
   });
 

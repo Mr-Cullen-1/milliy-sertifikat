@@ -66,10 +66,11 @@ export function ProProvider({ children }: { children: ReactNode }) {
     if (!isOpen && d.open) d.close();
   }, [isOpen]);
 
-  const items = [t('pro.i1'), t('pro.i2'), t('pro.i3'), t('pro.i4'), t('pro.i5')];
+  const items = [t('pro.i1'), t('pro.i2'), t('pro.i3'), t('pro.i4')];
+  // Bank hajmi (docs/v2-reja.md): 6 mock variant (270 savol) + 1711 mashq savoli; matn pro.i4 bilan mos bo'lishi kerak
   const stats = [
-    { value: '9', label: t('pro.statVariants') },
-    { value: '405', label: t('pro.statQuestions') },
+    { value: '6', label: t('pro.statVariants') },
+    { value: '1900+', label: t('pro.statQuestions') },
     { value: '150', label: t('pro.statMinutes') },
   ];
 

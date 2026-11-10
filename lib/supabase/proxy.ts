@@ -5,7 +5,7 @@ import { AREA_HEADER, cookieOptionsFor } from './area';
 import type { Database } from './database.types';
 
 // Sessiya talab qiladigan yo'llar. /admin alohida: kirishsiz /admin/login ga yo'naltiriladi (rol sahifada tekshiriladi).
-const PROTECTED = ['/exams', '/attempts', '/history', '/mistakes'];
+const PROTECTED = ['/exams', '/attempts', '/history', '/mistakes', '/saved', '/practice'];
 
 const isProtected = (pathname: string) => PROTECTED.some((p) => pathname === p || pathname.startsWith(`${p}/`));
 const isAdminArea = (pathname: string) => (pathname === '/admin' || pathname.startsWith('/admin/')) && !pathname.startsWith('/admin/login');

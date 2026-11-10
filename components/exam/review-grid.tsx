@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useT } from '@/components/i18n/provider';
 import { Markdown } from '@/components/math/markdown';
 import { ProOpenButton, useProModal } from '@/components/pro/pro-modal';
+import { SaveButton } from '@/components/saved/save-button';
+import { useSaved } from '@/components/saved/use-saved';
 import { Button } from '@/components/ui/button';
 import type { Figure } from '@/lib/exam/payload';
 import { FigureImage } from './figure';
@@ -24,6 +26,8 @@ export interface ReviewItem {
   mistakeNoteMd: string | null;
   /** Pro obuna talab qiladigan savol: tafsilot serverda olib tashlanadi, bosganda Pro oynasi ochiladi. */
   locked?: boolean;
+  /** Berilsa, oynada "saqlash" (yer belgisi) tugmasi chiqadi. */
+  questionId?: string;
 }
 
 function LockIcon() {
@@ -51,14 +55,18 @@ export function ReviewGrid({
   items,
   listClassName = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-4',
   autoOpen = false,
+  savedIds = [],
 }: {
   items: ReviewItem[];
   listClassName?: string;
   /** Imtihon topshirilgan zahoti: 1-savol tahlili oynasi o'zi ochiladi. */
   autoOpen?: boolean;
+  /** Foydalanuvchi allaqachon saqlagan savollar id lari. */
+  savedIds?: string[];
 }) {
   const t = useT();
   const pro = useProModal();
+  const saved = useSaved(savedIds);
   const [open, setOpen] = useState<number | null>(() => (autoOpen && items[0] && !items[0].locked ? 0 : null));
   const ref = useRef<HTMLDialogElement>(null);
 
@@ -129,10 +137,17 @@ export function ReviewGrid({
         onClick={(e) => {
           if (e.target === ref.current) setOpen(null);
         }}
+        aria-labelledby="review-title"
         className="app-modal rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-0 text-ink shadow-xl"
       >
         {item && open !== null && (
           <div className="flex h-full flex-col">
+            {/* Oyna nima ekani darrov tushunarli bo'lishi uchun sarlavha */}
+            <div className="border-b-2 border-line bg-surface px-5 py-2.5">
+              <h2 id="review-title" className="font-heading text-[18px] leading-6 font-semibold text-ink">
+                {t('result.review')}
+              </h2>
+            </div>
             <div className="flex items-center gap-3 border-b-2 border-line px-5 py-4">
               <span className={`flex size-9 shrink-0 items-center justify-center rounded-[10px] text-[17px] font-black text-white ${badge[item.status]}`}>
                 {item.position}
@@ -142,6 +157,14 @@ export function ReviewGrid({
                 <p className="truncate text-[14px] font-bold text-muted">{item.block}</p>
               </div>
               <span className="text-[17px] font-extrabold text-ink-soft">{item.scoreText}</span>
+              {item.questionId && (
+                <SaveButton
+                  saved={saved.isSaved(item.questionId)}
+                  pending={saved.pendingId === item.questionId}
+                  error={saved.error}
+                  onToggle={() => void saved.toggle(item.questionId!)}
+                />
+              )}
             </div>
 
             <div className="flex min-h-0 flex-col gap-4 overflow-y-auto px-5 py-5">

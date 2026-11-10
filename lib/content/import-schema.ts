@@ -27,6 +27,8 @@ export const importQuestionSchema = z
     weight: z.number().positive().max(10).optional(),
     est_seconds: z.number().int().positive().max(1800).optional(),
     source: z.string().max(200).optional(),
+    /** Zaxira: 'exam' (mock variantlar, standart) yoki 'practice' (mashq; mockka kirmaydi, darrov nashr etiladi). */
+    pool: z.enum(['exam', 'practice']).optional(),
     stem_md: z.string().min(1).max(4000),
     payload: z.unknown(),
     key: z.unknown(),

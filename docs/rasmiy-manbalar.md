@@ -42,5 +42,7 @@ Savol: moslashtirish bandlari 0, 1, 2 deb raqamlanadimi (testmakon.uz shunday ko
 
 Tasdiqlanmagani: bu bitta namuna, haqiqiy varaqlar farq qilishi mumkin (variantlar soni va h.k.); blok formati spetsifikatsiyada rasm sifatida, shuning uchun matn qidiruvi bilan tekshirib bo'lmaydi; variant bir marta ishlatilishi mumkinmi (namuna 3 ta to'g'ri + 3 ta ishlatilmaydigan variantga mos). Agar rasmiy format tasdiqlansa, o'zgartiriladigan joylar: `lib/exam/payload.ts` (Y-2 sxemasi), `lib/exam/scoring.ts`, `content/gen/*` (33–35 generatorlari), `components/exam/answer-y2.tsx` va natija/tahlil ko'rinishlari. Bu yirik o'zgarish, shuning uchun qaror foydalanuvchida.
 
+**Qaror (2026-11-10): bizning tuzilish saqlanadi** (har Y-2 savoli o'z sharti va 3 bandi bilan). Rasmiy namunadan farq ma'lum va ataylab qoldirilgan; rasmiy format keyinchalik qayta ko'rib chiqilishi mumkin.
+
 ## Rasmiy tasdiq uchun eng ishonchli keyingi qadam
 Baholash agentligining rasmiy kanali (@BaholashUz) yoki sayti orqali spetsifikatsiya PDF/rasmlarini olib, Y-2 tuzilishini, O javob qoidalarini va qiyinlik taqsimotini tasdiqlash. Tasdiqlangach faqat `lib/exam/payload.ts`, `lib/exam/normalize-answer.ts` va generatorlar tuzatiladi; format konfiguratsiyada (`config/exam-format.math-v1.ts`).

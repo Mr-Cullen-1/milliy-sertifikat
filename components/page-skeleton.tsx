@@ -1,3 +1,4 @@
+import type { NavKey } from './nav-links';
 import { PageShell } from './page-shell';
 
 /** Yuklanish holati uchun bo'sh joy (Suspense fallback): navbar va footer darrov chiqadi, kontent o'rni pulsatsiya qiladi. */
@@ -10,7 +11,7 @@ export function BlockSkeleton({ className = '' }: { className?: string }) {
   );
 }
 
-export function PageSkeleton({ active, minimal = false }: { active?: 'exams' | 'history' | 'mistakes' | 'dtm'; minimal?: boolean }) {
+export function PageSkeleton({ active, minimal = false }: { active?: NavKey; minimal?: boolean }) {
   return (
     <PageShell active={active} minimal={minimal}>
       <main className="mx-auto flex w-full max-w-[860px] flex-1 flex-col px-4 py-10">

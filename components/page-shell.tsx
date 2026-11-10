@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import { hasSession } from '@/lib/participant.server';
 import { ProProvider } from '@/components/pro/pro-modal';
 import { currentYear } from '@/lib/year';
+import { BottomNav } from './bottom-nav';
+import type { NavKey } from './nav-links';
 import { SiteFooter } from './site-footer';
 import { SiteHeader } from './site-header';
 
@@ -17,7 +19,7 @@ export async function PageShell({
   fit = false,
 }: {
   children: ReactNode;
-  active?: 'exams' | 'history' | 'mistakes' | 'dtm';
+  active?: NavKey;
   minimal?: boolean;
   fit?: boolean;
 }) {
@@ -28,7 +30,10 @@ export async function PageShell({
         <SiteHeader minimal={minimal} active={active} signedIn={signedIn} />
         <div className="flex min-h-0 flex-1 flex-col">{children}</div>
         <SiteFooter year={year} />
+        {/* Telefon: pastki navigatsiya paneli kontentni yopib qo'ymasligi uchun bo'sh joy */}
+        {!minimal && <div aria-hidden className="h-[calc(64px+env(safe-area-inset-bottom))] shrink-0 md:hidden" />}
       </div>
+      {!minimal && <BottomNav active={active} />}
     </ProProvider>
   );
 }

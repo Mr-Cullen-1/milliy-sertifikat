@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# mashq zaxirasi (pnpm content:pool bilan yaratiladi)
+/content/pool/

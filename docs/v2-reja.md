@@ -56,7 +56,7 @@ Ishonchlilik bo'yicha eslatma:
 |---|---|---|---|
 | 18 | Telegram bot va kanal | Sanalar, natijalar haqida xabar | Yo'q |
 | 19 | Kontent sahifalar | Yangiliklar, qo'llanmalar, 2026 sanalari, natijalar qachon chiqadi, FAQ (SEO) | Faqat /privacy |
-| 20 | Interfeys | Tungi rejim, mobil pastki panel | Yo'q |
+| 20 | Interfeys | Mobil pastki panel (tungi rejim 2026-11-10 da rejadan chiqarilgan) | Pastki panel bajarilgan |
 | 21 | O'zbek kirill tili | Bor | Yo'q (uz-lotin, ru, kaa, en bor) |
 
 ### Qisman bor
@@ -74,7 +74,7 @@ Tartib: imtihon platformasining asosiy qiymatiga eng yaqin va eng arzon narsalar
 1. **Mavzu bo'yicha mashq.** Savollar bazada allaqachon mavzuga bog'langan (docs/mavzular.md: 7 bo'lim, 103 ishchi mavzu). Qo'shiladigan narsalar: mavzu va savol soni tanlash, qiyinlik, "oddiy / vaqt bilan / imtihon" rejimi, natija va tahlil.
 2. **Variantlar sonini ko'paytirish** 6 dan 15+ gacha (docs/loyiha.md da rejalashtirilgan). `content/gen/*` generatorlari, javoblar kod bilan hisoblanadi, mutaxassis tekshiruvi shart.
 3. **Saqlangan savollar** (belgilab qo'yib keyin ko'rish).
-4. **Tungi rejim**, mobil navigatsiyani ko'rib chiqish.
+4. Mobil navigatsiya (bajarilgan). Tungi rejim rejadan chiqarilgan (2026-11-10).
 
 ### Bosqich 2: DTM
 5. **DTM kalkulyatorni tekshirish va to'g'rilash.** ÷65 va ÷75 farqini rasmiy manbalar bilan aniqlash. Natija noto'g'ri bo'lsa, foydalanuvchiga yolg'on ball ko'rsatamiz, shuning uchun bu 6-bandgacha bajarilsin.
@@ -215,3 +215,67 @@ Y-1 uchun bo'lim kartasi (mobil joyni yeydi), ogohlantirish ikonkasi va "Keyinro
 | UI-15 o'quv reja | Qilinmadi | 3-bosqich |
 
 Tekshiruv: `pnpm typecheck`, `lint`, `test` (yangi testlar: navigator bo'limlari, bayroq, Y-2 ko'rsatma, ekran klaviaturasi funksiyalari). Imtihon ekrani haqiqiy Chrome (headless, CDP) da: 393×852 (mobil, sensorli), 1440×900 va 1366×680; Y-1, Y-2, O savollari scrollsiz (desktop), yon panel, topshirish oynasi, klaviatura va ekran klaviaturasi ishlashi ko'rildi.
+
+## 8. Qabul qilingan qarorlar (2026-11-10)
+
+| # | Qaror |
+|---|---|
+| Q1 | **Faqat matematika.** DTM ning boshqa fanlari va ko'p fanli DTM simulyatsiya qilinmaydi (DTM kalkulyator qoladi) |
+| Q6 | Bayroq hamma o'lchamda savol kartasi burchagida (bajarilgan) |
+| Q7 | **Mobil pastki navigatsiya paneli kerak** (UI-12 tasdiqlandi): Imtihonlar, Natijalarim, Xatolar daftari, DTM; imtihon ekranida ko'rsatilmaydi |
+| Y-2 | **Bizning tuzilish saqlanadi** (docs/rasmiy-manbalar.md) |
+
+## 9. Bosqich 1 tayyorlik tekshiruvi (2026-11-10)
+
+Bazadagi savollar (faqat o'qildi): **270 ta, hammasi nashr etilgan** (Y-1 192, Y-2 18, O 60; qiyinlik L1 72 / L2 114 / L3 84), hammasida yechim bor.
+
+| Bo'lim | Savol |
+|---|---|
+| Sonlar va amallar | 12 |
+| Algebraik shakl almashtirishlar | 66 |
+| Tenglama va tengsizliklar | 48 |
+| Funksiyalar | 18 |
+| Matematik analiz asoslari | 24 |
+| Geometriya | 84 |
+| To'plam, ehtimollik, modellashtirish | 18 |
+
+Mavzular (103 ta): savoli bor 94, savolsiz 9; mavzudagi savol soni min 1 / median 3 / max 9; **10 va undan ko'p savolli mavzu yo'q**, 5+ savolli 16 ta, 2 va undan kam 47 ta.
+
+**Xulosa:** mavzu bo'yicha mashq (1-band) hozirgi bankda ishlamaydi: mashq uchun mavzuga o'rtacha 3 savol. Bo'lim darajasida (7 ta) ishlaydi, lekin bu savollar mock variantlarda ham bor: mashqda kalit va yechimni ko'rgan o'quvchi keyin shu savolni mockda uchratadi. Shuning uchun mashq uchun **alohida (mockka kirmaydigan) savollar zaxirasi** kerak, ya'ni 2-band (kontentni ko'paytirish) amalda 1-bandning sharti.
+
+Generatorlar (`content/gen/`) parametrli shablonlar (jami taxminan 112 shablon: sonlar 11, algebra 26, analiz 19, to'plam 16, planimetriya 17, stereometriya 23 va boshqalar), parametrlari o'zgartirilsa har shablondan ko'plab turli savol chiqadi: shuning uchun bo'lim va mavzu darajasida zaxirani ko'paytirish mumkin. Shablonlar soni 103 mavzuni to'liq qoplamaydi: mavzu bo'yicha mashq uchun yetishmagan mavzularga yangi shablonlar yozish kerak. Mutaxassis tekshiruvi (docs/content.md) har yangi savol turiga zarur.
+
+### Taklif qilingan Bosqich 1 tartibi
+- **1A (bankka bog'liq emas):** mobil pastki navigatsiya paneli (UI-12), saqlangan savollar.
+- **1B (birinchi navbatda kontent):** mashq zaxirasini yaratish: alohida `pool` (mockka kirmaydi), avval bo'lim darajasida har bo'limda kamida ~60–100 savol, keyin mavzu darajasiga.
+- **1C (1B dan keyin):** mavzu/bo'lim bo'yicha mashq (savol soni, qiyinlik, rejim, natija).
+- **1D:** mock variantlar sonini 6 dan ko'paytirish (1B generatorlari bilan bir ish, alohida seed).
+
+### Mashq qurilishidan oldin hal qilinadigan savollar
+| # | Savol | Tavsiya |
+|---|---|---|
+| Q8 | Mashq savollari mock variantlardan alohida zaxiradami? | Ha, alohida |
+| Q9 | Mashq birligi: bo'limmi (7) yoki mavzu (103)? | Birinchi bo'lim, zaxira o'sgach mavzu |
+| Q10 | Oddiy mashqda javob darrov ko'rsatiladimi (to'g'ri javob va yechim)? | Ha (mashq = o'rganish); "imtihon rejimi"da oxirida |
+
+### Bosqich 1A bajarilishi (2026-11-10, kodda; commit qilinmagan)
+
+Qabul qilingan: Q8 (mashq zaxirasi mockdan alohida), Q9 (avval bo'lim, keyin mavzu), Q10 (oddiy mashqda javob darrov, imtihon rejimida oxirida).
+
+| Band | Holat | Izoh |
+|---|---|---|
+| Mobil pastki navigatsiya (UI-12) | **Bajarildi** | `components/bottom-nav.tsx`: Imtihonlar, Natijalarim, Xatolar daftari, DTM; md dan kichik ekranda; hamburger menyu olib tashlandi; imtihon ekranida yo'q. `/dtm` da mobil va desktopda brauzerda tekshirildi |
+| Saqlangan savollar | **Bajarildi, baza migratsiyasi qo'llanmagan** | `supabase/migrations/20261110100000_saved_questions.sql` (jadval + 3 funksiya, PGlite testlari o'tdi). Tahlil oynasi (natija va xatolar daftari) sarlavhasida yer belgisi; `/saved` sahifasi; "Xatolar | Saqlangan" yorliqlari. Migratsiya bulut bazaga qo'llanmaguncha saqlash tugmasi xato matnini ko'rsatadi, sahifalar ishlayveradi. Brauzerda ko'rilmadi (kirish va baza kerak) |
+| Tungi rejim | **Rejadan chiqarilgan** (2026-11-10) | Hozircha kerak emas |
+
+### Bosqich 1B va 1C bajarilishi (2026-11-10)
+
+Supabase: REST va Postgres ulanishi ishlaydi. Yangi 3 ta migratsiya (`20261110100000` saqlangan savollar, `20261110110000` pool, `20261110120000` mashq) foydalanuvchi tomonidan SQL editor orqali qo'llangan (`supabase/manual/2026-11-10-apply.sql`; tarix uchun `...record-history.sql`). Mashq zaxirasi yuklangan: 1711 savol.
+
+| Band | Holat | Izoh |
+|---|---|---|
+| 1B mashq zaxirasi | **Bajarildi, bazaga yuklangan (1711 savol)** | `content/gen/pool.ts`, `pnpm content:pool` (fayllarga) va `pnpm content:pool:seed`. 1711 savol (sonlar 80, algebra 437, tenglama 318, funksiyalar 119, analiz 150, geometriya 494, toplam 113), 94/103 mavzu, qiyinlik L1 477 / L2 753 / L3 481; 7 slot generator xatosi sabab o'tkazildi. Mock variantlar A–F o'zgarmagan. Tanlangan matematik mustaqil tekshiruvlar (`*-math.test.ts`) pool uchun yurgizilmagan |
+| 1C mashq rejimi | **Bajarildi; baza oqimi real Supabase'da sinalgan** | `/practice` (bo'lim, qiyinlik, rejim, savollar soni), `/practice/[id]` (mashq ekrani), `/practice/[id]/result`. Rejimlar: oddiy (taymersiz, javob darrov), vaqt bilan (savolga 3 daqiqa, javob darrov), imtihon (taymer, natija oxirida). Tekshirish va kalit faqat serverda. Yechim: dastlabki 5 tasi hamma uchun, qolgani Pro. Saqlash tugmasi mashqdan ham ishlaydi. Pastki navigatsiyaga 5-bo'lim "Mashq" qo'shildi |
+| Mavzu bo'yicha mashq (Q9) | Keyingi bosqich | Hozir faqat bo'lim darajasida; 9 mavzuda savol yo'q |
+
+Tekshiruv: baza sinovlari (PGlite) mashq va pool uchun; jonli testlar (`pnpm test:live`, real Supabase, `tests/live/practice.live.test.ts`): zaxira, boshlash, kalit faqat tekshirgandan keyin ochilishi, qulf, imtihon rejimi, yakunlash, saqlash, ruxsatlar, boshqa foydalanuvchidan yashirinligi; sinov ma'lumoti o'chirilgan (qolgan sinov foydalanuvchisi 0). Interfeys: sozlash va mashq ekrani Chrome'da (bazasiz sinov sahifasi) ko'rilgan. Brauzerda to'liq real oqim (guest sessiya bilan) va natija sahifasi hali qo'lda ko'rilmagan.

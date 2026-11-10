@@ -19,6 +19,15 @@ Har savol uchun: KaTeX (strict) formulalari yaroqli, literal `$` yo'q, `undefine
 
 JSON fayllarni admin paneldagi *Yuklash* orqali ham yuklash mumkin. Nashr etilgan mock/savol o'zgarmaydi: tuzatish kerak bo'lsa yangi variant yuklab, eskisini arxivlang.
 
+## Mashq zaxirasi
+Mock variantlardan (A–F = variant 0..5) **alohida** savol zaxirasi: `pool: 'practice'`. Xuddi shu parametrli generatorlar (`content/gen/pool.ts`) 45 pozitsiyalik haqiqiy tartib bilan variant raqamlari 6..45 uchun ishga tushiriladi. Savollar mockka hech qachon kirmaydi (bazada trigger to'sadi), import paytida darrov nashr etiladi. `external_id` = `gen-P006-01` ko'rinishida (variant raqami + pozitsiya), `source` = `gen:pool-v1`. Takrorlar (matn + variantlar bo'yicha) pool ichida ham, mock A–F bilan ham olib tashlanadi; xato bergan shablon o'rni o'tkazib yuboriladi. Natija deterministik.
+
+    pnpm content:pool                      # content/pool/pool-001.json ... va summary.json (gitignore'da)
+    pnpm content:pool:seed -- --dry-run    # faqat tekshiradi va sanaydi (tarmoqsiz)
+    pnpm content:pool:seed                 # bazaga yuklaydi (50 tadan; external_id bo'yicha idempotent)
+
+Joriy hajm (40 variant, `content/pool/summary.json`): 1711 savol (7 ta o'tkazib yuborilgan, 82 takror olib tashlangan). Bloklar: sonlar 80, algebra 437, tenglama 318, funksiyalar 119, analiz 150, geometriya 494, to'plam 113. Qiyinlik: L1 477, L2 753, L3 481; 103 mavzudan 94 tasi qamralgan. Qiyinlik bloklar tartibi bilan cheklangan: sonlar faqat L1, algebra asosan L1, tenglama/funksiyalar L2, to'plam L3. Ko'proq savol kerak bo'lsa `buildPool({ variants })` ni oshiring (mavjud `external_id` lar o'zgarmaydi).
+
 ## Relizdan keyin tekshirish ro'yxati (mutaxassis uchun)
 1. **Yechimlar va kalitlar**: avtomatik tekshiruv yopiq-shakl bilan solishtiradi, lekin pedagogik to'g'rilik (savol qo'yilishi, bir ma'noli ekani, imtihon darajasiga mosligi) odam ko'zi bilan tekshirilishi kerak. Admin paneldagi variant tafsilotida har savol bo'yicha haqiqiy "to'g'ri %" ko'rinadi: keskin chetlanganlarni birinchi tekshiring.
 2. **Qiyinlik**: L1/L2/L3 taqsimoti [docs/loyiha.md §5](loyiha.md) farazi; haqiqiy imtihon darajasiga kalibrovka beta natijalaridan keyin.

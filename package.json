@@ -14,6 +14,8 @@
     "admin:create": "node --env-file=.env --env-file=.env.local scripts/create-admin.mjs",
     "content:dump": "node scripts/dump-variants.mjs",
     "content:seed": "node --env-file=.env --env-file=.env.local scripts/seed-content.mjs",
+    "content:pool": "node scripts/dump-pool.mjs",
+    "content:pool:seed": "node --env-file=.env --env-file=.env.local scripts/seed-pool.mjs",
     "test:live": "node --env-file=.env --env-file=.env.local scripts/run-live.mjs",
     "smoke": "node --env-file=.env --env-file=.env.local scripts/smoke-pages.mjs"
   },

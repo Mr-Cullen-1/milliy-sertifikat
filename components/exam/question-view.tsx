@@ -27,6 +27,8 @@ interface Props {
   onChange: (value: AnswerValue) => void;
   /** Belgilash (bayroq) tugmasi kartaning yuqori o'ng burchagida; berilmasa (masalan admin ko'rinishi) chiqmaydi. */
   flag?: { on: boolean; disabled?: boolean; onToggle: () => void };
+  /** Javob o'zgartirib bo'lmaydi (mashqda tekshirilgan savol): javob maydonlari bosilmaydi. */
+  locked?: boolean;
 }
 
 const asRecord = (v: AnswerValue | undefined): Record<string, string> => (v && typeof v === 'object' ? (v as Record<string, string>) : {});
@@ -49,7 +51,7 @@ export function stemSize(stemMd: string, hasFigure: boolean) {
   return SIZES[Math.min(3, tier + (hasFigure ? 1 : 0))];
 }
 
-export function QuestionView({ item, value, onChange, flag }: Props) {
+export function QuestionView({ item, value, onChange, flag, locked = false }: Props) {
   const t = useT();
   const { payload } = item;
   const typeLabel = { y1: t('exam.typeY1'), y2: t('exam.typeY2'), o: t('exam.typeO') }[payload.type];
@@ -116,9 +118,11 @@ export function QuestionView({ item, value, onChange, flag }: Props) {
 
       {/* Javoblar: karta pastiga mahkamlangan, har savolda bir xil joyda; ajratilgan joyga sig'maguncha kichrayadi (scrollsiz) */}
       <FitZoom contentKey={item.questionId}>
-        {payload.type === 'y1' && <AnswerY1 payload={payload.data} value={typeof value === 'string' ? value : undefined} onChange={onChange} />}
-        {payload.type === 'y2' && <AnswerY2 payload={payload.data} value={asRecord(value)} onChange={onChange} />}
-        {payload.type === 'o' && <AnswerO payload={payload.data} value={asRecord(value)} onChange={onChange} />}
+        <div inert={locked} className={locked ? 'opacity-90' : undefined}>
+          {payload.type === 'y1' && <AnswerY1 payload={payload.data} value={typeof value === 'string' ? value : undefined} onChange={onChange} />}
+          {payload.type === 'y2' && <AnswerY2 payload={payload.data} value={asRecord(value)} onChange={onChange} />}
+          {payload.type === 'o' && <AnswerO payload={payload.data} value={asRecord(value)} onChange={onChange} />}
+        </div>
       </FitZoom>
     </section>
   );

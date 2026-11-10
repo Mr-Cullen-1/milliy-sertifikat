@@ -18,6 +18,7 @@ import { getI18n } from '@/lib/i18n/server';
 import { getParticipant } from '@/lib/participant.server';
 import { createClient } from '@/lib/supabase/server';
 import { Suspense } from 'react';
+import { z } from 'zod';
 import { PageSkeleton } from '@/components/page-skeleton';
 
 /** Savollar tahlilida Pro obunasiz ochiq savollar soni (qolganlari yopiq, tafsiloti mijozga yuborilmaydi). */
@@ -48,7 +49,12 @@ async function ResultPageContent({ params, searchParams }: PageProps<'/attempts/
   const { state } = resolved;
   const { attempt } = state;
   const supabase = await createClient();
-  const [exam, participant] = await Promise.all([supabase.from('exams').select('title').eq('id', attempt.exam_id).maybeSingle(), getParticipant()]);
+  const [exam, participant, savedRes] = await Promise.all([
+    supabase.from('exams').select('title').eq('id', attempt.exam_id).maybeSingle(),
+    getParticipant(),
+    supabase.rpc('get_my_saved_ids'),
+  ]);
+  const savedIds = z.array(z.string()).catch([]).parse(savedRes.data ?? []);
 
   const items = parseItems(state.items);
   const answerOf = new Map(state.answers.map((a) => [a.question_id, a]));
@@ -91,6 +97,7 @@ async function ResultPageContent({ params, searchParams }: PageProps<'/attempts/
     const given = describeAnswer(item.type, a?.value, y2Ids, noAnswer);
     return {
       position: item.position,
+      questionId: item.questionId,
       status: a?.is_correct ? 'ok' : given !== noAnswer ? 'wrong' : 'empty',
       block: blockLabel(item.blockId),
       scoreText: `${formatScore(a?.score ?? 0, lang)}/${formatScore(a?.max_score ?? 0, lang)}`,
@@ -207,7 +214,7 @@ async function ResultPageContent({ params, searchParams }: PageProps<'/attempts/
               <section id="review" className="flex min-h-0 flex-1 scroll-mt-24 flex-col gap-3" aria-label={t('result.review')}>
                 <h2 className="font-heading text-[22px] font-semibold text-ink">{t('result.review')}</h2>
                 <div className="min-h-0 lg:flex-1 lg:overflow-y-auto lg:p-1 lg:pr-2 lg:[scrollbar-color:#cfc9ec_transparent] lg:[scrollbar-width:thin]">
-                  <ReviewGrid items={reviewItems} autoOpen={autoReview} listClassName="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 lg:gap-3" />
+                  <ReviewGrid items={reviewItems} autoOpen={autoReview} savedIds={savedIds} listClassName="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 lg:gap-3" />
                 </div>
               </section>
             </div>

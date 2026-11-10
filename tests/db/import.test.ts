@@ -108,3 +108,23 @@ describe('import_questions', () => {
     await expect(run([])).resolves.toMatchObject({ created: 0 });
   });
 });
+
+describe('import_questions: mashq zaxirasi (pool)', () => {
+  it("mashq savoli darrov nashr etiladi, kaliti bor, pool='practice'; standart pool 'exam' va qoralama", async () => {
+    const p = `t-${randomUUID()}`;
+    const e = `t-${randomUUID()}`;
+    const r = await run([{ ...y1(p), pool: 'practice' }, y1(e)]);
+    const rows = (await db.query<{ external_id: string; status: string; pool: string }>('select external_id, status, pool from public.questions where external_id = any($1)', [[p, e]])).rows;
+    expect(rows.find((x) => x.external_id === p)).toMatchObject({ status: 'published', pool: 'practice' });
+    expect(rows.find((x) => x.external_id === e)).toMatchObject({ status: 'draft', pool: 'exam' });
+    expect((await db.query('select * from public.question_keys where question_id = $1', [r.question_ids[0]])).rows[0]).toMatchObject({ key_json: { correct: 'B' } });
+  });
+
+  it("mashq savolini mock bilan birga yuklab ham, mockka qo'shib ham bo'lmaydi", async () => {
+    await expect(run([{ ...y1(`t-${randomUUID()}`), pool: 'practice' }], { title: 'X' })).rejects.toThrow(/mockka qo'shib bo'lmaydi/);
+    const r = await run([{ ...y1(`t-${randomUUID()}`), pool: 'practice' }]);
+    const draft = await run([y1(`t-${randomUUID()}`)], { title: 'Qoralama' });
+    await expect(db.query(`insert into public.exam_items (exam_id, position, question_id, section) values ($1, 99, $2, 'y1')`, [draft.exam_id, r.question_ids[0]])).rejects.toThrow(/exam_item_pool/);
+    await expect(run([{ ...y1(`t-${randomUUID()}`), pool: 'boshqa' }])).rejects.toThrow(/noma'lum pool/);
+  });
+});

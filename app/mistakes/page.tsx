@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { z } from 'zod';
 import { MistakesList, type MistakeGroup, type MistakeRow } from '@/components/mistakes/mistakes-list';
+import { MistakesTabs } from '@/components/mistakes/mistakes-tabs';
 import { PageShell } from '@/components/page-shell';
 import { EmptyState, PageHero } from '@/components/page-hero';
 import { buttonClass } from '@/components/ui/button';
@@ -22,7 +23,12 @@ export default async function MistakesPage() {
   const [{ t, lang }, participant] = await Promise.all([getI18n(), requireParticipant('/mistakes')]);
   const supabase = await createClient();
 
-  const [mistakesRes, topics] = await Promise.all([supabase.rpc('get_my_mistakes', { p_lang: lang }), supabase.from('topics').select('id, name_uz')]);
+  const [mistakesRes, topics, savedRes] = await Promise.all([
+    supabase.rpc('get_my_mistakes', { p_lang: lang }),
+    supabase.from('topics').select('id, name_uz'),
+    supabase.rpc('get_my_saved_ids'),
+  ]);
+  const savedIds = z.array(z.string()).catch([]).parse(savedRes.data ?? []);
   if (mistakesRes.error) throw new Error(`get_my_mistakes: ${mistakesRes.error.message}`);
   if (topics.error) throw new Error(`topics: ${topics.error.message}`);
 
@@ -78,6 +84,8 @@ export default async function MistakesPage() {
   return (
     <PageShell active="mistakes">
       <main className="mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-5 px-4 py-6 sm:px-6 lg:gap-6">
+        <MistakesTabs current="mistakes" />
+
         <PageHero art="mascot-think">
           <Chip tone="brand">{t('mistakes.count', { n: mistakes.length })}</Chip>
           <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">{t('mistakes.title')}</h1>
@@ -92,7 +100,7 @@ export default async function MistakesPage() {
             </Link>
           </EmptyState>
         ) : (
-          <MistakesList groups={groups} />
+          <MistakesList groups={groups} savedIds={savedIds} />
         )}
       </main>
     </PageShell>

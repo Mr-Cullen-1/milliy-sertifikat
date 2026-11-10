@@ -57,3 +57,22 @@ export const mistakeSchema = z.object({
 });
 
 export type Mistake = z.infer<typeof mistakeSchema>;
+
+// Saqlangan savollar (get_my_saved) qatori
+export const savedSchema = z.object({
+  question_id: z.string(),
+  block_id: z.number().int(),
+  topic_id: z.number().int(),
+  type: z.enum(['y1', 'y2', 'o']),
+  difficulty: z.enum(['L1', 'L2', 'L3']),
+  stem_md: z.string(),
+  payload: z.unknown(),
+  solution_md: z.string().nullish(),
+  mistake_note_md: z.string().nullish(),
+  correct_answer: z.unknown().nullish(),
+  last_value: z.unknown().nullish(),
+  last_correct: z.boolean().nullish(),
+  saved_at: z.string(),
+});
+
+export type SavedQuestion = z.infer<typeof savedSchema>;

@@ -5,6 +5,8 @@ import { FigureImage } from '@/components/exam/figure';
 import { useT } from '@/components/i18n/provider';
 import { Markdown } from '@/components/math/markdown';
 import { ProOpenButton, useProModal } from '@/components/pro/pro-modal';
+import { SaveButton } from '@/components/saved/save-button';
+import { useSaved } from '@/components/saved/use-saved';
 import { Button } from '@/components/ui/button';
 import type { Figure } from '@/lib/exam/payload';
 
@@ -56,9 +58,10 @@ const rowBase =
  * Xatolar ro'yxati: bo'lim kartalari ichida qatorlar (chapda necha marta xato, mavzu; o'ngda amal).
  * Ochiq qatorni bosganda tahlil katta oynada ochiladi; yopiq (Pro) qator Pro obuna oynasini ochadi.
  */
-export function MistakesList({ groups }: { groups: MistakeGroup[] }) {
+export function MistakesList({ groups, savedIds = [] }: { groups: MistakeGroup[]; savedIds?: string[] }) {
   const t = useT();
   const pro = useProModal();
+  const saved = useSaved(savedIds);
   const flat = groups.flatMap((g) => g.rows.map((r) => ({ ...r, block: g.label })));
   const [open, setOpen] = useState<number | null>(null);
   const ref = useRef<HTMLDialogElement>(null);
@@ -157,6 +160,12 @@ export function MistakesList({ groups }: { groups: MistakeGroup[] }) {
                 </p>
                 <p className="truncate text-[14px] font-bold text-muted">{current.block}</p>
               </div>
+              <SaveButton
+                saved={saved.isSaved(current.id)}
+                pending={saved.pendingId === current.id}
+                error={saved.error}
+                onToggle={() => void saved.toggle(current.id)}
+              />
             </div>
 
             <div className="flex min-h-0 flex-1 flex-col gap-5 overflow-y-auto px-5 py-5 sm:px-7">

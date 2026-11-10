@@ -54,11 +54,11 @@ describe.runIf(live)('jonli oqim (real Supabase)', { timeout: 120_000 }, () => {
     expect(data).toMatchObject({ name: '', role: 'student', consent_at: null });
   });
 
-  it('A varianti ochiq; boshqalari talabaga ko\'rinmaydi; kalit va savollar jadvali yopiq', async () => {
+  it('nashr etilgan variantlar (A–F) talabaga ochiq; kalit va savollar jadvali yopiq', async () => {
     const { db } = await makeUser('guest');
     const { data: exams } = await db.from('exams').select('code, status');
-    expect(exams?.map((e) => e.code)).toEqual(['A']);
-    expect(exams?.[0]?.status).toBe('published');
+    expect(exams?.map((e) => e.code).sort()).toEqual(['A', 'B', 'C', 'D', 'E', 'F']);
+    expect(exams?.every((e) => e.status === 'published')).toBe(true);
 
     expect((await db.from('question_keys').select('question_id')).data).toEqual([]);
     expect((await db.from('questions').select('id')).data).toEqual([]);

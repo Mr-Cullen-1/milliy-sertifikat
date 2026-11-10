@@ -298,6 +298,39 @@ isOneToOne: false
 "get_my_mistakes":
 { Args: { "p_lang"?: string }; Returns: Json
                            },
+"start_practice":
+{ Args: { "p_block": string,"p_count": number,"p_difficulty": string,"p_mode": string }; Returns: Json
+                           },
+"get_practice_state":
+{ Args: { "p_lang"?: string,"p_session": string }; Returns: Json
+                           },
+"save_practice_answer":
+{ Args: { "p_question": string,"p_session": string,"p_value": Json }; Returns: Json
+                           },
+"store_practice_result":
+{ Args: { "p_correct": boolean,"p_parts"?: Json,"p_question": string,"p_session": string }; Returns: undefined
+                           },
+"finish_practice":
+{ Args: { "p_session": string }; Returns: Json
+                           },
+"list_my_practice":
+{ Args: { "p_limit"?: number }; Returns: Json
+                           },
+"get_practice_pool_stats":
+{ Args: Record<PropertyKey, never>; Returns: Json
+                           },
+"list_ungraded_practice_answers":
+{ Args: { "p_session": string }; Returns: Json
+                           },
+"get_my_saved":
+{ Args: { "p_lang"?: string }; Returns: Json
+                           },
+"get_my_saved_ids":
+{ Args: Record<PropertyKey, never>; Returns: Json
+                           },
+"toggle_saved_question":
+{ Args: { "p_question_id": string }; Returns: boolean
+                           },
 "get_my_topic_stats":
 { Args: Record<PropertyKey, never>; Returns: Json
                            },

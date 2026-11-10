@@ -204,6 +204,55 @@ describe('xatolar daftari va mavzu statistikasi', () => {
   });
 });
 
+describe('saqlangan savollar', () => {
+  it("faqat o'zi topshirgan imtihondagi savolni saqlaydi; almashtiradi; boshqa foydalanuvchi ko'rmaydi", async () => {
+    const { examId, questionIds } = await buildExam(db, { publish: true });
+    const user = await newUser(db);
+    const other = await newUser(db);
+    const toggle = (u: string, q: string) => as(db, 'authenticated', u, () => one<{ s: boolean }>('select public.toggle_saved_question($1) as s', [q]));
+
+    // topshirmagan: saqlab bo'lmaydi (yechim va kalit oldindan ochilib ketmasin)
+    await expect(toggle(user, questionIds[0]!)).rejects.toThrow(/question_not_available/);
+
+    const attemptId = await startFor(user, examId);
+    await answerAll(user, attemptId, questionIds, (pos) => (pos <= 32 ? CORRECT_ANSWERS.y1 : null));
+    // hali topshirilmagan (in_progress): baribir mumkin emas
+    await expect(toggle(user, questionIds[0]!)).rejects.toThrow(/question_not_available/);
+    await finalizeAttempt(pgliteStore(db), attemptId, { onlyIfExpired: false });
+
+    expect((await toggle(user, questionIds[0]!)).s).toBe(true);
+    expect((await toggle(user, questionIds[40]!)).s).toBe(true);
+
+    const list = await as(db, 'authenticated', user, () => one<{ m: Record<string, unknown>[] }>(`select public.get_my_saved('uz') as m`));
+    expect(list.m).toHaveLength(2);
+    expect(list.m.find((x) => x.question_id === questionIds[0])).toMatchObject({ solution_md: 'Yechim', last_correct: true });
+    expect(list.m.find((x) => x.question_id === questionIds[40])).toMatchObject({ type: 'o', last_value: null });
+
+    const ids = await as(db, 'authenticated', user, () => one<{ i: string[] }>('select public.get_my_saved_ids() as i'));
+    expect(ids.i.sort()).toEqual([questionIds[0], questionIds[40]].sort());
+
+    // takroran bosilsa olib tashlanadi
+    expect((await toggle(user, questionIds[0]!)).s).toBe(false);
+    expect((await as(db, 'authenticated', user, () => one<{ i: unknown[] }>('select public.get_my_saved_ids() as i'))).i).toHaveLength(1);
+
+    // boshqa foydalanuvchi: bo'sh ro'yxat va saqlay olmaydi
+    expect((await as(db, 'authenticated', other, () => one<{ m: unknown[] }>(`select public.get_my_saved('uz') as m`))).m).toEqual([]);
+    await expect(toggle(other, questionIds[40]!)).rejects.toThrow(/question_not_available/);
+  });
+
+  it("jadvalga to'g'ridan-to'g'ri kirish yo'q; anon funksiyani chaqira olmaydi", async () => {
+    const user = await newUser(db);
+    await as(db, 'authenticated', user, async () => {
+      await expect(db.query('select * from public.saved_questions')).rejects.toThrow(/permission denied/);
+      await expect(db.query('insert into public.saved_questions (user_id, question_id) values ($1, $2)', [user, randomUUID()])).rejects.toThrow(/permission denied/);
+    });
+    await as(db, 'anon', null, async () => {
+      await expect(db.query('select public.get_my_saved_ids()')).rejects.toThrow(/permission denied/);
+      await expect(db.query('select public.toggle_saved_question($1)', [randomUUID()])).rejects.toThrow(/permission denied/);
+    });
+  });
+});
+
 describe('admin funksiyalari', () => {
   it('talaba chaqira olmaydi (forbidden), staff va service_role oladi', async () => {
     const student = await newUser(db);

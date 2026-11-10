@@ -58,6 +58,12 @@ export const Close = (p: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+export const Bookmark = (p: SVGProps<SVGSVGElement>) => (
+  <svg {...base} {...p}>
+    <path d="M6 4h12v17l-6-4-6 4V4z" />
+  </svg>
+);
+
 export const Clock = (p: SVGProps<SVGSVGElement>) => (
   <svg {...base} {...p}>
     <circle cx="12" cy="12" r="9" />
