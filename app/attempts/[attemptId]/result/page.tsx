@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { ReviewGrid, type ReviewItem } from '@/components/exam/review-grid';
+import { ReviewLink } from '@/components/exam/review-link';
+import { ArrowDown } from '@/components/ui/icons';
 import { Watermark } from '@/components/exam/watermark';
 import { PageShell } from '@/components/page-shell';
 import { Art } from '@/components/art';
@@ -113,43 +115,52 @@ async function ResultPageContent({ params, searchParams }: PageProps<'/attempts/
       {participant && <Watermark text={`${participant.fullName} · ${participant.phone?.slice(-4) ?? ''}`} />}
       <PageShell active="exams">
         <main className="mx-auto flex w-full max-w-[1180px] flex-1 flex-col gap-5 px-4 py-6 sm:px-6 lg:gap-6">
+          {/* Mobil: ixcham grid (1-qatorda sarlavha va ball, pastda matnlar); lg+: avvalgi bir qatorli ko'rinish */}
           <section
             aria-label={t('result.overall')}
-            className="flex flex-col gap-4 rounded-3xl border-2 border-b-[5px] border-success-line bg-success-soft p-5 shadow-card sm:px-7 sm:py-4 lg:flex-row lg:items-center lg:gap-8"
+            className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1 rounded-3xl border-2 border-b-[5px] border-success-line bg-success-soft p-4 shadow-card sm:px-7 sm:py-4 lg:flex lg:flex-row lg:gap-8"
           >
-            <div className="flex min-w-0 flex-col gap-1.5 lg:flex-1">
-              <h1 className="font-heading text-[32px] leading-[40px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">
+            <div className="contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col lg:gap-1.5">
+              <h1 className="col-start-1 row-start-1 font-heading text-[24px] leading-[30px] font-semibold text-ink sm:text-[36px] sm:leading-[43px]">
                 {exam.data?.title ?? t('exams.fallbackTitle')}
               </h1>
-              <p className="text-[17px] leading-6 font-bold text-ink-soft">
+              <p className="col-span-2 text-[14px] leading-5 font-bold text-ink-soft lg:text-[17px] lg:leading-6">
                 {scaled >= 55 ? t('result.cheerHigh') : scaled >= 46 ? t('result.cheerMid') : t('result.cheerLow')}
               </p>
-              <p className="text-[15px] leading-6 font-bold text-muted">
+              <p className="col-span-2 text-[13px] leading-5 font-bold text-muted lg:text-[15px] lg:leading-6">
                 {t('result.raw', {
                   raw: formatScore(attempt.raw_score ?? 0, lang),
                   max: formatScore(attempt.max_raw ?? 0, lang),
                   correct: correctTotal,
                 })}
               </p>
-              {attempt.submit_reason === 'timeout' && <p className="text-[15px] leading-6 font-bold text-brand-ink">{t('result.timeout')}</p>}
+              {attempt.submit_reason === 'timeout' && <p className="col-span-2 text-[14px] leading-5 font-bold text-brand-ink lg:text-[15px] lg:leading-6">{t('result.timeout')}</p>}
             </div>
 
-            <div className="flex shrink-0 flex-col gap-2 border-t-2 border-success-line pt-3 lg:w-[300px] lg:border-t-0 lg:border-l-2 lg:pt-0 lg:pl-8">
-              <h2 className="text-[14px] leading-4 font-extrabold tracking-wider text-muted uppercase">{t('result.levelHint')}</h2>
-              <div className="flex items-center gap-4">
-                <p className="flex items-end gap-1.5 leading-none">
-                  <span className="text-[48px] font-black text-success-ink">≈ {formatScore(scaled, lang)}</span>
-                  <span className="pb-1.5 text-[20px] font-extrabold text-muted">/ 75</span>
+            <div className="col-start-2 row-start-1 flex shrink-0 flex-col items-end gap-1 lg:w-[300px] lg:items-start lg:gap-2 lg:border-l-2 lg:border-success-line lg:pl-8">
+              <h2 className="text-[11px] leading-3 font-extrabold tracking-wider text-muted uppercase lg:text-[14px] lg:leading-4">{t('result.levelHint')}</h2>
+              <div className="flex items-center gap-2.5 lg:gap-4">
+                <p className="flex items-end gap-1 leading-none lg:gap-1.5">
+                  <span className="text-[30px] font-black text-success-ink lg:text-[48px]">≈ {formatScore(scaled, lang)}</span>
+                  <span className="pb-0.5 text-[15px] font-extrabold text-muted lg:pb-1.5 lg:text-[20px]">/ 75</span>
                 </p>
                 {level && (
-                  <span className="rounded-2xl border-2 border-b-[5px] border-gold-edge bg-gold px-4 py-1.5 text-[26px] leading-none font-black text-white">{level}</span>
+                  <span className="rounded-xl border-2 border-b-4 border-gold-edge bg-gold px-2.5 py-1 text-[18px] leading-none font-black text-white lg:rounded-2xl lg:border-b-[5px] lg:px-4 lg:py-1.5 lg:text-[26px]">
+                    {level}
+                  </span>
                 )}
               </div>
-              {!level && <p className="text-[15px] leading-5 font-extrabold text-muted">{t('result.noLevel')}</p>}
+              {!level && <p className="max-w-[190px] text-right text-[12px] leading-4 font-extrabold text-muted lg:max-w-none lg:text-left lg:text-[15px] lg:leading-5">{t('result.noLevel')}</p>}
             </div>
 
             <Art name={art} width={artWidth} className="hidden shrink-0 drop-shadow-[0_8px_8px_rgba(38,24,110,0.16)] xl:block" />
           </section>
+
+          {/* Mobil: tahlil sahifaning pastida, shuning uchun unga tushish tugmasi (kompyuterda tahlil o'ng ustunda ko'rinib turadi) */}
+          <ReviewLink>
+            {t('result.review')}
+            <ArrowDown width={20} height={20} />
+          </ReviewLink>
 
           <div className="flex flex-col gap-5 lg:grid lg:h-[480px] lg:grid-cols-[1fr_1fr] lg:gap-6">
             <section className="relative min-w-0 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white shadow-card" aria-label={t('result.byBlock')}>
@@ -193,7 +204,7 @@ async function ResultPageContent({ params, searchParams }: PageProps<'/attempts/
                   {t('result.toExams')}
                 </Link>
               </div>
-              <section className="flex min-h-0 flex-1 flex-col gap-3" aria-label={t('result.review')}>
+              <section id="review" className="flex min-h-0 flex-1 scroll-mt-24 flex-col gap-3" aria-label={t('result.review')}>
                 <h2 className="font-heading text-[22px] font-semibold text-ink">{t('result.review')}</h2>
                 <div className="min-h-0 lg:flex-1 lg:overflow-y-auto lg:p-1 lg:pr-2 lg:[scrollbar-color:#cfc9ec_transparent] lg:[scrollbar-width:thin]">
                   <ReviewGrid items={reviewItems} autoOpen={autoReview} listClassName="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 lg:gap-3" />

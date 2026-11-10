@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useT } from '@/components/i18n/provider';
 import { Markdown } from '@/components/math/markdown';
 import type { Y2Payload } from '@/lib/exam/payload';
+import { letterOf, useShortcut } from './keyboard';
 
 interface Props {
   payload: Y2Payload;
@@ -40,8 +41,22 @@ export function AnswerY2({ payload, value, onChange }: Props) {
     if (following) setActive(following.id);
   };
 
+  // Klaviatura: variant harfi (A–F) faol bandga javob beradi
+  useShortcut((e) => {
+    const letter = letterOf(e);
+    if (letter && letter in payload.options) {
+      e.preventDefault();
+      pick(letter);
+    }
+  });
+
+  const letters = options.map(([letter]) => letter);
+
   return (
     <div className="grid gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-6">
+      <p className="-mb-2 rounded-xl bg-accent-soft px-3.5 py-2 text-[14px] leading-5 font-bold text-accent md:col-span-2">
+        {t('answers.hintY2', { from: letters[0] ?? 'A', to: letters[letters.length - 1] ?? 'F' })}
+      </p>
       <div className="flex flex-col gap-2.5">
         <p className="text-[15px] font-extrabold text-muted">{t('answers.items')}</p>
         {payload.items.map((item, i) => {

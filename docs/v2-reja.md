@@ -1,0 +1,217 @@
+# V2 reja: testmakon.uz bilan solishtirish asosida
+
+Sana: 2026-11-10. Holat: **reja (qaror kutilmoqda)**; 7-bo'lim UI bandlarining bajarilgani 7.9 jadvalida.
+
+## 1. Maqsad va manba
+
+V1 (joriy holat: CLAUDE.md, docs/loyiha.md) Milliy sertifikat matematika bo'yicha to'liq mock imtihon platformasi. V2 uchun testmakon.uz ning **faqat DTM va Milliy sertifikat matematika** qismi o'rganildi va bizda yo'q imkoniyatlar ro'yxati tuzildi.
+
+Ishonchlilik bo'yicha eslatma:
+- Ma'lumot 6 ta ochiq sahifadan olingan (bosh sahifa, /milliy-sertifikat/, /dtm-test/, /tests/practice/matematika/, /subscriptions/pricing/, /tests/). Matn model orqali ajratib olingan, aniq raqamlar qo'lda tekshirilmagan.
+- `/certificate/matematika/` (ularning 49 ta matematika varianti) ochilmagan: ularning savol soni, taymeri va ball hisobi noma'lum.
+- Ularning o'zida ziddiyatlar bor: matematika savollari 1286 va 1124; bepul mashq "birinchi 3 ta test" va "to'liq bepul". Qaror qilishdan oldin jonli sayt qo'lda tekshirilsin.
+- Biz ularning savollarini, matnlarini yoki dizaynini ko'chirmaymiz (loyiha kelishuvi: faqat original kontent).
+
+## 2. Bizda yo'q imkoniyatlar (to'liq ro'yxat)
+
+### Mashq va kontent
+| # | Imkoniyat | Ularda | Bizda |
+|---|---|---|---|
+| 1 | Mavzu bo'yicha mashq | 14 mavzu, 1124 savol; savol soni 5–200, qiyinlik (oson/o'rta/qiyin/barchasi), rejim (oddiy / vaqt bilan / imtihon), aralash | Yo'q, faqat to'liq 45 talik variant |
+| 2 | Tezkor test, Savol banki | Bor | Yo'q |
+| 3 | Hajm | 49 ta matematika varianti | 6 ta variant (270 savol) |
+| 4 | Saqlangan savollar | Bor | Yo'q |
+| 5 | Kutubxona | 17 ta matematika darsligi, PDF to'plamlar | Yo'q |
+
+### DTM
+| # | Imkoniyat | Ularda | Bizda |
+|---|---|---|---|
+| 6 | DTM simulyatsiya | 5 fan, 90 savol, 3 soat, 189 ball | Faqat kalkulyator (/dtm) |
+| 7 | Sertifikatlarim | Foydalanuvchi sertifikatini qo'shadi, simulyatsiyada shu fan bloki o'tkaziladi va ball qo'shiladi | Yo'q |
+| 8 | Universitet vositalari | O'tish ballari 2026, katalog (104 OTM, 3415 yo'nalish), o'tish bali tekshirgichi, hududlar, kesimlar, tavsiya, GPA kalkulyator | Yo'q |
+
+### AI
+| # | Imkoniyat | Ularda | Bizda |
+|---|---|---|---|
+| 9 | AI Mentor (chat), AI Ustoz | Bor | Yo'q |
+| 10 | AI tahlil | Zaif mavzular foizlar bilan, tushuntirish | Qisman: eng past natijali mavzular ro'yxati bor, tushuntirish yo'q |
+| 11 | O'quv reja | Shaxsiy reja | Yo'q |
+
+### Raqobat
+| # | Imkoniyat | Ularda | Bizda |
+|---|---|---|---|
+| 12 | Reyting | Umumiy, maktab/tuman/viloyat bo'yicha | Yo'q |
+| 13 | Duellar, turnirlar, musobaqalar | 1v1, haftalik turnir, sovrinlar | Yo'q |
+| 14 | O'yinlar, Respublika sinovi | Bor | Yo'q |
+
+### Akkaunt va savdo
+| # | Imkoniyat | Ularda | Bizda |
+|---|---|---|---|
+| 15 | Akkaunt | Telegram orqali kirish, profil | Login yo'q (mehmon hisob, docs/auth.md) |
+| 16 | To'lov | 1 hafta 15 000, 1 oy 40 000, 3 oy 75 000, 6 oy 135 000 so'm (3 va 6 oyda 90 000 / 180 000 ham ko'rinadi, ehtimol eski narx); Payme/Click; chek orqali; promo-kod | Pro tugmasi bor, to'lov yo'q (`profiles.is_pro` qo'lda beriladi) |
+| 17 | Bepul sinovlar | O'quv reja va xato javoblar 2×, AI tahlil 1× | Tahlilda 5 ta bepul |
+
+### Atrofdagi narsalar
+| # | Imkoniyat | Ularda | Bizda |
+|---|---|---|---|
+| 18 | Telegram bot va kanal | Sanalar, natijalar haqida xabar | Yo'q |
+| 19 | Kontent sahifalar | Yangiliklar, qo'llanmalar, 2026 sanalari, natijalar qachon chiqadi, FAQ (SEO) | Faqat /privacy |
+| 20 | Interfeys | Tungi rejim, mobil pastki panel | Yo'q |
+| 21 | O'zbek kirill tili | Bor | Yo'q (uz-lotin, ru, kaa, en bor) |
+
+### Qisman bor
+- Xatolar daftari: bor (bizda 5 ta tahlil bepul).
+- DTM kalkulyator: bor, lekin formulalar farq qiladi (bizda ÷65 va 93/63/11, ularda "ball ÷ 75"). Bu rasmiy manba bilan tekshirilishi kerak (docs/rasmiy-manbalar.md).
+
+### Bizda bor, ularda ko'rinmadi
+Qoraqalpoq va ingliz tillari, natijalar doim "taxminiy" deyilishi, tab-almashtirish logi, suv belgisi, to'liq admin paneli, JSON import, server taymeri, original kontent generatorlari.
+
+## 3. Takliflangan bosqichlar
+
+Tartib: imtihon platformasining asosiy qiymatiga eng yaqin va eng arzon narsalardan boshlab. Bu taklif, qaror emas.
+
+### Bosqich 1: kontent va mashq (eng katta foyda, mavjud bazaga tayanadi)
+1. **Mavzu bo'yicha mashq.** Savollar bazada allaqachon mavzuga bog'langan (docs/mavzular.md: 7 bo'lim, 103 ishchi mavzu). Qo'shiladigan narsalar: mavzu va savol soni tanlash, qiyinlik, "oddiy / vaqt bilan / imtihon" rejimi, natija va tahlil.
+2. **Variantlar sonini ko'paytirish** 6 dan 15+ gacha (docs/loyiha.md da rejalashtirilgan). `content/gen/*` generatorlari, javoblar kod bilan hisoblanadi, mutaxassis tekshiruvi shart.
+3. **Saqlangan savollar** (belgilab qo'yib keyin ko'rish).
+4. **Tungi rejim**, mobil navigatsiyani ko'rib chiqish.
+
+### Bosqich 2: DTM
+5. **DTM kalkulyatorni tekshirish va to'g'rilash.** ÷65 va ÷75 farqini rasmiy manbalar bilan aniqlash. Natija noto'g'ri bo'lsa, foydalanuvchiga yolg'on ball ko'rsatamiz, shuning uchun bu 6-bandgacha bajarilsin.
+6. **DTM simulyatsiya** (5 fan, 90 savol) uchun avval qaror kerak: faqat matematika loyihasi doirasida qolamizmi (Q1 ga qarang). Aks holda boshqa fanlar kontenti kerak bo'ladi.
+7. **Sertifikatni qo'shish** (faqat 6-band qilinsa ma'noli).
+
+### Bosqich 3: tahlil va shaxsiylashtirish
+8. **Zaif mavzular sahifasi** (foiz va tavsiya, mavjud statistikaga tayanadi).
+9. **O'quv reja:** zaif mavzular va imtihon sanasiga qarab qoidalar asosidagi reja (AI siz ham mumkin).
+10. **AI Mentor / tushuntirish** (LLM). Narxi, noto'g'ri foydalanishdan himoya (limit) va javob to'g'riligi alohida baholanadi (4-bo'lim, Q2).
+
+### Bosqich 4: akkaunt va savdo
+11. **Akkaunt (login).** V1 qarori: login yo'q, ichki platformaga ulanadi (docs/auth.md). Reyting, to'lov, saqlangan natijalarning qurilmalararo sinxroni va Telegram bot uchun login kerak bo'ladi. Q3 ga qarang.
+12. **To'lov** (Payme/Click) va tariflar, promo-kod. Hozirgi Pro mantig'i (5 ta bepul tahlil, qolgani Pro) shunday qoladi.
+13. **Pro oynasi matnini yangilash:** hozir "Barcha variantlarni yeching" va "9 ta variant, 405 ta test" deyiladi, bu endi noto'g'ri (4 tilda: lib/i18n/dictionaries/).
+
+### Bosqich 5: ijtimoiy va o'sish
+14. **Reyting** (umumiy, keyin maktab/hudud). Maxfiylik va ota-ona roziligi (voyaga yetmaganlar) hisobga olinadi.
+15. **Musobaqalar / duellar / o'yinlar.** Eng qimmat va eng kam kerakli, oxirida.
+16. **Telegram kanal/bot** (sanalar, natijalar).
+17. **Kontent sahifalari** (imtihon sanalari, "natijalar qachon", FAQ, maqolalar) SEO uchun.
+18. **Universitet vositalari** (o'tish ballari, katalog). Ma'lumot manbasi va uni yangilab turish kerak, ko'lami katta.
+19. **O'zbek kirill tili**, mutaxassis tarjimasi bilan (kaa va ru dagi kabi).
+
+## 4. Qarorlar (kutilmoqda)
+
+| # | Savol | Variantlar |
+|---|---|---|
+| Q1 | Doira: faqat matematika yoki DTM ning boshqa fanlari ham? | (a) faqat matematika, DTM simulyatsiya yo'q; (b) DTM da faqat matematika bloki; (c) ko'p fanli (kontent hajmi bir necha barobar) |
+| Q2 | AI mentor kerakmi va qaysi model/byudjet? | Yo'q / qoidalar asosidagi reja / LLM |
+| Q3 | Login qo'shilsinmi? | Ichki platformaga ulash (docs/auth.md) / mustaqil Telegram yoki telefon login |
+| Q4 | Savdo qilinadimi yoki ichki platforma bo'lib qoladimi? | Bu 12-bandni va ko'p narsani belgilaydi |
+| Q5 | Mavzu mashqi bepul/Pro chegarasi | Masalan: hamma mavzu ochiq, tahlil 5 ta bepul (hozirgi mantiq bilan mos) |
+
+## 5. Xavflar
+
+- **Kontent:** ko'p savol = tekshiruv yuki. Har yangi variant mutaxassis tekshiruvidan o'tishi kerak (docs/content.md). Nashr etilgan savol o'zgarmaydi: xato topilsa yangi variant yuklanadi.
+- **Rasmiy ma'lumotlar:** DTM/Milliy sertifikat qoidalari va ballari o'zgarishi mumkin, uchinchi tomon raqamlari tasdiqlanmagan (docs/rasmiy-manbalar.md). Natijalar doim "taxminiy".
+- **Ko'chirish:** raqobatchi savollari, matnlari va dizayni ko'chirilmaydi.
+- **AI:** noto'g'ri yechim berishi mumkin. Matematika tushuntirishida bu jiddiy xavf, savol kaliti (kod bilan hisoblangan javob) bilan tekshirib turish kerak.
+- **To'lov va shaxsiy ma'lumotlar:** to'lov va login qo'shilsa, maxfiylik, rozilik va xavfsizlik talablari (hozirgi CSP, rate limit, audit) kengaytiriladi.
+- **Hajm:** bosqich 5 (o'yinlar, universitet katalogi) alohida kichik loyihalar kattaligida.
+
+## 6. Birinchi qadam (taklif)
+
+1. Q1–Q5 qarorlarini belgilash.
+2. DTM kalkulyator formulasini rasmiy manbalar bilan tekshirish (bosqich 2, 5-band): kichik, lekin to'g'rilik uchun muhim.
+3. Mavzu bo'yicha mashq (bosqich 1, 1-band): eng katta foyda, mavjud bazaga tayanadi.
+4. `/certificate/matematika/` sahifasini ko'rib, ularning matematika mock formati (taymer, ball hisobi, savol soni) bilan o'zimizniki taqqoslanadi.
+
+## 7. Aniq reja: imtihon va natija interfeysi (UI)
+
+Manba: testmakon.uz bilan desktop va mobil (iPhone 16, 393×852) skrinshotlarini solishtirish, 2026-11-10. Holat: **7.9 jadvalida belgilangan bandlar bajarilgan, qolganlari reja**. Hammasi uchun qoida: **scrollsiz imtihon ekrani** (1440×900 va 1366×680) buzilmaydi, mobilda esa vertikal joy tejaladi. Pro mantig'iga tegilmaydi.
+
+### 7.1 Joriy mobil holat (kod bo'yicha)
+- Sarlavha **ikki qatorli** ([exam-runner.tsx](../components/exam/exam-runner.tsx)): 1-qator nom + "Kalkulyator taqiqlangan" (ekranda "Kalkulyator taqi…" kesilib qoladi) + taymer + Topshirish; 2-qator progress + "Saqlandi" + til. Balandligi taxminan 110px, ularniki taxminan 60px.
+- "Barcha savollar" `<details>` sifatida savol kartasi **ostida**: ochilganda sahifa pastga cho'zilib scroll paydo bo'ladi.
+- Pastki panel: Orqaga | Belgilash | Keyingi.
+- Natija kartasi (yashil) mobilda taxminan 290px: sarlavha, maqtov matni, xom ball, "TAXMINIY DARAJA" + katta "≈ 0 / 75", izoh.
+- Savollar tahlili sahifaning eng pastida (bo'limlar kartasidan keyin).
+
+### 7.2 Mobil imtihon ekrani (1-ustuvorlik)
+
+**UI-1. Sarlavhani bitta qatorga keltirish.** Mobilda: [nom] [taymer] [Topshirish]; ostida ingichka (taxminan 4px) progress chizig'i. "Saqlandi" matni o'rniga kichik belgi (nuqta/galochka), matn faqat "Saqlanmoqda…" va "Oflayn" holatlarida chiqadi. "Kalkulyator taqiqlangan" va til almashtirgich yon panelga (UI-2) ko'chadi. Qabul mezoni: sarlavha balandligi ≤ 64px; taymer ogohlantirishlari (`warn5`, `finishing`) avvalgidek ko'rinadi.
+
+**UI-2. "Barcha savollar" yon panelga.**
+- Pastki panelda uch teng tugma: **Orqaga | ⊞ (javob berilgan/45 nishoni bilan) | Keyingi**. `<details>` olib tashlanadi.
+- ⊞ bosilganda panel **o'ng tomondan** ochiladi (desktopda savollar paneli ham o'ngda, shuning uchun bir xil). Orqa fon umumiy modal uslubida (kuchli blur). Yopilishi: tashqarisiga bosish, Esc, savolni tanlash. Native `<dialog>` ishlatiladi (fokus tuzog'i tayyor), kirish animatsiyasi `prefers-reduced-motion` ga hurmat bilan.
+- Panel ichida: imtihon nomi, "150 daqiqa", "Kalkulyator taqiqlangan", til almashtirgich, bo'limlar bo'yicha guruhlangan raqamlar (UI-6), legenda. Eni `min(86vw, 360px)`, ichida kerak bo'lsa scroll.
+- Takrorlanishni oldini olish: progress soni faqat ⊞ nishonida (sarlavhada son yo'q, faqat chiziq).
+- Desktopdagi o'ng panel o'zgarmaydi; ikkalasi bitta `Navigator` komponentidan foydalanadi.
+
+**UI-3. Belgilash savol kartasining yuqori o'ng burchagiga (bayroq belgisi).**
+- Faqat ikonka (`Flag`), 44×44px bosish maydoni, belgilanganda to'ldirilgan/oltin rang, `aria-pressed` va `aria-label` saqlanadi. Pastki paneldan olib tashlanadi.
+- Qaror Q6: faqat mobilda yoki hamma o'lchamda? Tavsiya: **hamma o'lchamda bir xil**. Desktopda karta yuqori o'ng burchagi bo'sh, joy yemaydi, pastki panel esa yengillashadi.
+
+**UI-14 (ixtiyoriy). Savol sarlavhasi chiplari mobilda bir qatorda.** Hozir "1-topshiriq · Yopiq test · Sonlar va amallar" ikki qatorga o'tadi. Mobilda mavzu nomi yashiriladi (rasmiy imtihonda ham mavzu ko'rsatilmaydi), faqat "1-topshiriq · Yopiq test" qoladi.
+
+### 7.3 Natija sahifasi (1-ustuvorlik)
+
+**UI-4. Yashil kartani mobilda ikki barobar past qilish** (taxminan 290px dan ≤ 145px gacha).
+- Tuzilma: 1-qatorda chapda sarlavha (taxminan 22–24px), o'ngda "≈ 0 / 75" va daraja nishoni; 2-qatorda xom ball; 3-qatorda maqtov matni bitta qatorda (kesiladi). Ajratuvchi chiziq va katta "TAXMINIY DARAJA" sarlavhasi olib tashlanadi, o'rniga ≈ belgisi yonida kichik "taxminiy" yozuvi (natija doim taxminiy: loyiha qoidasi).
+- Daraja berilmaganda ("46 balldan past") matn qisqa bo'lib, shu karta ichida qoladi.
+- Desktop: karta allaqachon bir qatorli, faqat balandligi tekshiriladi (maqsad: u ham ≤ 130px).
+- Fayl: [result/page.tsx](../app/attempts/%5BattemptId%5D/result/page.tsx).
+
+**UI-5. "Savollar tahlili ↓" tugmasi.** Kartadan keyin (mobilda), pastga qaragan strelka bilan; bosilganda tahlil bo'limiga (`#review`) silliq o'tadi (`<a href>`, JS shart emas; sticky sarlavha uchun `scroll-margin-top`; `prefers-reduced-motion` da silliq o'tish o'chiriladi). **Desktopda ko'rsatilmaydi** (`lg:hidden`), chunki u yerda tahlil o'ng ustunda allaqachon ko'rinib turadi. Topshirgandan keyin avtomatik ochiladigan 1-savol oynasi yopilgach, tugma ko'rinadi.
+
+### 7.4 Desktop va umumiy (2-ustuvorlik)
+
+**UI-6. Navigatorda bo'limlar sarlavhalari** (1-qism · Yopiq test 1–32, 2-qism · Moslashtirish 33–35, 3-qism · Ochiq javob 36–45) va legendada **"Joriy"** belgisi. Desktop panel balandligi cheklangan (1366×680), shuning uchun sarlavhalar bir qatorli bo'lishi va scrollsiz sig'ishi tekshiriladi. Mobil panel (UI-2) ham shu komponentdan foydalanadi.
+
+**UI-7. Klaviatura.** Y-1: A–D javob; Y-2: faol bandga A–F; ←/→ savollar orasida; yozish maydonida (O) o'chiriladi. "Belgilash" uchun harfli tugma biriktirilmaydi (F varianti Y-2 da band). Pastki panelda faqat desktopda: "Klaviatura: A–D javob, ←→ navigatsiya" (Q6 hal bo'lib, belgilash kartaga ko'chsa, shu joy bo'shaydi).
+
+**UI-8. Y-2 va O uchun bir qatorli ko'rsatma.** Y-2: "Bandlarga mos javobni (A–F) tanlang"; O: hozirgi `answers.openRule` qoidasi saqlanadi. Y-1 uchun alohida bo'lim kartasi **qo'shilmaydi** (joy yeydi).
+
+**UI-9. O (ochiq javob) uchun telefon kiritishi.** `inputMode="decimal"` (raqamli klaviatura) + bir qatorli chiplar: **`−`**, **`/`** (kerak bo'lsa `,`). Chiplar kursor o'rniga qo'shadi va `sanitizeOpenInput` orqali o'tadi. π, √, x², ° **qo'shilmaydi**: rasmiy O javob formati faqat son (docs/rasmiy-manbalar.md).
+
+**UI-10. Topshirish oynasida uch son:** javob berilgan / javobsiz / belgilangan (ularda shunday). Hozirgi ixcham oyna va tugmalar saqlanadi.
+
+### 7.5 Tekshirish va qarorlar (3-ustuvorlik)
+
+- **UI-11.** Y-2 bandlari raqamlanishi: ularda 0, 1, 2; bizda 1, 2, 3. Rasmiy imtihon formatiga qarab to'g'rilanadi (hozircha manbada tasdiq yo'q).
+- **UI-12. Mobil pastki navigatsiya paneli** (imtihondan tashqari sahifalar uchun): Imtihonlar | Natijalarim | Xatolar daftari | DTM, hozirgi hamburger menyuni almashtiradi. Qaror Q7. Ularda 6 ta bo'lim (Bosh, AI, Test, O'yin, Avto, Profil), bizda 4 ta bo'lishi kifoya.
+- **UI-13.** iPhone pastki chizig'i uchun `env(safe-area-inset-bottom)` va `viewport-fit=cover` ni tekshirish; haqiqiy qurilmada ko'rish.
+- **UI-15. 7 kunlik o'quv reja sahifasi** (3-bosqich, 9-band bilan birga): vertikal qadamlar chizig'i, har qadamda "savol soni · taxminiy daqiqa", oxirgi qadam "Nazorat testi: 45 savol, 150 daqiqa", "Xatolar ustida ishlash" qadami, "Imtihongacha N kun" hisoblagichi (imtihon sanasi rasmiy manbadan olinadi; testmakon dagi 23–24-noyabr tasdiqlanmagan). Reja zaif mavzulardan qoidalar asosida tuziladi (AI shart emas).
+
+### 7.6 Ataylab OLINMAYDIGAN narsalar
+Y-1 uchun bo'lim kartasi (mobil joyni yeydi), ogohlantirish ikonkasi va "Keyinroq davom etish" (bizda taymer serverda, vaqt to'xtamaydi), π/√/x²/° paneli, ularning yorqin yashil "Yakunlash" tugmasi, hamburger + logo sarlavhasi, AI/O'yin/Avto bo'limlari, har joydagi "Premium" qulf nishonlari, scroll qilinadigan sahifa va ustma-ust javoblar.
+
+### 7.7 Qabul tekshiruvi (har bir UI bandi uchun)
+393×852 (iPhone 16), 1440×900 va 1366×680: Y-1, Y-2 va O savollarida scrollsiz (desktop) / ortiqcha vertikal joysiz (mobil); 4 tilda matn sig'adi (ru va kaa uzunroq); `pnpm typecheck`, `lint`, `test`, `build`; tests/ui dagi tegishli testlar yangilanadi.
+
+### 7.8 Ochiq qarorlar
+| # | Savol | Tavsiya |
+|---|---|---|
+| Q6 | Bayroq (belgilash) faqat mobilda kartaga ko'chadimi yoki hamma o'lchamda? | Hamma o'lchamda |
+| Q7 | Mobil pastki navigatsiya paneli (UI-12) kerakmi? | Keyinroq, 1-ustuvorlik bandlaridan keyin |
+
+### 7.9 Bajarilgan (2026-11-10, kodda; commit qilinmagan)
+
+| Band | Holat | Izoh |
+|---|---|---|
+| UI-1 sarlavha | Bajarildi | Mobilda bitta qator + ingichka progress; balandlik 72px dan 64px ga tushdi (brauzerda o'lchandi). "Saqlandi" = yashil nuqta, "Saqlanmoqda" = yonib-o'chuvchi nuqta, faqat oflayn/vaqt tugashida matn |
+| UI-2 yon panel | Bajarildi | O'ng tomondan ochiladigan `<dialog>`, orqa fon blur; ichida nom, "Kalkulyator taqiqlangan", til, bo'limli savollar, legenda. "150 daqiqa" qo'shilmadi (runner davomiylikni bilmaydi) |
+| UI-3 bayroq | Bajarildi (hamma o'lchamda, Q6 tavsiyasi) | Karta yuqori o'ng burchagida, 44px (desktopda 40px); pastki paneldan olib tashlandi |
+| UI-4 yashil karta | Bajarildi, **brauzerda ko'rilmadi** | Natija sahifasi bazani talab qiladi. Mobil grid tuzilishi kodda; haqiqiy balandlik (maqsad ≤ 150px) qo'lda tekshirilsin |
+| UI-5 "Savollar tahlili ↓" | Bajarildi, **brauzerda ko'rilmadi** | `<a href="#review">` + silliq o'tish, faqat mobilda |
+| UI-6 navigator bo'limlari, "Joriy" | Bajarildi | 1366×680 da ham panel scrollsiz sig'adi (sarlavha "Savollar" balandlik < 760px da yashiriladi) |
+| UI-7 klaviatura | Bajarildi | Y-1: A–D; Y-2: A–F faol bandga; ←/→; yozish maydonida va ochiq oynada o'chiq; `e.code` ishlatiladi (kirill klaviaturada ham ishlaydi). Brauzerda sinaldi |
+| UI-8 ko'rsatma | Bajarildi | Y-2: bir qatorli "Har bir bandga mos variantni (A–F) tanlang." O: avvalgi qoida banneri |
+| UI-9 O kiritish | Bajarildi (rejadan farq) | Foydalanuvchi talabi bo'yicha to'liq ekran klaviaturasi (0–9, `,`, `/`, `−`, ⌫), `inputMode="none"`; faqat sensorli ekranda; telefonda pastki panel ustida mahkamlangan. Brauzerda sinaldi (`7/4` yozildi) |
+| UI-10 topshirish oynasi | Bajarildi | Uch son: javob berilgan / javobsiz / belgilangan; ixcham o'lcham saqlandi |
+| UI-11 Y-2 raqamlash | Tekshirildi | Raqamlash o'zgartirilmadi; **tuzilish farqi topildi**, docs/rasmiy-manbalar.md "Y-2 tekshiruvi" |
+| UI-13 safe-area | Bajarildi, **qurilmada ko'rilmadi** | `viewport-fit=cover` + `env(safe-area-inset-bottom)` |
+| UI-14 chiplar | Bajarildi | Mobilda mavzu nomi yashirin |
+| UI-12 pastki navigatsiya | Qilinmadi | Q7 qarori kutilmoqda |
+| UI-15 o'quv reja | Qilinmadi | 3-bosqich |
+
+Tekshiruv: `pnpm typecheck`, `lint`, `test` (yangi testlar: navigator bo'limlari, bayroq, Y-2 ko'rsatma, ekran klaviaturasi funksiyalari). Imtihon ekrani haqiqiy Chrome (headless, CDP) da: 393×852 (mobil, sensorli), 1440×900 va 1366×680; Y-1, Y-2, O savollari scrollsiz (desktop), yon panel, topshirish oynasi, klaviatura va ekran klaviaturasi ishlashi ko'rildi.

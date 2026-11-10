@@ -124,6 +124,60 @@ describe('Navigator', () => {
   });
 });
 
+describe('Navigator: bo\'limlar', () => {
+  const typed = (n: number, type: 'y1' | 'y2' | 'o') => ({ position: n, state: 'empty' as const, type });
+  const items = [typed(1, 'y1'), typed(2, 'y1'), typed(3, 'y2'), typed(4, 'o'), typed(5, 'o')];
+
+  it('ketma-ket bir xil turdagi savollar "N-qism · tur" sarlavhasi ostida guruhlanadi', () => {
+    const out = withI18n(<Navigator items={items} onSelect={() => {}} />);
+    expect(out).toContain('1-qism · Yopiq test');
+    expect(out).toContain('2-qism · Moslashtirish');
+    expect(out).toContain('3-qism · Ochiq javob');
+    expect(out.match(/<h3/g)).toHaveLength(3);
+    expect(out.match(/<ol/g)).toHaveLength(3);
+  });
+
+  it('tur ko\'rsatilmasa sarlavhasiz bitta ro\'yxat', () => {
+    const plain = items.map(({ position, state }) => ({ position, state }));
+    const out = withI18n(<Navigator items={plain} onSelect={() => {}} />);
+    expect(out).not.toContain('<h3');
+    expect(out.match(/<ol/g)).toHaveLength(1);
+  });
+
+  it('legendada "Joriy" belgisi bor', () => {
+    expect(withI18n(<Navigator items={items} onSelect={() => {}} />)).toContain('Joriy');
+  });
+
+  it('ustunlar soni tashqaridan beriladi (yon panel)', () => {
+    expect(withI18n(<Navigator items={items} columns="grid-cols-5" onSelect={() => {}} />)).toContain('grid-cols-5');
+  });
+});
+
+describe('savol kartasi: bayroq va ko\'rsatmalar', () => {
+  it('bayroq tugmasi berilsa yuqori o\'ng burchakda chiqadi va holatini bildiradi', () => {
+    const off = withI18n(<QuestionView item={y1} value={undefined} onChange={() => {}} flag={{ on: false, onToggle: () => {} }} />);
+    expect(off).toContain('aria-pressed="false"');
+    expect(off).toContain('aria-label="Belgilash"');
+    const on = withI18n(<QuestionView item={y1} value={undefined} onChange={() => {}} flag={{ on: true, onToggle: () => {} }} />);
+    expect(on).toContain('aria-pressed="true"');
+    expect(on).toContain('aria-label="Belgilangan"');
+  });
+
+  it('bayroq berilmasa (admin ko\'rinishi) tugma chiqmaydi', () => {
+    expect(html(y1)).not.toContain('aria-label="Belgilash"');
+  });
+
+  it('Y-2: variantlar oralig\'i ko\'rsatilgan bir qatorli ko\'rsatma', () => {
+    expect(html(y2)).toContain('Har bir bandga mos variantni (A–C) tanlang.');
+  });
+
+  it('O: kiritish qoidasi bor; ekran klaviaturasi faqat sensorli ekranda (serverda chiqmaydi)', () => {
+    const out = html(open);
+    expect(out).toContain('Faqat son, kasr');
+    expect(out).not.toContain('Raqamli klaviatura');
+  });
+});
+
 describe('boshqa tillarda render', () => {
   const render = (lang: 'ru' | 'en', node: React.ReactNode) =>
     renderToStaticMarkup(<I18nProvider lang={lang} dict={lang === 'ru' ? ru : en}>{node}</I18nProvider>);

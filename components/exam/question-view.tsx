@@ -3,6 +3,7 @@
 import { useT } from '@/components/i18n/provider';
 import { Markdown } from '@/components/math/markdown';
 import { Chip } from '@/components/ui/chip';
+import { Flag } from '@/components/ui/icons';
 import type { AnswerValue } from '@/lib/exam/answer-state';
 import type { ParsedPayload } from '@/lib/exam/payload';
 import { AnswerO } from './answer-o';
@@ -24,6 +25,8 @@ interface Props {
   item: RunnerItem;
   value: AnswerValue | undefined;
   onChange: (value: AnswerValue) => void;
+  /** Belgilash (bayroq) tugmasi kartaning yuqori o'ng burchagida; berilmasa (masalan admin ko'rinishi) chiqmaydi. */
+  flag?: { on: boolean; disabled?: boolean; onToggle: () => void };
 }
 
 const asRecord = (v: AnswerValue | undefined): Record<string, string> => (v && typeof v === 'object' ? (v as Record<string, string>) : {});
@@ -46,7 +49,7 @@ export function stemSize(stemMd: string, hasFigure: boolean) {
   return SIZES[Math.min(3, tier + (hasFigure ? 1 : 0))];
 }
 
-export function QuestionView({ item, value, onChange }: Props) {
+export function QuestionView({ item, value, onChange, flag }: Props) {
   const t = useT();
   const { payload } = item;
   const typeLabel = { y1: t('exam.typeY1'), y2: t('exam.typeY2'), o: t('exam.typeO') }[payload.type];
@@ -55,10 +58,30 @@ export function QuestionView({ item, value, onChange }: Props) {
   return (
     // key: savol almashganda ichki holat (masalan Y-2 tanlangan band) qayta boshlanadi
     <section key={item.questionId} aria-labelledby="question-title" className="flex flex-col gap-4 lg:min-h-0 lg:flex-1">
-      <div className="flex flex-wrap items-center gap-2">
-        <Chip tone="brand">{t('exam.task', { n: item.position })}</Chip>
-        <Chip>{typeLabel}</Chip>
-        <span className="text-[15px] font-bold text-muted">{item.blockName}</span>
+      <div className="flex items-center gap-2">
+        <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
+          <Chip tone="brand">{t('exam.task', { n: item.position })}</Chip>
+          <Chip>{typeLabel}</Chip>
+          {/* Mavzu nomi mobilda yashiriladi (rasmiy imtihonda ham ko'rsatilmaydi; joy tejaladi) */}
+          <span className="hidden text-[15px] font-bold text-muted sm:inline">{item.blockName}</span>
+        </div>
+        {flag && (
+          <button
+            type="button"
+            onClick={flag.onToggle}
+            disabled={flag.disabled}
+            aria-pressed={flag.on}
+            aria-label={flag.on ? t('exam.flagged') : t('exam.flag')}
+            title={flag.on ? t('exam.flagged') : t('exam.flag')}
+            className={
+              'flex size-11 shrink-0 items-center justify-center rounded-xl border-2 border-b-4 transition lg:size-10 ' +
+              'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-50 ' +
+              (flag.on ? 'border-gold-edge bg-warn-soft text-brand-ink' : 'border-line-strong bg-white text-muted hover:bg-surface hover:text-ink')
+            }
+          >
+            <Flag width={22} height={22} fill={flag.on ? 'currentColor' : 'none'} />
+          </button>
+        )}
       </div>
 
       {/* Savol: kartaning o'rtasida. Chizma bo'lsa: matn chapda, chizma o'ngda va mavjud balandlikka sig'adi (scrollsiz) */}

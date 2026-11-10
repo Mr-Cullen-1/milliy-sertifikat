@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Nunito, Onest } from "next/font/google";
 import { Suspense } from "react";
 import { I18nRoot } from "@/components/i18n/root";
@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: "Milliy sertifikat · Matematika (mock)",
   description: "Milliy sertifikat (Matematika) mock imtihoni · Mock exam · Мок-экзамен",
 };
+
+// iPhone pastki chizig'i (home indicator) ostida pastki panel qolib ketmasligi uchun: env(safe-area-inset-*) ishlaydi.
+export const viewport: Viewport = { viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

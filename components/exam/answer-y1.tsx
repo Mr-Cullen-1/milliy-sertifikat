@@ -3,6 +3,7 @@
 import { useT } from '@/components/i18n/provider';
 import { Markdown } from '@/components/math/markdown';
 import type { Y1Payload } from '@/lib/exam/payload';
+import { letterOf, useShortcut } from './keyboard';
 
 const LETTERS = ['A', 'B', 'C', 'D'] as const;
 
@@ -16,6 +17,16 @@ interface Props {
 export function AnswerY1({ payload, value, onChange }: Props) {
   const t = useT();
   const selected = value?.toUpperCase();
+
+  // Klaviatura: A–D tugmalari javob beradi
+  useShortcut((e) => {
+    const letter = letterOf(e);
+    if (letter && (LETTERS as readonly string[]).includes(letter)) {
+      e.preventDefault();
+      onChange(letter);
+    }
+  });
+
   return (
     <div role="radiogroup" aria-label={t('answers.options')} className="grid gap-3 sm:grid-cols-2">
       {LETTERS.map((letter) => {
