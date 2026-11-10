@@ -34,7 +34,8 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers, initialFlags, initialSpent, watermark }: Props) {
   const t = useT();
   const router = useRouter();
-  const resultHref = `/attempts/${attemptId}/result`;
+  // `?review=1`: natija sahifasida 1-savol tahlili oynasi avtomatik ochiladi.
+  const resultHref = `/attempts/${attemptId}/result?review=1`;
 
   const [answers, setAnswers] = useState(initialAnswers);
   const [flags, setFlags] = useState(initialFlags);

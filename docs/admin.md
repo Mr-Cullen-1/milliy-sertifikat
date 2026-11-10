@@ -16,7 +16,7 @@ Manzil: `/admin` (kirish: `/admin/login`; hisob yaratish: [docs/auth.md](auth.md
 | **Audit** (admin) | kirish, nashr, arxiv, import amallari jurnali |
 
 ## Variantlar (A–F) va ochish tartibi
-- Hozir **A** ochiq (talabalar ko'radi). **B–F** qoralama: talabaga ko'rinmaydi.
+- Hozir **A–F** hammasi nashr etilgan (talabalar ko'radi, variantlar uchun Pro talab qilinmaydi). Pro faqat tahlilni to'liq ochadi: natija va xatolar daftarida dastlabki 5 ta tahlil hamma uchun ochiq, qolganlari Pro bilan.
 - Ochish: *Imtihonlar* → variant yonidagi **Ochish (nashr)**. Tizim avval tekshiradi: 45 topshiriq, bo'limlar 1–32 Y-1 / 33–35 Y-2 / 36–45 O, bo'limlar bo'yicha sonlar (2/11/8/3/4/14/3), kalitlar bor, arxivlangan savol yo'q. Muammo bo'lsa sababi ko'rsatiladi.
 - **Nashrdan keyin savollar o'zgarmas** (natijalar buzilmasligi uchun). Savolda xato topilsa: mockni **Yopish (arxiv)**, to'g'rilangan variantni yangi `external_id` yoki yangi kod bilan yuklash.
 - Yopilgan (arxiv) mock: yangi urinish boshlanmaydi, mavjud natijalar saqlanadi; **Qayta ochish** mumkin.

@@ -145,7 +145,7 @@ export function MistakesList({ groups }: { groups: MistakeGroup[] }) {
           if (e.target === ref.current) setOpen(null);
         }}
         aria-labelledby="mistake-title"
-        className="m-auto h-[min(92dvh,max(70dvh,520px))] w-[min(94vw,max(70vw,720px))] rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-0 text-ink shadow-xl backdrop:bg-ink/40 backdrop:backdrop-blur-md"
+        className="app-modal rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-0 text-ink shadow-xl"
       >
         {current && detail && open !== null && (
           <div className="flex h-full flex-col">

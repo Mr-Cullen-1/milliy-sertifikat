@@ -16,7 +16,7 @@ import { createClient } from '@/lib/supabase/server';
 import { parseAnswer } from '@/lib/exam/schemas';
 
 /** Xatolar tahlilida Pro obunasiz ochiq xatolar soni (ro'yxat tartibida; qolganlari yopiq, tafsiloti mijozga yuborilmaydi). */
-const FREE_MISTAKES_COUNT = 6;
+const FREE_MISTAKES_COUNT = 5;
 
 export default async function MistakesPage() {
   const [{ t, lang }, participant] = await Promise.all([getI18n(), requireParticipant('/mistakes')]);

@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* Barcha modal oynalar (<dialog>): viewportning 80% i; orqa fon kuchli xiralashtirilgan, deyarli o'qib bo'lmaydi. */
+@layer components {
+  .app-modal {
+    margin: auto;
+    width: max(80vw, min(94vw, 360px));
+    height: 80dvh;
+    max-width: none;
+    max-height: none;
+  }
+  .app-modal::backdrop {
+    background: rgb(30 27 57 / 0.5);
+    backdrop-filter: blur(24px);
+  }
+}
+
 /*
  * Dizayn tokenlari: Figma "dizayn-test-platform (Copy)", sahifa "Redesign — До / После", B variant ("O'yin").
  * Manba va kelishuvlar: docs/design.md.

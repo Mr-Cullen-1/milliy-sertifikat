@@ -1,13 +1,11 @@
 import Link from 'next/link';
 import { PageShell } from '@/components/page-shell';
 import { PageHero } from '@/components/page-hero';
-import { CrownIcon, ProOpenButton } from '@/components/pro/pro-modal';
 import { buttonClass } from '@/components/ui/button';
 import { Chip } from '@/components/ui/chip';
 import { formatScore } from '@/lib/format';
 import { getI18n } from '@/lib/i18n/server';
 import { requireParticipant } from '@/lib/participant.server';
-import { createAdminClient } from '@/lib/supabase/admin';
 import { createClient } from '@/lib/supabase/server';
 
 const durationOf = (formats: { duration_min: number } | { duration_min: number }[] | null) => (Array.isArray(formats) ? formats[0] : formats)?.duration_min;
@@ -26,35 +24,17 @@ export default async function ExamsPage() {
     supabase.from('attempts').select('id, exam_id').eq('status', 'in_progress'),
     supabase.from('attempts').select('id, exam_id, scaled_score, level, submitted_at').eq('status', 'submitted').order('submitted_at', { ascending: false }).limit(10),
   ]);
-  // RLS: oddiy ishtirokchiga faqat nashr etilganlar, Pro huquqli ishtirokchiga qoralamalar ham keladi.
-  // Qolgan nashr etilmagan variantlar (qoralama/arxiv): faqat nomi va holati bilan, o'chirilgan karta uchun. Savollar va id mijozga chiqarilmaydi.
-  const hiddenRes = await createAdminClient().from('exams').select('id, title, status, sort, exam_formats(duration_min)').neq('status', 'published').order('sort');
-  const hidden = { ...hiddenRes, data: (hiddenRes.data ?? []).filter((e) => !(exams.data ?? []).some((o) => o.id === e.id)) };
-  if (hidden.error) throw new Error(`exams (nashr etilmagan): ${hidden.error.message}`);
+  // RLS: nashr etilgan variantlar hamma ishtirokchiga ochiq (Pro talab qilinmaydi).
   for (const r of [exams, active, done]) if (r.error) throw new Error(`exams: ${r.error.message}`);
 
   const titles = new Map((exams.data ?? []).map((e) => [e.id, e.title]));
-  // Hammasi bitta ro'yxatda, tartib bo'yicha: ochiq variantlar faol, qolganlari o'chirilgan (disabled)
-  const cards = [
-    ...(exams.data ?? []).map((e) => ({
-      kind: 'open' as const,
-      key: e.id,
-      id: e.id,
-      title: e.title,
-      sort: e.sort,
-      minutes: durationOf(e.exam_formats) ?? 150,
-      status: e.status,
-    })),
-    ...(hidden.data ?? []).map((e, i) => ({
-      kind: 'locked' as const,
-      key: `locked-${i}`,
-      id: null,
-      title: e.title,
-      sort: e.sort,
-      minutes: durationOf(e.exam_formats) ?? 150,
-      status: e.status,
-    })),
-  ].sort((x, y) => (x.sort ?? 0) - (y.sort ?? 0));
+  const cards = (exams.data ?? []).map((e) => ({
+    key: e.id,
+    id: e.id,
+    title: e.title,
+    sort: e.sort,
+    minutes: durationOf(e.exam_formats) ?? 150,
+  }));
   const activeByExam = new Map((active.data ?? []).map((a) => [a.exam_id, a.id]));
 
   return (
@@ -69,35 +49,18 @@ export default async function ExamsPage() {
           {cards.length === 0 && <p className="text-[19px] font-semibold text-muted md:col-span-2 lg:col-span-3">{t('exams.none')}</p>}
           {cards.map((exam) => {
             const attemptId = exam.id ? activeByExam.get(exam.id) : undefined;
-            const locked = exam.kind === 'locked';
             return (
-              <article
-                key={exam.key}
-                className={
-                  'flex min-h-[150px] flex-col justify-between gap-4 rounded-3xl border-2 border-b-[5px] p-5 ' +
-                  (locked ? 'border-line bg-surface' : 'border-line-strong bg-white shadow-card')
-                }
-              >
+              <article key={exam.key} className="flex min-h-[150px] flex-col justify-between gap-4 rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex min-w-0 flex-col gap-2.5">
-                    <h2 className={`font-heading text-[24px] leading-8 font-semibold ${locked ? 'text-muted' : 'text-ink'}`}>{exam.title}</h2>
+                    <h2 className="font-heading text-[24px] leading-8 font-semibold text-ink">{exam.title}</h2>
                     <div className="flex flex-wrap items-center gap-2 text-[14px] font-extrabold text-ink-soft">
                       <span className="rounded-full border-2 border-line bg-white px-3 py-1">{t('intro.tasksPill', { n: 45 })}</span>
                       <span className="rounded-full border-2 border-line bg-white px-3 py-1">{t('intro.minutesPill', { minutes: exam.minutes })}</span>
                     </div>
                   </div>
-                  {locked && (
-                    <span className="flex size-10 shrink-0 items-center justify-center rounded-full border-2 border-line bg-white text-muted">
-                      <LockIcon />
-                    </span>
-                  )}
                 </div>
-                {locked ? (
-                  <ProOpenButton className={buttonClass('accent', 'w-full')}>
-                    <CrownIcon size={20} />
-                    {t('pro.cardButton')}
-                  </ProOpenButton>
-                ) : attemptId ? (
+                {attemptId ? (
                   <Link href={`/attempts/${attemptId}`} className={buttonClass('primary')}>
                     {t('exams.resume')}
                   </Link>
@@ -137,16 +100,5 @@ export default async function ExamsPage() {
         )}
       </main>
     </PageShell>
-  );
-}
-
-/** Qulf belgisi: yopiq (arxiv) va hali ochilmagan (qoralama) variantlar kartasida. */
-function LockIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <rect x="4.5" y="10.5" width="15" height="10" rx="2.5" />
-      <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
-      <circle cx="12" cy="15.5" r="1" fill="currentColor" />
-    </svg>
   );
 }

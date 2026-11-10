@@ -19,10 +19,11 @@ import { Suspense } from 'react';
 import { PageSkeleton } from '@/components/page-skeleton';
 
 /** Savollar tahlilida Pro obunasiz ochiq savollar soni (qolganlari yopiq, tafsiloti mijozga yuborilmaydi). */
-const FREE_REVIEW_COUNT = 6;
+const FREE_REVIEW_COUNT = 5;
 
-async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/result'>) {
+async function ResultPageContent({ params, searchParams }: PageProps<'/attempts/[attemptId]/result'>) {
   const { attemptId } = await params;
+  const autoReview = (await searchParams).review === '1';
   if (!/^[0-9a-f-]{36}$/i.test(attemptId)) notFound();
 
   const resolved = await resolveAttempt(attemptId);
@@ -195,7 +196,7 @@ async function ResultPageContent({ params }: PageProps<'/attempts/[attemptId]/re
               <section className="flex min-h-0 flex-1 flex-col gap-3" aria-label={t('result.review')}>
                 <h2 className="font-heading text-[22px] font-semibold text-ink">{t('result.review')}</h2>
                 <div className="min-h-0 lg:flex-1 lg:overflow-y-auto lg:p-1 lg:pr-2 lg:[scrollbar-color:#cfc9ec_transparent] lg:[scrollbar-width:thin]">
-                  <ReviewGrid items={reviewItems} listClassName="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 lg:gap-3" />
+                  <ReviewGrid items={reviewItems} autoOpen={autoReview} listClassName="grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 lg:gap-3" />
                 </div>
               </section>
             </div>

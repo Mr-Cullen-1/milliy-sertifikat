@@ -50,14 +50,22 @@ const tile: Record<ReviewStatus, string> = {
 export function ReviewGrid({
   items,
   listClassName = 'grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 lg:gap-4',
+  autoOpen = false,
 }: {
   items: ReviewItem[];
   listClassName?: string;
+  /** Imtihon topshirilgan zahoti: 1-savol tahlili oynasi o'zi ochiladi. */
+  autoOpen?: boolean;
 }) {
   const t = useT();
   const pro = useProModal();
-  const [open, setOpen] = useState<number | null>(null);
+  const [open, setOpen] = useState<number | null>(() => (autoOpen && items[0] && !items[0].locked ? 0 : null));
   const ref = useRef<HTMLDialogElement>(null);
+
+  // `?review=1` belgisini manzildan olib tashlaymiz: sahifani yangilaganda oyna qayta ochilmasin.
+  useEffect(() => {
+    if (autoOpen) window.history.replaceState(window.history.state, '', window.location.pathname);
+  }, [autoOpen]);
 
   useEffect(() => {
     const d = ref.current;
@@ -121,10 +129,10 @@ export function ReviewGrid({
         onClick={(e) => {
           if (e.target === ref.current) setOpen(null);
         }}
-        className="m-auto w-[min(94vw,820px)] rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-0 text-ink shadow-xl backdrop:bg-ink/40"
+        className="app-modal rounded-3xl border-2 border-b-[6px] border-line-strong bg-white p-0 text-ink shadow-xl"
       >
         {item && open !== null && (
-          <div className="flex max-h-[88dvh] flex-col">
+          <div className="flex h-full flex-col">
             <div className="flex items-center gap-3 border-b-2 border-line px-5 py-4">
               <span className={`flex size-9 shrink-0 items-center justify-center rounded-[10px] text-[17px] font-black text-white ${badge[item.status]}`}>
                 {item.position}
