@@ -3572,6 +3572,878 @@ oT<TabOP>(
   },
 );
 
+// =====================================================================================================
+// 6.1 Hosila (mavzular 60-64) va yangi 110 (hosilaning fizik ma'nosi; normal tenglamasi);
+// 6.2 Boshlang'ich funksiya va integral (65, 66)
+// =====================================================================================================
+
+const findL = (e: string): L10n => L(`${e} ni toping.`, `Найдите ${e}.`, `${e} tabıń.`, `Find ${e}.`); // kaa: tekshirilsin
+const calcL = (e: string): L10n => L(`${e} ni hisoblang.`, `Вычислите ${e}.`, `${e} di esaplań.`, `Evaluate ${e}.`); // kaa: tekshirilsin
+const dAt = (x0: string): string => M(`f'(${x0})`);
+const DER = L('Hosila:', 'Производная:', 'Tuwındı:', 'The derivative:'); // kaa: tekshirilsin
+const piAt = (f: Frac): string => (f.n === 0 ? '0' : f.n < 0 ? `-${piTex(frac(-f.n, f.d))}` : piTex(f));
+const fracChk = (f: Frac): boolean => f.d <= 60 && Math.abs(f.n) <= 4000;
+
+// --- 60: ko'phad hosilasi nuqtada (L1) ---
+interface DerPolyP {
+  c: [number, number, number, number];
+  x0: number;
+}
+y1T<DerPolyP>(
+  'der-poly-point',
+  60,
+  'L1',
+  100,
+  (r) => ({ c: [r.int(-9, 9), r.int(-9, 9), r.int(-6, 6), r.int(1, 4)], x0: r.pick([-4, -3, -2, -1, 1, 2, 3, 4]) }),
+  (p) => {
+    const [d, c1, b, a] = p.c;
+    need(b !== 0 && c1 !== 0 && d !== 0);
+    const x0 = p.x0;
+    const ans = 3 * a * x0 * x0 + 2 * b * x0 + c1;
+    need(Math.abs(ans) <= 300 && ans !== 0);
+    const f0 = a * x0 ** 3 + b * x0 * x0 + c1 * x0 + d;
+    const wrong = intWrong(ans, [f0, 3 * a * x0 * x0 + 2 * b * x0, 3 * a * x0 * x0 + b * x0 + c1, ans + d, -ans]);
+    const der = `f'(x)=${polyTex([c1, 2 * b, 3 * a])},\\ f'(${x0})=${ans}`;
+    return {
+      stem: J(L(`${M(`f(x)=${polyTex(p.c)}`)} bo'lsa,`, `Если ${M(`f(x)=${polyTex(p.c)}`)}, то`, `${M(`f(x)=${polyTex(p.c)}`)} bolsa,`, `If ${M(`f(x)=${polyTex(p.c)}`)}, then`), findL(dAt(String(x0)))), // kaa: tekshirilsin
+      correct: mi(ans),
+      wrong,
+      sol: J(DER, M(der), fin(String(ans))),
+      mis: L(
+        "Hosila o'rniga funksiyaning qiymatini hisoblash yoki $x^{2}$ hosilasida koeffitsiyentni ($2b$) kamaytirib olish.",
+        'Вычисляют значение функции вместо производной либо теряют множитель при производной степени.',
+        "Tuwındı ornına funkciyanıń mánisin esaplaw yamasa dárejeniń tuwındısında koefficientti qáte alıw.", // kaa: tekshirilsin
+        'Computing the function value instead of the derivative, or mishandling the coefficient when differentiating a power.',
+      ),
+    };
+  },
+);
+
+// --- 60: ko'paytma hosilasi nuqtada (L2) ---
+interface DerProdP {
+  p: number;
+  q: number;
+  r: number;
+  s: number;
+  x0: number;
+}
+y1T<DerProdP>(
+  'der-prod-point',
+  60,
+  'L2',
+  150,
+  (r) => ({ p: r.int(-5, 5), q: r.int(-6, 6), r: r.pick([-3, -2, -1, 2, 3, 4]), s: r.int(-7, 7), x0: r.pick([-3, -2, -1, 1, 2, 3]) }),
+  (p) => {
+    need(p.p !== 0 && p.q !== 0 && p.s !== 0);
+    const u = p.x0 * p.x0 + p.p * p.x0 + p.q;
+    const v = p.r * p.x0 + p.s;
+    const du = 2 * p.x0 + p.p;
+    const ans = du * v + u * p.r;
+    need(Math.abs(ans) <= 400 && ans !== 0 && u !== 0 && v !== 0);
+    const wrong = intWrong(ans, [du * p.r, u * v, du * v, u * p.r, du * v - u * p.r]);
+    const fx = `(${polyTex([p.q, p.p, 1])})(${polyTex([p.s, p.r])})`;
+    const der = `f'(x)=(2x${sg(p.p)})(${polyTex([p.s, p.r])})+(${polyTex([p.q, p.p, 1])})\\cdot ${p.r},\\ f'(${p.x0})=${du}\\cdot ${v}+${u}\\cdot ${p.r}=${ans}`;
+    return {
+      stem: J(L(`${M(`f(x)=${fx}`)} bo'lsa,`, `Если ${M(`f(x)=${fx}`)}, то`, `${M(`f(x)=${fx}`)} bolsa,`, `If ${M(`f(x)=${fx}`)}, then`), findL(dAt(String(p.x0)))), // kaa: tekshirilsin
+      correct: mi(ans),
+      wrong,
+      sol: J(L("Ko'paytma hosilasi $(uv)'=u'v+uv'$:", 'Производная произведения $(uv)\'=u\'v+uv\'$:', "Kóbeyme tuwındısı $(uv)'=u'v+uv'$:", 'Product rule $(uv)\'=u\'v+uv\'$:'), M(der), fin(String(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Ko'paytmaning hosilasini hosilalar ko'paytmasi ($u'v'$) deb olish.",
+        'Берут производную произведения как произведение производных ($u\'v\'$).',
+        "Kóbeymeniń tuwındısın tuwındılar kóbeymesi ($u'v'$) dep alıw.", // kaa: tekshirilsin
+        'Taking the derivative of a product as the product of derivatives ($u\'v\'$).',
+      ),
+    };
+  },
+);
+
+// --- 60: bo'linma hosilasi nuqtada, kasr javob (L2) ---
+interface DerQuotP {
+  a: number;
+  b: number;
+  c: number;
+  d: number;
+  x0: number;
+}
+y1T<DerQuotP>(
+  'der-quot-point',
+  60,
+  'L2',
+  150,
+  (r) => ({ a: r.int(-5, 5), b: r.int(-6, 6), c: r.pick([-3, -2, -1, 1, 2, 3]), d: r.int(-6, 6), x0: r.int(-4, 4) }),
+  (p) => {
+    need(p.a !== 0 && p.b !== 0 && p.d !== 0);
+    const den = p.c * p.x0 + p.d;
+    const det = p.a * p.d - p.b * p.c;
+    need(den !== 0 && det !== 0);
+    const ans = frac(det, den * den);
+    need(fracChk(ans));
+    const wrong = fracWrong(ans, [frac(p.a * p.d + p.b * p.c, den * den), frac(det, den), frac(p.a, p.c), frac(-det, den * den), frac(p.a * p.c, den * den)]);
+    const fx = `\\frac{${polyTex([p.b, p.a])}}{${polyTex([p.d, p.c])}}`;
+    const der = `f'(x)=\\frac{${p.a}(${polyTex([p.d, p.c])})-(${polyTex([p.b, p.a])})\\cdot ${p.c}}{(${polyTex([p.d, p.c])})^{2}}=\\frac{${det}}{(${polyTex([p.d, p.c])})^{2}},\\ f'(${p.x0})=${texFrac(ans)}`;
+    return {
+      stem: J(L(`${M(`f(x)=${fx}`)} bo'lsa,`, `Если ${M(`f(x)=${fx}`)}, то`, `${M(`f(x)=${fx}`)} bolsa,`, `If ${M(`f(x)=${fx}`)}, then`), findL(dAt(String(p.x0)))), // kaa: tekshirilsin
+      correct: mf(ans),
+      wrong,
+      sol: J(L("Bo'linma hosilasi $\\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}}$:", 'Производная частного $\\left(\\frac{u}{v}\\right)\'=\\frac{u\'v-uv\'}{v^{2}}$:', "Bóliwshi tuwındısı $\\left(\\frac{u}{v}\\right)'=\\frac{u'v-uv'}{v^{2}}$:", 'Quotient rule $\\left(\\frac{u}{v}\\right)\'=\\frac{u\'v-uv\'}{v^{2}}$:'), M(der), fin(texFrac(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Suratdagi ayirmada hadlar tartibini almashtirish ($uv'-u'v$) yoki maxrajni kvadratga ko'tarishni unutish.",
+        'Меняют порядок членов числителя ($uv\'-u\'v$) либо забывают возвести знаменатель в квадрат.',
+        "Alımdaǵı ayırmada hádlerdiń tártibin almastırıw ($uv'-u'v$) yamasa bólimdi kvadratqa kóteriwdi umıtıw.", // kaa: tekshirilsin
+        'Swapping the order of terms in the numerator ($uv\'-u\'v$), or forgetting to square the denominator.',
+      ),
+    };
+  },
+);
+
+// --- 61: murakkab funksiya: (ax+b)^n yoki sqrt(ax+b) hosilasi (L2) ---
+interface DerPowP {
+  kind: 'pow' | 'sqrt';
+  a: number;
+  b: number;
+  n: number;
+  x0: number;
+  s: number;
+}
+y1T<DerPowP>(
+  'der-pow-point',
+  61,
+  'L2',
+  140,
+  (r) => ({ kind: r.pick(['pow', 'sqrt'] as const), a: r.pick([-3, -2, -1, 1, 2, 3, 4, 5, 6]), b: r.int(-7, 7), n: r.pick([3, 4, 5]), x0: r.int(-3, 4), s: r.int(1, 6) }),
+  (p) => {
+    let fx: string;
+    let ans: Frac;
+    let wrongs: Frac[];
+    let der: string;
+    if (p.kind === 'pow') {
+      need(p.b !== 0);
+      const u = p.a * p.x0 + p.b;
+      need(u !== 0 && Math.abs(u) <= 6);
+      fx = `(${polyTex([p.b, p.a])})^{${p.n}}`;
+      ans = fInt(p.n * p.a * u ** (p.n - 1));
+      need(Math.abs(ans.n) <= 4000 && ans.n !== 0);
+      wrongs = [fInt(p.n * u ** (p.n - 1)), fInt(p.a * u ** (p.n - 1)), fInt(p.n * p.a * u ** p.n), fInt(p.n * p.a * u ** (p.n - 2))];
+      der = `f'(x)=${p.n}(${polyTex([p.b, p.a])})^{${p.n - 1}}\\cdot ${p.a},\\ f'(${p.x0})=${p.n}\\cdot ${u}^{${p.n - 1}}\\cdot ${p.a}=${ans.n}`;
+    } else {
+      need(p.a > 0);
+      const b = p.s * p.s - p.a * p.x0;
+      need(b !== 0);
+      fx = `\\sqrt{${polyTex([b, p.a])}}`;
+      ans = frac(p.a, 2 * p.s);
+      wrongs = [frac(p.a, p.s), frac(1, 2 * p.s), frac(p.a, 2 * p.s * p.s), frac(p.a, 4 * p.s)];
+      der = `f'(x)=\\frac{${p.a}}{2\\sqrt{${polyTex([b, p.a])}}},\\ f'(${p.x0})=\\frac{${p.a}}{2\\cdot ${p.s}}=${texFrac(ans)}`;
+    }
+    return {
+      stem: J(L(`${M(`f(x)=${fx}`)} bo'lsa,`, `Если ${M(`f(x)=${fx}`)}, то`, `${M(`f(x)=${fx}`)} bolsa,`, `If ${M(`f(x)=${fx}`)}, then`), findL(dAt(String(p.x0)))), // kaa: tekshirilsin
+      correct: mf(ans),
+      wrong: fracWrong(ans, wrongs),
+      sol: J(L('Murakkab funksiya hosilasi $(g(u))\'=g\'(u)\\cdot u\'$:', 'Производная сложной функции $(g(u))\'=g\'(u)\\cdot u\'$:', "Quramalı funkciya tuwındısı $(g(u))'=g'(u)\\cdot u'$:", 'Chain rule $(g(u))\'=g\'(u)\\cdot u\'$:'), M(der), fin(texFrac(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Ichki funksiyaning hosilasini ($a$ ko'paytuvchisini) qo'shishni unutish.",
+        'Забывают умножить на производную внутренней функции (множитель $a$).',
+        "Ishki funkciyanıń tuwındısın ($a$ kóbeytiwshisin) kóbeytiwdi umıtıw.", // kaa: tekshirilsin
+        'Forgetting to multiply by the derivative of the inner function (the factor $a$).',
+      ),
+    };
+  },
+);
+
+// --- 61: trigonometrik funksiya hosilasi nuqtada: k sin(mx)+cx yoki k cos(mx)+cx (L2) ---
+const COS_RATIONAL: readonly (readonly [number, number, number, number])[] = [
+  [0, 1, 1, 1],
+  [1, 3, 1, 2],
+  [1, 2, 0, 1],
+  [2, 3, -1, 2],
+  [1, 1, -1, 1],
+  [4, 3, -1, 2],
+  [3, 2, 0, 1],
+  [5, 3, 1, 2],
+];
+const SIN_RATIONAL: readonly (readonly [number, number, number, number])[] = [
+  [0, 1, 0, 1],
+  [1, 6, 1, 2],
+  [1, 2, 1, 1],
+  [5, 6, 1, 2],
+  [1, 1, 0, 1],
+  [7, 6, -1, 2],
+  [3, 2, -1, 1],
+  [11, 6, -1, 2],
+];
+interface DerTrigP {
+  fn: 'sin' | 'cos';
+  k: number;
+  m: number;
+  c: number;
+  idx: number;
+}
+y1T<DerTrigP>(
+  'der-trig-point',
+  61,
+  'L2',
+  160,
+  (r) => ({ fn: r.pick(['sin', 'cos'] as const), k: r.pick([-4, -3, -2, 2, 3, 4, 5]), m: r.pick([1, 2, 3, 4]), c: r.int(-5, 5), idx: r.int(0, 7) }),
+  (p) => {
+    const row = (p.fn === 'sin' ? COS_RATIONAL : SIN_RATIONAL)[p.idx]!;
+    const trig = frac(row[2], row[3]);
+    const theta = frac(row[0], row[1]);
+    const x0 = fDiv(theta, fInt(p.m));
+    const base = fMul(fInt(p.k * p.m * (p.fn === 'sin' ? 1 : -1)), trig);
+    const ans = fAdd(base, fInt(p.c));
+    need(ans.n !== 0 && fracChk(ans) && p.c !== 0);
+    const arg = p.m === 1 ? 'x' : `${p.m}x`;
+    const fx = `${p.k === 1 ? '' : p.k === -1 ? '-' : p.k}\\${p.fn}(${arg})${p.c === 0 ? '' : p.c < 0 ? `-${-p.c === 1 ? '' : -p.c}x` : `+${p.c === 1 ? '' : p.c}x`}`;
+    const wrongs = [fAdd(fMul(fInt(p.k), trig), fInt(p.c)), fAdd(fMul(fInt(-p.k * p.m * (p.fn === 'sin' ? 1 : -1)), trig), fInt(p.c)), base, fAdd(fMul(fInt(p.k * p.m * (p.fn === 'sin' ? 1 : -1)), frac(1, 2)), fInt(p.c))];
+    const x0t = M(`f'\\left(${piAt(x0)}\\right)`);
+    const der = `f'(x)=${p.fn === 'sin' ? '' : '-'}${p.k * p.m}\\${p.fn === 'sin' ? 'cos' : 'sin'}(${arg})${sg(p.c)}`;
+    return {
+      stem: J(L(`${M(`f(x)=${fx}`)} bo'lsa,`, `Если ${M(`f(x)=${fx}`)}, то`, `${M(`f(x)=${fx}`)} bolsa,`, `If ${M(`f(x)=${fx}`)}, then`), findL(x0t)), // kaa: tekshirilsin
+      correct: mf(ans),
+      wrong: fracWrong(ans, wrongs),
+      sol: J(DER, M(der), L(`Qiymat: ${mf(ans)}.`, `Значение: ${mf(ans)}.`, `Mánis: ${mf(ans)}.`, `Value: ${mf(ans)}.`), fin(texFrac(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Ichki funksiya ($mx$) hosilasi — $m$ ko'paytuvchisini yo'qotish yoki $\\cos$ hosilasining ishorasini ($-\\sin$) unutish.",
+        'Теряют множитель $m$ от производной внутренней функции либо знак в $(\\cos)\'=-\\sin$.',
+        "Ishki funkciya ($mx$) tuwındısı — $m$ kóbeytiwshisin joǵaltıw yamasa $(\\cos)'=-\\sin$ belgisin umıtıw.", // kaa: tekshirilsin
+        'Dropping the factor $m$ from the inner derivative, or the sign in $(\\cos)\'=-\\sin$.',
+      ),
+    };
+  },
+);
+
+// --- 62: berilgan to'g'ri chiziqqa parallel urinma: urinish nuqtasi abssissasi (L1) ---
+interface TanParP {
+  a: number;
+  b: number;
+  c: number;
+  x0: number;
+  m: number;
+}
+y1T<TanParP>(
+  'der-tangent-parallel',
+  62,
+  'L1',
+  120,
+  (r) => ({ a: r.pick([-3, -2, -1, 1, 2, 3]), b: r.int(-8, 8), c: r.int(-9, 9), x0: r.int(-6, 6), m: r.int(-9, 9) }),
+  (p) => {
+    need(p.b !== 0 && p.c !== 0 && p.x0 !== 0);
+    const k = 2 * p.a * p.x0 + p.b;
+    need(k !== 0 && Math.abs(k) <= 30);
+    const wrong = intWrong(p.x0, [-p.x0, Math.round(k / p.a), (k + p.b) / (2 * p.a), (k - p.b) / p.a, k, 2 * p.a * p.x0].filter((v) => Number.isInteger(v)));
+    const fx = polyTex([p.c, p.b, p.a]);
+    const line = `y=${polyTex([p.m, k])}`;
+    return {
+      stem: L(
+        `${M(`f(x)=${fx}`)} funksiya grafigiga o'tkazilgan urinma ${M(line)} to'g'ri chiziqqa parallel. Urinish nuqtasining abssissasini toping.`,
+        `Касательная к графику функции ${M(`f(x)=${fx}`)} параллельна прямой ${M(line)}. Найдите абсциссу точки касания.`,
+        `${M(`f(x)=${fx}`)} funkciya grafigine ótkerilgen urınba ${M(line)} tuwrısına parallel. Urınıw noqatınıń abscissasın tabıń.`, // kaa: tekshirilsin
+        `The tangent to the graph of ${M(`f(x)=${fx}`)} is parallel to the line ${M(line)}. Find the abscissa of the point of tangency.`,
+      ),
+      correct: mi(p.x0),
+      wrong,
+      sol: J(L('Parallel chiziqlarning burchak koeffitsiyentlari teng: $f\'(x_0)=k$.', 'Угловые коэффициенты параллельных прямых равны: $f\'(x_0)=k$.', "Parallel tuwrılardıń múyeshlik koefficientleri teń: $f'(x_0)=k$.", 'Parallel lines have equal slopes: $f\'(x_0)=k$.'), M(`f'(x)=${polyTex([p.b, 2 * p.a])}=${k}\\Rightarrow x_0=${p.x0}`), fin(String(p.x0))), // kaa: tekshirilsin
+      mis: L(
+        "$f'(x_0)=k$ o'rniga $f(x_0)=k$ deb yechish yoki hosiladagi $2a$ koeffitsiyentini unutish.",
+        'Решают $f(x_0)=k$ вместо $f\'(x_0)=k$ либо теряют множитель $2a$ в производной.',
+        "$f'(x_0)=k$ ornına $f(x_0)=k$ dep sheshiw yamasa tuwındıdaǵı $2a$ koefficientin umıtıw.", // kaa: tekshirilsin
+        'Solving $f(x_0)=k$ instead of $f\'(x_0)=k$, or dropping the factor $2a$ in the derivative.',
+      ),
+    };
+  },
+);
+
+// --- 62: Ox o'qi bilan 45 yoki 135 gradus burchak tashkil etuvchi urinmalar: abssissalar yig'indisi (L2) ---
+interface TanAngP {
+  p: number;
+  q: number;
+  ang: 45 | 135;
+}
+y1T<TanAngP>(
+  'der-tangent-angle',
+  62,
+  'L2',
+  170,
+  (r) => ({ p: r.pick([-9, -6, -3, 3, 6, 9]), q: r.int(-12, 6), ang: r.pick([45, 135] as const) }),
+  (p) => {
+    const k = p.ang === 45 ? 1 : -1;
+    need(4 * p.p * p.p - 12 * (p.q - k) > 0);
+    const ans = -(2 * p.p) / 3;
+    need(Number.isInteger(ans) && ans !== 0 && p.q !== 0);
+    const wrong = intWrong(ans, [-ans, 2 * p.p, p.p, ans + 1, -2 * p.p / 3 * 2].filter((v) => Number.isInteger(v)));
+    const fx = `x^{3}${sg(p.p)}x^{2}${sg(p.q)}x`;
+    return {
+      stem: L(
+        `${M(`f(x)=${fx}`)} funksiya grafigiga o'tkazilgan va ${M('Ox')} o'qining musbat yo'nalishi bilan ${M(`${p.ang}^\\circ`)} burchak hosil qiluvchi urinmalarning urinish nuqtalari abssissalari yig'indisini toping.`,
+        `Найдите сумму абсцисс точек касания касательных к графику функции ${M(`f(x)=${fx}`)}, образующих с положительным направлением оси ${M('Ox')} угол ${M(`${p.ang}^\\circ`)}.`,
+        `${M(`f(x)=${fx}`)} funkciya grafigine ótkerilgen hám ${M('Ox')} kósheriniń oń baǵıtı menen ${M(`${p.ang}^\\circ`)} múyesh jasaytuǵın urınbalardıń urınıw noqatları abscissaları qosındısın tabıń.`, // kaa: tekshirilsin
+        `Find the sum of the abscissas of the points of tangency of the tangents to the graph of ${M(`f(x)=${fx}`)} that make an angle of ${M(`${p.ang}^\\circ`)} with the positive direction of the ${M('Ox')}-axis.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: J(L(`${M(`\\tan ${p.ang}^\\circ=${k}`)}, shuning uchun ${M(`f'(x)=${k}`)}:`, `${M(`\\tan ${p.ang}^\\circ=${k}`)}, поэтому ${M(`f'(x)=${k}`)}:`, `${M(`\\tan ${p.ang}^\\circ=${k}`)}, sonlıqtan ${M(`f'(x)=${k}`)}:`, `${M(`\\tan ${p.ang}^\\circ=${k}`)}, so ${M(`f'(x)=${k}`)}:`), M(`${polyTex([p.q - k, 2 * p.p, 3])}=0`), L(`Viyet: ${M(`x_1+x_2=-\\frac{${2 * p.p}}{3}=${ans}`)}.`, `Виет: ${M(`x_1+x_2=-\\frac{${2 * p.p}}{3}=${ans}`)}.`, `Viyet: ${M(`x_1+x_2=-\\frac{${2 * p.p}}{3}=${ans}`)}.`, `Vieta: ${M(`x_1+x_2=-\\frac{${2 * p.p}}{3}=${ans}`)}.`), fin(String(ans))), // kaa: tekshirilsin
+      mis: L(
+        "$135^\\circ$ uchun $\\tan=1$ deb olish (ishorani unutish) yoki yig'indini $\\frac{b}{a}$ (minussiz) olish.",
+        'Берут $\\tan 135^\\circ=1$ (теряют знак) либо сумму корней как $\\frac{b}{a}$ без минуса.',
+        "$135^\\circ$ ushın $\\tan=1$ dep alıw (belgini umıtıw) yamasa qosındını $\\frac{b}{a}$ (minussiz) alıw.", // kaa: tekshirilsin
+        'Taking $\\tan 135^\\circ=1$ (losing the sign), or the root sum as $\\frac{b}{a}$ without the minus.',
+      ),
+    };
+  },
+);
+
+// --- 63: kamayish oralig'idagi butun sonlar soni (L2) ---
+interface DecIntP {
+  r1: number;
+  r2: number;
+}
+y1T<DecIntP>(
+  'der-decreasing-int',
+  63,
+  'L2',
+  170,
+  (r) => ({ r1: r.int(-6, 2), r2: r.int(-2, 8) }),
+  (p) => {
+    need(p.r2 - p.r1 >= 2 && p.r2 - p.r1 <= 10 && (p.r1 + p.r2) % 2 === 0 && p.r1 * p.r2 !== 0);
+    const ans = p.r2 - p.r1 + 1;
+    const s = (p.r1 + p.r2) / 2;
+    const fx = polyTex([0, 3 * p.r1 * p.r2, -3 * s, 1]);
+    const wrong = intWrong(ans, [ans - 1, ans - 2, ans + 1, p.r2 - p.r1 + 2, p.r2, 2 * ans], { min: 1 });
+    return {
+      stem: L(
+        `${M(`f(x)=${fx}`)} funksiya kamayadigan oraliqdagi butun sonlar nechta?`,
+        `Сколько целых чисел содержит промежуток убывания функции ${M(`f(x)=${fx}`)}?`,
+        `${M(`f(x)=${fx}`)} funkciya kemeyetuǵın aralıqtaǵı pútin sanlar neshe?`, // kaa: tekshirilsin
+        `How many integers lie in the interval where ${M(`f(x)=${fx}`)} is decreasing?`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: J(DER, M(`f'(x)=3(${fac(p.r1).slice(1, -1)})(${fac(p.r2).slice(1, -1)})`), L(`${M(`f'(x)\\le 0`)}: ${M(`[${p.r1};\\ ${p.r2}]`)}. Butun sonlar: ${mi(ans)} ta.`, `${M(`f'(x)\\le 0`)}: ${M(`[${p.r1};\\ ${p.r2}]`)}. Целых чисел: ${mi(ans)}.`, `${M(`f'(x)\\le 0`)}: ${M(`[${p.r1};\\ ${p.r2}]`)}. Pútin sanlar: ${mi(ans)} dana.`, `${M(`f'(x)\\le 0`)}: ${M(`[${p.r1};\\ ${p.r2}]`)}. Integers: ${mi(ans)}.`), fin(String(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Oraliq uchlarini hisobga olmaslik (funksiya uchlarda ham kamayadi) yoki $r_2-r_1$ ni sonlar soni deb olish.",
+        'Не учитывают концы промежутка (функция убывает и в концах) либо берут $r_2-r_1$ как количество чисел.',
+        "Aralıq ushların esapqa almaw (funkciya ushlarda da kemeydi) yamasa $r_2-r_1$ di sanlar sanı dep alıw.", // kaa: tekshirilsin
+        'Excluding the endpoints (the function is decreasing on the closed interval), or taking $r_2-r_1$ as the count.',
+      ),
+    };
+  },
+);
+
+// --- 63: kubik funksiyaning lokal maksimum/minimum qiymati (L3) ---
+interface ExtrValP {
+  r1: number;
+  r2: number;
+  d: number;
+  ask: 'max' | 'min' | 'diff';
+}
+y1T<ExtrValP>(
+  'der-extremum-value',
+  63,
+  'L3',
+  230,
+  (r) => ({ r1: r.int(-4, 3), r2: r.int(-2, 5), d: r.int(-9, 9), ask: r.pick(['max', 'min', 'diff'] as const) }),
+  (p) => {
+    need(p.r2 - p.r1 >= 1 && p.r2 - p.r1 <= 6 && p.r1 * p.r2 !== 0 && p.d !== 0);
+    const f = (x: number) => 2 * x ** 3 - 3 * (p.r1 + p.r2) * x * x + 6 * p.r1 * p.r2 * x + p.d;
+    const fmax = f(p.r1);
+    const fmin = f(p.r2);
+    const ans = p.ask === 'max' ? fmax : p.ask === 'min' ? fmin : fmax - fmin;
+    need(Math.abs(ans) <= 400 && ans !== 0);
+    const wrong = intWrong(ans, p.ask === 'max' ? [fmin, fmax - p.d, -fmax] : p.ask === 'min' ? [fmax, fmin - p.d, -fmin] : [fmin - fmax, fmax + fmin, p.r2 - p.r1]);
+    const fx = polyTex([p.d, 6 * p.r1 * p.r2, -3 * (p.r1 + p.r2), 2]);
+    const askL = {
+      max: L('lokal maksimum nuqtasidagi qiymatini', 'значение в точке локального максимума', 'lokal maksimum noqatındaǵı mánisin', 'the value at the local maximum point'),
+      min: L('lokal minimum nuqtasidagi qiymatini', 'значение в точке локального минимума', 'lokal minimum noqatındaǵı mánisin', 'the value at the local minimum point'),
+      diff: L('lokal maksimum va lokal minimum qiymatlari ayirmasini (maksimum minus minimum)', 'разность значений в точках локального максимума и локального минимума (максимум минус минимум)', 'lokal maksimum hám lokal minimum mánisleri ayırmasın (maksimum minus minimum)', 'the difference of the local maximum and local minimum values (maximum minus minimum)'),
+    }[p.ask];
+    return {
+      stem: L(
+        `${M(`f(x)=${fx}`)} funksiyaning ${askL.uz} toping.`,
+        `Найдите ${askL.ru} функции ${M(`f(x)=${fx}`)}.`,
+        `${M(`f(x)=${fx}`)} funkciyanıń ${askL.kaa} tabıń.`, // kaa: tekshirilsin
+        `For ${M(`f(x)=${fx}`)}, find ${askL.en}.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: J(DER, M(`f'(x)=6(${fac(p.r1).slice(1, -1)})(${fac(p.r2).slice(1, -1)})`), L(`${M(`x=${p.r1}`)} da ishora $+\\to-$ (maksimum), ${M(`x=${p.r2}`)} da $-\\to+$ (minimum). ${M(`f(${p.r1})=${fmax}`)}, ${M(`f(${p.r2})=${fmin}`)}.`, `В ${M(`x=${p.r1}`)} знак $+\\to-$ (максимум), в ${M(`x=${p.r2}`)} $-\\to+$ (минимум). ${M(`f(${p.r1})=${fmax}`)}, ${M(`f(${p.r2})=${fmin}`)}.`, `${M(`x=${p.r1}`)} de belgi $+\\to-$ (maksimum), ${M(`x=${p.r2}`)} de $-\\to+$ (minimum). ${M(`f(${p.r1})=${fmax}`)}, ${M(`f(${p.r2})=${fmin}`)}.`, `At ${M(`x=${p.r1}`)} the sign goes $+\\to-$ (maximum), at ${M(`x=${p.r2}`)} $-\\to+$ (minimum). ${M(`f(${p.r1})=${fmax}`)}, ${M(`f(${p.r2})=${fmin}`)}.`), fin(String(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Maksimum va minimum nuqtalarini almashtirib yuborish (bosh koeffitsiyent musbat bo'lsa, kichik ildiz — maksimum).",
+        'Путают точки максимума и минимума (при положительном старшем коэффициенте меньший корень — максимум).',
+        "Maksimum hám minimum noqatların almastırıp jiberiw (bas koefficient oń bolsa, kishi túbir — maksimum).", // kaa: tekshirilsin
+        'Swapping the maximum and minimum points (for a positive leading coefficient the smaller root is the maximum).',
+      ),
+    };
+  },
+);
+
+// --- 64: yig'indi berilgan bo'lganda ko'paytmaning eng katta qiymati (L3) ---
+interface OptProdP {
+  t: number;
+  shape: 'x2y' | 'xy2';
+  ask: 'x' | 'max';
+}
+y1T<OptProdP>(
+  'der-optim-product',
+  64,
+  'L3',
+  200,
+  (r) => ({ t: r.int(2, 9), shape: r.pick(['x2y', 'xy2'] as const), ask: r.pick(['x', 'max'] as const) }),
+  (p) => {
+    const S = 3 * p.t;
+    const xOpt = p.shape === 'x2y' ? 2 * p.t : p.t;
+    const best = 4 * p.t ** 3;
+    const ans = p.ask === 'x' ? xOpt : best;
+    const wrong = intWrong(ans, p.ask === 'x' ? [S - xOpt, S / 2, p.t * 3 - 1, 2 * S / 3 === xOpt ? S / 3 : 2 * S / 3] : [(S / 2) ** 3 / 1, (S / 2) ** 2 * (S / 2), 2 * p.t * p.t * S, best * 2, p.t * S].map((v) => Math.round(v)), { min: 1 });
+    const prod = p.shape === 'x2y' ? 'x^{2}y' : 'xy^{2}';
+    return {
+      stem: L(
+        `${M(`x+y=${S}`)} shartni qanoatlantiruvchi musbat ${M('x')} va ${M('y')} sonlar uchun ${M(prod)} ko'paytma eng katta bo'ladi. ${p.ask === 'x' ? `${M('x')} ning shu qiymatini` : "Ko'paytmaning eng katta qiymatini"} toping.`,
+        `Для положительных ${M('x')} и ${M('y')} с условием ${M(`x+y=${S}`)} произведение ${M(prod)} принимает наибольшее значение. Найдите ${p.ask === 'x' ? `соответствующее значение ${M('x')}` : 'наибольшее значение произведения'}.`,
+        `${M(`x+y=${S}`)} shártin qanaatlandırıwshı oń ${M('x')} hám ${M('y')} sanları ushın ${M(prod)} kóbeyme eń úlken boladı. ${p.ask === 'x' ? `${M('x')} tiń usı mánisin` : 'Kóbeymeniń eń úlken mánisin'} tabıń.`, // kaa: tekshirilsin
+        `For positive ${M('x')} and ${M('y')} with ${M(`x+y=${S}`)}, the product ${M(prod)} is maximal. Find ${p.ask === 'x' ? `the corresponding value of ${M('x')}` : 'the maximum value of the product'}.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: J(
+        L(
+          `${M(p.shape === 'x2y' ? `y=${S}-x` : `x=${S}-y`)}; ${p.shape === 'x2y' ? M(`g(x)=x^{2}(${S}-x)`) : M(`g(y)=(${S}-y)y^{2}`)}. ${M(`g'=0`)} dan ${M(`${p.shape === 'x2y' ? 'x' : 'y'}=${2 * p.t}`)}, ${M(`${p.shape === 'x2y' ? 'y' : 'x'}=${p.t}`)}. Eng katta qiymat ${mi(best)}.`,
+          `${M(p.shape === 'x2y' ? `y=${S}-x` : `x=${S}-y`)}; ${p.shape === 'x2y' ? M(`g(x)=x^{2}(${S}-x)`) : M(`g(y)=(${S}-y)y^{2}`)}. Из ${M(`g'=0`)}: ${M(`${p.shape === 'x2y' ? 'x' : 'y'}=${2 * p.t}`)}, ${M(`${p.shape === 'x2y' ? 'y' : 'x'}=${p.t}`)}. Наибольшее значение ${mi(best)}.`,
+          `${M(p.shape === 'x2y' ? `y=${S}-x` : `x=${S}-y`)}; ${p.shape === 'x2y' ? M(`g(x)=x^{2}(${S}-x)`) : M(`g(y)=(${S}-y)y^{2}`)}. ${M(`g'=0`)} den ${M(`${p.shape === 'x2y' ? 'x' : 'y'}=${2 * p.t}`)}, ${M(`${p.shape === 'x2y' ? 'y' : 'x'}=${p.t}`)}. Eń úlken mánis ${mi(best)}.`, // kaa: tekshirilsin
+          `${M(p.shape === 'x2y' ? `y=${S}-x` : `x=${S}-y`)}; ${p.shape === 'x2y' ? M(`g(x)=x^{2}(${S}-x)`) : M(`g(y)=(${S}-y)y^{2}`)}. From ${M(`g'=0`)}: ${M(`${p.shape === 'x2y' ? 'x' : 'y'}=${2 * p.t}`)}, ${M(`${p.shape === 'x2y' ? 'y' : 'x'}=${p.t}`)}. The maximum is ${mi(best)}.`,
+        ),
+        fin(String(ans)),
+      ),
+      mis: L(
+        "Ko'paytma eng katta bo'lishi uchun sonlarni teng ($x=y$) deb olish: darajali ko'paytmada bu to'g'ri emas.",
+        'Берут $x=y$ для наибольшего произведения: при степенном множителе это неверно.',
+        "Kóbeyme eń úlken bolıwı ushın sanlardı teń ($x=y$) dep alıw: dárejeli kóbeymede bul durıs emes.", // kaa: tekshirilsin
+        'Taking $x=y$ for the maximal product: this is wrong when one factor is squared.',
+      ),
+    };
+  },
+);
+
+// --- 110: harakat qonuni: tezlik va tezlanish (L1) ---
+interface VelP {
+  c: [number, number, number, number];
+  t0: number;
+  ask: 'v' | 'a';
+}
+y1T<VelP>(
+  'der-velocity',
+  110,
+  'L1',
+  120,
+  (r) => ({ c: [r.int(-9, 9), r.int(-9, 9), r.int(-6, 6), r.int(1, 3)], t0: r.int(1, 6), ask: r.pick(['v', 'a'] as const) }),
+  (p) => {
+    const [d, c1, b, a] = p.c;
+    need(b !== 0 && c1 !== 0 && d !== 0);
+    const v = 3 * a * p.t0 * p.t0 + 2 * b * p.t0 + c1;
+    const acc = 6 * a * p.t0 + 2 * b;
+    const ans = p.ask === 'v' ? v : acc;
+    need(Math.abs(ans) <= 300 && ans !== 0 && Math.abs(v) <= 300 && v !== acc);
+    const s0 = a * p.t0 ** 3 + b * p.t0 * p.t0 + c1 * p.t0 + d;
+    const wrong = intWrong(ans, p.ask === 'v' ? [s0, acc, 3 * a * p.t0 * p.t0 + 2 * b * p.t0] : [v, 6 * a * p.t0, 3 * a * p.t0 + 2 * b]);
+    const st = `s(t)=${polyTex(p.c, 't')}`;
+    const askL = p.ask === 'v' ? L('tezligini', 'скорость', 'tezligin', 'the velocity') : L('tezlanishini', 'ускорение', 'tezleniwin', 'the acceleration');
+    return {
+      stem: L(
+        `Moddiy nuqta ${M(st)} qonun bo'yicha harakatlanadi (${M('s')} — metr, ${M('t')} — sekund). ${M(`t=${p.t0}`)} s dagi ${askL.uz} (m/s${p.ask === 'a' ? '$^{2}$' : ''}) toping.`,
+        `Материальная точка движется по закону ${M(st)} (${M('s')} — в метрах, ${M('t')} — в секундах). Найдите ${askL.ru} (м/с${p.ask === 'a' ? '$^{2}$' : ''}) в момент ${M(`t=${p.t0}`)} с.`,
+        `Materiallıq noqat ${M(st)} nızamı boyınsha háreketlenedi (${M('s')} — metr, ${M('t')} — sekund). ${M(`t=${p.t0}`)} s tegi ${askL.kaa} (m/s${p.ask === 'a' ? '$^{2}$' : ''}) tabıń.`, // kaa: tekshirilsin
+        `A point moves according to ${M(st)} (${M('s')} in metres, ${M('t')} in seconds). Find ${askL.en} (m/s${p.ask === 'a' ? '$^{2}$' : ''}) at ${M(`t=${p.t0}`)} s.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: J(L("Tezlik — yo'lning hosilasi, tezlanish — tezlikning hosilasi:", 'Скорость — производная пути, ускорение — производная скорости:', "Tezlik — jol tuwındısı, tezleniw — tezlik tuwındısı:", 'Velocity is the derivative of position, acceleration is the derivative of velocity:'), M(`v(t)=${polyTex([c1, 2 * b, 3 * a], 't')},\\ a(t)=${polyTex([2 * b, 6 * a], 't')}`), fin(String(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Tezlanish o'rniga tezlikni topish (yoki aksincha) yoki yo'lning qiymatini hisoblash.",
+        'Находят скорость вместо ускорения (или наоборот) либо считают значение пути.',
+        "Tezleniw ornına tezlikti tabıw (yamasa kerisinshe) yamasa jol mánisin esaplaw.", // kaa: tekshirilsin
+        'Finding the velocity instead of the acceleration (or vice versa), or computing the position value.',
+      ),
+    };
+  },
+);
+
+// --- 110: harakat qonuni: ochiq javobli (a: tezlik, b: tezlanish nolga teng bo'ladigan payt) (L2) ---
+interface VelOP {
+  a: number;
+  tStar: number;
+  c1: number;
+  d: number;
+  t0: number;
+}
+oT<VelOP>(
+  'der-velocity-o',
+  110,
+  'L2',
+  200,
+  (r) => ({ a: r.pick([1, 2]), tStar: r.int(1, 5), c1: r.int(-9, 9), d: r.int(-5, 5), t0: r.int(1, 6) }),
+  (p) => {
+    need(p.c1 !== 0 && p.d !== 0);
+    const b = -3 * p.a * p.tStar;
+    const c = [p.d, p.c1, b, p.a];
+    const v = 3 * p.a * p.t0 * p.t0 + 2 * b * p.t0 + p.c1;
+    const st = `s(t)=${polyTex(c, 't')}`;
+    return {
+      stem: L(
+        `Moddiy nuqta ${M(st)} qonun bo'yicha harakatlanadi (${M('s')} — metr, ${M('t')} — sekund).`,
+        `Материальная точка движется по закону ${M(st)} (${M('s')} — в метрах, ${M('t')} — в секундах).`,
+        `Materiallıq noqat ${M(st)} nızamı boyınsha háreketlenedi (${M('s')} — metr, ${M('t')} — sekund).`, // kaa: tekshirilsin
+        `A point moves according to ${M(st)} (${M('s')} in metres, ${M('t')} in seconds).`,
+      ),
+      a: {
+        prompt: L(`${M(`t=${p.t0}`)} s dagi tezlikni (m/s) toping.`, `Найдите скорость (м/с) в момент ${M(`t=${p.t0}`)} с.`, `${M(`t=${p.t0}`)} s tegi tezlikti (m/s) tabıń.`, `Find the velocity (m/s) at ${M(`t=${p.t0}`)} s.`), // kaa: tekshirilsin
+        key: fInt(v),
+      },
+      b: {
+        prompt: L('Tezlanish nolga teng bo\'ladigan paytni (s) toping.', 'Найдите момент (с), когда ускорение равно нулю.', 'Tezleniw nolge teń bolatuǵın waqıttı (s) tabıń.', 'Find the moment (s) when the acceleration is zero.'), // kaa: tekshirilsin
+        key: fInt(p.tStar),
+      },
+      sol: J(L('Tezlik $v=s\'$, tezlanish $a=v\'$:', 'Скорость $v=s\'$, ускорение $a=v\'$:', "Tezlik $v=s'$, tezleniw $a=v'$:", 'Velocity $v=s\'$, acceleration $a=v\'$:'), M(`v(t)=${polyTex([p.c1, 2 * b, 3 * p.a], 't')},\\ a(t)=${polyTex([2 * b, 6 * p.a], 't')}`), L(`${M(`v(${p.t0})=${v}`)}; ${M(`a(t)=0`)} dan ${M(`t=${p.tStar}`)}.`, `${M(`v(${p.t0})=${v}`)}; из ${M(`a(t)=0`)}: ${M(`t=${p.tStar}`)}.`, `${M(`v(${p.t0})=${v}`)}; ${M(`a(t)=0`)} den ${M(`t=${p.tStar}`)}.`, `${M(`v(${p.t0})=${v}`)}; from ${M(`a(t)=0`)}: ${M(`t=${p.tStar}`)}.`)), // kaa: tekshirilsin
+      mis: L(
+        "Tezlanish nolga teng bo'ladigan payt uchun tezlikni nolga tenglash (ekstremum payti bilan adashtirish).",
+        'Приравнивают к нулю скорость вместо ускорения (путают с моментом остановки).',
+        "Tezleniw nolge teń bolatuǵın waqıt ushın tezlikti nolge teńlew (toqtaw waqtı menen shatastırıw).", // kaa: tekshirilsin
+        'Setting the velocity to zero instead of the acceleration (confusing with the moment of stopping).',
+      ),
+    };
+  },
+);
+
+// --- 110: normalning burchak koeffitsiyenti (L2) ---
+interface NormSlopeP {
+  a: number;
+  b: number;
+  c: number;
+  x0: number;
+}
+y1T<NormSlopeP>(
+  'der-normal-slope',
+  110,
+  'L2',
+  150,
+  (r) => ({ a: r.pick([-3, -2, -1, 1, 2, 3]), b: r.int(-8, 8), c: r.int(-9, 9), x0: r.int(-4, 4) }),
+  (p) => {
+    need(p.b !== 0 && p.c !== 0 && p.x0 !== 0);
+    const k = 2 * p.a * p.x0 + p.b;
+    need(k !== 0 && Math.abs(k) !== 1 && Math.abs(k) <= 20);
+    const ans = frac(-1, k);
+    const wrong = fracWrong(ans, [frac(1, k), fInt(k), fInt(-k), frac(1, -k * 2), frac(-1, 2 * k)]);
+    return {
+      stem: L(
+        `${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} funksiya grafigiga ${M(`x_0=${p.x0}`)} nuqtada o'tkazilgan normalning burchak koeffitsiyentini toping.`,
+        `Найдите угловой коэффициент нормали к графику функции ${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} в точке ${M(`x_0=${p.x0}`)}.`,
+        `${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} funkciya grafigine ${M(`x_0=${p.x0}`)} noqatında ótkerilgen normalıń múyeshlik koefficientin tabıń.`, // kaa: tekshirilsin
+        `Find the slope of the normal to the graph of ${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} at ${M(`x_0=${p.x0}`)}.`,
+      ),
+      correct: mf(ans),
+      wrong,
+      sol: J(L("Normal urinmaga perpendikulyar: $k_n=-\\frac{1}{f'(x_0)}$.", 'Нормаль перпендикулярна касательной: $k_n=-\\frac{1}{f\'(x_0)}$.', "Normal urınbaǵa perpendikulyar: $k_n=-\\frac{1}{f'(x_0)}$.", 'The normal is perpendicular to the tangent: $k_n=-\\frac{1}{f\'(x_0)}$.'), M(`f'(x)=${polyTex([p.b, 2 * p.a], 'x')},\\ f'(${p.x0})=${k},\\ k_n=${texFrac(ans)}`), fin(texFrac(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Urinmaning burchak koeffitsiyentini ($f'(x_0)$) normalniki deb olish yoki ishorani o'zgartirmay teskari son olish.",
+        'Берут угловой коэффициент касательной вместо нормали либо обратное число без смены знака.',
+        "Urınbanıń múyeshlik koefficientin normalǵa alıw yamasa belgisin almastırmay keri sandı alıw.", // kaa: tekshirilsin
+        'Taking the tangent slope for the normal, or the reciprocal without changing the sign.',
+      ),
+    };
+  },
+);
+
+// --- 110: normal tenglamasi: ochiq javobli (a: burchak koeffitsiyenti, b: Oy bilan kesishish ordinatasi) (L3) ---
+interface NormOP {
+  a: number;
+  b: number;
+  c: number;
+  x0: number;
+}
+oT<NormOP>(
+  'der-normal-o',
+  110,
+  'L3',
+  240,
+  (r) => ({ a: r.pick([-2, -1, 1, 2, 3]), b: r.int(-8, 8), c: r.int(-9, 9), x0: r.int(-4, 4) }),
+  (p) => {
+    need(p.b !== 0 && p.c !== 0 && p.x0 !== 0);
+    const k = 2 * p.a * p.x0 + p.b;
+    need(k !== 0 && Math.abs(k) <= 12);
+    const f0 = p.a * p.x0 * p.x0 + p.b * p.x0 + p.c;
+    const kn = frac(-1, k);
+    const yInt = fAdd(fInt(f0), frac(p.x0, k));
+    need(Math.abs(yInt.n) <= 400 && yInt.d <= 12);
+    return {
+      stem: L(
+        `${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} funksiya grafigiga ${M(`x_0=${p.x0}`)} nuqtada normal o'tkazilgan.`,
+        `К графику функции ${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} в точке ${M(`x_0=${p.x0}`)} проведена нормаль.`,
+        `${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} funkciya grafigine ${M(`x_0=${p.x0}`)} noqatında normal ótkerilgen.`, // kaa: tekshirilsin
+        `A normal is drawn to the graph of ${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} at ${M(`x_0=${p.x0}`)}.`,
+      ),
+      a: { prompt: L("Normalning burchak koeffitsiyentini toping.", 'Найдите угловой коэффициент нормали.', 'Normalıń múyeshlik koefficientin tabıń.', 'Find the slope of the normal.'), key: kn, hint: HINT_FRAC }, // kaa: tekshirilsin
+      b: { prompt: L("Normalning $Oy$ o'qi bilan kesishish nuqtasi ordinatasini toping.", 'Найдите ординату точки пересечения нормали с осью $Oy$.', 'Normalıń $Oy$ kósheri menen kesilisiw noqatınıń ordinatasın tabıń.', 'Find the ordinate of the point where the normal meets the $Oy$-axis.'), key: yInt, hint: HINT_FRAC }, // kaa: tekshirilsin
+      sol: J(
+        M(`f'(${p.x0})=${k},\\ f(${p.x0})=${f0}`),
+        L(`Normal: ${M(`y-${f0}=${texFrac(kn)}(x-${p.x0})`)}. ${M('x=0')} da ${M(`y=${f0}+\\frac{${p.x0}}{${k}}=${texFrac(yInt)}`)}.`, `Нормаль: ${M(`y-${f0}=${texFrac(kn)}(x-${p.x0})`)}. При ${M('x=0')}: ${M(`y=${f0}+\\frac{${p.x0}}{${k}}=${texFrac(yInt)}`)}.`, `Normal: ${M(`y-${f0}=${texFrac(kn)}(x-${p.x0})`)}. ${M('x=0')} de ${M(`y=${f0}+\\frac{${p.x0}}{${k}}=${texFrac(yInt)}`)}.`, `Normal: ${M(`y-${f0}=${texFrac(kn)}(x-${p.x0})`)}. At ${M('x=0')}: ${M(`y=${f0}+\\frac{${p.x0}}{${k}}=${texFrac(yInt)}`)}.`), // kaa: tekshirilsin
+      ),
+      mis: L(
+        "Normal tenglamasida urinma burchak koeffitsiyentini ishlatish yoki $x=0$ ni qo'yishda ishorani adashtirish.",
+        'Используют в уравнении нормали угловой коэффициент касательной либо путают знак при подстановке $x=0$.',
+        "Normal teńlemesinde urınba múyeshlik koefficientin qollanıw yamasa $x=0$ di qoyıwda belgini shatastırıw.", // kaa: tekshirilsin
+        'Using the tangent slope in the normal equation, or mixing up the sign when substituting $x=0$.',
+      ),
+    };
+  },
+);
+
+// --- 65: boshlang'ich funksiya shakli (L1) ---
+const fracTerm = (f: Frac, pw: number, first: boolean): string => {
+  if (f.n === 0) return '';
+  const mag = f.n < 0 ? frac(-f.n, f.d) : f;
+  const body = mag.d === 1 ? (mag.n === 1 && pw > 0 ? '' : String(mag.n)) : `\\frac{${mag.n}}{${mag.d}}`;
+  const v = pw === 0 ? '' : pw === 1 ? 'x' : `x^{${pw}}`;
+  const sgn = f.n < 0 ? '-' : first ? '' : '+';
+  return `${sgn}${body}${v}`;
+};
+/** Ko'phad koeffitsiyentlari (c[k] — x^k) kasr bo'lishi mumkin */
+const fracPoly = (c: readonly Frac[]): string => {
+  let s = '';
+  for (let k = c.length - 1; k >= 0; k--) s += fracTerm(c[k]!, k, s === '');
+  return s || '0';
+};
+interface AntiFormP {
+  c: [number, number, number, number];
+}
+y1T<AntiFormP>(
+  'int-antider-form',
+  65,
+  'L1',
+  130,
+  (r) => ({ c: [r.int(-7, 7), r.int(-8, 8), r.int(-6, 6), r.int(1, 8)] }),
+  (p) => {
+    const [d, c1, b, a] = p.c;
+    need(d !== 0 && c1 !== 0 && b !== 0);
+    const good = [fInt(0), fInt(d), frac(c1, 2), frac(b, 3), frac(a, 4)];
+    const noDiv = [fInt(0), fInt(d), fInt(c1), fInt(b), fInt(a)];
+    const byK = [fInt(0), fInt(d), fInt(c1), frac(b, 2), frac(a, 3)];
+    const diff = [fInt(c1), fInt(2 * b), fInt(3 * a), fInt(0), fInt(0)];
+    const flip = [fInt(0), fInt(d), frac(-c1, 2), frac(b, 3), frac(a, 4)];
+    const fmt = (cs: Frac[]) => M(`F(x)=${fracPoly(cs)}+C`);
+    const correct = fmt(good);
+    const wrongAll = [noDiv, byK, diff, flip].map(fmt).filter((t) => t !== correct);
+    need(new Set(wrongAll).size >= 3);
+    return {
+      stem: L(
+        `${M(`f(x)=${polyTex(p.c)}`)} funksiyaning boshlang'ich funksiyalari umumiy ko'rinishini toping.`,
+        `Найдите общий вид первообразных функции ${M(`f(x)=${polyTex(p.c)}`)}.`,
+        `${M(`f(x)=${polyTex(p.c)}`)} funkciyanıń dáslepki funkciyaları uliwma kórinisin tabıń.`, // kaa: tekshirilsin
+        `Find the general form of the antiderivatives of ${M(`f(x)=${polyTex(p.c)}`)}.`,
+      ),
+      correct,
+      wrong: [...new Set(wrongAll)],
+      sol: J(L("Har bir hadda daraja bittaga ortadi va yangi daraja ko'rsatkichiga bo'linadi:", 'Показатель каждой степени увеличивается на единицу, и делим на новый показатель:', "Hár bir hádde dáreje birge artadı hám jańa dáreje kórsetkishine bólinedi:", 'Each exponent increases by one and we divide by the new exponent:'), M(`F(x)=${fracPoly(good)}+C`), fin(`F(x)=${fracPoly(good)}+C`)), // kaa: tekshirilsin
+      mis: L(
+        "Yangi daraja ko'rsatkichiga bo'lishni unutish, hosila olib qo'yish yoki $+C$ ni tushirib qoldirish.",
+        'Забывают делить на новый показатель, берут производную вместо первообразной либо опускают $+C$.',
+        "Jańa dáreje kórsetkishine bóliwdi umıtıw, tuwındı alıp qoyıw yamasa $+C$ di taslap ketiw.", // kaa: tekshirilsin
+        'Forgetting to divide by the new exponent, differentiating instead, or omitting $+C$.',
+      ),
+    };
+  },
+);
+
+// --- 65: boshlang'ich funksiya qiymati: F(x0)=v berilgan, F(x1) (L2) ---
+interface AntiValP {
+  a: number;
+  b: number;
+  c: number;
+  x0: number;
+  v: number;
+  x1: number;
+}
+y1T<AntiValP>(
+  'int-antider-value',
+  65,
+  'L2',
+  200,
+  (r) => ({ a: r.pick([-3, -1, 1, 2, 3, 6]), b: r.int(-6, 6), c: r.int(-8, 8), x0: r.int(-2, 2), v: r.int(-9, 9), x1: r.int(-3, 4) }),
+  (p) => {
+    need(p.b !== 0 && p.c !== 0 && p.x1 !== p.x0 && p.x1 !== 0 && p.x0 !== 0);
+    const G = (x: number): Frac => fAdd(fAdd(frac(p.a * x ** 3, 3), frac(p.b * x * x, 2)), fInt(p.c * x));
+    const ans = fAdd(fInt(p.v), fSub(G(p.x1), G(p.x0)));
+    need(fracChk(ans) && ans.d <= 12);
+    const wrongs = [G(p.x1), fSub(G(p.x1), G(p.x0)), fAdd(fInt(p.v), G(p.x1)), fAdd(fInt(p.v), fNeg(fSub(G(p.x1), G(p.x0)))), fInt(p.a * p.x1 * p.x1 + p.b * p.x1 + p.c)];
+    return {
+      stem: L(
+        `${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} funksiyaning boshlang'ich funksiyalaridan biri ${M('F')} uchun ${M(`F(${p.x0})=${p.v}`)}. ${M(`F(${p.x1})`)} ni toping.`,
+        `Для одной из первообразных ${M('F')} функции ${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} выполнено ${M(`F(${p.x0})=${p.v}`)}. Найдите ${M(`F(${p.x1})`)}.`,
+        `${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} funkciyanıń dáslepki funkciyalarınan biri ${M('F')} ushın ${M(`F(${p.x0})=${p.v}`)}. ${M(`F(${p.x1})`)} di tabıń.`, // kaa: tekshirilsin
+        `For an antiderivative ${M('F')} of ${M(`f(x)=${polyTex([p.c, p.b, p.a])}`)} we have ${M(`F(${p.x0})=${p.v}`)}. Find ${M(`F(${p.x1})`)}.`,
+      ),
+      correct: mf(ans),
+      wrong: fracWrong(ans, wrongs),
+      sol: J(L(`${M(`F(x)=${fracPoly([fInt(0), fInt(p.c), frac(p.b, 2), frac(p.a, 3)])}+C`)}; ${M('C')} ni ${M(`F(${p.x0})=${p.v}`)} dan topamiz, so'ng ${M(`F(${p.x1})=${texFrac(ans)}`)}.`, `${M(`F(x)=${fracPoly([fInt(0), fInt(p.c), frac(p.b, 2), frac(p.a, 3)])}+C`)}; ${M('C')} находим из ${M(`F(${p.x0})=${p.v}`)}, затем ${M(`F(${p.x1})=${texFrac(ans)}`)}.`, `${M(`F(x)=${fracPoly([fInt(0), fInt(p.c), frac(p.b, 2), frac(p.a, 3)])}+C`)}; ${M('C')} ni ${M(`F(${p.x0})=${p.v}`)} den tabamız, sońınan ${M(`F(${p.x1})=${texFrac(ans)}`)}.`, `${M(`F(x)=${fracPoly([fInt(0), fInt(p.c), frac(p.b, 2), frac(p.a, 3)])}+C`)}; find ${M('C')} from ${M(`F(${p.x0})=${p.v}`)}, then ${M(`F(${p.x1})=${texFrac(ans)}`)}.`), fin(texFrac(ans))), // kaa: tekshirilsin
+      mis: L(
+        "$C$ ni topmasdan $C=0$ deb olish yoki $F(x_1)$ o'rniga $f(x_1)$ ni hisoblash.",
+        'Берут $C=0$, не определяя константу, либо вычисляют $f(x_1)$ вместо $F(x_1)$.',
+        "$C$ ni tabıwsız $C=0$ dep alıw yamasa $F(x_1)$ ornına $f(x_1)$ di esaplaw.", // kaa: tekshirilsin
+        'Taking $C=0$ without determining the constant, or computing $f(x_1)$ instead of $F(x_1)$.',
+      ),
+    };
+  },
+);
+
+// --- 66: ko'phadning aniq integrali (L1) ---
+interface IntPolyP {
+  a: number;
+  b: number;
+  c: number;
+  lo: number;
+  hi: number;
+}
+y1T<IntPolyP>(
+  'int-def-poly',
+  66,
+  'L1',
+  150,
+  (r) => ({ a: r.pick([-3, -2, -1, 1, 2, 3]), b: r.int(-6, 6), c: r.int(-8, 8), lo: r.int(-3, 1), hi: r.int(1, 4) }),
+  (p) => {
+    need(p.hi > p.lo && p.b !== 0 && p.c !== 0);
+    const G = (x: number): Frac => fAdd(fAdd(frac(p.a * x ** 3, 3), frac(p.b * x * x, 2)), fInt(p.c * x));
+    const ans = fSub(G(p.hi), G(p.lo));
+    need(ans.n !== 0 && fracChk(ans) && ans.d <= 12);
+    const wrongs = [fSub(G(p.lo), G(p.hi)), fAdd(G(p.hi), G(p.lo)), fInt(p.a * p.hi * p.hi + p.b * p.hi + p.c), fSub(fInt(p.a * p.hi ** 3 + p.b * p.hi * p.hi + p.c * p.hi), fInt(p.a * p.lo ** 3 + p.b * p.lo * p.lo + p.c * p.lo))];
+    const ig = `\\int_{${p.lo}}^{${p.hi}}\\left(${polyTex([p.c, p.b, p.a])}\\right)dx`;
+    return {
+      stem: calcL(M(ig)),
+      correct: mf(ans),
+      wrong: fracWrong(ans, wrongs),
+      sol: J(L('Nyuton-Leybnits: $\\int_a^b f=F(b)-F(a)$.', 'Формула Ньютона-Лейбница: $\\int_a^b f=F(b)-F(a)$.', 'Nyuton-Leybnic: $\\int_a^b f=F(b)-F(a)$.', 'Newton-Leibniz: $\\int_a^b f=F(b)-F(a)$.'), M(`F(x)=${fracPoly([fInt(0), fInt(p.c), frac(p.b, 2), frac(p.a, 3)])}`), M(`F(${p.hi})-F(${p.lo})=${texFrac(ans)}`), fin(texFrac(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Yuqori va quyi chegaralar o'rnini almashtirish ($F(a)-F(b)$) yoki integral o'rniga integral ostidagi funksiya qiymatini hisoblash.",
+        'Меняют местами пределы ($F(a)-F(b)$) либо считают значение подынтегральной функции вместо интеграла.',
+        "Joqarǵı hám tómengi shegaralardı almastırıw ($F(a)-F(b)$) yamasa integral ornına integral astındaǵı funkciya mánisin esaplaw.", // kaa: tekshirilsin
+        'Swapping the limits ($F(a)-F(b)$), or evaluating the integrand instead of the integral.',
+      ),
+    };
+  },
+);
+
+// --- 66: (ax+b)^n aniq integrali (L2) ---
+interface IntPowP {
+  a: number;
+  b: number;
+  n: number;
+  lo: number;
+  hi: number;
+}
+y1T<IntPowP>(
+  'int-def-pow',
+  66,
+  'L2',
+  190,
+  (r) => ({ a: r.pick([-2, -1, 1, 2, 3]), b: r.int(-4, 4), n: r.pick([2, 3, 4]), lo: r.int(-3, 1), hi: r.int(0, 3) }),
+  (p) => {
+    need(p.hi > p.lo && p.b !== 0);
+    const u = (x: number) => p.a * x + p.b;
+    const ans = frac(u(p.hi) ** (p.n + 1) - u(p.lo) ** (p.n + 1), p.a * (p.n + 1));
+    need(ans.n !== 0 && fracChk(ans) && ans.d <= 12);
+    const wrongs = [frac(u(p.hi) ** (p.n + 1) - u(p.lo) ** (p.n + 1), p.n + 1), frac(u(p.hi) ** (p.n + 1) - u(p.lo) ** (p.n + 1), p.a * p.n), fInt(u(p.hi) ** p.n - u(p.lo) ** p.n), fNeg(ans), frac(u(p.hi) ** p.n - u(p.lo) ** p.n, p.a * p.n)];
+    const ig = `\\int_{${p.lo}}^{${p.hi}}(${polyTex([p.b, p.a])})^{${p.n}}dx`;
+    return {
+      stem: calcL(M(ig)),
+      correct: mf(ans),
+      wrong: fracWrong(ans, wrongs),
+      sol: J(L(`${M(`\\int (ax+b)^{n}dx=\\frac{(ax+b)^{n+1}}{a(n+1)}`)}:`, `${M(`\\int (ax+b)^{n}dx=\\frac{(ax+b)^{n+1}}{a(n+1)}`)}:`, `${M(`\\int (ax+b)^{n}dx=\\frac{(ax+b)^{n+1}}{a(n+1)}`)}:`, `${M(`\\int (ax+b)^{n}dx=\\frac{(ax+b)^{n+1}}{a(n+1)}`)}:`), M(`\\frac{(${polyTex([p.b, p.a])})^{${p.n + 1}}}{${p.a * (p.n + 1)}}\\Big|_{${p.lo}}^{${p.hi}}=${texFrac(ans)}`), fin(texFrac(ans))),
+      mis: L(
+        "Ichki funksiya hosilasiga ($a$ ga) bo'lishni unutish.",
+        'Забывают разделить на производную внутренней функции (на $a$).',
+        "Ishki funkciya tuwındısına ($a$ ǵa) bóliwdi umıtıw.", // kaa: tekshirilsin
+        'Forgetting to divide by the derivative of the inner function (by $a$).',
+      ),
+    };
+  },
+);
+
+// --- 66: sin va cos aniq integrali (L2) ---
+interface IntTrigP {
+  fn: 'sin' | 'cos';
+  k: number;
+  i: number;
+  j: number;
+}
+y1T<IntTrigP>(
+  'int-def-trig',
+  66,
+  'L2',
+  170,
+  (r) => ({ fn: r.pick(['sin', 'cos'] as const), k: r.pick([-4, -3, -2, 2, 3, 4, 6]), i: r.int(0, 7), j: r.int(0, 7) }),
+  (p) => {
+    const tab = p.fn === 'sin' ? COS_RATIONAL : SIN_RATIONAL;
+    need(p.i < p.j);
+    const A = tab[p.i]!;
+    const B = tab[p.j]!;
+    const va = frac(A[2], A[3]);
+    const vb = frac(B[2], B[3]);
+    const core = p.fn === 'sin' ? fSub(va, vb) : fSub(vb, va);
+    const ans = fMul(fInt(p.k), core);
+    need(ans.n !== 0 && fracChk(ans));
+    const wrongs = [fNeg(ans), fMul(fInt(p.k), p.fn === 'sin' ? fSub(vb, va) : fSub(va, vb)), fMul(fInt(p.k), fAdd(va, vb)), core];
+    const lo = piAt(frac(A[0], A[1]));
+    const hi = piAt(frac(B[0], B[1]));
+    const ig = `\\int_{${lo}}^{${hi}}${p.k === 1 ? '' : p.k === -1 ? '-' : p.k}\\${p.fn}\\,x\\,dx`;
+    return {
+      stem: calcL(M(ig)),
+      correct: mf(ans),
+      wrong: fracWrong(ans, wrongs, mf),
+      sol: J(L(`${p.fn === 'sin' ? M("\\int\\sin x\\,dx=-\\cos x") : M("\\int\\cos x\\,dx=\\sin x")}:`, `${p.fn === 'sin' ? M("\\int\\sin x\\,dx=-\\cos x") : M("\\int\\cos x\\,dx=\\sin x")}:`, `${p.fn === 'sin' ? M("\\int\\sin x\\,dx=-\\cos x") : M("\\int\\cos x\\,dx=\\sin x")}:`, `${p.fn === 'sin' ? M("\\int\\sin x\\,dx=-\\cos x") : M("\\int\\cos x\\,dx=\\sin x")}:`), M(`${p.k}\\cdot ${p.fn === 'sin' ? `(\\cos ${lo}-\\cos ${hi})` : `(\\sin ${hi}-\\sin ${lo})`}=${texFrac(ans)}`), fin(texFrac(ans))),
+      mis: L(
+        "$\\int\\sin x\\,dx=-\\cos x$ dagi minusni unutish yoki chegaralar ayirmasini teskari olish.",
+        'Теряют минус в $\\int\\sin x\\,dx=-\\cos x$ либо берут разность пределов в обратном порядке.',
+        "$\\int\\sin x\\,dx=-\\cos x$ degi minusti umıtıw yamasa shegaralar ayırmasın keri alıw.", // kaa: tekshirilsin
+        'Losing the minus in $\\int\\sin x\\,dx=-\\cos x$, or taking the difference of limits in the wrong order.',
+      ),
+    };
+  },
+);
+
+// --- 66: integralning yuqori chegarasini topish (L3) ---
+interface IntBoundP {
+  p: number;
+  b: number;
+}
+y1T<IntBoundP>(
+  'int-find-bound',
+  66,
+  'L3',
+  200,
+  (r) => ({ p: r.int(-8, 8), b: r.int(1, 9) }),
+  (p) => {
+    need(p.p !== 0);
+    const V = p.b * p.b + p.p * p.b;
+    need(V > 0 && V <= 130);
+    const other = -(p.p + p.b);
+    const wrong = intWrong(p.b, [other, V, V / p.p, Math.abs(p.p), p.b + 1].filter((v) => Number.isInteger(v)), { min: -40, max: 200 }).filter((t) => t !== mi(p.b));
+    const ig = `\\int_{0}^{b}(2x${p.p < 0 ? '-' : '+'}${Math.abs(p.p)})\\,dx=${V}`;
+    return {
+      stem: L(
+        `${M(ig)} tenglikni qanoatlantiruvchi musbat ${M('b')} ni toping.`,
+        `Найдите положительное ${M('b')}, при котором ${M(ig)}.`,
+        `${M(ig)} teńligin qanaatlandırıwshı oń ${M('b')} di tabıń.`, // kaa: tekshirilsin
+        `Find the positive ${M('b')} for which ${M(ig)}.`,
+      ),
+      correct: mi(p.b),
+      wrong,
+      sol: J(M(`\\int_{0}^{b}(2x${sg(p.p)})\\,dx=b^{2}${sg(p.p)}b=${V}`), L(`${M(`b^{2}${sg(p.p)}b-${V}=0`)}: ildizlar ${M(`${p.b}`)} va ${M(`${other}`)}; musbati ${mi(p.b)}.`, `${M(`b^{2}${sg(p.p)}b-${V}=0`)}: корни ${M(`${p.b}`)} и ${M(`${other}`)}; положительный ${mi(p.b)}.`, `${M(`b^{2}${sg(p.p)}b-${V}=0`)}: túbirler ${M(`${p.b}`)} hám ${M(`${other}`)}; oń ${mi(p.b)}.`, `${M(`b^{2}${sg(p.p)}b-${V}=0`)}: roots ${M(`${p.b}`)} and ${M(`${other}`)}; the positive one is ${mi(p.b)}.`), fin(String(p.b))), // kaa: tekshirilsin
+      mis: L(
+        "Kvadrat tenglamaning ikkala ildizini yozib, musbatligi shartini tekshirmaslik.",
+        'Записывают оба корня квадратного уравнения, не проверяя условие положительности.',
+        "Kvadrat teńlemeniń eki túbirin jazıp, oń bolıw shártin tekspew.", // kaa: tekshirilsin
+        'Writing both roots of the quadratic without checking the positivity condition.',
+      ),
+    };
+  },
+);
+
 // @@PART@@
 
 export const EQUATIONS_ANALYSIS_TEMPLATES: ExtraTemplate[] = ALL;

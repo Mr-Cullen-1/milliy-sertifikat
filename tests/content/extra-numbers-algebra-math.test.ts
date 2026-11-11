@@ -965,6 +965,219 @@ CHECKS['rad-unit'] = (p, q) => {
   expectNum(q, p.ask === 'x' ? r * Math.cos(th) : r * Math.sin(th), {}, 1e-8);
 };
 
+// =============================================================================================
+// 2.3 Ko'rsatkichli va logarifmik funksiyalar
+// =============================================================================================
+
+const stemInts = (q: Q): number[] => [...q.stem.matchAll(/\$(-?\d+)\$/g)].map((m) => Number(m[1]));
+const lnb = (x: number, b: number): number => Math.log(x) / Math.log(b);
+
+CHECKS['lg-eval-mixed'] = (p, q) => {
+  let v = 0;
+  for (const x of p.t) {
+    const e = lnb(x.b ** x.e, x.b);
+    expect(close(e, x.e), `${q.id}#${q.seed}: log qiymati`).toBe(true);
+    v += x.s * Math.round(e);
+  }
+  expectNum(q, v);
+  stemHas(q, ...p.t.map((x: { b: number; e: number }) => x.b ** x.e));
+};
+
+CHECKS['lg-base-change'] = (p, q) => {
+  const va = lnb(p.a.p ** p.a.n, p.a.p ** p.a.m);
+  const vb = lnb(p.b.p ** p.b.n, p.b.p ** p.b.m);
+  expectNum(q, va + p.s * vb);
+  stemHas(q, p.a.p ** p.a.m, p.a.p ** p.a.n, p.b.p ** p.b.m, p.b.p ** p.b.n);
+};
+
+CHECKS['lg-power-id'] = (p, q) => {
+  const v = Math.pow(p.p, lnb(p.m, p.p)) + Math.pow(p.q, p.k + lnb(p.n, p.q));
+  expectNum(q, v);
+  stemHas(q, p.p, p.m, p.q, p.k, p.n);
+};
+
+CHECKS['exp-two-points'] = (p, q) => {
+  const pts = [...q.stem.matchAll(/\((-?\d+);\\ (-?\d+)\)/g)].map((m) => [Number(m[1]), Number(m[2])] as const);
+  expect(pts.length).toBe(2);
+  const [[x1, y1], [x2, y2]] = pts as [readonly [number, number], readonly [number, number]];
+  const t = Number([...q.stem.matchAll(/\$f\((-?\d+)\)\$/g)].pop()?.[1] ?? NaN);
+  expect(Number.isNaN(t)).toBe(false);
+  const b = Math.pow(y2 / y1, 1 / (x2 - x1));
+  expectNum(q, y1 * Math.pow(b, t - x1));
+};
+
+CHECKS['lg-domain-count'] = (p, q) => {
+  let c = 0;
+  for (let n = -80; n <= 80; n++) if ((n - p.p) * (p.q - n) > 0) c++;
+  expectNum(q, c);
+  stemHas(q, p.b, p.q);
+};
+
+CHECKS['exp-inverse'] = (p, q) => {
+  const v = Number(/\$x=(-?\d+)\$/.exec(q.stem)![1]);
+  let found = NaN;
+  for (let x = -6; x <= 25; x++) if (Math.abs(p.b ** x + p.c - v) < 1e-9) found = x;
+  expect(Number.isNaN(found), `${q.id}#${q.seed}: teskari qiymat topilmadi`).toBe(false);
+  expectNum(q, found);
+  stemHas(q, p.b);
+};
+
+CHECKS['lg-o-mixed'] = (p, q) => {
+  expectKey(q, 'a', lnb(p.b1 ** p.e1, p.b1) - lnb(1 / p.b2 ** p.e2, p.b2));
+  expectKey(q, 'b', Math.pow(p.q ** p.k, lnb(p.n, p.q)));
+  stemHas(q, p.b1 ** p.e1, p.b2 ** p.e2, p.q ** p.k, p.n);
+};
+
+// =============================================================================================
+// 2.4 Ifodalarning shaklini almashtirish
+// =============================================================================================
+
+CHECKS['ratio-split'] = (p, q) => {
+  const total = stemInts(q)[0]!;
+  const parts = /\$(\d+):(\d+):(\d+)\$/.exec(q.stem)!.slice(1).map(Number);
+  const S = sumOf(parts);
+  const shares = parts.map((x) => (total * x) / S);
+  expectNum(q, Math.max(...shares) - Math.min(...shares));
+};
+
+CHECKS['ratio-chain'] = (p, q) => {
+  const T = Number(/a\+b\+c=(\d+)/.exec(q.stem)![1]);
+  const a = p.p / p.q; // b = 1
+  const c = p.s / p.r;
+  expectNum(q, (T * c) / (a + 1 + c));
+  stemHas(q, p.p, p.q, p.r, p.s);
+};
+
+CHECKS['pct-chain'] = (p, q) => {
+  const price = p.P * (1 + p.up / 100) * (1 - p.down / 100);
+  expectNum(q, p.ask === 'price' ? price : (price / p.P - 1) * 100);
+  stemHas(q, p.P, p.up, p.down);
+};
+
+/** Kichik Gauss usuli: 5 nuqtadagi qiymatlardan 4-darajali ko'phad koeffitsiyentlari */
+function polyCoefs(f: (x: number) => number, deg: number): number[] {
+  const n = deg + 1;
+  const A = Array.from({ length: n }, (_, i) => [...Array.from({ length: n }, (_, j) => i ** j), f(i)]);
+  for (let c = 0; c < n; c++) {
+    let piv = c;
+    for (let r = c + 1; r < n; r++) if (Math.abs(A[r]![c]!) > Math.abs(A[piv]![c]!)) piv = r;
+    [A[c], A[piv]] = [A[piv]!, A[c]!];
+    for (let r = 0; r < n; r++) {
+      if (r === c) continue;
+      const k = A[r]![c]! / A[c]![c]!;
+      for (let j = c; j <= n; j++) A[r]![j]! -= k * A[c]![j]!;
+    }
+  }
+  return A.map((row, i) => row[n]! / row[i]!);
+}
+
+CHECKS['poly-coef'] = (p, q) => {
+  const chunk = /\$\((.+?)\)\((.+?)\)\$/.exec(q.stem)!;
+  const f = (x: number) => evalTex(chunk[1]!, { x }) * evalTex(chunk[2]!, { x });
+  expectNum(q, Math.round(polyCoefs(f, 4)[p.k]!));
+};
+
+CHECKS['sqmul-reciprocal'] = (p, q) => {
+  const x = (p.s + Math.sqrt(p.s * p.s - 4)) / 2;
+  expect(close(x + 1 / x, p.s)).toBe(true);
+  expectNum(q, x ** p.pw + 1 / x ** p.pw);
+  stemHas(q, p.s);
+};
+
+CHECKS['factor-roots-sq'] = (p, q) => {
+  const lhs = /\$(.+)=0\$/.exec(q.stem)![1]!;
+  const roots: number[] = [];
+  for (let n = -40; n <= 40; n++) if (Math.abs(evalTex(lhs, { x: n })) < 1e-9) roots.push(n);
+  expect(roots.length, `${q.id}#${q.seed}: 3 ta butun ildiz kutilgan: ${roots}`).toBe(3);
+  expectNum(q, sumOf(roots.map((r) => r * r)));
+};
+
+CHECKS['alg-frac-value'] = (p, q) => {
+  const fr = /\$(\\frac\{.+\}\{.+\})\$/.exec(q.stem)![1]!;
+  const x0 = Number(/\$x=(-?\d+)\$/.exec(q.stem)![1]);
+  expectNum(q, evalTex(fr, { x: x0 }));
+};
+
+CHECKS['abs-root-sum'] = (p, q) => {
+  expectNum(q, Math.abs(Math.sqrt(p.a) - p.m) + Math.abs(p.n - Math.sqrt(p.a)));
+  stemHas(q, p.a, p.m, p.n);
+};
+
+CHECKS['wp-work'] = (p, q) => {
+  const [t1, t2] = stemInts(q);
+  expectNum(q, 1 / (1 / t1! + 1 / t2!));
+};
+
+CHECKS['wp-boat'] = (p, q) => {
+  const [d, td, tu] = stemInts(q) as [number, number, number];
+  const down = d / td;
+  const up = d / tu;
+  expectNum(q, p.ask === 'current' ? (down - up) / 2 : (down + up) / 2);
+};
+
+CHECKS['wp-mixture'] = (p, q) => {
+  expectNum(q, (p.m * p.p) / p.q - p.m);
+  stemHas(q, p.m, p.p, p.q);
+};
+
+CHECKS['seq-limit-frac'] = (p, q) => {
+  const ex = /a_\{n\}=(\\frac\{.+\}\{.+\})\$/.exec(q.stem)![1]!;
+  expectNum(q, evalTex(ex, { n: 1e8 }), {}, 1e-6);
+};
+
+CHECKS['ap-sum-two-terms'] = (p, q) => {
+  const ts = [...q.stem.matchAll(/a_\{(\d+)\}=(-?\d+)/g)].map((m) => [Number(m[1]), Number(m[2])] as const);
+  expect(ts.length).toBe(2);
+  const [[m, am], [n, an]] = ts as [readonly [number, number], readonly [number, number]];
+  const d = (an - am) / (n - m);
+  const a1 = am - (m - 1) * d;
+  let s = 0;
+  for (let i = 0; i < p.k; i++) s += a1 + i * d;
+  expectNum(q, s);
+  stemHas(q, p.k);
+};
+
+CHECKS['gp-two-terms'] = (p, q) => {
+  const ts = [...q.stem.matchAll(/b_\{(\d+)\}=(-?\d+)/g)].map((m) => [Number(m[1]), Number(m[2])] as const);
+  expect(ts.length).toBe(2);
+  const [[m, bm], [n, bn]] = ts as [readonly [number, number], readonly [number, number]];
+  const qs: number[] = [];
+  for (let c = -12; c <= 12; c++) if (c !== 0 && bm * c ** (n - m) === bn) qs.push(c);
+  expect(qs.length, `${q.id}#${q.seed}: q yagona`).toBe(1);
+  expectNum(q, bn * qs[0]! ** (p.k - n));
+  stemHas(q, p.k);
+};
+
+CHECKS['gp-inf-sum'] = (p, q) => {
+  const b1 = Number(/b_\{1\}=(\d+)/.exec(q.stem)![1]);
+  const b3 = Number(/b_\{3\}=(\d+)/.exec(q.stem)![1]);
+  const r = Math.sqrt(b3 / b1);
+  expect(r).toBeLessThan(1);
+  let s = 0;
+  let t = b1;
+  for (let i = 0; i < 4000; i++) {
+    s += t;
+    t *= r;
+  }
+  expectNum(q, s, {}, 1e-9);
+};
+
+CHECKS['scale-distance'] = (p, q) => {
+  if (p.dir === 'toReal') {
+    const d = Number(/\$(\d+)\$ sm/.exec(q.stem)![1]);
+    expectNum(q, (d * p.N) / 100000);
+  } else {
+    const km = Number(/\$([\d{,}]+)\$ km/.exec(q.stem)![1]!.replace('{,}', '.'));
+    expectNum(q, (km * 100000) / p.N);
+  }
+  stemHas(q, p.N);
+};
+
+CHECKS['scale-area'] = (p, q) => {
+  expectNum(q, p.S * (p.N / 100000) ** 2);
+  stemHas(q, p.N, p.S);
+};
+
 // @@CHECKS@@
 
 // =============================================================================================

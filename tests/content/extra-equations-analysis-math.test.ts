@@ -916,6 +916,206 @@ CHECKS['fn-table-o'] = (c) => {
 // Umumiy tekshiruvlar va ishga tushirish
 // ---------------------------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------------------------
+// 6.1 Hosila, 6.2 Boshlang'ich funksiya va integral (va 110). Sonli differensiallash/integrallash bilan.
+// ---------------------------------------------------------------------------------------------
+
+const ndiff = (f: NumFn, x: number, h = 1e-5): number => (f(x + h) - f(x - h)) / (2 * h);
+const simpson = (f: NumFn, a: number, b: number, n = 2000): number => {
+  const h = (b - a) / n;
+  let s = f(a) + f(b);
+  for (let i = 1; i < n; i++) s += f(a + i * h) * (i % 2 ? 4 : 2);
+  return (s * h) / 3;
+};
+/** g(x)=0 ning [lo,hi] dagi ildizlari (belgi almashishi + bisektsiya) */
+function numRoots(g: (x: number) => number, lo: number, hi: number, step = 0.001): number[] {
+  const out: number[] = [];
+  let px = lo;
+  let pv = g(lo);
+  for (let x = lo + step; x <= hi + 1e-12; x += step) {
+    const v = g(x);
+    if (pv === 0) out.push(px);
+    else if (pv * v < 0) {
+      let a = px;
+      let b = x;
+      let fa = pv;
+      for (let k = 0; k < 80; k++) {
+        const m = (a + b) / 2;
+        const fm = g(m);
+        if (fm * fa <= 0) b = m;
+        else {
+          a = m;
+          fa = fm;
+        }
+      }
+      out.push((a + b) / 2);
+    }
+    px = x;
+    pv = v;
+  }
+  return out;
+}
+const askedDerivArg = (c: Ctx): number => {
+  const q = mathChunks(c.stem)
+    .map((s) => s.replace(/\\left|\\right/g, ''))
+    .find((s) => /^f'\(.+\)$/.test(s));
+  if (!q) throw new Error(`f'(...) topilmadi: ${c.stem}`);
+  return texFn(q.slice(3, -1), [])();
+};
+const fOf = (c: Ctx): NumFn => texFn(mathChunks(c.stem).find((s) => s.startsWith('f(x)='))!.replace(/^f\(x\)=/, ''));
+const chunkNum = (c: Ctx, re: RegExp): number => {
+  for (const s of mathChunks(c.stem)) {
+    const m = re.exec(s);
+    if (m) return Number(m[1]);
+  }
+  throw new Error(`${re}: topilmadi: ${c.stem}`);
+};
+
+for (const id of ['der-poly-point', 'der-prod-point', 'der-quot-point', 'der-pow-point', 'der-trig-point']) {
+  CHECKS[id] = (c) => {
+    const f = fOf(c);
+    c.num(ndiff(f, askedDerivArg(c)), 1e-6);
+  };
+}
+
+CHECKS['der-tangent-parallel'] = (c) => {
+  const f = fOf(c);
+  const line = texFn(mathChunks(c.stem).find((s) => s.startsWith('y='))!.replace(/^y=/, ''));
+  const k = line(1) - line(0);
+  const g0 = ndiff(f, 0);
+  const g1 = ndiff(f, 1);
+  c.num((k - g0) / (g1 - g0), 1e-6);
+};
+
+CHECKS['der-tangent-angle'] = (c) => {
+  const f = fOf(c);
+  const ang = chunkNum(c, /^(45|135)\^\\circ$/);
+  const k = Math.tan((ang * Math.PI) / 180);
+  const roots = numRoots((x) => ndiff(f, x) - k, -40, 40);
+  expect(roots.length, `${c.id}#${c.seed}: ikkita urinish nuqtasi kutilgan`).toBe(2);
+  c.num(roots[0]! + roots[1]!, 1e-6);
+};
+
+CHECKS['der-decreasing-int'] = (c) => {
+  const f = fOf(c);
+  let cnt = 0;
+  for (let n = -80; n <= 80; n++) if (ndiff(f, n) <= 1e-6) cnt++;
+  c.num(cnt);
+};
+
+CHECKS['der-extremum-value'] = (c) => {
+  const f = fOf(c);
+  const crit = numRoots((x) => ndiff(f, x), -30, 30);
+  expect(crit.length).toBe(2);
+  const vals = crit.map((x) => ({ x, v: f(x), max: ndiff(f, x - 0.01) > 0 && ndiff(f, x + 0.01) < 0 }));
+  const mx = vals.find((q) => q.max)!;
+  const mn = vals.find((q) => !q.max)!;
+  expect(mx && mn).toBeTruthy();
+  c.num(/ayirma/.test(c.stem) ? mx.v - mn.v : /maksimum nuqtasidagi/.test(c.stem) ? mx.v : mn.v, 1e-6);
+};
+
+CHECKS['der-optim-product'] = (c) => {
+  const S = chunkNum(c, /^x\+y=(\d+)$/);
+  const x2y = mathChunks(c.stem).includes('x^{2}y');
+  const g = (x: number) => (x2y ? x * x * (S - x) : x * (S - x) * (S - x));
+  let lo = 0;
+  let hi = S;
+  for (let i = 0; i < 200; i++) {
+    const m1 = lo + (hi - lo) / 3;
+    const m2 = hi - (hi - lo) / 3;
+    if (g(m1) < g(m2)) lo = m1;
+    else hi = m2;
+  }
+  const xb = (lo + hi) / 2;
+  c.num(/ning shu/.test(c.stem) ? xb : g(xb), 1e-6);
+};
+
+const sOf = (c: Ctx): NumFn => texFn(mathChunks(c.stem).find((s) => s.startsWith('s(t)='))!.replace(/^s\(t\)=/, ''), ['t']);
+const sd2 = (s: NumFn, t: number): number => (s(t + 1e-2) - 2 * s(t) + s(t - 1e-2)) / 1e-4;
+
+CHECKS['der-velocity'] = (c) => {
+  const s = sOf(c);
+  const t0 = chunkNum(c, /^t=(\d+)$/);
+  c.num(/tezligini/.test(c.stem) ? ndiff(s, t0) : sd2(s, t0), 1e-6);
+};
+
+CHECKS['der-velocity-o'] = (c) => {
+  const s = sOf(c);
+  const parts = (c.payload as { parts: Record<string, { prompt_md: string }> }).parts;
+  const t0 = Number(/t=(\d+)/.exec(parts.a!.prompt_md)![1]);
+  c.key('a', ndiff(s, t0), 1e-6);
+  const a0 = sd2(s, 0);
+  const a1 = sd2(s, 1);
+  c.key('b', -a0 / (a1 - a0), 1e-6);
+};
+
+CHECKS['der-normal-slope'] = (c) => {
+  const f = fOf(c);
+  c.num(-1 / ndiff(f, chunkNum(c, /^x_0=(-?\d+)$/)), 1e-6);
+};
+
+CHECKS['der-normal-o'] = (c) => {
+  const f = fOf(c);
+  const x0 = chunkNum(c, /^x_0=(-?\d+)$/);
+  const kn = -1 / ndiff(f, x0);
+  c.key('a', kn, 1e-6);
+  c.key('b', f(x0) - kn * x0, 1e-6);
+};
+
+CHECKS['int-antider-form'] = (c) => {
+  const f = fOf(c);
+  const xs = [-2, -1, 0.5, 1, 2.5];
+  const fits = (t: string): boolean => {
+    const F = texFn(flat(t.replace(/^\$|\$$/g, '')).replace(/^F\(x\)=/, '').replace(/\+C$/, ''));
+    return xs.every((x) => near(ndiff(F, x), f(x), 1e-6));
+  };
+  expect(fits(c.correct!), `${c.id}#${c.seed}: to'g'ri variant ${c.correct}`).toBe(true);
+  for (const t of Object.values(c.options!)) if (t !== c.correct) expect(fits(t), `${c.id}#${c.seed}: chalg'ituvchi ${t} to'g'ri`).toBe(false);
+};
+
+CHECKS['int-antider-value'] = (c) => {
+  const f = fOf(c);
+  const chunks = mathChunks(c.stem);
+  const given = chunks.map((s) => /^F\((-?\d+)\)=(-?\d+)$/.exec(s)).find(Boolean)!;
+  const asked = chunks.map((s) => /^F\((-?\d+)\)$/.exec(s)).find(Boolean)!;
+  c.num(Number(given[2]) + simpson(f, Number(given[1]), Number(asked[1])), 1e-9);
+};
+
+const integrand = (c: Ctx): { lo: number; hi: number; f: NumFn } => {
+  const s = mathChunks(c.stem)[0]!.replace(/\\left|\\right/g, '');
+  const m = /^\\int_\{(-?\d+)\}\^\{(-?\d+)\}(.+)dx$/.exec(s);
+  if (!m) throw new Error(`integral tahlil qilinmadi: ${s}`);
+  return { lo: Number(m[1]), hi: Number(m[2]), f: texFn(m[3]!) };
+};
+CHECKS['int-def-poly'] = (c) => {
+  const { lo, hi, f } = integrand(c);
+  c.num(simpson(f, lo, hi), 1e-9);
+};
+CHECKS['int-def-pow'] = (c) => {
+  const { lo, hi, f } = integrand(c);
+  c.num(simpson(f, lo, hi, 4000), 1e-9);
+};
+
+CHECKS['int-def-trig'] = (c) => {
+  const s = mathChunks(c.stem)[0]!;
+  const m = /^\\int_\{(.+?)\}\^\{(.+?)\}(-?\d*)\\(sin|cos)\\,x\\,dx$/.exec(s);
+  expect(m, `${c.id}: integral tahlil qilinmadi: ${s}`).not.toBeNull();
+  const k = m![3] === '' ? 1 : m![3] === '-' ? -1 : Number(m![3]);
+  const fn = m![4] === 'sin' ? Math.sin : Math.cos;
+  c.num(simpson((x) => k * fn(x), texFn(m![1]!, [])(), texFn(m![2]!, [])(), 20000), 1e-9);
+};
+
+CHECKS['int-find-bound'] = (c) => {
+  const s = mathChunks(c.stem)[0]!;
+  const pm = /\(2x([+-]\d+)\)/.exec(s)!;
+  const V = Number(/=(\d+)$/.exec(s)![1]);
+  const f = (x: number) => 2 * x + Number(pm[1]);
+  const hits: number[] = [];
+  for (let b = 1; b <= 200; b++) if (Math.abs(simpson(f, 0, b, 200) - V) < 1e-9) hits.push(b);
+  expect(hits.length, `${c.id}#${c.seed}: musbat butun yechim yagona`).toBe(1);
+  c.num(hits[0]!);
+};
+
 const wordsStripped = (s: string): string => s.replace(/\$[^$\n]+?\$/g, ' ');
 
 describe("qo'shimcha shablonlar: tenglamalar, funksiyalar, analiz (mustaqil matematik tekshiruv)", () => {

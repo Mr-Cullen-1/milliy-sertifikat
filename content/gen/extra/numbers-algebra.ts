@@ -3786,4 +3786,947 @@ y1T<RotUnitP>(
   },
 );
 
+// =====================================================================================================
+// 2.3 Ko'rsatkichli va logarifmik funksiyalar (mavzular 21, 50, 51)
+// =====================================================================================================
+
+const fInt = (n: number): Frac => frac(n, 1);
+const ANSW = L('Javob', 'Ответ', 'Juwap', 'Answer');
+const finA = (x: string): L10n => L(`${ANSW.uz}: ${x}.`, `${ANSW.ru}: ${x}.`, `${ANSW.kaa}: ${x}.`, `${ANSW.en}: ${x}.`);
+/** L10n bo'laklarini bo'shliq bilan biriktiradi */
+const joinL = (...parts: (L10n | string)[]): L10n => {
+  const g = (l: keyof L10n) => parts.map((q) => (typeof q === 'string' ? q : q[l])).join(' ');
+  return { uz: g('uz'), ru: g('ru'), kaa: g('kaa'), en: g('en') };
+};
+const toFind = (e: string): L10n => L(`${e} ni toping.`, `Найдите ${e}.`, `${e} tabıń.`, `Find ${e}.`); // kaa: tekshirilsin
+const toCalc = (e: string): L10n => L(`${e} ni hisoblang.`, `Вычислите ${e}.`, `${e} di esaplań.`, `Evaluate ${e}.`); // kaa: tekshirilsin
+
+// --- 21: logarifm qiymatlari yig'indisi/ayirmasi (L1) ---
+interface LgEvalP {
+  t: { b: number; e: number; s: 1 | -1 }[];
+}
+y1T<LgEvalP>(
+  'lg-eval-mixed',
+  21,
+  'L1',
+  110,
+  (r) => ({ t: [0, 1, 2].map((i) => ({ b: r.pick([2, 3, 5, 7]), e: r.int(1, 4), s: i === 0 ? (1 as const) : r.pick([1, -1] as const) })) }),
+  (p) => {
+    for (const x of p.t) need(x.b ** x.e <= 1000);
+    need(new Set(p.t.map((x) => `${x.b}^${x.e}`)).size === 3);
+    const ans = sum(p.t.map((x) => x.s * x.e));
+    need(ans !== 0 && Math.abs(ans) <= 12);
+    const ex = p.t.map((x, i) => `${x.s < 0 ? '-' : i === 0 ? '' : '+'}\\log_{${x.b}}${x.b ** x.e}`).join('');
+    const wrong = intWrong(ans, [sum(p.t.map((x) => x.e)), -ans, sum(p.t.map((x) => x.s * x.b)), p.t[0]!.e + p.t[1]!.e - p.t[2]!.e]);
+    return {
+      stem: toCalc(M(ex)),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(L("$\\log_{b}b^{e}=e$ ekanidan:", 'Так как $\\log_{b}b^{e}=e$:', "$\\log_{b}b^{e}=e$ bolǵanı ushın:", 'Since $\\log_{b}b^{e}=e$:'), M(p.t.map((x, i) => `${x.s < 0 ? '-' : i === 0 ? '' : '+'}${x.e}`).join('') + `=${ans}`), finA(mi(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Ayirma ishorasini e'tiborsiz qoldirib barcha daraja ko'rsatkichlarini qo'shish.",
+        'Складывают все показатели, не учитывая знак вычитания.',
+        "Ayırma belgisin esapqa almay barlıq dáreje kórsetkishlerin qosıw.", // kaa: tekshirilsin
+        'Adding all exponents and ignoring the subtraction sign.',
+      ),
+    };
+  },
+);
+
+// --- 21: asosi va argumenti bir sonning darajalari: kasr qiymat (L2) ---
+interface LgBaseP {
+  a: { p: number; m: number; n: number };
+  b: { p: number; m: number; n: number };
+  s: 1 | -1;
+}
+y1T<LgBaseP>(
+  'lg-base-change',
+  21,
+  'L2',
+  150,
+  (r) => ({
+    a: { p: r.pick([2, 3, 5]), m: r.int(2, 4), n: r.int(1, 5) },
+    b: { p: r.pick([2, 3, 5]), m: r.int(2, 4), n: r.int(1, 5) },
+    s: r.pick([1, -1] as const),
+  }),
+  (p) => {
+    for (const x of [p.a, p.b]) need(x.p ** x.m <= 700 && x.p ** x.n <= 700 && x.n !== x.m && x.m !== 1);
+    need(!(p.a.p === p.b.p && p.a.m === p.b.m && p.a.n === p.b.n));
+    const va = frac(p.a.n, p.a.m);
+    const vb = frac(p.b.n, p.b.m);
+    const ans = p.s === 1 ? fAdd(va, vb) : fSub(va, vb);
+    need(ans.n !== 0 && ans.d <= 12 && Math.abs(ans.n) <= 60);
+    const wrong = fracWrong(ans, [p.s === 1 ? fAdd(frac(p.a.m, p.a.n), frac(p.b.m, p.b.n)) : fSub(frac(p.a.m, p.a.n), frac(p.b.m, p.b.n)), p.s === 1 ? fSub(va, vb) : fAdd(va, vb), frac(p.a.n + p.b.n, p.a.m + p.b.m)]);
+    const ex = `\\log_{${p.a.p ** p.a.m}}${p.a.p ** p.a.n}${p.s === 1 ? '+' : '-'}\\log_{${p.b.p ** p.b.m}}${p.b.p ** p.b.n}`;
+    return {
+      stem: toCalc(M(ex)),
+      correct: mf(ans),
+      wrong,
+      sol: joinL(L("$\\log_{p^{m}}p^{n}=\\frac{n}{m}$ ekanidan:", 'Так как $\\log_{p^{m}}p^{n}=\\frac{n}{m}$:', "$\\log_{p^{m}}p^{n}=\\frac{n}{m}$ bolǵanı ushın:", 'Since $\\log_{p^{m}}p^{n}=\\frac{n}{m}$:'), M(`\\frac{${p.a.n}}{${p.a.m}}${p.s === 1 ? '+' : '-'}\\frac{${p.b.n}}{${p.b.m}}=${texFrac(ans)}`), finA(mf(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Asos va argument darajalarining nisbatini teskari olish ($\\frac{m}{n}$ o'rniga).",
+        'Берут отношение показателей наоборот ($\\frac{m}{n}$ вместо $\\frac{n}{m}$).',
+        "Tiykar hám argument dárejeleriniń qatnasın keri alıw ($\\frac{n}{m}$ ornına $\\frac{m}{n}$).", // kaa: tekshirilsin
+        'Inverting the ratio of exponents ($\\frac{m}{n}$ instead of $\\frac{n}{m}$).',
+      ),
+    };
+  },
+);
+
+// --- 21: asosiy logarifmik ayniyat va daraja yig'indisi (L2) ---
+interface LgIdP {
+  p: number;
+  m: number;
+  q: number;
+  k: number;
+  n: number;
+}
+y1T<LgIdP>(
+  'lg-power-id',
+  21,
+  'L2',
+  140,
+  (r) => ({ p: r.pick([2, 3, 5, 7]), m: r.int(2, 20), q: r.pick([2, 3]), k: r.int(1, 3), n: r.int(2, 9) }),
+  (p) => {
+    need(p.p !== p.q);
+    const ans = p.m + p.q ** p.k * p.n;
+    need(ans <= 150);
+    const wrong = intWrong(ans, [p.m + p.q * p.k * p.n, p.m + p.n + p.k, p.m + p.q ** p.k + p.n, p.m * p.n + p.k, p.m + p.q ** p.k * p.n - p.q], { min: 1 });
+    const ex = `${p.p}^{\\log_{${p.p}}${p.m}}+${p.q}^{${p.k}+\\log_{${p.q}}${p.n}}`;
+    return {
+      stem: toCalc(M(ex)),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(L("$a^{\\log_{a}b}=b$ va $a^{x+y}=a^{x}\\cdot a^{y}$:", 'По $a^{\\log_{a}b}=b$ и $a^{x+y}=a^{x}\\cdot a^{y}$:', "$a^{\\log_{a}b}=b$ hám $a^{x+y}=a^{x}\\cdot a^{y}$ boyınsha:", 'By $a^{\\log_{a}b}=b$ and $a^{x+y}=a^{x}\\cdot a^{y}$:'), M(`${p.m}+${p.q ** p.k}\\cdot ${p.n}=${ans}`), finA(mi(ans))), // kaa: tekshirilsin
+      mis: L(
+        "$q^{k+\\log_{q}n}$ ni $q\\cdot k\\cdot n$ yoki $k+n$ deb olish (yig'indi darajasi — ko'paytma).",
+        'Принимают $q^{k+\\log_{q}n}$ за $qkn$ или $k+n$ (степень суммы — произведение степеней).',
+        "$q^{k+\\log_{q}n}$ ni $qkn$ yamasa $k+n$ dep alıw (qosındı dárejesi — dárejeler kóbeymesi).", // kaa: tekshirilsin
+        'Treating $q^{k+\\log_{q}n}$ as $qkn$ or $k+n$ (a power of a sum is a product of powers).',
+      ),
+    };
+  },
+);
+
+// --- 50: ko'rsatkichli funksiya grafigi ikki nuqtadan o'tadi: qiymat topish (L2) ---
+interface ExpTwoP {
+  b: number;
+  k: number;
+  x1: number;
+  d: number;
+  t: number;
+}
+y1T<ExpTwoP>(
+  'exp-two-points',
+  50,
+  'L2',
+  170,
+  (r) => ({ b: r.pick([2, 3, 4]), k: r.int(1, 5), x1: r.int(0, 2), d: r.int(1, 3), t: r.int(-2, 6) }),
+  (p) => {
+    need(p.t !== p.x1 && p.t !== p.x1 + p.d);
+    const y1 = p.k * p.b ** p.x1;
+    const y2 = p.k * p.b ** (p.x1 + p.d);
+    need(y2 <= 3000);
+    const ans = p.t >= 0 ? frac(p.k * p.b ** p.t, 1) : frac(p.k, p.b ** -p.t);
+    need(ans.d <= 64 && ans.n <= 4000);
+    const wrong = fracWrong(ans, [frac(y2 + (y2 - y1) * (p.t - p.x1 - p.d), 1), frac(y1 * (p.t - p.x1 + 1), 1), frac(p.k * p.t, 1), p.t >= 0 ? frac(p.b ** p.t, 1) : frac(1, p.b ** -p.t)]);
+    const pt = (x: number, y: number) => `(${x};\\ ${y})`;
+    return {
+      stem: L(
+        `${M('f(x)=a\\cdot b^{x}')} (${M('b>0')}) ko'rsatkichli funksiya grafigi ${M(pt(p.x1, y1))} va ${M(pt(p.x1 + p.d, y2))} nuqtalardan o'tadi. ${M(`f(${p.t})`)} ni toping.`,
+        `График показательной функции ${M('f(x)=a\\cdot b^{x}')} (${M('b>0')}) проходит через точки ${M(pt(p.x1, y1))} и ${M(pt(p.x1 + p.d, y2))}. Найдите ${M(`f(${p.t})`)}.`,
+        `${M('f(x)=a\\cdot b^{x}')} (${M('b>0')}) kórsetkishli funkciya grafigi ${M(pt(p.x1, y1))} hám ${M(pt(p.x1 + p.d, y2))} noqatlarınan ótedi. ${M(`f(${p.t})`)} di tabıń.`, // kaa: tekshirilsin
+        `The graph of ${M('f(x)=a\\cdot b^{x}')} (${M('b>0')}) passes through ${M(pt(p.x1, y1))} and ${M(pt(p.x1 + p.d, y2))}. Find ${M(`f(${p.t})`)}.`,
+      ),
+      correct: mf(ans),
+      wrong,
+      sol: joinL(M(`b^{${p.d}}=\\frac{${y2}}{${y1}}=${p.b ** p.d}\\Rightarrow b=${p.b},\\ a=${p.k}`), M(`f(${p.t})=${p.k}\\cdot ${p.b}^{${p.t}}=${texFrac(ans)}`), finA(mf(ans))),
+      mis: L(
+        "Nuqtalarni ketma-ket qiymatlar orasidagi ayirma bo'yicha ($y_2-y_1$) chiziqli deb olish.",
+        'Считают зависимость линейной (по разности $y_2-y_1$), а не показательной.',
+        "Noqatlardı izbe-iz mánisler arasındaǵı ayırma ($y_2-y_1$) boyınsha sızıqlı dep alıw.", // kaa: tekshirilsin
+        'Treating the dependence as linear (via the difference $y_2-y_1$) instead of exponential.',
+      ),
+    };
+  },
+);
+
+// --- 51: logarifm ostidagi ifoda musbat bo'ladigan butun sonlar soni (L1) ---
+interface LgDomCntP {
+  b: number;
+  p: number;
+  q: number;
+}
+y1T<LgDomCntP>(
+  'lg-domain-count',
+  51,
+  'L1',
+  120,
+  (r) => ({ b: r.pick([2, 3, 5, 10]), p: r.int(-9, 4), q: r.int(-3, 12) }),
+  (p) => {
+    need(p.q - p.p >= 4 && p.q - p.p <= 20);
+    const ans = p.q - p.p - 1;
+    const wrong = intWrong(ans, [p.q - p.p, p.q - p.p + 1, p.q - p.p - 2, p.q + p.p], { min: 1 });
+    const fx = `\\log_{${p.b}}\\left((x${p.p < 0 ? `+${-p.p}` : p.p === 0 ? '' : `-${p.p}`})(${p.q}-x)\\right)`;
+    return {
+      stem: L(
+        `${M(`f(x)=${fx}`)} funksiyaning aniqlanish sohasiga nechta butun son kiradi?`,
+        `Сколько целых чисел входит в область определения функции ${M(`f(x)=${fx}`)}?`,
+        `${M(`f(x)=${fx}`)} funkciyanıń anıqlanıw oblastına neshe pútin san kiredi?`, // kaa: tekshirilsin
+        `How many integers belong to the domain of ${M(`f(x)=${fx}`)}?`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(L(`Argument musbat: ${M(`${p.p}<x<${p.q}`)}. Butun sonlar ${mi(ans)} ta.`, `Аргумент положителен: ${M(`${p.p}<x<${p.q}`)}. Целых чисел ${mi(ans)}.`, `Argument oń: ${M(`${p.p}<x<${p.q}`)}. Pútin sanlar ${mi(ans)} dana.`, `The argument is positive: ${M(`${p.p}<x<${p.q}`)}. There are ${mi(ans)} integers.`), finA(mi(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Oraliq uchlarini ham sanash (logarifm argumenti nolga teng bo'lolmaydi).",
+        'Считают и концы промежутка (аргумент логарифма не может быть равен нулю).',
+        "Aralıq ushların da sanaw (logarifm argumenti nolge teń bola almaydı).", // kaa: tekshirilsin
+        'Counting the endpoints too (the logarithm argument cannot be zero).',
+      ),
+    };
+  },
+);
+
+// --- 51: ko'rsatkichli funksiyaga teskari funksiya qiymati (L2) ---
+interface ExpInvP {
+  b: number;
+  c: number;
+  e: number;
+}
+y1T<ExpInvP>(
+  'exp-inverse',
+  51,
+  'L2',
+  150,
+  (r) => ({ b: r.pick([2, 3, 4, 5]), c: r.int(-9, 9), e: r.int(1, 4) }),
+  (p) => {
+    need(p.c !== 0 && p.b ** p.e <= 700);
+    const v = p.b ** p.e + p.c;
+    need(v > p.c);
+    const wrong = intWrong(p.e, [p.e + 1, v - p.c, Math.round(Math.log(Math.abs(v)) / Math.log(p.b)), p.b ** p.e, p.e - 1].filter((n) => n !== p.e), { min: -5 });
+    const fx = `${p.b}^{x}${p.c < 0 ? `-${-p.c}` : `+${p.c}`}`;
+    return {
+      stem: L(
+        `${M(`f(x)=${fx}`)} funksiyaga teskari ${M('f^{-1}')} funksiyaning ${M(`x=${v}`)} dagi qiymatini toping.`,
+        `Найдите значение функции, обратной к ${M(`f(x)=${fx}`)}, в точке ${M(`x=${v}`)}.`,
+        `${M(`f(x)=${fx}`)} funkciyasına keri ${M('f^{-1}')} funkciyanıń ${M(`x=${v}`)} degi mánisin tabıń.`, // kaa: tekshirilsin
+        `Find the value of the inverse of ${M(`f(x)=${fx}`)} at ${M(`x=${v}`)}.`,
+      ),
+      correct: mi(p.e),
+      wrong,
+      sol: joinL(L(`${M(`f(x)=${v}`)} ni yechamiz: ${M(`${p.b}^{x}=${p.b ** p.e}`)}, ${M(`x=${p.e}`)}.`, `Решаем ${M(`f(x)=${v}`)}: ${M(`${p.b}^{x}=${p.b ** p.e}`)}, ${M(`x=${p.e}`)}.`, `${M(`f(x)=${v}`)} di sheshemiz: ${M(`${p.b}^{x}=${p.b ** p.e}`)}, ${M(`x=${p.e}`)}.`, `Solve ${M(`f(x)=${v}`)}: ${M(`${p.b}^{x}=${p.b ** p.e}`)}, ${M(`x=${p.e}`)}.`), finA(mi(p.e))), // kaa: tekshirilsin
+      mis: L(
+        "Teskari funksiya qiymati o'rniga $f(v)$ ni hisoblash yoki doimiy $c$ ni ayirishni unutish.",
+        'Вычисляют $f(v)$ вместо значения обратной функции либо забывают вычесть константу $c$.',
+        "Keri funkciya mánisi ornına $f(v)$ di esaplaw yamasa turaqlı $c$ nı ayırıwdı umıtıw.", // kaa: tekshirilsin
+        'Computing $f(v)$ instead of the inverse value, or forgetting to subtract the constant $c$.',
+      ),
+    };
+  },
+);
+
+// --- 21: ochiq javobli (a: logarifmlar yig'indisi, b: daraja asosi boshqa sonning darajasi) (L3) ---
+interface LgOP {
+  b1: number;
+  e1: number;
+  b2: number;
+  e2: number;
+  q: number;
+  k: number;
+  n: number;
+}
+oT<LgOP>(
+  'lg-o-mixed',
+  21,
+  'L3',
+  210,
+  (r) => ({ b1: r.pick([2, 3, 5]), e1: r.int(2, 5), b2: r.pick([2, 3, 5]), e2: r.int(1, 4), q: r.pick([2, 3]), k: r.int(2, 3), n: r.int(2, 9) }),
+  (p) => {
+    need(p.b1 ** p.e1 <= 700 && p.b2 ** p.e2 <= 700 && p.b1 !== p.b2);
+    const va = p.e1 + p.e2;
+    const vb = p.n ** p.k;
+    return {
+      stem: L(
+        `Ifodalarni hisoblang: ${M(`\\log_{${p.b1}}${p.b1 ** p.e1}-\\log_{${p.b2}}\\frac{1}{${p.b2 ** p.e2}}`)} va ${M(`${p.q ** p.k}^{\\log_{${p.q}}${p.n}}`)}.`,
+        `Вычислите выражения: ${M(`\\log_{${p.b1}}${p.b1 ** p.e1}-\\log_{${p.b2}}\\frac{1}{${p.b2 ** p.e2}}`)} и ${M(`${p.q ** p.k}^{\\log_{${p.q}}${p.n}}`)}.`,
+        `Aańlatpalardı esaplań: ${M(`\\log_{${p.b1}}${p.b1 ** p.e1}-\\log_{${p.b2}}\\frac{1}{${p.b2 ** p.e2}}`)} hám ${M(`${p.q ** p.k}^{\\log_{${p.q}}${p.n}}`)}.`, // kaa: tekshirilsin
+        `Evaluate the expressions ${M(`\\log_{${p.b1}}${p.b1 ** p.e1}-\\log_{${p.b2}}\\frac{1}{${p.b2 ** p.e2}}`)} and ${M(`${p.q ** p.k}^{\\log_{${p.q}}${p.n}}`)}.`,
+      ),
+      a: { prompt: L('Birinchi ifodaning qiymatini toping.', 'Найдите значение первого выражения.', 'Birinshi aańlatpanıń mánisin tabıń.', 'Find the value of the first expression.'), key: fInt(va) }, // kaa: tekshirilsin
+      b: { prompt: L('Ikkinchi ifodaning qiymatini toping.', 'Найдите значение второго выражения.', 'Ekinshi aańlatpanıń mánisin tabıń.', 'Find the value of the second expression.'), key: fInt(vb) }, // kaa: tekshirilsin
+      sol: joinL(M(`\\log_{${p.b2}}\\frac{1}{${p.b2 ** p.e2}}=-${p.e2}`), M(`${p.e1}+${p.e2}=${va}`), M(`${p.q ** p.k}^{\\log_{${p.q}}${p.n}}=${p.q}^{${p.k}\\log_{${p.q}}${p.n}}=${p.n}^{${p.k}}=${vb}`)),
+      mis: L(
+        "$\\log_{b}\\frac{1}{b^{e}}=-e$ dagi minusni unutish; $(q^{k})^{\\log_{q}n}=n^{k}$ o'rniga $n\\cdot k$ olish.",
+        'Теряют минус в $\\log_{b}\\frac{1}{b^{e}}=-e$; берут $n\\cdot k$ вместо $(q^{k})^{\\log_{q}n}=n^{k}$.',
+        "$\\log_{b}\\frac{1}{b^{e}}=-e$ degi minusti umıtıw; $(q^{k})^{\\log_{q}n}=n^{k}$ ornına $n\\cdot k$ alıw.", // kaa: tekshirilsin
+        'Losing the minus in $\\log_{b}\\frac{1}{b^{e}}=-e$; taking $n\\cdot k$ instead of $(q^{k})^{\\log_{q}n}=n^{k}$.',
+      ),
+    };
+  },
+);
+
+// =====================================================================================================
+// 2.4 Ifodalarning shaklini almashtirish (mavzular 7, 8, 15-18, 27, 42, 56-58, 105)
+// =====================================================================================================
+
+// --- 7: yig'indini nisbatda bo'lish: eng katta va eng kichik qism ayirmasi (L1) ---
+interface RatioSplitP {
+  parts: number[];
+  mult: number;
+}
+y1T<RatioSplitP>(
+  'ratio-split',
+  7,
+  'L1',
+  110,
+  (r) => ({ parts: [r.int(1, 7), r.int(1, 7), r.int(1, 7)], mult: r.int(2, 30) }),
+  (p) => {
+    need(new Set(p.parts).size === 3);
+    const S = sum(p.parts);
+    const total = S * p.mult;
+    const hi = Math.max(...p.parts);
+    const lo = Math.min(...p.parts);
+    const ans = (hi - lo) * p.mult;
+    const wrong = intWrong(ans, [hi * p.mult, (hi - lo) * S, total - ans, Math.round(total / (hi + lo)) , (hi + lo) * p.mult], { min: 1 });
+    return {
+      stem: L(
+        `${mi(total)} so'm uch kishi o'rtasida ${M(p.parts.join(':'))} nisbatda bo'lindi. Eng ko'p va eng kam olgan kishilar ulushlari ayirmasi necha so'm?`,
+        `${mi(total)} сумов разделили между тремя людьми в отношении ${M(p.parts.join(':'))}. Чему равна разность наибольшей и наименьшей долей (в сумах)?`,
+        `${mi(total)} swm úsh adam arasında ${M(p.parts.join(':'))} qatnasında bólindi. Eń kóp hám eń az alǵan adamlar úleslerinıń ayırması neshe swm?`, // kaa: tekshirilsin
+        `${mi(total)} soums were split among three people in the ratio ${M(p.parts.join(':'))}. What is the difference between the largest and smallest shares (in soums)?`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(L(`Bir qism: ${M(`${total}:${S}=${p.mult}`)}. Ayirma: ${M(`(${hi}-${lo})\\cdot ${p.mult}=${ans}`)}.`, `Одна часть: ${M(`${total}:${S}=${p.mult}`)}. Разность: ${M(`(${hi}-${lo})\\cdot ${p.mult}=${ans}`)}.`, `Bir bólek: ${M(`${total}:${S}=${p.mult}`)}. Ayırma: ${M(`(${hi}-${lo})\\cdot ${p.mult}=${ans}`)}.`, `One part: ${M(`${total}:${S}=${p.mult}`)}. Difference: ${M(`(${hi}-${lo})\\cdot ${p.mult}=${ans}`)}.`), finA(mi(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Bir qism qiymatini topmasdan nisbat sonlari ayirmasini javob deb olish.",
+        'Берут разность чисел отношения, не находя величину одной части.',
+        "Bir bólek mánisin tappay qatnas sanları ayırmasın juwap dep alıw.", // kaa: tekshirilsin
+        'Taking the difference of the ratio numbers without finding the value of one part.',
+      ),
+    };
+  },
+);
+
+// --- 7: zanjirli nisbat a:b va b:c (L2) ---
+interface RatioChainP {
+  p: number;
+  q: number;
+  r: number;
+  s: number;
+  T: number;
+}
+y1T<RatioChainP>(
+  'ratio-chain',
+  7,
+  'L2',
+  160,
+  (r) => ({ p: r.int(1, 6), q: r.int(1, 6), r: r.int(1, 6), s: r.int(1, 6), T: r.int(2, 40) }),
+  (p) => {
+    need(p.p !== p.q && p.r !== p.s);
+    const A = p.p * p.r;
+    const B = p.q * p.r;
+    const C = p.q * p.s;
+    const S = A + B + C;
+    need(gcd(gcd(A, B), C) === 1 && S <= 60);
+    const total = S * p.T;
+    const ans = C * p.T;
+    const wrong = intWrong(ans, [p.s * p.T * 3, total / 3, (p.q + p.s) * p.T, B * p.T, A * p.T].map((v) => Math.round(v)), { min: 1 });
+    return {
+      stem: L(
+        `${M(`a:b=${p.p}:${p.q}`)} va ${M(`b:c=${p.r}:${p.s}`)}. ${M(`a+b+c=${total}`)} bo'lsa, ${M('c')} ni toping.`,
+        `${M(`a:b=${p.p}:${p.q}`)} и ${M(`b:c=${p.r}:${p.s}`)}. Если ${M(`a+b+c=${total}`)}, найдите ${M('c')}.`,
+        `${M(`a:b=${p.p}:${p.q}`)} hám ${M(`b:c=${p.r}:${p.s}`)}. ${M(`a+b+c=${total}`)} bolsa, ${M('c')} di tabıń.`, // kaa: tekshirilsin
+        `${M(`a:b=${p.p}:${p.q}`)} and ${M(`b:c=${p.r}:${p.s}`)}. If ${M(`a+b+c=${total}`)}, find ${M('c')}.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(L(`${M('b')} ni tenglashtiramiz: ${M(`a:b:c=${A}:${B}:${C}`)}. Bir qism ${M(`${total}:${S}=${p.T}`)}, ${M(`c=${C}\\cdot ${p.T}=${ans}`)}.`, `Уравниваем ${M('b')}: ${M(`a:b:c=${A}:${B}:${C}`)}. Одна часть ${M(`${total}:${S}=${p.T}`)}, ${M(`c=${C}\\cdot ${p.T}=${ans}`)}.`, `${M('b')} nı teńlestiremiz: ${M(`a:b:c=${A}:${B}:${C}`)}. Bir bólek ${M(`${total}:${S}=${p.T}`)}, ${M(`c=${C}\\cdot ${p.T}=${ans}`)}.`, `Equalise ${M('b')}: ${M(`a:b:c=${A}:${B}:${C}`)}. One part ${M(`${total}:${S}=${p.T}`)}, ${M(`c=${C}\\cdot ${p.T}=${ans}`)}.`), finA(mi(ans))), // kaa: tekshirilsin
+      mis: L(
+        "$b$ ning ikki nisbatdagi turli qiymatlarini tenglashtirmasdan ($p:q$ va $r:s$) to'g'ridan-to'g'ri qo'shish.",
+        'Складывают числа двух отношений, не уравняв значения $b$ в них.',
+        "$b$ nıń eki qatnastaǵı hár túrli mánislerin teńlestirmey tuwrıdan-tuwrı qosıw.", // kaa: tekshirilsin
+        'Adding the numbers of both ratios without equalising the two values of $b$.',
+      ),
+    };
+  },
+);
+
+// --- 8: ketma-ket foizli o'zgarishlar (L2) ---
+interface PctChainP {
+  P: number;
+  up: number;
+  down: number;
+  ask: 'price' | 'pct';
+}
+y1T<PctChainP>(
+  'pct-chain',
+  8,
+  'L2',
+  150,
+  (r) => ({ P: r.pick([200, 250, 400, 500, 800, 1000, 1200, 2000]), up: r.pick([10, 20, 25, 30, 40, 50]), down: r.pick([10, 20, 25, 30, 40, 50]), ask: r.pick(['price', 'pct'] as const) }),
+  (p) => {
+    need(p.up !== p.down);
+    const finalPrice = frac(p.P * (100 + p.up) * (100 - p.down), 10000);
+    const pctChange = fSub(frac((100 + p.up) * (100 - p.down), 100), fInt(100));
+    const ans = p.ask === 'price' ? finalPrice : pctChange;
+    need(ans.n !== 0 && ans.d <= 4 && Math.abs(ans.n) <= 5000);
+    const wrong = p.ask === 'price' ? fracWrong(ans, [fInt(p.P), frac(p.P * (100 + p.up - p.down), 100), frac(p.P * (100 - p.down + p.up), 100 + 0 * p.up), fSub(fInt(p.P), frac(p.P * (p.down - p.up), 100))]) : fracWrong(ans, [fInt(p.up - p.down), fInt(p.down - p.up), fSub(fInt(p.up), fInt(p.down)).n === 0 ? fInt(1) : fNeg0(fSub(fInt(p.up), fInt(p.down)))]);
+    const tail = p.ask === 'price'
+      ? L("Yakuniy narx necha so'm bo'ladi?", "Сколько сумов будет стоить товар после этого?", "Sońǵı baha neshe swm boladı?", 'What is the final price in soums?') // kaa: tekshirilsin
+      : L("Narx dastlabkiga nisbatan necha foizga o'zgargan (kamaygan bo'lsa manfiy son yozing)?", 'На сколько процентов изменилась цена по сравнению с первоначальной (если уменьшилась, запишите отрицательное число)?', "Baha dáslepkisine salıstırǵanda neshe procentke ózgergen (kemeygen bolsa teris san jazıń)?", 'By what percent did the price change compared with the original (write a negative number if it decreased)?'); // kaa: tekshirilsin
+    return {
+      stem: joinL(L(`Mahsulot narxi ${mi(p.P)} so'm edi. Avval ${mi(p.up)}% oshirildi, keyin ${mi(p.down)}% kamaytirildi.`, `Цена товара была ${mi(p.P)} сумов. Сначала её повысили на ${mi(p.up)}%, затем снизили на ${mi(p.down)}%.`, `Ónim bahası ${mi(p.P)} swm edi. Dáslep ${mi(p.up)}% ge kóterildi, keyin ${mi(p.down)}% ge tómenletildi.`, `A product cost ${mi(p.P)} soums. The price was first raised by ${mi(p.up)}% and then lowered by ${mi(p.down)}%.`), tail), // kaa: tekshirilsin
+      correct: mf(ans),
+      wrong,
+      sol: joinL(M(`${p.P}\\cdot ${texFrac(frac(100 + p.up, 100))}\\cdot ${texFrac(frac(100 - p.down, 100))}=${texFrac(finalPrice)}`), p.ask === 'pct' ? M(`${texFrac(finalPrice)}:${p.P}-1=${texFrac(frac(pctChange.n, pctChange.d * 100))}\\Rightarrow ${texFrac(pctChange)}\\%`) : '', finA(mf(ans))),
+      mis: L(
+        "Foizlarni to'g'ridan-to'g'ri qo'shib-ayirish ($up-down$): ikkinchi foiz yangi narxdan olinadi.",
+        'Складывают и вычитают проценты напрямую ($up-down$): второй процент берётся от нового значения.',
+        "Procentlerdi tuwrıdan-tuwrı qosıp-ayırıw ($up-down$): ekinshi procent jańa bahadan alınadı.", // kaa: tekshirilsin
+        'Adding and subtracting the percentages directly ($up-down$): the second percentage is taken of the new price.',
+      ),
+    };
+  },
+);
+const fNeg0 = (f: Frac): Frac => frac(-f.n, f.d);
+
+// --- 15: ko'phadlar ko'paytmasida x^k oldidagi koeffitsiyent (L2) ---
+interface PolyCoefP {
+  a: number;
+  b: number;
+  c: number;
+  d: number;
+  e: number;
+  k: 1 | 2 | 3;
+}
+y1T<PolyCoefP>(
+  'poly-coef',
+  15,
+  'L2',
+  150,
+  (r) => ({ a: r.int(-5, 5), b: r.int(-6, 6), c: r.pick([-3, -2, -1, 1, 2, 3]), d: r.int(-5, 5), e: r.int(-6, 6), k: r.pick([1, 2, 3] as const) }),
+  (p) => {
+    need(p.a !== 0 && p.b !== 0 && p.d !== 0 && p.e !== 0);
+    // (x^2 + a x + b)(c x^2 + d x + e)
+    const co = [p.b * p.e, p.a * p.e + p.b * p.d, p.e + p.a * p.d + p.b * p.c, p.d + p.a * p.c, p.c];
+    const ans = co[p.k]!;
+    need(ans !== 0 && Math.abs(ans) <= 80);
+    const wrong = intWrong(ans, [co[p.k - 1]!, co[p.k + 1]!, p.k === 1 ? p.a * p.e : p.k === 2 ? p.e + p.a * p.d : p.d + p.a * p.c, p.k === 1 ? p.b * p.d : p.k === 2 ? p.b * p.c : p.c]);
+    const f1 = polyTex([p.b, p.a, 1]);
+    const f2 = polyTex([p.e, p.d, p.c]);
+    return {
+      stem: L(
+        `${M(`(${f1})(${f2})`)} ko'paytma ochilganda ${M(p.k === 1 ? 'x' : `x^{${p.k}}`)} oldidagi koeffitsiyentni toping.`,
+        `Найдите коэффициент при ${M(p.k === 1 ? 'x' : `x^{${p.k}}`)} в разложении ${M(`(${f1})(${f2})`)}.`,
+        `${M(`(${f1})(${f2})`)} kóbeyme ashılǵanda ${M(p.k === 1 ? 'x' : `x^{${p.k}}`)} aldındaǵı koefficientti tabıń.`, // kaa: tekshirilsin
+        `Find the coefficient of ${M(p.k === 1 ? 'x' : `x^{${p.k}}`)} in the expansion of ${M(`(${f1})(${f2})`)}.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(L("Kerakli darajani beradigan juft hadlar ko'paytmalarini qo'shamiz:", 'Складываем произведения пар членов, дающих нужную степень:', "Kerekli dárejeni beretuǵın jup hádler kóbeymelerin qosamız:", 'Add the products of the pairs of terms that give the required power:'), M(`${ans}`), finA(mi(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Kerakli darajani beradigan juftliklardan birini tashlab ketish.",
+        'Пропускают одну из пар членов, дающих нужную степень.',
+        "Kerekli dárejeni beretuǵın jup hádlerden birin taslap ketiw.", // kaa: tekshirilsin
+        'Missing one of the pairs of terms that give the required power.',
+      ),
+    };
+  },
+);
+
+// --- 16: x + 1/x berilgan: x^2 + 1/x^2 yoki x^3 + 1/x^3 (L2/L3) ---
+interface SqMulP {
+  s: number;
+  pw: 2 | 3;
+}
+y1T<SqMulP>(
+  'sqmul-reciprocal',
+  16,
+  'L2',
+  150,
+  (r) => ({ s: r.int(3, 9), pw: r.pick([2, 3] as const) }),
+  (p) => {
+    const ans = p.pw === 2 ? p.s * p.s - 2 : p.s ** 3 - 3 * p.s;
+    const wrong = intWrong(ans, p.pw === 2 ? [p.s * p.s, p.s * p.s - 1, 2 * p.s, p.s * 2 - 2] : [p.s ** 3, p.s ** 3 - p.s, p.s * p.s * p.s - 2 * p.s, (p.s * p.s - 2) * p.s], { min: 1 });
+    return {
+      stem: L(
+        `${M(`x+\\frac{1}{x}=${p.s}`)} bo'lsa, ${M(p.pw === 2 ? 'x^{2}+\\frac{1}{x^{2}}' : 'x^{3}+\\frac{1}{x^{3}}')} ning qiymatini toping.`,
+        `Если ${M(`x+\\frac{1}{x}=${p.s}`)}, найдите значение ${M(p.pw === 2 ? 'x^{2}+\\frac{1}{x^{2}}' : 'x^{3}+\\frac{1}{x^{3}}')}.`,
+        `${M(`x+\\frac{1}{x}=${p.s}`)} bolsa, ${M(p.pw === 2 ? 'x^{2}+\\frac{1}{x^{2}}' : 'x^{3}+\\frac{1}{x^{3}}')} tiń mánisin tabıń.`, // kaa: tekshirilsin
+        `If ${M(`x+\\frac{1}{x}=${p.s}`)}, find ${M(p.pw === 2 ? 'x^{2}+\\frac{1}{x^{2}}' : 'x^{3}+\\frac{1}{x^{3}}')}.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(p.pw === 2 ? M(`\\left(x+\\frac{1}{x}\\right)^{2}=x^{2}+2+\\frac{1}{x^{2}}\\Rightarrow ${p.s * p.s}-2=${ans}`) : M(`\\left(x+\\frac{1}{x}\\right)^{3}=x^{3}+\\frac{1}{x^{3}}+3\\left(x+\\frac{1}{x}\\right)\\Rightarrow ${p.s ** 3}-3\\cdot ${p.s}=${ans}`), finA(mi(ans))),
+      mis: L(
+        "Kvadratga (kubga) ko'targanda o'rtadagi qo'shiluvchini ($2$ yoki $3(x+\\frac{1}{x})$) hisobga olmaslik.",
+        'Не учитывают среднее слагаемое ($2$ или $3(x+\\frac{1}{x})$) при возведении в степень.',
+        "Kvadratqa (kubqa) kóterilgende ortadaǵı qosıwshını ($2$ yamasa $3(x+\\frac{1}{x})$) esapqa almaw.", // kaa: tekshirilsin
+        'Ignoring the middle term ($2$ or $3(x+\\frac{1}{x})$) when raising to a power.',
+      ),
+    };
+  },
+);
+
+// --- 17: kubik ko'phadni ko'paytuvchilarga ajratish: ildizlar kvadratlari yig'indisi (L2) ---
+interface FactorRootsP {
+  p: number;
+  q: number;
+}
+y1T<FactorRootsP>(
+  'factor-roots-sq',
+  17,
+  'L2',
+  170,
+  (r) => ({ p: r.int(-7, 7), q: r.int(1, 6) }),
+  (p) => {
+    need(p.p !== 0 && Math.abs(p.p) !== p.q);
+    const ans = p.p * p.p + 2 * p.q * p.q;
+    const wrong = intWrong(ans, [p.p * p.p + p.q * p.q, p.p + 2 * p.q, (p.p + p.q) ** 2, p.p * p.p + 2 * p.q, p.p * p.p], { min: 1 });
+    const poly = `x^{3}${p.p < 0 ? `+${-p.p}` : `-${p.p}`}x^{2}-${p.q * p.q}x${p.p * p.q * p.q < 0 ? `-${-p.p * p.q * p.q}` : `+${p.p * p.q * p.q}`}`;
+    return {
+      stem: L(
+        `${M(`${poly}=0`)} tenglama ildizlari kvadratlarining yig'indisini toping.`,
+        `Найдите сумму квадратов корней уравнения ${M(`${poly}=0`)}.`,
+        `${M(`${poly}=0`)} teńlemesi túbirleri kvadratlarınıń qosındısın tabıń.`, // kaa: tekshirilsin
+        `Find the sum of the squares of the roots of ${M(`${poly}=0`)}.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(M(`x^{2}(x${p.p < 0 ? '+' : '-'}${Math.abs(p.p)})-${p.q * p.q}(x${p.p < 0 ? '+' : '-'}${Math.abs(p.p)})=(x${p.p < 0 ? '+' : '-'}${Math.abs(p.p)})(x-${p.q})(x+${p.q})`), M(`${p.p}^{2}+${p.q}^{2}+(-${p.q})^{2}=${ans}`), finA(mi(ans))),
+      mis: L(
+        "Guruhlashda ishorani adashtirish yoki $-q$ ildizini hisobga olmaslik.",
+        'Ошибка в знаке при группировке либо потеря корня $-q$.',
+        "Topar-topar etkende belgini shatastırıw yamasa $-q$ túbirin esapqa almaw.", // kaa: tekshirilsin
+        'A sign slip when grouping, or losing the root $-q$.',
+      ),
+    };
+  },
+);
+
+// --- 18: algebraik kasrni qisqartirib qiymat topish (L2) ---
+interface AlgFracP {
+  a: number;
+  b: number;
+  x0: number;
+}
+y1T<AlgFracP>(
+  'alg-frac-value',
+  18,
+  'L2',
+  170,
+  (r) => ({ a: r.int(-6, 6), b: r.int(-6, 6), x0: r.int(-8, 8) }),
+  (p) => {
+    need(p.a !== 0 && p.b !== 0 && p.a !== -p.b && p.a !== p.b);
+    need(p.x0 !== p.a && p.x0 !== -p.a && p.x0 !== -p.b && p.x0 + p.b !== 0);
+    const ans = frac(p.x0 - p.a, p.x0 + p.b);
+    need(ans.n !== 0 && ans.d <= 14 && Math.abs(ans.n) <= 16);
+    const wrong = fracWrong(ans, [frac(p.x0 + p.a, p.x0 + p.b), frac(p.x0 - p.a, p.x0 - p.b), frac(p.x0 - p.a, p.b), frac(-p.a, p.b)]);
+    const num = polyTex([-p.a * p.a, 0, 1]);
+    const den = polyTex([p.a * p.b, p.a + p.b, 1]);
+    return {
+      stem: L(
+        `${M(`x=${p.x0}`)} da ${M(`\\frac{${num}}{${den}}`)} ifodaning qiymatini toping.`,
+        `Найдите значение выражения ${M(`\\frac{${num}}{${den}}`)} при ${M(`x=${p.x0}`)}.`,
+        `${M(`x=${p.x0}`)} de ${M(`\\frac{${num}}{${den}}`)} aańlatpasınıń mánisin tabıń.`, // kaa: tekshirilsin
+        `Find the value of ${M(`\\frac{${num}}{${den}}`)} at ${M(`x=${p.x0}`)}.`,
+      ),
+      correct: mf(ans),
+      wrong,
+      sol: joinL(M(`\\frac{(x-${p.a})(x+${p.a})}{(x+${p.a})(x+${p.b})}=\\frac{x-${p.a}}{x+${p.b}}`.replace(/--/g, '+').replace(/\+-/g, '-')), M(`x=${p.x0}:\\ ${texFrac(ans)}`), finA(mf(ans))),
+      mis: L(
+        "Surat va maxrajdagi umumiy ko'paytuvchini noto'g'ri ajratish yoki hadlarni birma-bir qisqartirish.",
+        'Неверно выделяют общий множитель либо сокращают слагаемые по отдельности.',
+        "Alım hám bólimdegi ulıwma kóbeytiwshini qáte ajıratıw yamasa hádlerdi birme-bir qısqartıw.", // kaa: tekshirilsin
+        'Factoring out the common factor incorrectly, or cancelling individual terms.',
+      ),
+    };
+  },
+);
+
+// --- 27: modul qatnashgan ifoda: ildiz ikki butun son orasida (L2) ---
+interface AbsSumP {
+  a: number;
+  m: number;
+  n: number;
+}
+y1T<AbsSumP>(
+  'abs-root-sum',
+  27,
+  'L2',
+  130,
+  (r) => ({ a: r.int(5, 99), m: r.int(2, 9), n: r.int(3, 10) }),
+  (p) => {
+    need(isqrtNo(p.a) && p.m * p.m < p.a && p.a < p.n * p.n && p.n - p.m >= 1);
+    const ans = p.n - p.m;
+    const wrong = intWrong(ans, [p.n + p.m, 2 * Math.round(Math.sqrt(p.a)) - p.m - p.n, p.m - p.n, p.n - p.m + 1], { min: 1 });
+    return {
+      stem: toCalc(M(`\\left|\\sqrt{${p.a}}-${p.m}\\right|+\\left|${p.n}-\\sqrt{${p.a}}\\right|`)),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(L(`${M(`${p.m}^{2}<${p.a}<${p.n}^{2}`)} bo'lgani uchun ${M(`${p.m}<\\sqrt{${p.a}}<${p.n}`)}: ikkala modul ichi musbat.`, `Так как ${M(`${p.m}^{2}<${p.a}<${p.n}^{2}`)}, то ${M(`${p.m}<\\sqrt{${p.a}}<${p.n}`)}: оба подмодульных выражения положительны.`, `${M(`${p.m}^{2}<${p.a}<${p.n}^{2}`)} bolǵanı ushın ${M(`${p.m}<\\sqrt{${p.a}}<${p.n}`)}: eki modul ishi de oń.`, `Since ${M(`${p.m}^{2}<${p.a}<${p.n}^{2}`)}, we get ${M(`${p.m}<\\sqrt{${p.a}}<${p.n}`)}: both expressions are positive.`), M(`\\sqrt{${p.a}}-${p.m}+${p.n}-\\sqrt{${p.a}}=${ans}`), finA(mi(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Modulni ochishda ildiz qaysi sonlar orasida ekanini baholamay ishorani adashtirish.",
+        'Раскрывают модуль, не оценив, между какими числами лежит корень, и путают знак.',
+        "Modulge ashqanda túbir qaysı sanlar arasında ekenin bahalamay belgini shatastırıw.", // kaa: tekshirilsin
+        'Opening the modulus without estimating which integers the root lies between, and mixing up the sign.',
+      ),
+    };
+  },
+);
+const isqrtNo = (n: number): boolean => {
+  const r = Math.round(Math.sqrt(n));
+  return r * r !== n;
+};
+
+// --- 42: birgalikda ishlash (L2) ---
+interface WorkP {
+  t1: number;
+  t2: number;
+}
+y1T<WorkP>(
+  'wp-work',
+  42,
+  'L2',
+  150,
+  (r) => ({ t1: r.int(2, 20), t2: r.int(2, 20) }),
+  (p) => {
+    need(p.t1 !== p.t2);
+    const ans = frac(p.t1 * p.t2, p.t1 + p.t2);
+    need(ans.d <= 12 && ans.n <= 60);
+    const wrong = fracWrong(ans, [frac(p.t1 + p.t2, 2), frac(p.t1 * p.t2, 1), frac(p.t1 + p.t2, 1), frac(Math.abs(p.t1 - p.t2), 1)]);
+    return {
+      stem: L(
+        `Birinchi usta ishni ${mi(p.t1)} kunda, ikkinchisi ${mi(p.t2)} kunda bajaradi. Ular birgalikda ishlasa, ish necha kunda bajariladi?`,
+        `Первый мастер выполняет работу за ${mi(p.t1)} дней, второй — за ${mi(p.t2)} дней. За сколько дней они выполнят её вместе?`,
+        `Birinshi sheber jumıstı ${mi(p.t1)} kúnde, ekinshisi ${mi(p.t2)} kúnde orınlaydı. Olar birgelikte islese, jumıs neshe kúnde orınlanadı?`, // kaa: tekshirilsin
+        `The first worker does a job in ${mi(p.t1)} days, the second in ${mi(p.t2)} days. How many days will they need together?`,
+      ),
+      correct: mf(ans),
+      wrong,
+      sol: joinL(M(`\\frac{1}{${p.t1}}+\\frac{1}{${p.t2}}=\\frac{${p.t1 + p.t2}}{${p.t1 * p.t2}}`), M(`t=\\frac{${p.t1 * p.t2}}{${p.t1 + p.t2}}=${texFrac(ans)}`), finA(mf(ans))),
+      mis: L(
+        "Vaqtlarni qo'shish yoki o'rtacha olish (ish tezliklari qo'shiladi, vaqtlar emas).",
+        'Складывают или усредняют времена (складываются производительности, а не времена).',
+        "Waqıtlardı qosıw yamasa ortasha alıw (jumıs tezlikleri qosıladı, waqıtlar emes).", // kaa: tekshirilsin
+        'Adding or averaging the times (rates add, not times).',
+      ),
+    };
+  },
+);
+
+// --- 42: daryo oqimi: oqim tezligi yoki o'z tezligi (L2) ---
+interface BoatP {
+  d: number;
+  v: number;
+  c: number;
+  ask: 'current' | 'boat';
+}
+y1T<BoatP>(
+  'wp-boat',
+  42,
+  'L2',
+  170,
+  (r) => ({ d: r.pick([60, 72, 80, 90, 96, 120, 144, 160, 180]), v: r.int(8, 24), c: r.int(1, 6), ask: r.pick(['current', 'boat'] as const) }),
+  (p) => {
+    need(p.v > p.c + 1);
+    const tDown = frac(p.d, p.v + p.c);
+    const tUp = frac(p.d, p.v - p.c);
+    need(tDown.d === 1 && tUp.d === 1 && tDown.n >= 2 && tUp.n <= 30);
+    const ans = p.ask === 'current' ? p.c : p.v;
+    const wrong = intWrong(ans, p.ask === 'current' ? [p.v, p.d / tDown.n - p.d / tUp.n, p.d / (2 * tDown.n), p.v - p.c] : [p.c, p.d / tUp.n, p.d / tDown.n, p.d / tDown.n + p.d / tUp.n], { min: 1 });
+    return {
+      stem: L(
+        `Kema ikki port orasidagi ${mi(p.d)} km masofani oqim bo'ylab ${mi(tDown.n)} soatda, oqimga qarshi ${mi(tUp.n)} soatda o'tadi. ${p.ask === 'current' ? "Oqim tezligini" : "Kemaning turg'un suvdagi tezligini"} (km/soat) toping.`,
+        `Катер проходит ${mi(p.d)} км между двумя пристанями по течению за ${mi(tDown.n)} ч, против течения за ${mi(tUp.n)} ч. Найдите ${p.ask === 'current' ? 'скорость течения' : 'собственную скорость катера'} (км/ч).`,
+        `Kema eki port arasındaǵı ${mi(p.d)} km aralıqtı aǵıs boyınsha ${mi(tDown.n)} saatta, aǵısqa qarsı ${mi(tUp.n)} saatta ótedi. ${p.ask === 'current' ? 'Aǵıs tezligin' : 'Kemeniń tınısh suwdaǵı tezligin'} (km/saat) tabıń.`, // kaa: tekshirilsin
+        `A boat covers ${mi(p.d)} km between two piers in ${mi(tDown.n)} h downstream and ${mi(tUp.n)} h upstream. Find ${p.ask === 'current' ? 'the speed of the current' : 'the speed of the boat in still water'} (km/h).`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(M(`v+c=\\frac{${p.d}}{${tDown.n}}=${p.v + p.c},\\ v-c=\\frac{${p.d}}{${tUp.n}}=${p.v - p.c}`), M(`v=${p.v},\\ c=${p.c}`), finA(mi(ans))),
+      mis: L(
+        "Oqim bo'ylab va oqimga qarshi tezliklar ayirmasini oqim tezligi deb olish (u ikkiga bo'linadi) yoki tezliklarni qo'shishni unutish.",
+        'Берут разность скоростей за скорость течения (её надо делить на два) либо путают сумму и разность.',
+        "Aǵıs boyınsha hám aǵısqa qarsı tezlikler ayırmasın aǵıs tezligi dep alıw (ol ekige bólinedi) yamasa qosındı menen ayırmanı shatastırıw.", // kaa: tekshirilsin
+        'Taking the difference of the speeds as the current (it must be halved), or mixing up the sum and the difference.',
+      ),
+    };
+  },
+);
+
+// --- 42: eritma: suv qo'shib konsentratsiyani kamaytirish (L3) ---
+interface MixP {
+  m: number;
+  p: number;
+  q: number;
+}
+y1T<MixP>(
+  'wp-mixture',
+  42,
+  'L3',
+  200,
+  (r) => ({ m: r.pick([20, 30, 40, 60, 80, 90, 120, 150, 200]), p: r.pick([20, 25, 30, 40, 45, 50, 60]), q: r.pick([5, 10, 12, 15, 16, 20, 24, 25, 30]) }),
+  (p) => {
+    need(p.p > p.q);
+    const x = frac(p.m * (p.p - p.q), p.q);
+    need(x.d === 1 && x.n >= 5 && x.n <= 600);
+    const wrong = intWrong(x.n, [p.m * (p.p - p.q) / 100, Math.round((p.m * p.q) / p.p), p.m - Math.round((p.m * p.q) / p.p) + 0, p.m * (p.p - p.q) / p.p].map((v) => Math.round(v)), { min: 1 });
+    return {
+      stem: L(
+        `${mi(p.m)} kg ${mi(p.p)}% li tuz eritmasiga necha kg suv qo'shilsa, ${mi(p.q)}% li eritma hosil bo'ladi?`,
+        `Сколько килограммов воды нужно добавить к ${mi(p.m)} кг ${mi(p.p)}%-ного раствора соли, чтобы получить ${mi(p.q)}%-ный раствор?`,
+        `${mi(p.m)} kg ${mi(p.p)}% li duz eritpesine neshe kg suw qosılsa, ${mi(p.q)}% li eritpe payda boladı?`, // kaa: tekshirilsin
+        `How many kilograms of water must be added to ${mi(p.m)} kg of a ${mi(p.p)}% salt solution to get a ${mi(p.q)}% solution?`,
+      ),
+      correct: mi(x.n),
+      wrong,
+      sol: joinL(L(`Tuz massasi o'zgarmaydi: ${M(`${p.m}\\cdot ${texFrac(frac(p.p, 100))}=(${p.m}+x)\\cdot ${texFrac(frac(p.q, 100))}`)}.`, `Масса соли не меняется: ${M(`${p.m}\\cdot ${texFrac(frac(p.p, 100))}=(${p.m}+x)\\cdot ${texFrac(frac(p.q, 100))}`)}.`, `Duz massası ózgermeydi: ${M(`${p.m}\\cdot ${texFrac(frac(p.p, 100))}=(${p.m}+x)\\cdot ${texFrac(frac(p.q, 100))}`)}.`, `The mass of salt is unchanged: ${M(`${p.m}\\cdot ${texFrac(frac(p.p, 100))}=(${p.m}+x)\\cdot ${texFrac(frac(p.q, 100))}`)}.`), M(`x=${x.n}`), finA(mi(x.n))), // kaa: tekshirilsin
+      mis: L(
+        "Suv qo'shilganda eritma massasi ortishini ($m+x$) hisobga olmaslik.",
+        'Не учитывают, что масса раствора после добавления воды равна $m+x$.',
+        "Suw qosılǵanda eritpe massası artıwın ($m+x$) esapqa almaw.", // kaa: tekshirilsin
+        'Ignoring that the solution mass becomes $m+x$ after adding water.',
+      ),
+    };
+  },
+);
+
+// --- 56: ketma-ketlik limiti: ikki kvadratik ko'phad nisbati (L1) ---
+interface SeqLimP {
+  p: number;
+  q: number;
+  r: number;
+  s: number;
+  t: number;
+  u: number;
+}
+y1T<SeqLimP>(
+  'seq-limit-frac',
+  56,
+  'L1',
+  120,
+  (r) => ({ p: r.int(-6, 6), q: r.int(-5, 5), r: r.int(-4, 4), s: r.pick([-4, -3, -2, -1, 1, 2, 3, 4, 5]), t: r.int(-5, 5), u: r.int(1, 6) }),
+  (p) => {
+    need(p.p !== 0 && p.q !== 0 && p.t !== 0 && p.r !== 0);
+    const ans = frac(p.p, p.s);
+    need(ans.d <= 6 && Math.abs(ans.n) <= 12);
+    const wrong = fracWrong(ans, [frac(p.q, p.t), frac(p.p + p.q, p.s + p.t), fInt(0), frac(p.s, p.p)]);
+    const num = polyTex([p.r, p.q, p.p], 'n');
+    const den = polyTex([p.u, p.t, p.s], 'n');
+    return {
+      stem: L(
+        `${M(`a_{n}=\\frac{${num}}{${den}}`)} ketma-ketlikning limitini toping.`,
+        `Найдите предел последовательности ${M(`a_{n}=\\frac{${num}}{${den}}`)}.`,
+        `${M(`a_{n}=\\frac{${num}}{${den}}`)} izbe-izliktiń limitin tabıń.`, // kaa: tekshirilsin
+        `Find the limit of the sequence ${M(`a_{n}=\\frac{${num}}{${den}}`)}.`,
+      ),
+      correct: mf(ans),
+      wrong,
+      sol: joinL(L('Surat va maxrajni $n^{2}$ ga bo\'lamiz: yuqori daraja koeffitsiyentlari nisbati.', 'Делим числитель и знаменатель на $n^{2}$: отношение старших коэффициентов.', "Alım hám bólimdi $n^{2}$ qa bólemiz: joqarı dáreje koefficientleri qatnası.", 'Divide numerator and denominator by $n^{2}$: the ratio of leading coefficients.'), M(`\\frac{${p.p}}{${p.s}}=${texFrac(ans)}`), finA(mf(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Limit sifatida eng kichik daraja koeffitsiyentlari nisbatini olish.",
+        'Берут отношение коэффициентов при младших степенях.',
+        "Limit retinde eń kishi dáreje koefficientleri qatnasın alıw.", // kaa: tekshirilsin
+        'Taking the ratio of the lowest-degree coefficients as the limit.',
+      ),
+    };
+  },
+);
+
+// --- 57: arifmetik progressiya: ikki hadi berilgan, yig'indi (L2) ---
+interface ApSumP {
+  a1: number;
+  d: number;
+  m: number;
+  n: number;
+  k: number;
+}
+y1T<ApSumP>(
+  'ap-sum-two-terms',
+  57,
+  'L2',
+  180,
+  (r) => ({ a1: r.int(-12, 15), d: r.pick([-4, -3, -2, 2, 3, 4, 5]), m: r.int(2, 6), n: r.int(7, 14), k: r.int(8, 25) }),
+  (p) => {
+    need(p.n > p.m && p.k !== p.n && p.k > p.m);
+    const am = p.a1 + (p.m - 1) * p.d;
+    const an = p.a1 + (p.n - 1) * p.d;
+    const ans = (p.k * (2 * p.a1 + (p.k - 1) * p.d)) / 2;
+    need(Number.isInteger(ans) && Math.abs(ans) <= 900 && ans !== 0);
+    const wrong = intWrong(ans, [(p.k * (am + an)) / 2, p.k * (p.a1 + (p.k - 1) * p.d), (p.k * (2 * p.a1 + p.k * p.d)) / 2, -ans, (p.k * (2 * p.a1 + (p.k - 2) * p.d)) / 2].map((v) => Math.round(v)));
+    return {
+      stem: L(
+        `Arifmetik progressiyada ${M(`a_{${p.m}}=${am}`)} va ${M(`a_{${p.n}}=${an}`)}. Dastlabki ${mi(p.k)} ta hadi yig'indisini toping.`,
+        `В арифметической прогрессии ${M(`a_{${p.m}}=${am}`)} и ${M(`a_{${p.n}}=${an}`)}. Найдите сумму первых ${mi(p.k)} членов.`,
+        `Arifmetikalıq progressiyada ${M(`a_{${p.m}}=${am}`)} hám ${M(`a_{${p.n}}=${an}`)}. Dáslepki ${mi(p.k)} hádiniń qosındısın tabıń.`, // kaa: tekshirilsin
+        `In an arithmetic progression ${M(`a_{${p.m}}=${am}`)} and ${M(`a_{${p.n}}=${an}`)}. Find the sum of the first ${mi(p.k)} terms.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(M(`d=\\frac{${an}-(${am})}{${p.n}-${p.m}}=${p.d},\\ a_{1}=${p.a1}`), M(`S_{${p.k}}=\\frac{2\\cdot ${p.a1}+${p.k - 1}\\cdot ${p.d}}{2}\\cdot ${p.k}=${ans}`.replace('+-', '-')), finA(mi(ans))),
+      mis: L(
+        "Ayirma $d$ ni hadlar soni farqiga ($n-m$) bo'lishni unutish yoki $a_{1}$ o'rniga $a_{m}$ dan hisoblash.",
+        'Забывают делить разность на $n-m$ либо считают от $a_{m}$ вместо $a_{1}$.',
+        "Ayırma $d$ ni hádler sanı parqına ($n-m$) bóliwdi umıtıw yamasa $a_{1}$ ornına $a_{m}$ den esaplaw.", // kaa: tekshirilsin
+        'Forgetting to divide the difference by $n-m$, or counting from $a_{m}$ instead of $a_{1}$.',
+      ),
+    };
+  },
+);
+
+// --- 58: geometrik progressiya: ikki hadi berilgan, yana bir hadi (L2) ---
+interface GpTermsP {
+  b1: number;
+  q: number;
+  m: number;
+  n: number;
+  k: number;
+}
+y1T<GpTermsP>(
+  'gp-two-terms',
+  58,
+  'L2',
+  170,
+  (r) => ({ b1: r.pick([1, 2, 3, 4, 5, -1, -2, -3]), q: r.pick([-3, -2, 2, 3]), m: r.int(2, 3), n: r.int(5, 6), k: r.int(7, 8) }),
+  (p) => {
+    need(p.n - p.m === 3);
+    const bm = p.b1 * p.q ** (p.m - 1);
+    const bn = p.b1 * p.q ** (p.n - 1);
+    const ans = p.b1 * p.q ** (p.k - 1);
+    need(Math.abs(bn) <= 4000 && Math.abs(ans) <= 9000);
+    const wrong = intWrong(ans, [bn * p.q ** (p.k - p.n) * -1, bn + (p.k - p.n) * (bn - bm) / 3, p.b1 * p.q * (p.k - 1), bn * p.k / p.n, ans * p.q].map((v) => Math.round(v)));
+    return {
+      stem: L(
+        `Geometrik progressiyada ${M(`b_{${p.m}}=${bm}`)} va ${M(`b_{${p.n}}=${bn}`)}. ${M(`b_{${p.k}}`)} ni toping.`,
+        `В геометрической прогрессии ${M(`b_{${p.m}}=${bm}`)} и ${M(`b_{${p.n}}=${bn}`)}. Найдите ${M(`b_{${p.k}}`)}.`,
+        `Geometriyalıq progressiyada ${M(`b_{${p.m}}=${bm}`)} hám ${M(`b_{${p.n}}=${bn}`)}. ${M(`b_{${p.k}}`)} di tabıń.`, // kaa: tekshirilsin
+        `In a geometric progression ${M(`b_{${p.m}}=${bm}`)} and ${M(`b_{${p.n}}=${bn}`)}. Find ${M(`b_{${p.k}}`)}.`,
+      ),
+      correct: mi(ans),
+      wrong,
+      sol: joinL(M(`q^{${p.n - p.m}}=\\frac{${bn}}{${bm}}=${p.q ** 3}\\Rightarrow q=${p.q}`), M(`b_{${p.k}}=b_{${p.n}}\\cdot q^{${p.k - p.n}}=${ans}`), finA(mi(ans))),
+      mis: L(
+        "Nisbatdan $q$ ni topishda $q^{3}$ dan kub ildiz chiqarishni unutish yoki progressiyani arifmetik deb hisoblash.",
+        'Забывают извлечь кубический корень из $q^{3}$ либо считают прогрессию арифметической.',
+        "Qatnastan $q$ di tabıwda $q^{3}$ tan kub túbir shıǵarıwdı umıtıw yamasa progressiyanı arifmetikalıq dep esaplaw.", // kaa: tekshirilsin
+        'Forgetting the cube root of $q^{3}$, or treating the progression as arithmetic.',
+      ),
+    };
+  },
+);
+
+// --- 58: cheksiz kamayuvchi geometrik progressiya yig'indisi (b1 va b3 berilgan, q>0) (L2) ---
+interface GpInfP {
+  u: number;
+  v: number;
+  k: number;
+}
+y1T<GpInfP>(
+  'gp-inf-sum',
+  58,
+  'L2',
+  170,
+  (r) => ({ u: r.pick([1, 2, 3]), v: r.pick([2, 3, 4, 5]), k: r.int(1, 4) }),
+  (p) => {
+    need(p.u < p.v && gcd(p.u, p.v) === 1);
+    const b1 = p.k * p.v * p.v;
+    const b3 = p.k * p.u * p.u;
+    const ans = frac(p.k * p.v ** 3, p.v - p.u);
+    need(ans.d <= 4 && Math.abs(ans.n) <= 900);
+    const wrong = fracWrong(ans, [frac(b1 * p.v, p.v + p.u), frac(b1 - b3, 1), frac(p.k * p.v * p.v * (p.v - p.u), p.u), frac(b1, p.v - p.u), frac(b1 * p.v, p.u)]);
+    return {
+      stem: L(
+        `Cheksiz kamayuvchi geometrik progressiyada ${M(`b_{1}=${b1}`)}, ${M(`b_{3}=${b3}`)} va ${M('q>0')}. Progressiya hadlari yig'indisini toping.`,
+        `В бесконечно убывающей геометрической прогрессии ${M(`b_{1}=${b1}`)}, ${M(`b_{3}=${b3}`)}, ${M('q>0')}. Найдите сумму прогрессии.`,
+        `Sheksiz kemeyiwshi geometriyalıq progressiyada ${M(`b_{1}=${b1}`)}, ${M(`b_{3}=${b3}`)} hám ${M('q>0')}. Progressiya hádleri qosındısın tabıń.`, // kaa: tekshirilsin
+        `In an infinite decreasing geometric progression ${M(`b_{1}=${b1}`)}, ${M(`b_{3}=${b3}`)}, ${M('q>0')}. Find the sum of the progression.`,
+      ),
+      correct: mf(ans),
+      wrong,
+      sol: joinL(M(`q^{2}=\\frac{${b3}}{${b1}}=\\frac{${p.u * p.u}}{${p.v * p.v}}\\Rightarrow q=\\frac{${p.u}}{${p.v}}`), M(`S=\\frac{b_{1}}{1-q}=\\frac{${b1}}{${texFrac(frac(p.v - p.u, p.v))}}=${texFrac(ans)}`), finA(mf(ans))),
+      mis: L(
+        "$q^{2}$ dan ildiz chiqarmasdan $q^{2}$ ni $q$ deb olish yoki $S=\\frac{b_{1}}{1+q}$ yozish.",
+        'Берут $q^{2}$ вместо $q$ без извлечения корня либо пишут $S=\\frac{b_{1}}{1+q}$.',
+        "$q^{2}$ dan túbir shıǵarmay $q^{2}$ nı $q$ dep alıw yamasa $S=\\frac{b_{1}}{1+q}$ dep jazıw.", // kaa: tekshirilsin
+        'Using $q^{2}$ as $q$ without taking the root, or writing $S=\\frac{b_{1}}{1+q}$.',
+      ),
+    };
+  },
+);
+
+// --- 105: masshtab: xaritadagi masofa -> haqiqiy masofa yoki aksincha (L1) ---
+interface ScaleDistP {
+  N: number;
+  d: number;
+  dir: 'toReal' | 'toMap';
+}
+y1T<ScaleDistP>(
+  'scale-distance',
+  105,
+  'L1',
+  110,
+  (r) => ({ N: r.pick([25000, 50000, 100000, 200000, 250000, 500000, 1000000]), d: r.pick([2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25]), dir: r.pick(['toReal', 'toMap'] as const) }),
+  (p) => {
+    const kmPerCm = frac(p.N, 100000);
+    const realKm = fMul(fInt(p.d), kmPerCm);
+    need(realKm.d <= 4 && realKm.n <= 400);
+    const ans = p.dir === 'toReal' ? realKm : fInt(p.d);
+    const given = p.dir === 'toReal' ? fInt(p.d) : realKm;
+    const wrong = fracWrong(ans, p.dir === 'toReal' ? [frac(p.d * p.N, 1000), frac(p.d * p.N, 10000000), frac(p.d, p.N), fMul(fInt(p.d), frac(p.N, 1000))] : [frac(p.d, 1), fDiv(realKm, kmPerCm.n === 0 ? fInt(1) : fInt(10)), fMul(realKm, kmPerCm), frac(p.d * p.N, 100000)]);
+    return {
+      stem: p.dir === 'toReal'
+        ? L(`Xaritaning masshtabi ${M(`1:${p.N}`)}. Xaritada ${mi(p.d)} sm bo'lgan masofa haqiqatda necha kilometr?`, `Масштаб карты ${M(`1:${p.N}`)}. Сколько километров составляет на местности расстояние ${mi(p.d)} см на карте?`, `Kartanıń masshtabı ${M(`1:${p.N}`)}. Kartada ${mi(p.d)} sm bolǵan aralıq haqıyqatında neshe kilometr?`, `The map scale is ${M(`1:${p.N}`)}. How many kilometres does ${mi(p.d)} cm on the map represent?`) // kaa: tekshirilsin
+        : L(`Xaritaning masshtabi ${M(`1:${p.N}`)}. Haqiqiy masofa ${md(given)} km bo'lsa, xaritada necha santimetr bo'ladi?`, `Масштаб карты ${M(`1:${p.N}`)}. Сколько сантиметров на карте соответствует расстоянию ${md(given)} км?`, `Kartanıń masshtabı ${M(`1:${p.N}`)}. Haqıyqıy aralıq ${md(given)} km bolsa, kartada neshe santimetr boladı?`, `The map scale is ${M(`1:${p.N}`)}. How many centimetres on the map correspond to ${md(given)} km?`), // kaa: tekshirilsin
+      correct: mf(ans),
+      wrong,
+      sol: joinL(L(`${M('1')} sm xaritada ${md(kmPerCm)} km ga teng.`, `${M('1')} см на карте — это ${md(kmPerCm)} км.`, `${M('1')} sm kartada ${md(kmPerCm)} km ǵa teń.`, `${M('1')} cm on the map is ${md(kmPerCm)} km.`), p.dir === 'toReal' ? M(`${p.d}\\cdot ${texFrac(kmPerCm)}=${texFrac(realKm)}`) : M(`${texFrac(realKm)}:${texFrac(kmPerCm)}=${p.d}`), finA(mf(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Santimetrni kilometrga o'tkazishda nollar sonini adashtirish (1 km = 100 000 sm).",
+        'Ошибка в числе нулей при переводе сантиметров в километры (1 км = 100 000 см).',
+        "Santimetrdi kilometrge ótkergende nollar sanın shatastırıw (1 km = 100 000 sm).", // kaa: tekshirilsin
+        'Miscounting zeros when converting centimetres to kilometres (1 km = 100 000 cm).',
+      ),
+    };
+  },
+);
+
+// --- 105: masshtab: xarita yuzi -> haqiqiy yuz (L2) ---
+interface ScaleAreaP {
+  N: number;
+  S: number;
+}
+y1T<ScaleAreaP>(
+  'scale-area',
+  105,
+  'L2',
+  150,
+  (r) => ({ N: r.pick([50000, 100000, 200000, 250000, 500000]), S: r.pick([2, 3, 4, 5, 6, 8, 9, 10, 12, 15]) }),
+  (p) => {
+    const k = frac(p.N, 100000);
+    const ans = fMul(fMul(k, k), fInt(p.S));
+    need(ans.d <= 8 && ans.n <= 2500);
+    const wrong = fracWrong(ans, [fMul(k, fInt(p.S)), fMul(fMul(k, k), fInt(p.S * 10)), fMul(fMul(fMul(k, k), k), fInt(p.S)), fInt(p.S)]);
+    return {
+      stem: L(
+        `Xaritaning masshtabi ${M(`1:${p.N}`)}. Xaritada yuzi ${mi(p.S)} sm$^{2}$ bo'lgan hudud haqiqatda necha km$^{2}$?`,
+        `Масштаб карты ${M(`1:${p.N}`)}. Какова реальная площадь участка (в км$^{2}$), если на карте она равна ${mi(p.S)} см$^{2}$?`,
+        `Kartanıń masshtabı ${M(`1:${p.N}`)}. Kartada maydanı ${mi(p.S)} sm$^{2}$ bolǵan aymaq haqıyqatında neshe km$^{2}$?`, // kaa: tekshirilsin
+        `The map scale is ${M(`1:${p.N}`)}. A region of ${mi(p.S)} cm$^{2}$ on the map has what real area in km$^{2}$?`,
+      ),
+      correct: mf(ans),
+      wrong,
+      sol: joinL(L(`${M('1')} sm ${md(k)} km: yuz masshtab kvadratiga ko'payadi.`, `${M('1')} см — ${md(k)} км: площадь увеличивается в квадрат масштаба.`, `${M('1')} sm ${md(k)} km: maydan masshtab kvadratına kóbeyedi.`, `${M('1')} cm is ${md(k)} km: area scales by the square.`), M(`${p.S}\\cdot ${texFrac(k)}^{2}=${texFrac(ans)}`), finA(mf(ans))), // kaa: tekshirilsin
+      mis: L(
+        "Yuzni chiziqli masshtab bo'yicha ($k$ marta) hisoblash: yuz $k^{2}$ marta o'zgaradi.",
+        'Масштабируют площадь линейно ($k$ раз): площадь меняется в $k^{2}$ раз.',
+        "Maydandı sızıqlı masshtab ($k$ ese) boyınsha esaplaw: maydan $k^{2}$ ese ózgeredi.", // kaa: tekshirilsin
+        'Scaling the area linearly ($k$ times): area scales by $k^{2}$.',
+      ),
+    };
+  },
+);
+
 // @@NEXT@@
