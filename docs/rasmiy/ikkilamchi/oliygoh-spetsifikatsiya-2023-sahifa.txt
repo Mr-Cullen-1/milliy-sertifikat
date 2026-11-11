@@ -1,0 +1,124 @@
+ Matematika fanidan milliy sertifikat imtihoni spetsifikatsiyasi all; JS bo'lmasa noscript --> Saytdan foydalanish orqali siz Foydalanish shartlari va Maxfiylik siyosati ga rozilik bildirasiz.
+ Rad etaman Qabul qilaman 
+ Asosiy kontentga o tish Oliygohlar 
+ Milliy sertifikat 
+ Yangiliklar Tanlovlar Talaba va o quvchilar uchun tanlovlar 
+ Abituriyent Abituriyent yangiliklari 
+ Talabalar Talabalar uchun yangiliklar 
+ Imtiyozlar Ta limda imtiyozlar 
+ Magistratura Magistratura haqida barchasi 
+ Kechki ta lim Kechki ta lim shakli yangiliklari 
+ Ikkinchi ta lim Ikkinchi ta lim shakli yangiliklari 
+ Qo shma ta lim Qo shma ta lim shakli yangiliklari 
+ Super kontrakt Super kontrakt haqida 
+ Perevod qilish Talabalar perevod ma lumotlari 
+ Foydali Foydali maqolalar 
+ Grantlar Talabalar uchun grantlar 
+ Ma lumotlar Mandat 2026 Mandat 2026 UzBmb natijalari 
+ Kirish ballari Eng past kirish ballari 2026 
+ Darsliklar Maktab darsliklari PDF versiyalari 
+ Imtihonlar UzBMB test 2026 Diagnostik test topshirish 
+ PM test 2026 Prezident maktabi test topshirish 
+ DTM testlar DTM diagnostik testlar arxivi 
+ PM testlar Prezident maktabi testlari arxivi 
+ Mavzuli testlar Fanlar bo yicha testlar 
+ Grant va tanlovlar Grant imtihonlari arxivi 
+ My.Oliygoh.uz 
+ Qidiruv / Kirish • Kabinet 
+ — fokus ichida, Esc yopadi; scripts/ui.ts) --> 
+ Oliygohlar Milliy sertifikat Yangiliklar Tanlovlar Talaba va o quvchilar uchun tanlovlar Abituriyent Abituriyent yangiliklari Talabalar Talabalar uchun yangiliklar Imtiyozlar Ta limda imtiyozlar Magistratura Magistratura haqida barchasi Kechki ta lim Kechki ta lim shakli yangiliklari Ikkinchi ta lim Ikkinchi ta lim shakli yangiliklari Qo shma ta lim Qo shma ta lim shakli yangiliklari Super kontrakt Super kontrakt haqida Perevod qilish Talabalar perevod ma lumotlari Foydali Foydali maqolalar Grantlar Talabalar uchun grantlar 
+ Ma lumotlar Mandat 2026 Mandat 2026 UzBmb natijalari Kirish ballari Eng past kirish ballari 2026 Darsliklar Maktab darsliklari PDF versiyalari 
+ Imtihonlar UzBMB test 2026 Diagnostik test topshirish PM test 2026 Prezident maktabi test topshirish DTM testlar DTM diagnostik testlar arxivi PM testlar Prezident maktabi testlari arxivi Mavzuli testlar Fanlar bo yicha testlar Grant va tanlovlar Grant imtihonlari arxivi 
+ My.Oliygoh.uz Kirish Natijalar Sozlamalar 
+ Chiqish 
+ Bosh sahifa 
+ Abituriyent 
+ Matematika fanidan milliy sertifikat imtihoni spetsifikatsiyasi 
+ Abituriyent Matematika fanidan milliy sertifikat imtihoni spetsifikatsiyasi
+ Bilim va malakalarni baholash agentligi e’lon qilgan fanlar spestsifikatsiyasi
+ 8 fevral 2023 91 789 ko rish 
+ MATEMATIKA FANIDAN MILLIY TEST TIZIMI UCHUN TEST VARIANTI TAFSILOTI 
+ Mazkur test varianti tafsilotining maqsadi umumta’lim fanlarini bilish darajasini baholashning milliy test tizimi doirasida matematika fanidan talabgorlarning bilim darajasini aniqlash va sertifikatlash uchun qo‘llaniladigan test varianti formati (topshiriqlarsoni, turi, vaqt me’yori), fan mazmuni tarkibi, kognitiv ko‘nikma darajalari, talabgorlarningtayyorgarlik darajasiga qo‘yiladigan talablar va baholash mezonlarini belgilashdan iborat.
+ I. TEST TOPSHIRIQLARINI ISHLAB CHIQISH UCHUN ASOS BO‘LUVCHI ME’YORIY HUJJATLAR 
+ O‘zbekiston Respublikasi Prezidentining “Matematika sohasidagi ta’lim sifatinioshirish va ilmiy tadqiqotlarni rivojlantirish chora-tadbirlari to‘g‘risida” 2020-yil 7-maydagi PQ – 4708-son qarori;
+ O‘zbekiston Respublikasi Vazirlar Mahkamasining “Umumta’lim fanlarini bilishdarajasini baholashning milliy test tizimini joriy etish to‘g‘risida” 2020-yil 12-oktyabrdagi 646-son qarori;
+ Matematika faniga oid amaldagi davlat ta’lim standarti va o‘quv dasturi. II. QAMRAB OLINGAN BO‘LIMLAR 
+ Davlat ta’lim standarti va o‘quv dasturi asosida matematika fanining quyidagibo‘limlari qamrab olinadi:
+ Sonlar va amallar
+ Algebraik shakl almashtirishlar
+ Tenglama va tengsizliklar
+ Funksiyalar
+ Matematik analiz asoslari
+ Geometriya
+ To‘plam, mulohazalar, ma’lumotlar tahlili, kombinatorika, ehtimollar nazariyasi vamodellashtirish
+ III. TEST TOPSHIRIQLARINING TURLARI 
+ Y-1 – bitta to‘g‘ri javobga ega bo‘lgan muqobil javobli yopiq test topshirig‘i.
+ Y-2 – moslashtirishni talab qiladigan muqobil javobli yopiq test topshirig‘i.
+ O – qisqa javobni talab qiladigan (a va b bandlarga bo‘lingan) ochiq test topshirig‘i.
+ IV. MATEMATIKA FANIDAN TEST VARIANTI FORMATI 
+ VIII. BAHOLASH MEZONLARI 
+ Bitta to‘g‘ri javobga ega bo‘lgan muqobil javobli yopiq test topshirig‘i (Y-1) ningbaholash mezoni:a) agar belgilangan javob to‘g‘ri bo‘lsa, qiyinlik darajasiga ko‘ra 1,3 yoki 2,2 ball;b) agar belgilangan javob noto‘g‘ri bo‘lsa, 0 ball beriladi.
+ Moslashtirishni talab qiladigan muqobil javobli yopiq test topshirig‘i (Y-2) ningbaholash mezoni:a) agar belgilangan javob to‘g‘ri bo‘lsa, 2,2 ball;b) agar belgilangan javob noto‘g‘ri bo‘lsa, 0 ball beriladi.
+ Qisqa javobni talab qiladigan (a va b qismlarga bo‘lingan) ochiq test topshirig‘i (O)ning baholash mezoni:a) agar faqat a qismdagi javob to‘g‘ri bo‘lsa, 1,5 ball;b) agar faqat b qismdagi javob to‘g‘ri bo‘lsa, 1,7 ball;c) agar a va b qismlardagi javoblar to‘g‘ri bo‘lsa, 3,2 ball;d) agar a va b qismlardagi javoblar noto‘g‘ri bo‘lsa, 0 ball beriladi. *Izoh: Mazkur hujjatga aprobatsiya natijasi, vakolatli davlat tashkilotlarining tegishliqaror va buyruqlari asosida qo‘shimchalar, o‘zgartirishlar va tuzatishlar kiritilishi mumkin.
+ Teglar
+ matematika milliy test tizimi milliy sertifikat 
+ Ulashish
+ f 𝕏 Nusxalandi 
+ Aloqador maqolalar
+ Abituriyent Perevod imtihoni: har bir fandan necha ball beriladi? 
+ O‘qishni ko‘chirishda test savollari qanday baholanadi? 189 ballik imtihonda majburiy fanlar va yo‘nalishga mos fanlardan nechta ball berilishi haqida batafsil ma’lumot.
+ 10 avgust 2026 7 350 ko rish 
+ Abituriyent Super-kontrakt 2026: Yetarli ball to‘play olmaganlar qancha to‘laydi? 
+ Super-kontrakt 2026 miqdori qancha? Yetarli ball to‘play olmagan abituriyentlar uchun 0,1–4,0 ballgacha yetishmaganda qo‘llaniladigan tabaqalashtirilgan to‘lov-kontrakt miqdorlari haqida batafsil.
+ 10 avgust 2026 26 604 ko rish 
+ Abituriyent Ertaga OTM va yo‘nalish tanlashning oxirgi kuni 
+ 8-avgust OTM va yo‘nalish tanlashning so‘nggi kuni. Abituriyentlar 5 tagacha yo‘nalishni tanlab, qayd varaqasini tasdiqlashi shart.
+ 7 avgust 2026 2 220 ko rish 
+ Abituriyent OTMga kirish qanchalik qiyin? Statistikalar nimani ko‘rsatmoqda? 
+ 2026-yilgi qabul statistikasi OTMga kirish imkoniyatlarini ko‘rsatmoqda. Minimal balldan o‘ta olmaganlar soni va kvotalar asosida raqobat darajasi tahlil qilindi.
+ 4 avgust 2026 10 327 ko rish 
+ Abituriyent Milliy sertifikat imtihoniga uzrli sabab bilan kelmaganlarga to‘lov qaytariladi 
+ Milliy sertifikat imtihoniga uzrli sabab bilan qatnasha olmagan talabgorlar endi to‘lovini qaytarib olishi yoki keyingi imtihonda bepul ishtirok etishi mumkin.
+ 4 avgust 2026 347 ko rish 
+ Abituriyent 8-avgustgacha yo‘nalish tanlamagan abituriyentlar qabulda ishtirok eta olmaydi 
+ Abituriyentlar 8-avgustga qadar OTM va ta’lim yo‘nalishini tanlashi shart. Belgilangan muddatdan keyin tanlovni amalga oshirish yoki o‘zgartirish imkoni bo‘lmaydi.
+ 3 avgust 2026 518 ko rish 
+ Ommabop
+ 4-sinf darsliklari PDF: barcha fanlar (2026-2027 o‘quv yili) 22 oktyabr 2026 · 2K ko rish 
+ 7-sinf darsliklari PDF: barcha fanlar (2026-2027 o‘quv yili) 22 oktyabr 2026 · 1.7K ko rish 
+ Tarix darsliklari 5–11-sinf PDF 22 oktyabr 2026 · 1.3K ko rish 
+ 5-sinf darsliklari PDF: barcha fanlar (2026-2027 o‘quv yili) 22 oktyabr 2026 · 996 ko rish 
+ Huquq darsliklari 8–11-sinf PDF 22 oktyabr 2026 · 901 ko rish 
+ Aniq maqsad — g alabaga yetaklaydi
+ Platforma
+ Oliygohlar 
+ Xorijiy oliygohlar 
+ Xususiy oliygohlar 
+ Yangiliklar 
+ Qabul
+ Mandat 2026 
+ Kirish ballari 
+ Grant ballari 
+ Foydali
+ Milliy sertifikat 
+ Darsliklar 
+ Onlayn testlar 
+ DTM test 
+ Hamkorlik
+ My.Oliygoh.uz 
+ Reklama va hamkorlik 
+ Biz haqimizda 
+ Foydalanish shartlari 
+ Maxfiylik siyosati 
+ © 2026 Oliygoh.uz. Barcha huquqlar himoyalangan.
+ Sayt ranglari Sayt ranglari
+ Indigo + sariq Zumrad + to‘q sariq Binafsha + pushti Firuza + marjon Qizil + sariq Grafit + osmon 
+ Esc 
+ Sharof Rashidov nomidagi Samarqand…vlat universiteti Davlat · Samarqand viloyati · 54 yo'nalish Oliygoh 
+ Mirzo Ulug'bek nomidagi O'zbekisto…lliy universiteti Davlat · Toshkent shahri · 57 yo'nalish Oliygoh 
+ Kirish ballari 2026 Sahifa Sahifa 
+ Eng past kirish ballari 2026 Sahifa Sahifa 
+ Mandat DTM natijalari Sahifa Sahifa 
+ Milliy sertifikat jadvali Sahifa Sahifa 
+ ↑ ↓ tanlash Enter ochish Esc yopish 
+ 

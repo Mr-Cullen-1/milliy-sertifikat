@@ -1,0 +1,170 @@
+
+=== stream 7 ===
+Matematika fanidan namunaviy test topshiriqlari
+MATEMATIKA 1. a va b natural sonlar uchun a · b =30 bolsa, a +2 b  1 ifodaning eng kichik qiymatini toping. A) 16 B) 15 C) 12 D) 31 2. Hisoblang : 7 , 2(1)  4 , 4(2)+ 31
+90 A) 3,1(3) B) 3,1(2) C) 2,1(3) D) 2,1(2) 3. Dokon 3 kunda jami 175 kg kartoshka sotdi. Agar ikkinchi kun uchinchi kunga nisbatan 1,5 marta kop, birinchi kun esa ikkinchi kunga nisbatan 2,4 marta kam kartoshka sotgan bolsa, dokon birinchi kun necha kilogramm kartoshka sotgan? A) 35 B) 44 C) 56 D) 27 4. Xonaga eni hamda boyi 2,4 m va 4 m bolgan gilam toshalgan. Agar xonaning eni hamda boyi 4 m va 6 m bolsa, xona yuzining necha foizini gilam egallagan? A) 55 B) 40 C) 60 D) 45 1
+
+=== stream 14 ===
+Matematika fanidan namunaviy test topshiriqlari
+5. Ifodaning qiymatini toping :  
+4  
+7+ 
+4+ 
+7  2 A) 7 B) 14 C) 11 D) 22 6. Quyidagi sonlarni osish tartibida joylashtiring : a =6 , b =4 
+2 , c =2 
+10 A) a<b<c B) c<b<a C) b<a<c D) c<a<b 7. Soddalashtiring :  
+7+1  
+3  
+7+ 
+3  1  A) 5+2 
+3 B) 3  2 
+3 C) 5  2 
+3 D) 3+2 
+3 8. Agar { a n } arifmetik progressiyada a 10 + a 12 =25 va a 20 + a 22 =45 bolsa, a 11 + a 21 ni toping. A) 25 B) 35 C) 30 D) 20 2
+
+=== stream 16 ===
+Matematika fanidan namunaviy test topshiriqlari
+9. Agar { b n } geometrik progressiyada b 3 =18 va S 3 =26 bolsa, b 1 ni toping. A) 8yoki16 B) 6yoki36 C) 2yoki32 D) 4yoki64 10. Agar x  y =5 bolsa, 6 x +5  6 y ning qiymatini toping. A) 35 B) 25 C) 30 D) 40 11. Agar n =  3 , m =  2 va k =3 bolsa,  4 n 2
+m  2 · k
+m 2 n 2 : k 3
+( mn ) 3 · mk 2
+n 3 ning qiymatini toping. A) 288 B) 48 C)  48 D) 144 12. Soddalashtiring : cos3  +cos 
+sin3   sin  A) tg  B) ctg  C) 2ctg  D) 2tg  3
+
+=== stream 18 ===
+Matematika fanidan namunaviy test topshiriqlari
+13. 2 ·  sin 4 
+8 +cos 4 3 
+8 +sin 4 5 
+8 +cos 4 7 
+8  ni hisoblang . A) 3,5 B) 2 C) 3 D) 1 14. 3 3 x  2 · 3 2 x +9 · 3 x  2 =0 tenglamaning barcha haqiqiy ildizlari yigindisini (agar u bitta bolsa, shu haqiqiy ildizni) toping. A)  1 B) 0,5 C) 0 D) 1 15. log 7 (3 x +5)+
+log 2 7 (2 x +5)=0 tenglama nechta haqiqiy ildizga ega? A) 3 B) 1 C) 0 D) 2 16. 2 x 2  5 x  3=0 tenglamaning ildizlari x 1 va x 2 bolsa, 1
+x 1 + 1
+x 2 ni hisoblang. A)  3
+5 B)  5
+3 C) 5
+3 D) 3
+5 4
+
+=== stream 20 ===
+Matematika fanidan namunaviy test topshiriqlari
+17. x 2
+3 + 48
+x 2 =10  x
+3  4
+x  tenglamaning haqiqiy ildizlari yigindisini toping. A) 10 B) 6 C)  1 D) 4 18. 
+x +18 < 2  x tengsizlikni yeching. A) (  18;  1) B) [  18;  2) C) (  18;2) D) [  18;+  ) 19. 5 x +3
+x 2 + x  2 > 1 tengsizlikning barcha butun yechimlari yigindisini toping. A) 9 B) 10 C) 15 D) 14 20. Quyidagi funksiyalardan qaysi biri toq funksiya? A) y = x 4 + ctgx B) y = x 2
+1+ lgx C) y =sin x ·  1+ x 2  D) y = 
+x + x 4 5
+
+=== stream 22 ===
+Matematika fanidan namunaviy test topshiriqlari
+21. Agar f ( x )= x 2  1 va g ( x )=3  2 x bolsa, f ( g ( x )) ni toping. A) 4 x 2  12 x +8 B) 4 x 2 +12 x  8 C) 5  2 x 2 D) 4 x 2  6 x +8 22. f ( t )= t 4  2 t 2 +1 bolsa, f  (1) ni hisoblang. A) 0 B) 4 C) 2 D) 8 23. f ( x )= 1
+1  cos(  x +8  ) funksiyaning boshlangich funksiyasini toping. A) 1
+2 tg x
+2 + C B)  1
+2 ctg x
+2 + C C)  ctg x
+2 + C D)  tg x
+2 + C 24. Ikki togri chiziqning kesishishidan hosi l bolgan qoshni burchaklarning ayirmasi 20  ga teng bolsa, bu burchaklardan kichigini toping. A) 90  B) 80  C) 60  D) 70  6
+
+=== stream 24 ===
+Matematika fanidan namunaviy test topshiriqlari
+25. ABC teng yonli ( AB = BC ) uchburchakning BD medianasi uzunligi 4 cm ga teng. Agar ABD uchburchak perimetri 12 cm ga teng bolsa, ABC uchburchak perimetrini (cm) toping. A) 9 B) 8 C) 16 D) 18 26. Aylana 13 : 14 : 9 nisbatda uchta yoyga bolingan va bolinish nuqtalari tutashtirilib uchburchak hosil qilingan. Agar hosil bolgan uchburchakning kichik tomoni 4 
+12 cm ga teng bolsa, aylanaga tashqi chizilgan muntazam uchburchakning yuzini (cm 2 ) toping. A) 2 4 
+3 B) 9 C) 36 D) 3 
+3 27.
+A DC B F K xx 3 y y Chizmadagi ABCD parallelogrammning yuzi 64 cm 2 ga teng bolsa, FKCD tortburchakning yuzini (cm 2 ) toping. Bunda AF
+FD =3 , AK
+KB =1 ga teng. A) 52 B) 36 C) 48 D) 28 7
+
+=== stream 26 ===
+Matematika fanidan namunaviy test topshiriqlari
+28. Muntazam sakkizburchakka ichki va tashqi aylanalar chizilgan. Agar ichki chizilgan aylananing radiusi r =2+ 
+2 cm bolsa, bu aylanalar hosil qilgan halqaning yuzini (cm 2 ) toping. A) 4  B) 8  C) 2  D) 
+2  29.  tekislik va uni kesib otmaydigan AB kesma berilgan. AB kesmaning uchlaridan  tekislikkacha bolgan eng qisqa masofalar AA 1 =2 cm va BB 1 =7 cm ga teng. A uchidan boshlab hisoblaganda AB kesmani 3:2 nisbatda boluvchi nuqtadan  tekislikkacha bolgan eng qisqa masofani (cm) toping. A) 5 B) 3 C) 4,5 D) 4 30. Agar |   a | =5 va   b =4 ga teng bolib, bu vektorlar orasidagi burchak 60  ga teng bolsa, 5   a    b vektorning uzunligini toping. A) 21 B) 9 C) 
+41 D) 
+541 31. U = { x | 10  x  10 ,x  Z } universal toplam hamda uning A = { x | 7  x  3 ,x  Z } va B = { x | 3  x  7 ,x  Z } qism toplamlari bolsin. ( A  B )  toplamning elementlari sonini toping. Bunda ( A  B )  toplam A  B toplamning toldiruvchisi. A) 2 B) 6 C) 8 D) 4 8
+
+=== stream 28 ===
+Matematika fanidan namunaviy test topshiriqlari
+32. Qopchada har biri 8 tadan moviy va qizil sharlar bor. Ketma-ket olingan ikki shardan ikkalasining ham moviy bolish ehtimolligini toping. A) 1
+4 B) 7
+15 C) 7
+30 D) 1
+8
+Topshiriqlar (33-35) va javob variant (A-F) larini ozaro moslashtiring. Uzunligi 6 m va asosining radiusi 5 dm ga teng bolgan silindrsimon shakldagi yogoch bolagidan eng katta hajmli togri burchakli parallelepiped shaklidagi yogoch ustun yasaldi.
+Boyi Eni Yogoch bolagi
+33. Yasalgan ustun asosining yuzini (dm 2 ) toping. 34. Yasalgan ustunning hajmini (m 3 ) toping. 35. Ustun yasash natijasida (jarayonida) yogoch bolagining necha foizi chiqindiga chiqqan? (   3 deb oling)
+A) 30 B) 3 C) 50 D) 25 E) 33 1
+3 F) 3000
+9
+
+=== stream 30 ===
+Matematika fanidan namunaviy test topshiriqlari
+36. Tenglamani yeching: ( x  1) 4 +2 x = x 2 +73 a) Tenglama nechta haqiqiy ildizga ega? Javob :a)
+b) Tenglamaning haqiqiy ildizlari kopaytmasini toping. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 37. Tenglamani yeching: sin7 x · cos x =sin6 x a) Tenglamaning eng kichik musbat ildizini toping. Javob :a)
+b) Tenglama x  [   ;  ] kesmada nechta haqiqiy ildizga ega? Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 38. Quyidagi chizmada f ( x )= ax 2 + bx +6 funksiyaning gragi tasvirlangan. Parabola uchi B  1
+2 ;6 1
+4  nuqtada joylashgan bolib, f ( x ) funksiya gragi Oy oqini A nuqtada, Ox oqini esa abssissalari x 1 va x 2 ( x 1 <x 2 ) bolgan nuqtalarda kesib otgan.
+x
+y
+B  1
+2 ;6 1
+4  A x 1 x 2 a) x 2
+x 1 ni toping. Javob :a)
+b) A va B nuqtalar orasidagi masofani toping. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 10
+
+=== stream 33 ===
+Matematika fanidan namunaviy test topshiriqlari
+39. Quyidagi chizmada (  6;12) oraliqda aniqlangan y = f  ( x ) funksiyaning gragi tasvirlangan. Bunda y = f  ( x ) funksiya y = f ( x ) funksiyaning hosilasi.
+x
+y
+y = f  ( x ) 0 1 -6 12 -3 1 3 10 57 a) y = f ( x ) funksiyaning (  6;12) oraliqdagi lokal maksimum nuqtalari sonini toping. Javob :a)
+b) y = f ( x ) funksiyaning (  6;12) oraliqdagi lokal minimum nuqtalari sonini toping. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 40. Bizga f ( x )=2 
+x va g ( x )=2 x funksiyalar berilgan bolsin. a) f ( x ) va g ( x ) funksiyalar nechta umumiy nuqtaga ega? Javob :a)
+b) f ( x ) va g ( x ) funksiyalar graklari bilan chegaralangan shakl yuzini hisoblang. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 11
+
+=== stream 36 ===
+Matematika fanidan namunaviy test topshiriqlari
+41. Quyidagi chizmada radiusi 1 cm ga teng va markazi O nuqtada bolgan aylana tasvirlangan. F va G nuqtalar aylanaga tegishli bolib, O , F va E nuqtalar bir togri chiziqda yotadi. Bunda  GEF =2  va GE =1 cm.
+O E F G 1cm 1cm
+2 
+a)  EGF ni toping. Javob :a)
+b)  EFG ni toping. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 12
+
+=== stream 43 ===
+Matematika fanidan namunaviy test topshiriqlari
+42. ABCD kvadratning ichki sohasida chizmadagi kabi KLGE kvadrat joylashtirilgan. Bunda AE =6 cm va ED =8 cm.
+A C F B D G K 6cm 8cm
+E L a) CG kesma uzunligini (cm) toping. Javob :a)
+b) KLGE kvadratning yuzini (cm 2 ) toping. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 43. Koordinatalar tekisligida markazi M nuqtada bolgan aylana Oy oqiga A nuqtada, Ox oqiga esa C nuqtada urinadi (rasm). Koordinatalari (6;0) va (0;8) bolgan nuqtalarni tutashtirishdan hosil bolgan kesma aylanaga B nuqtada urinadi.
+y O x
+M ( x ; y )
+A C 8 6 B a) Aylana radiusini toping. Javob :a)
+b) Aylana markazidan koordinata boshigacha bolgan masofani toping. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 13
+
+=== stream 44 ===
+
+=== stream 47 ===
+Matematika fanidan namunaviy test topshiriqlari
+44. Uchi S nuqtada bolgan SABC muntazam uchburchakli piramida yon qirrasining uzunligi asosining tomonidan 2 marta katta. SAB uchburchakda AH balandlik va ABC uchburchakda BM mediana otkazilgan. a) AH kesma uzunligining BH kesma uzunligiga nisbatini toping. Javob :a)
+b) MH kesma uzunligining BH kesma uzunligiga nisbatini toping. Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 45. Shaharni elektr energiyasi bilan taminlash maqsadida ikki xil kabeldan foydalanilgan. Daryo tubidan otadigan FJ uzunlikdagi kabelning har bir kilometri uchun 7500$ dan va qirgoq boylab (yer ostidan) JL masofaga tortilgan kabelning har bir kilometri uchun 6000$ dan pul tolangan. Bunda daryoning kengligi FE =1 km, EL =5 km va EL FE bolib, eng kam pul ($) sarab F nuqta(stansiya)dan L nuqta(shahar)ga kabel tortib borilgan.
+Daryo GES Shahar F JL
+x
+5km
+1km Yer Yer
+E
+a) Qirgoq boylab JL masofaga tortilgan kabel uchun qancha mablag ($) sarangan? Javob :a)
+b) Daryo tubidan FJ masofaga tortilgan kabel uchun qancha mablag ($) sarangan? Javob :b)
+Diqqat! Javoblaringizni javoblar varaqasiga kochirib yozing. 14

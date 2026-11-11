@@ -1,0 +1,1460 @@
+
+=== stream 0 ===
+1
+MATEMATIKA FANIDAN
+FOYDALANILADIGAN
+TEST
+VARIANTI
+TAFSILOTI
+1.
+Matematika
+muassasalariga
+kirish
+test
+sinovlarida
+m
+atematika
+faniga oid
+ayyorgarlik darajasini aniqlab berish uchun
+2.
+-
+yil 16
+-
+noyabrdagi
+PQ
+-
+3389
+-
+son qarori;
+-
+yil 3
+-
+apreldagi 261
+-
+son qarori
+-
+tarbiya tizimin
+i yanada takomillashtirishga
+-
+-
+yil 6
+-
+noyabrdagi PQ
+-
+4884
+-
+son qarori;
+Matematika
+3.
+Matematika
+fanidan
+shakllantiriladigan test
+variantining
+tarkibi
+Matematika
+fanidan mutaxassislik fani
+sifatida shakllantiriladigan test varianti
+bosqichiga tayyorgarligini
+4.
+Test topshiriqlari yordamida tekshiriladigan fan mazmuni tarkibi
+5.
+Matematika f
+Kodi
+F
+an mazmuni tarkibi
+1. Algebra
+1.1
+Natural sonlar
+daraja
+lar
+i.
+Natural
+s
+Natural s
+Tub va
+
+=== stream 2 ===
+2
+1.2
+Sonlar va ular ustida amallar
+Musbat va manfiy sonlar. Butun sonlar
+.
+Butun sonlar ustida amallar. Kasr sonlar
+va ular ustida
+amallar. Kasr sonlarning taqribiy qiymati.
+.
+Ratsional sonlar ustida
+amallar. Irratsional sonlar. Irratsional sonlar ustida amallar.
+Sonning butun va kasr qismi.
+Haqiqiy sonlar. Haqiqiy sonlar us
+tida amallar.
+Sonning taqribiy qiymati. Yaqinlashish
+xatosi. Xatoni baholash. Sonning standart shakli.
+Kompleks
+sonlar.
+Kompleks
+sonlar
+ustida amallar.
+1.3
+Matnli masalalar,
+foiz va
+proporsiya
+Sodda
+va murakkab foizlar.
+Foizlarga doir masalalar.
+Harakatga doir masalalar.
+Matnli
+masalalarni tenglamalar yordamida yechish.
+Nisbat
+va
+proporsiyalar.
+Proporsiyaning asosiy xossa
+lari va
+tatbi
+q
+lari
+.
+s
+ional
+miqdorlar
+.
+proporsional miqdorlarning tatbiqlari
+. Ma
+s
+shtab
+. Jadvallar
+.
+Diagrammalar.
+1.4
+Daraja, ildizlar
+1.5
+Sonli ketma
+-
+ketliklar
+va progressiyalar
+Sonli ketma
+-
+ketliklar
+. Arifmetik progressiya va uning xossalari. Arifmetik
+progressiyaning dastlabki
+n
+Geometrik progressiyaning dastlabki
+n
+geometrik progressiya va uning xossalari. Cheksiz kamayuvchi geometrik
+1.6
+Algebraik ifodalar,
+ifodalarni almashtirish
+Sonli
+ifodalar. Algebraik
+ifodalar
+. Algebraik i
+fodalarni soddalashtirish.
+Algebraik tengliklar.
+Formulalar
+. Birhad va uning standart shakli. Birhadlar ustida
+ular
+ustida amallar. Algebrai
+k kasrlar.
+Algebraik kasrlar ustida
+amallar.
+.
+Darajaga
+.
+ifodalarni almashtirish
+.
+1.7
+Trigonometriya
+asoslari
+kotangensning ishoralari.
+va
+burchakning sinusi, kosinusi, tangensi va kotangensi.
+Bir argumentning trigonometrik funksiyalari orasidagi asosiy munosabatlar.
+Trigonometrik ayniyatlar. Trigonometrik ifodalarni soddalashtirish. Ikki burchak
+siyalari. Ikkilangan va yarim burchakning
+trigonometrik funksiyalari.
+Keltirish formulalari. Trigonometrik tenglamalar.
+Trigonometrik tengsizliklar. Trigonometrik funksiyalar va ularning xossalari.
+1.8
+ifodalarni ayniy almashtirish.
+tengsizliklar.
+tengsizliklar
+sistema
+s
+i.
+1.9
+Logarifmik funksiya
+Logarifm haqida tushuncha.
+ayniy almashtirish.
+Logarifmik funksiya va uning xossalari. Logarifmik funksiyaning
+grafigi.
+Logarifmik
+tenglamalar.
+Logarifmik
+tenglamalar
+sistema
+s
+i
+.
+Logarifmik
+tengsizliklar
+.
+Logarifmik
+tengsizliklar
+sistemasi
+.
+
+=== stream 4 ===
+3
+1.10
+Tenglamalar
+Modul qatnashgan tenglamalar. Kvadrat tenglamalar. Keltirilgan kvadrat tenglamalar.
+Viyet teoremasi. Kvadrat tenglamaga keltiriladigan tenglamalar. Ikkinchi darajali
+tenglama qat
+nashgan sistemalarni yechish. Daraja qatnashgan tenglamalar. Ratsional
+tenglamalar va ularning sistemalari. Irratsional tenglamalar va ularning sistemalari.
+Tenglamalarni taqribiy yechish.
+1.11
+Tengsizliklar
+Sonli tengsizlik va ularning asosiy
+sistemalarini yechish. Chiziqli tengsizliklar va ularning sistemalari yordamida
+masalalarni yechish. Modul qatnashgan tengsizliklar.
+Kvadrat tengsizliklar. Kvadrat
+tengsizlikka olib keladigan masalalar. Daraja qatnashgan tengsizliklar. Ratsional
+tengsizliklar va ularning sistemalari. Irratsional tengsizliklar va ularning sistemalari.
+1.12
+Funksiyalar
+Funksiyaning berilish usullari. Funksiyaning aniqlanish va qiymatlar sohasi.
+Funksiyaning
+e
+ng katta va eng kichik qiymatlari. Funksiyaning ekstremum
+nuqtalari. Funksiyalarning monotonl
+Funksiyaning juft va toqligi. Funksiyaning davriyligi. Funksiyaning limiti. Chiziqli
+funksiya va uning xossalari. Chiziqli funksiyaning grafigi. Kvadrat funksiya va
+uning xossalari. Kvadrat funksiyaning grafigi. Dara
+jali funksiya va uning xossalari.
+Darajali funksiyaning grafigi. Trigonometrik funksiyalar va ularning xossalari.
+Trigonometrik
+funksiyalarning grafiklari. Funksiyalarning grafiklarini almashtirish.
+Funksiyalarning grafiklarini abssissalar,
+nuqtaga nisbatan simmetrik
+va ularning
+grafiklari.
+1.13
+Hosila va uning tatbiqlari
+funksiyalarning hosilalari. Hosilani hisoblash qoidalari. Murakkab funksiyaning
+ormal tenglamalari. Hosila
+yordamida funksiyani tekshirish. Hosila yordamida geometrik, fizik va iqtisodiy
+masalalarni yechish. Taqribiy hisoblashlar.
+1.14
+Integral va uning tatbiqlari
+integral
+.
+Integrallar jadvali.
+Eleme
+ntar
+.
+Integrallash
+qoidalari
+.
+Aniq integral. Nyuton
+Leybnis formulasi. Aniq integralning tatbiqlari
+.
+2. Geometriya
+2.1
+Geometrik shakllar va
+Eng sodda geometrik shakllar. Kesma. Burchak.
+Uchburchaklar.
+uning xossalari. Romb va uning xossalari. Kvadrat va uning xossalari.
+Trapetsiya va
+doira. Aylana uzunligi. Doira yuzi.
+.
+2.2
+Planimetriya
+perpendikularlari, bissektrisalari, balandliklari, medianalari va ular orasidagi
+
+=== stream 6 ===
+4
+Fales teoremasiga d
+oir masalalar. Pifagor teoremasi. Pifagor teoremasiga teskari
+joylashishi. Aylanaga urinma. Markaziy burchak. Aylanaga ichki chizilgan burchak.
+Aylananing kesuvchilari hos
+Aylanadagi proporsional kesmalar. Aylanadagi metrik munosabatlar. Aylanaga ichki va
+tashqi chizilgan u
+chburchak
+2.3
+Stereometriya
+,
+tekisliklar
+va ularning
+piramida va ularning elementlari. Aylanish jismlari: silindr, konus, kesik konus va shar.
+remasi va uning natijalari.
+k
+Kub va uning xossalari. Silindr va uning xossalari.
+Pir
+amida
+va uning xossalari.
+Kesik
+piramida va
+uning xossalari.
+Shar va sfera.
+Ularning elementlari va
+tenglamalari. Shar kesimlari. Sharning diametr tekisligi. Sharga urinma tekislik va
+ismlarga) tashqi yoki ichki
+chizilgan sferalar.
+Sfera
+sirti
+ning
+yuzi.
+Sferaga ichki va tashqi chizilgan qavariq k
+2.4
+Koordinatalar va vektorlar
+burchakli
+koordinatalar
+sistemasi
+. Kesmani
+berilgan nisbatda
+ar
+vektorlarga yoyish. Komplanar vektorlar. Vektorni uchta nokomplanar vektorlarga
+3.
+To
+plam
+, m
+ulohaza, k
+ombinatorika
+, e
+htimollar nazariyasi
+va modellashtirish
+.
+3.1
+elementlari
+To
+To
+mantiqiy qonunlar, implikas
+iya, konversiya, inversiya va kontrapozisiya. Predikatlar va
+3.2
+Kombinatorika elementlari.
+Kombinatorika masalalari. Nyuton binomi. Statistika elementlari. Statistik
+mediana. Chetlanish, standart
+chetlanish. Tasodi
+fiy hodisalar va ularning ehtimolligi
+haqida tushuncha. Ehtimollar nazariyasi elementlari. Ehtimollar nazariyasi
+masalalari. Qarama
+-
+qarshi hodisalar. Hodisalar ustida amallar va ularni Eyler
+Venn
+aytirish. Hodisalarning
+ehtimolligini hisoblash usullari.
+
+=== stream 8 ===
+5
+1.
+quyi
+kognitiv
+darajasi
+Matematika fanidan tanish vaziyatlarda qisqa hisoblarni amalga oshiruvchi
+bir nechta predmet, hodisa, formula, qoida yoki qonuniyatlarni bilish,
+2.
+yuqori
+kognitiv
+darajasi
+yuritish uchun bir nechta predmet, hodisa, formula, qoida yoki
+6.
+Matematika
+fanidan t
+est to
+pshiriqlari yordamida
+tekshiriladigan
+bilim,
+darajasini, ularning mantiqiy fikrlashini baholaydigan test topshiriqlaridan iborat.
+Mazkur test
+ga oid
+kompetensiyalar asos sifatida qaraldi.
+Fan
+Tekshiriladigan
+kodi
+Algebra
+Fan mazmuniga oid umumiy kompetensiya
+Sonlar va amallar
+1
+.1
+Natural sonlar ustida arifmetik amallarni bajara oladi,
+qoldiqli
+,
+tub va murakkab sonlarga
+oi
+d
+misollarni yecha oladi.
+, s
+belgilarini
+biladi
+ga,
+sonlarni tub
+doir misollarni yecha oladi.
+E
+ng katta umumiy
+ga
+doir misollarni yecha oladi.
+o
+holda
+ularga
+tegishli
+misol
+va masala
+larni
+umumlashtirib
+yecha oladi.
+1.
+1.1
+Ulushlar
+ga
+, k
+asrlarni taqqoslash
+ga, k
+asr
+son
+doir misollarni yecha oladi. Kasr
+son
+misollarni yecha oladi
+.
+Sonning qismini
+,
+o
+va
+q
+ismiga
+ga doir misollarni yecha oladi
+. Sonning
+taqribiy qiymati
+ni berilgan aniqlikda hisoblay oladi
+. Sonlarni yaxlitlay
+oladi.
+k
+qiymatini
+topa oladi.
+Musbat va manfiy sonlarga doir misollarni yecha oladi. Qar
+ama
+-
+qarshi
+sonlarni topa oladi. Sonning moduli
+ni topa oladi va unga doir misollarni
+yecha oladi
+. Butun sonlar ustida amallarni bajara oladi. Miqdorlarning
+1.
+1.
+2
+3.3
+Modellashtirish
+Chiziqli
+modella
+shtirish. Kvadratik
+modella
+shtirish. Trigonometrik
+modella
+modella
+shtirish. Hosila yordamida
+Geometrik modellashtirish.
+jarayonlarning modellarini qurish va tahlil qilish
+.
+
+=== stream 10 ===
+6
+Ratsional sonlar ustida amallar
+ni bajara oladi
+. Davriy kasr, i
+rratsional
+sonlar,
+h
+aqiqiy sonlar va ular ustida amallarni bajara oladi.
+Yuqorida aytib
+o
+ni
+va
+qoidalarni
+holda
+ularga
+tegishli misollarni
+umumlashtirib
+yecha
+oladi.
+Sodda
+va
+murakkab foizlarga oid masalalarni yecha oladi.
+Amaliy
+qur
+ib,
+tahlil qila oladi.
+Hara
+katga
+va ishga
+oi
+d
+masalalarni yecha oladi. Matnli masalalarni
+yech
+a
+oladi.
+Proporsiyaning
+asosiy xossa
+larini
+misol va masalalarga
+tatbi
+q
+qila
+ola
+di
+.
+teng
+nisbatlarni
+aniqlay
+oladi,
+sonni
+berilgan
+nisbatda
+oladi,
+proporsiyalarga
+oid
+amaliy
+va
+masalalarni
+yecha
+oladi.
+N
+svirlay oladi.
+ga
+oid
+masalalarni
+yecha
+oladi
+.
+Ma
+s
+shtab
+mavzusi
+ga oi
+d
+masalalarni yecha oladi
+. Jadvallar
+,
+diagrammalar
+bilan ishlay oladi
+.
+holda ularga
+tegishli
+misol
+va masala
+larni
+umumlashtirib
+yecha oladi
+.
+1.
+1.
+3
+Darajalar, ildiz(radikal)lar,
+-
+kitoblar hamda ayniy
+va taqribiy arifmetik hisob
+-
+kitoblarni va ayniy almashtirishlarni bajara
+oladi.
+Sonlarning
+arifmetik va
+geometri
+k qiymatini hisoblay
+oladi.
+Arfimetik kvadrat ildiz xossalariga doir misollarni yecha oladi. Butun
+, a
+rifmetik
+ildizning xos
+s
+alari
+, r
+atsional va irratsional
+soddalashtirib
+yecha oladi.
+Sonni
+standart shaklga keltira oladi.
+(bu yerda
+,
+butun
+son)
+standart shakldagi sonlar ustida amallar bajara oladi.
+1
+.1
+.4
+1.
+2
+Sodda ketma
+-
+ketliklar
+n
+arifmetik
+va geometrik progressiyalarni tahlil qila oladi.
+Arifmetik va geometrik
+progressiyaning xossalarini biladi. Arifmetik va
+geometrik progressiya
+dastlabki
+n
+unga
+oi
+d
+misollarni ishlay oladi.
+Cheksiz kamayuvchi geometrik progressiyaning barcha hadlar
+formulasini biladi va unga doir misollarni ishlay oladi.
+Yuqorida
+qoidalarni anglagan holda ularga tegishli
+misol
+va masala
+larni
+umumlashtirib
+yecha oladi
+.
+1.
+2.1
+Sonli ifodalarni hisoblay oladi. Algebraik ifodalarni standart shaklga
+keltiradi. Algebraik ifodalarni soddalashtira oladi. Algebraik tengliklar,
+formulalardan foydalana oladi. Arifmetik amallarning xossalarini biladi.
+formulalarini bil
+gan h
+o
+lda
+ularni
+ifodalarni soddalashtira oladi.
+1.2.2
+
+=== stream 12 ===
+10
+k
+a
+
+=== stream 14 ===
+1 10
+a
+
+=== stream 18 ===
+7
+orasidagi munosabatlarni
+Sinus
+,
+kosinus, tangens va kotangens
+lar
+ni
+misol va
+masalalar
+g
+Sinus, kosinus, tangens va kotangensning ishoralarini aniqlaydi. Bir
+argumentning trigonometrik funksiyalari orasidagi asosiy munosabatlarni
+biladi. Trigonometrik ayniyatlarni soddalashtira oladi.
+va
+burchakning sinusi, kosinusi, tang
+ens va kotangensiga doir masalalarni
+funksiyalariga doir masalalarni yecha oladi. Ikkilangan
+va yarim
+burchak
+lar
+ning trigonometrik funksiyalariga doir masalalarni yecha oladi.
+ifodalarni
+shakl
+almashtirish
+da
+qoidalar
+l va
+masalalarni yecha oladi.
+Trigonometrik tenglamalar va tengsizliklarni yecha oladi.
+Yuqorida aytib
+qoidalarni anglagan holda ularga tegishli
+misol
+va masala
+larni
+yecha oladi va
+umumlashtirib
+hayotga
+tatbiq qila
+oladi.
+1.2.3
+tengsizliklarni yecha oladi.
+tegishli misollarni yecha oladi.
+va
+logarifmlash amalini
+olgan ifodalarni ayniy almashtira oladi.
+Logarifmik
+tenglamalar
+va ularning sistemalarini yecha oladi. Logarifmik
+tengsizliklarni yecha
+oladi.
+Logarifmik funksiya va uning xossalarini biladi.
+Logarifmik
+funksiyani
+ng grafigini
+koordinaralar sistemasida
+tas
+virlay oladi.
+1.2.4
+amaliy masalalarni
+ning
+elementlari sonini hisoblashga oid
+amaliy masalalarni yecha oladi.
+Mulohazalar va ular ustida mantiqiy amallar
+ni
+bajara oladi. Ikkita
+mulohazaning teng kuchli yoki teng kuchli emasligini
+far
+qlay oladi.
+1.2.5
+Kombinatorika va
+e
+htimollar nazariyasi
+ga doir
+masalalarni yecha oladi.
+Ehtimollar nazariyasi va statistika tilida real holatlarni modellashtir
+a
+oladi va
+hodisalarning ehtimolligini hisobla
+y oladi
+.
+1.2.6
+Tenglamlar va tengsizliklarni yechish
+1.3
+
+=== stream 20 ===
+8
+yecha oladi
+.
+Chiziqli
+tenglamalar sistemasini
+yecha oladi
+. Modul qatnashgan tenglamalarni
+yecha oladi
+. Kvadrat tenglamalarni
+yecha oladi
+. Keltirilgan kvadrat
+tenglamalarni
+yecha oladi
+.
+Tenglamalarni yechishda
+Viyet teoremasini
+tatbiq qila oladi. Kvadrat tenglamalar yordamida masalalarni yecha oladi.
+Ikkinchi darajali tenglama qatnashgan sistemalarni
+yecha
+oladi
+.
+Daraja qatnashgan tenglamalarni
+yecha oladi
+. Ratsional tenglamalar va
+ularning sistemalarini
+yecha oladi
+. Irratsional tenglamalar va ularning
+sistemalarini yecha oladi. Tenglamalarni taqribiy
+yecha oladi
+.
+Yuqorida
+qoidalarni anglagan holda ularga tegishli
+misol
+va masala
+larni
+umumlashtirib
+yecha oladi
+.
+Darajali, k
+trigonometrik va logarifmik
+r
+inishidagi
+aralashgan
+tenglamalarni, ularning sistemalarini
+yecha
+oladi.
+Tenglama va tenglamalar sistema
+s
+i
+ga oid
+misollarni
+funksiyalarning
+xossalari
+dan
+va ularning grafiklaridan foydalanib
+yecha oladi.
+Tenglama va tengsizliklarni taqribiy
+yecha oladi
+.
+1.3.1
+Sonli tengsizlik va ularning asosiy xossalariga doir masalalarini
+yecha
+oladi
+. Chiziqli
+te
+n
+gsizlik va
+tengsizliklar sistemalar
+i
+ga olib keluvchi
+amaliyot masalalarini
+yecha oladi
+. Modul qatnashgan tengsizliklarni
+yecha oladi
+. Kvadrat tengsizliklarni
+yecha
+oladi
+. Kvadrat tengsizlikni
+kvadrat funksiya
+ning
+grafigi orqali
+yecha oladi
+. Kvadrat tengsizlikka olib
+keladigan sodda iqtisodiy, fizik va amaliyot masalalarini
+yecha oladi
+.
+Daraja qatnashgan tengsizliklarni
+yecha oladi
+. Ratsional tengsizliklar
+va
+ularning
+sistemalarini
+yecha oladi
+. Irratsional tengsizliklarni
+yecha
+oladi
+.
+D
+arajali
+,
+k
+,
+logarifmik
+va
+ularning sistemalari
+ga oid
+tengsizliklarni
+yecha oladi
+.
+1.3.2
+Funksiyalar
+va ular
+ustida amallarni bajarish
+1.4
+koordinatalar sistemasida nuqtalarni
+joylashtira
+di va topa
+oladi.
+berilish usullarini biladi va misollarda farqlay oladi. Funksiya turli
+usullarda berilganda funksiya argument
+i
+ning
+qiymat
+laridan
+funksiya
+ning
+qiymatlarini aniqla
+y
+oladi.
+logarifmik
+va
+trigonometrik
+funksiyaning xossalarini biladi.
+Funksiyaning aniqlanish sohasini biladi va unga doir misollarni yecha
+oladi. Funksiyaning qiymat
+lar sohasini biladi va unga doir misollarni
+yecha oladi. Funksiyaning ekstremum nuqtalarini topa oladi.
+Funksiyaning e
+ng katta va eng kichik qiymatlarini aniqlay oladi.
+Elementar funksiyalar monotonligini aniqlay oladi. Funksiyaning
+oraliqlarini topa oladi. Funksiyaning juft va
+toqligini aniqlay oladi. Funksiyaning limitini hisoblay oladi.
+Funksiyaning davrini
+aniqlay
+oladi.
+Funksiyaning grafiklarini almashtira oladi. Funksiyaning
+mashtira oladi.
+k
+larini tasvirlay oladi.
+1.4.1
+
+=== stream 22 ===
+9
+logarifmik, trigonometrik tenglamalarni va
+ularning
+sistemalar
+i
+ni
+grafik
+usulda
+yecha oladi.
+oladi. Funksiyalarni munosabatlardan farqlay oladi. Real dunyoda analitik,
+i
+da berilgan funksiyalarga doir misollarni yecha
+i
+d
+a berilgan funksiyaning aniqlanish sohasi,
+oladi.
+kabi belgilashlarni tushun
+gan holda
+teskari va murakkab funksiyalarni topa oladi.
+Teskari va murakkab funksiyalar mavjudligi shartlarini
+matematik
+usullarda
+tushuntira oladi. Funksiya, teskari funksiya
+va
+murakkab
+funksiyalarga doir misollarni yecha oladi. Funksiya va u
+n
+g
+a
+teskari
+funksiya
+oladi.
+Ratsional va irratsional funksiyalarning aniqlanish sohalarini topa oladi.
+Kvadrat funksiyaning g
+rafi
+gi
+d
+a
+berilga
+n
+dan
+foydalanib
+uning
+,
+ni
+kesishish nuqtalari
+ni
+va
+ekstremumlarini topa oladi.
+kabi darajali
+va
+r
+s
+a
+tkichli
+funksiyalarning grafiklarini
+koordin
+a
+talar
+sistemasida
+tasvirlay oladi va u
+lar
+ga oi
+misollarni yecha oladi.
+funksiya uchun
+almashtirishlarni
+bajar
+a
+oladi.
+1.4.2
+Ikki orttirma nisbatiga olib keladigan jarayonlarni (jumladan,
+sovishi) modellarini qura oladi va tegishli
+masalalarni yecha oladi.
+Berilgan funksiyaga qarab, hosilaga ega va
+ega
+aniqlay oladi.
+Tezlik
+-
+-
+aniqlay oladi hamda tezlanish
+-
+-
+O
+ptimallashtiri
+sh
+masalalar
+ini
+yecha oladi.
+va
+oladi.
+Sodda funksiyalarni differensialla
+shni,
+ularni
+hosila
+yordamida
+statsionar nuqtalar
+i
+ning
+tabiatini (lokal maksimum va minimum) aniqlay
+oladi.
+Murakkab funksiy
+a
+ning hosila
+s
+ini hisoblay oladi va berilgan nuqtada
+qiymatini topa oladi.
+Funksiyaning m
+aksimum va minimum nuqtalarini
+berilgan nuqtada qiymatini topa
+oladi.
+Funksiya grafigiga urinma
+(
+chiziq
+)
+tenglamasini tuza oladi.
+Hosila yordamida taqribiy hisoblashlarni
+bajara oladi. Hosila yordamida
+geometrik, fizik, iqtisodiy mazmun
+dagi
+masalalarni yech
+a
+oladi.
+1.4.3
+biladi
+. S
+odda
+funksiyalarni integrallaydi. Integrallashga doir masalalarni
+yechishda
+integrallash usullaridan foydalanib hisoblay oladi.
+Egri chiziqli trapetsiya yuzini aniq integral yordamida hisoblay oladi.
+Aylanish jismlari
+sirtlarining yuzini, hajmini aniq integral yordamida hisoblay oladi. Egri
+chiziqning uzunligini aniq integral yordamida hisoblay oladi.
+1.4.4
+
+=== stream 24 ===
+1
+( ), ( ), ( ( ))
+f x f x f g x
+
+=== stream 26 ===
+, 2, 1,0,1,2,3
+n
+y ax n
+
+=== stream 28 ===
+x
+y ka
+
+=== stream 30 ===
+()
+y f x
+
+=== stream 32 ===
+( ), ( ) , ( ), ( )
+y af x y f x a y f x a y f ax
+
+=== stream 34 ===
+'( ) 0, '( ) 0, '( ) 0,
+f x f x f x
+
+=== stream 36 ===
+'( )
+y f x
+
+=== stream 38 ===
+()
+y f x
+
+=== stream 40 ===
+10
+Geometriya
+Fan mazmuniga oid umumiy kompetensiya
+Geometrik
+shakllar, koordinata
+lar
+va vektorlar ustida amallarni
+bajarish
+.
+2.1
+Geometrik miqdor (uzunlik, burchak, yuza)larni topishga doir
+planimetriya masalalarini
+yecha oladi. Uchburchaklarning turlari,
+elementlari, xossalarini biladi va
+ularga
+tegishli misollar
+ni
+yecha oladi.
+Uchburchakning tomonlari, perpendikularlari, bissektrisalari, balandliklari,
+medianalari va ularning xossalariga doir misollarni yecha oladi. Tekislikda
+adi va
+ularga doir misollarni yecha oladi.
+m
+,
+ularga doir misollarni yecha oladi, yuza
+lari
+ni hisoblay oladi. Fale
+s
+teoremasining tatbiqlariga doir masalalarni yecha oladi. Pifagor
+teoremasi
+ni
+, sinus
+lar va
+kosinuslar teoremalarini
+bilgan holda
+misollar
+d
+a
+va ularning xossalarini
+ib yecha
+oladi.
+2.1.1
+Aylana va
+aylana
+yoyi uzunligini hisoblay oladi. Doira va doira
+aylanada
+markaziy va
+ichki chizilgan burchaklar,
+urinma
+va vatar
+lar
+orasidagi burchak
+lar
+,
+biladi va ularga doir misollarni yecha oladi. Aylanaga tashqi va ichki
+,
+ning
+xossalarini biladi
+va ula
+rga doir masallarni yecha oladi.
+2.1.2
+Stereometriya
+ga
+oid
+masalalarini yechishda planimetriya
+doir
+xossalar
+dan foydalan
+i
+b,
+geometrik miqdor (uzunlik, burchak, yuza,
+hajm)larni
+umumlashtir
+gan holda
+masalalarini yech
+a
+oladi.
+orasidagi munosabat
+larni biladi.
+2.1.3
+ga
+doir misollarni yecha oladi.
+yecha ola
+ga doir misollarni
+yecha oladi
+. Fazoda tekisliklarning perpendikularligiga doir misollarni
+ularning elementlariga doir misollarni yecha ol
+adi. Ikkiyoqli
+va
+k
+burchaklar
+ga doir misollarni yecha oladi
+doir
+misollarni yecha oladi
+ga
+va
+uning natijalariga oi
+d
+misollarni yecha oladi
+misollarni yecha
+oladi
+ga
+doir
+misollarni yecha
+oladi
+soni
+uchlar
+i
+, qirralari
+va yoqlari
+misollarni yecha oladi
+.
+Prizma, uning turlari va kesimlarini biladi.
+P
+rizmaning yon
+sirti va hajmi
+ni
+hisoblash formulasidan foydalanib misollarni
+y
+echa ola
+di
+.
+Prizma yoyilmasi va unga doir masalalarni yecha oladi. Silindr, uning
+hisoblay oladi. Silindr yoyilmasi va uni yasashga doir masalalarni yecha
+oladi. Prizmaga ichki
+yoki
+tashqi chi
+zilgan silindr
+ma
+v
+zusiga
+doir
+masalalarni yechadi. Silindrning hajmini hisoblay
+ola
+di.
+2.1.4
+
+=== stream 42 ===
+11
+Piramida, uning turlari va kesimlari, muntazam piramidaning
+xossalari
+ga
+doir masalalarni yecha oladi.
+va hajmini hisoblay oladi. Piramida yoyilmasi va unga doir masalalarni
+yecha oladi. Piramidaga ichki
+va
+tashqi chizilgan sferalarga doir
+masalalarni yecha oladi.
+Konus, kesik konus, ularning elementlari
+,
+kesimlari
+va
+yoyilmasiga
+doir masalalarni hisoblay oladi. Konus va kesik konusning yon
+sirti
+,
+sirti
+yuz
+in
+i va hajmini
+hisobla
+y
+ola
+di. Piramidaga ichki
+va
+tashqi chizilgan
+konus
+mavzusi
+ga doir masalalarni yecha oladi. Konusga ichki
+va
+tashqi
+chizilgan sferaga doir masalalarni yecha oladi.
+Sfera, uning elementlari
+,
+kesimlari
+va
+s
+feraning sirti
+ni hisoblay ola
+di
+.
+Shar, uning elementlari va kesimlarga doir masalalarni yecha oladi. Sharga
+lindrlarga doir
+masalalarni yecha oladi. Shar, shar s
+e
+gmenti, sektori, shar kamari va
+qatlamining sirti va hajmini hisoblay oladi.
+yoqliklarning
+yoyilmalari, kesimlari va ularga doir masalalarni yechadi.
+i
+mlarini va yoyilmalarini biladi, ularga doir
+masalalarni yecha oladi.
+tekisliklar, faz
+masalarni yecha oladi.
+joylashuvlarini biladi va
+ularga doir masalalarni yecha oladi. Parallel
+ortogonal proyeksiyasini tasvirlay oladi va ularga doir masalalarni yecha
+oladi.
+gi, perpendikular
+l
+arni yecha oladi.
+tushunadi va ularga do
+ir masalalarni yecha oladi.
+Nuqtaning koordinatalarini aniqlash, vektorlar ustida amallarni
+bajarish, vektorning koordinatalari va uzunligini, vektorlar orasidagi
+burchakni topishga doir
+masalalarni yecha oladi
+.
+Fazoda dekart
+koordinatalari va ularga doir masalalarni yechadi. Fazoda kesma
+ni berilgan
+koordinatalari
+topa oladi.
+metriya, tabiatda
+tekislik orasidagi burchaklarga doir masalalarni yecha oladi.
+proyeksiyasini biladi va ularga doir
+masalalarni yecha oladi. Fazoda vektorlar va ular ustida amallarni bajara
+orasidagi burchakni hisoblay oladi.
+2.1.5
+
+=== stream 44 ===
+12
+Matematika (algebra,
+geometriya)
+Kognitiv kompetensiya
+Fanga oid shaxsning mustaqil ijodiy fikrlashi
+3.1
+Masalalar yechishda, nazariy tasdiqlarni asoslashda isbotlashning
+sodda ketma
+-
+matematik tushunchalar, faktlar, algoritmlar,
+(klassifikatsiya, analiz, sintez, analogiya, umumlashtirish) usullaridan
+fo
+ydalana oladi; masala yechimiga ijodiy yondasha oladi, yechimga
+yaqinlashish darajasini va olingan natijani baholay oladi hamda zarur
+ilgan matematik
+3.1.1
+Standart vaziyatlarda klassifikatsiya, analiz, sintez, analogiya,
+umumlashtirish, deduksiya va induksiya usullari yordamida strategik,
+refleksiv va evristik
+tafakkur yurita oladi
+,
+3.1.2
+*Izoh:
+Mazkur hujjatga aprobatsiya natijalari hamda vakolatli davlat tashkilotlarining
+
+=== stream 50 ===
+
+=== stream 54 ===
+
+=== stream 58 ===
+
+=== stream 62 ===
+
+=== stream 70 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 72 ===
+
+=== stream 76 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 78 ===
+
+=== stream 82 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 84 ===
+
+=== stream 88 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 90 ===
+
+=== stream 94 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 96 ===
+
+=== stream 100 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 102 ===
+
+=== stream 106 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 108 ===
+
+=== stream 112 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 114 ===
+
+=== stream 118 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 120 ===
+
+=== stream 124 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 126 ===
+
+=== stream 130 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 132 ===
+
+=== stream 136 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 138 ===
+
+=== stream 142 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 144 ===
+
+=== stream 148 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 150 ===
+
+=== stream 154 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 156 ===
+
+=== stream 160 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 162 ===
+
+=== stream 166 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 168 ===
+
+=== stream 172 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 174 ===
+
+=== stream 178 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 180 ===
+
+=== stream 184 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 186 ===
+
+=== stream 190 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 192 ===
+
+=== stream 196 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 198 ===
+
+=== stream 202 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 204 ===
+
+=== stream 208 ===
+@ Ed u - t a
+Õ l i m ya n g i l
+i kl a ri
+
+=== stream 210 ===

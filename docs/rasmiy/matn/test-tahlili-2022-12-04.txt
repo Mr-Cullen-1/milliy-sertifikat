@@ -1,0 +1,191 @@
+
+ tahlili
+fanlaridan milliy sertifikat uchun test sinovlari b kelin
+moqda. Mazkur test 2020 - yil 12 -
+oktabrdagi 646 - son qaroriga muvofiq
+tashkil etilmoqda.
+Milliy sertifikat imtihonlarid
+a ishtirok etgan ayrim talabgorlar tomonidan test
+topshiriqlari qiyin , ular uchun
+ajratilgan vaqt
+esa kam degan mazmunda murojaatlar moqda. qiyinmi
+? Ushbu savollarga javob topish uc
+hun test natijalarining statistik tahlillari ga .
+test sinovi natijalar
+i tahlil qilinadi.
+Xalqaro tashkilotlar (masalan , ETS, Cambridge Assessment
+kabi tashkilotlar) tomonidan b
+unday tahlillar uchun klassik va zamonaviy test
+nazariyalaridan foydalaniladi. Bundan maqsad test sinovlari natijal a rini ng validlik va
+ischonchlilik darajasini
+, testning oldinda n
+belgilangan maqsadlar ga qanchalik
+erishilganini
+va har bitta sinaluv c hi
+(test topshiruvchi) qanchalik o zining qo b iliyat
+darajasiga mos ball olganligini
+baholashdan iborat.
+Klassik test nazariyasi talablar
+topshiriqning qiyinligi, test ballarining dispersiyasi ,
+topshiriqning boshqa topshiriq disi bilan
+korrelyatsiyasi
+(mutanosibligi )
+dan iborat. Topshiriqning qiyinlik darajasini aniqlash
+aniqlashdan iborat. Zamonaviy te
+st nazariyalari
+klassik test nazariyasi doirasida hal qilib uchun
+qilingan ilmiy tadqiqo t
+lar natijasida paydo
+yaratiladi. Hozirgi kunda
+rivojlantirilgan. Zamonaviy test nazariyalaridan kompyuter adaptiv testlarini ng bazasi
+rivojlantirilmoqda.
+Klassik test nazariyasi va zamonaviy test nazariyalari bir -
+birini inkor qilmaydi, balki bir - va malaka
+larni baholash agentligida test
+sinovlari natij
+alari ham klassik, ham zamonaviy test nazariyalari asosida tahlil qilinadi. Bunda
+xalqaro tajribada
+zamonaviy test nazariyalari ichida R a sh modeli dan boshqa modellarga nisbatan
+
+
+talqin qilish a
+gentlikda test natijalarini tahlil qilish uchun Rash modeli
+dan foydalaniladi .
+milliy sertifikat imtihon lari natijalari ning klassik va zamonaviy test nazariya lari asosida gi
+statistik tahlil i
+agentlik rasmiy veb - sa yti ( uzbmb.uz ) qiziqqanlar mazkur tah
+lillar bilan tanishishi mumkin. matematika uchun ushbu qilingan 2022 - yil 4 - imithonida jami 4 506 nafar
+talabgor ishtirok etgan. Unda talabgorlarga 35 ta yopiq turdagi va 10 ta ochiq turdagi (har bir i
+A va B qismlarga ajratilgan)
+test topshiri
+i berilgan. Ochiq
+talabgorlarga jami
+berilgan deb qarash mumkin. Mazkur test
+topshiriqlarini ishlas
+h uchun talabgorlarga 150 daqiqa (2 soat - u 30 daqiqa) vaqt berilgan. I.
+Matematika fanidan milliy sertifikat imtihoni
+natijalarining klassik test
+nazariyasi asosida gi
+statistik tahlili
+Klassik test nazariyasida test
+sinovi natijalari asosida aniqlangan test ballari
+taqsimoti gistogrammasi quriladi va uning normal taqsimotga yaqinligi baholanadi.
+Gistogrammaning normal taqsimotga yaqinligi testning sifatini va
+test sinovlarining ob y qiymati
+joylashgan qiymati esa mediana deyiladi. O
+rta arifmetik qiymat, moda va mediana statistik - 1 - jadval
+Test topshiruvchilar soni 4506 51.33 Mediana 50.80 Moda 49 Standart tafovut 16.562 Dispersiya 274.294 Asimmetriya 0.094 Ek s tsess - 0.437 Diapazon 89 Minimum 8 Maksimum 97
+
+
+Test natijalarining
+statistik tahliliga m
+atematika fanidan m
+illiy sertifikat test sinovi natijalari
+test variantining ishonchlilik
+koeffitsiyenti ( Kronbax alfa
+koeffitsiyenti) 0,891 0,9
+koeffitsiyentining bu qiymati ushbu test variantining ichki muvofiqligi ekanligini
+Bu test variantiga kiritilgan test topshiriqlari barcha darajadagi t
+alabgorlarning
+qobiliyatini juda yaxshi
+baholayotganidan darak beradi. 2 - jadval Kronbax alfa Ichki muvof iqlik 0 , 0 , ya xshi 0 , q oniqarli munozarali , 6 yo mon , 5 q oniqarsiz
+Test topshiriqlarining ichki muvofiqligi har bi r
+javoblarning umumiy ball bilan korrelyatsiyasiga, talabgorlar olgan umumiy ballarning r hlari
+Bundan tashqari test topshiriqlarining ichki muvofiqligi nafaqat test topshiriqlarining
+sifatiga, balki talabgorlarning tayyorgarlik darajasining past yoki yuqorili giga ham
+Test topshiriqlarining qiyinlik darajasi 3 - jadval da t
+test topshiriqlarining qiyinlik darajalari keltirilgan . Bunda: ID
+test topshiriqlarining ID raqami ;
+ishtirokchilar soni ;
+ishtirokchilarning barchasi ;
+test topshiri
+talabgorlarning ushbu ; Ans t
+javob berganlar foizi ; V t aniqlangan
+test topshiriqlarining
+qiyinlik darajalari . T yoki ;
+
+ 3 - jadval Ans (foizda) V 1 T18 4 506 5 857.8 4 499 5 848.7 99.84 1 2 T2 4 506 9 913.2 4 280 9 416.0 94.98 1 3 T7 4 506 9 913.2 4 220 9 284.0 93.65 1 4 T16 4 506 5 857.8 4 180 5 434.0 92.77 1 5 T24 4 506 5 857.8 4 106 5 337.8 91.12 1 6 T25 4 506 5 857.8 4 065 5 284.5 90.21 1 7 T6 4 506 5 857.8 4 044 5 257.2 89.75 1 8 T10 4 506 5 857.8 4 000 5 200.0 88.77 1 9 T11 4 506 9 913.2 3 912 8 606.4 86.82 1 10 T3 4 506 9 913.2 3 813 8 388.6 84.62 1 11 T20 4 506 5 857.8 3 811 4 954.3 84.58 1 12 T12 4 506 5 857.8 3 705 4 816.5 82.22 1 13 T1 4 506 5 857.8 3 644 4 737.2 80.87 1 14 T5 4 506 5 857.8 3 561 4 629.3 79.03 1 15 T26 4 506 9 913.2 3 469 7 631.8 76.99 1 16 T28 4 506 9 913.2 3 239 7 125.8 71.88 2 17 T31 4 506 9 913.2 3 141 6 910.2 69.71 2 18 T17 4 506 9 913.2 2 984 6 564.8 66.22 2 19 T19 4 506 9 913.2 2 941 6 470.2 65.27 2 20 T8 4 506 9 913.2 2 937 6 461.4 65.18 2 21 T13 4 506 9 913.2 2 912 6 406.4 64.62 2 22 O38B 4 506 7 660.2 2 908 4 943.6 64.54 2 23 T9 4 506 9 913.2 2 685 5 907.0 59.59 2 24 T14 4 506 9 913.2 2 609 5 739.8 57.90 2 25 T33 4 506 9 913.2 2 494 5 486.8 55.35 2 26 T32 4 506 9 913.2 2 356 5 183.2 52.29 2 27 T23 4 506 9 913.2 2 308 5 077.6 51.22 2 28 O38A 4 506 6 759.0 2 160 3 240.0 47.94 2 29 O37A 4 506 6 759.0 2 146 3 219.0 47.63 2 30 T21 4 506 9 913.2 2 120 4 664.0 47.05 2 31 T34 4 506 9 913.2 2 053 4 516.6 45.56 2 32 T29 4 506 9 913.2 2 007 4 415.4 44.54 2 33 T4 4 506 9 913.2 1 995 4 389.0 44.27 2 34 T15 4 506 9 913.2 1 944 4 276.8 43.14 2 35 O37B 4 506 7 660.2 1 928 3 277.6 42.79 2 36 O40A 4 506 6 759.0 1 852 2 778.0 41.10 2 37 T30 4 506 9 913.2 1 795 3 949.0 39.84 2 38 T27 4 506 9 913.2 1 743 3 834.6 38.68 2 39 O39A 4 506 6 759.0 1 648 2 472.0 36.57 2 40 T22 4 506 9 913.2 1 599 3 517.8 35.49 2 41 O41A 4 506 6 759.0 1 279 1 918.5 28.38 2 42 O42A 4 506 6 759.0 1 059 1 588.5 23.50 3 43 T35 4 506 9 913.2 1 056 2 323.2 23.44 3
+
+ 44 O45B 4 506 7 660.2 851 1 446.7 18.89 3 45 O43B 4 506 7 660.2 824 1 400.8 18.29 3 46 O42B 4 506 7 660.2 736 1 251.2 16.33 3 47 O44A 4 506 6 759.0 711 1 066.5 15.78 3 48 O36A 4 506 6 759.0 589 883.5 13.07 3 49 O44B 4 506 7 660.2 578 982.6 12.83 3 50 O40B 4 506 7 660.2 462 785.4 10.25 3 51 O39B 4 506 7 660.2 415 705.5 9.21 3 52 O43A 4 506 6 759.0 297 445.5 6.59 3 53 O36B 4 506 7 660.2 247 419.9 5.48 3 54 O41B 4 506 7 660.2 192 326.4 4.26 3 55 O45A 4 506 6 759.0 58 87.0 1.29 3
+Klassik test nazariyasi : 75 % t 1 - darajali (oson) ; 25 % dan 75 % gacha t q l a rini 2 - darajali ; 25 % gacha 3 - darajali (qiyin) deb
+hisbolash mumkin. Demak,
+milliy sertifikat imtihonida talabgorlarga berilgan test topshiri qlar i ning 15 tasi (27,27 % ) oson , 26 tasi (47,27 % ) , 14 tasi (25,46 % ) qiyin darajadagi test topshiriq lar i dir ( 3 - jadval ) .
+II. Matematika fanidan milliy sertifikat imtihoni
+natijalarining zamonaviy test nazariyasi
+(Rash modeli) asosida gi
+statistik tahlili Rash modeli i ngliz tilida
+item response theory
+(IRT) deb nomlanadi. Bu
+IRT faqat savollarga javob lar
+nigina baholamasdan, balki turli xildagi
+baholashda ham ishlatiladi.
+Shuning uchun ham bu nazariyada
+maqsadga muvofiq hisoblanadi . Shu sababli t ahlilda tushunchasi va elemen t tushunchasi noda ishlat iladi . Rash modelig a k ehtimoli
+shaxsning qobiliyat va element qiyinlik darajalari bilan an i qlanadi. Bu quyidagi
+matematik formula orqali ifodala nadi : , Bu nda : s ning i ; ;
+qiyinlik darajasi ; e
+natural logarifm asosi ( e
+= 2,7182818 ...).
+
+
+IRT parametrlari tajriba
+va modellarni moslashtirish orqali topiladi. Bizni ng tahlilimizda tajriba bu m
+atematika fanidan m
+illiy sertifikat uchun natijalari dir.
+Rash modeli asosida aniqlangan qiyinlik darajalarini ng
+sinaluvchilar qobiliyatlariga
+qanchalik mosligini Rayt xaritasi yordamida tahlil qilish mumkin.
+Rayt xaritasi test
+kelishini aniqlovchi diagrammadir. Matematika
+asosida chizilgan Rayt xaritasi 1 -
+rasmda keltirilgan. 1 - rasm. Q
+obiliyat va qiyinlik darajalarining mosligi (Rayt xaritasi)
+sinaluvchilar qobiliyatining 99,7 foizi ( - 3 :3)
+, asosiy sinaluvchilar qobiliyatlari esa
+(0 logit atrofida)
+test topshiriqlari ning
+qiyinlik darajalari ( - 3 : 3 ) , . Agar test - 1 - rasmdan ,
+matematika fanidan
+test topshiriqlari
+ning qiyinlik darajalari variantda ya xshi
+taqsimlangan. 4 - jadvalda matematika fanidan milliy
+sertifikat uchun natijalari asosida
+bir parametrli Rash modeli aniqlangan
+test topshiriqlarining
+qiyinlik darajalari keltirilgan:
+
+ 4 - jadval ID b ID b 1 T18 - 7,026 29 O37A 0,106 2 T2 - 3,423 30 T21 0,135 3 T7 - 3,155 31 T34 0,209 4 T16 - 3,002 32 T29 0,26 5 T24 - 2,758 33 T4 0,274 6 T25 - 2,639 34 T15 0,33 7 T6 - 2,582 35 O37B 0,348 8 T10 - 2,468 36 O40A 0,434 9 T11 - 2,262 37 T30 0,499 10 T3 - 2,057 38 T27 0,558 11 T20 - 2,053 39 O39A 0,669 12 T12 - 1,857 40 T22 0,727 13 T1 - 1,753 41 O41A 1,128 14 T5 - 1,618 42 O42A 1,436 15 T26 - 1,477 43 T35 1,44 16 T28 - 1,158 44 O45B 1,767 17 T31 - 1,031 45 O43B 1,814 18 T17 - 0,837 46 O42B 1,975 19 T19 - 0,786 47 O44A 2,023 20 T8 - 0,781 48 O36A 2,279 21 T13 - 0,751 49 O44B 2,303 22 O38B - 0,747 50 O40B 2,593 23 T9 - 0,489 51 O39B 2,728 24 T14 - 0,404 52 O43A 3,133 25 T33 - 0,276 53 O36B 3,348 26 T32 - 0,124 54 O41B 3,636 27 T23 - 0,071 55 O45A 4,927 28 O38A 0,091 4 - O45A ID raqamli T18 ID raqamli esa eng 2 - rasm .
+
+ 2 - miqdori 55, 00 ga teng shundan ( - 40.53 (73.8
+foiz) ga teng. ( -
+3:0) va (0:3) oraliqlardagi (37.84 %
+) va 19.75 (35.96 % ) ga keladi. ( -
+3:0) va (0:3) oraliqlardagi - Bizda ( -
+3:0) oraliqdagi (0:3) oraliqdagi sinaluvch
+(juda kichik miqdorda
+qiyinlik darajasi -
+0,12 ga teng) osonroq ekanini ang latadi.
+Umuman olganda esa test yaqin.
+III. Xalqaro imtihonlarda vaqt me yori SAT
+(Scholastic Aptitude Test)
+matematika imtihonida 58 ta 80 daqiqa (1 soat - u 20 daqiqa)
+vaqt beriladi 1 daqiqa - yu 23 soniya)
+. Bunda ularning 45 tasi yopiq turdagi, 13 tasi ochiq turdagi test
+topshiriqlaridir. GMAT
+(Graduate Management Admission Test) ma
+tematika imtihonida jami 31 ta test uchun 62 daqiqa (1 soat - u 2 daqiqa) vaqt ajratiladi (1 ta test 2 daqiqa) .
+Milliy sertifikat
+imtihonida esa 35 ta yopiq va 10 ta
+ochiq turdagi (har bir i A va
+B qismlarga ajratilgan) 150 daqiqa (2 soat - u 30 daqiqa) vaqt
+beriladi. Ochiq turdagi test topshiriqlari 2 qismga ajratilgani uchun jami
+test topshiriqlari sonini 5 5 ta deb qara 2 daqiqa - yu 44 soniya
+sh mumkinki, matematika fanidan milliy sertifikat imtihoniga
+ajratilgan vaqt va test topshiriqlarining qiyinlik darajalari xalqaro standartlarga va
+sinaluvchilarning qobiliyati ga
+
+
+
+
+
+
