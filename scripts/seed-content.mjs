@@ -1,5 +1,5 @@
 // content/variants/*.json ni bazaga yuklaydi va faqat A variantini ochadi: pnpm content:seed
-//   pnpm content:seed                 -> A..F yuklanadi, A nashr etiladi (qolganlari qoralama: admin paneldan ochiladi)
+//   pnpm content:seed                 -> A..O yuklanadi (G–O: rasmiy joylashuv, mutaxassis tekshiruvidan oldin), A nashr etiladi (qolganlari qoralama: admin paneldan ochiladi)
 //   pnpm content:seed --publish none  -> hech qaysi nashr etilmaydi
 // Idempotent: variant kodi (exams.code) va savol external_id bo'yicha takrorlanmaydi. Nashr etilgan mockni o'zgartirmaydi.
 import { createClient } from '@supabase/supabase-js';
@@ -15,7 +15,7 @@ const key = process.env.SUPABASE_SECRET_KEY;
 if (!url || !key) throw new Error('NEXT_PUBLIC_SUPABASE_URL yoki SUPABASE_SECRET_KEY topilmadi');
 const db = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
 
-const CODES = ['A', 'B', 'C', 'D', 'E', 'F'];
+const CODES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'];
 const dir = join(process.cwd(), 'content', 'variants');
 
 for (const [i, code] of CODES.entries()) {

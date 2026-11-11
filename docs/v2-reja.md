@@ -288,6 +288,8 @@ Tekshiruv: baza sinovlari (PGlite) mashq va pool uchun; jonli testlar (`pnpm tes
 - DTM kalkulyator: ikki marta yaxlitlash xatosi tuzatildi; qoidalar tekshirildi (docs/rasmiy-manbalar.md "DTM tekshiruvi").
 - Bor testlar rasmiy 7 bo'limga solishtirildi: A–F ning 270 savolidan 17 tasi rasmiy bo'lim tasnifiga mos emas (A da bitta: #23 progressiya Analiz slotida).
 
-**Jarayonda (agentlar):** qo'shimcha shablonlar (content/gen/extra: sonlar+algebra, tenglama+funksiya+analiz, to'plam+ma'lumotlar, geometriya) mustaqil matematik tekshiruvlar bilan; mavjud 1711 mashq savoli uchun mustaqil tekshiruvlar; G–O mock variantlar (rasmiy tasnif).
+**Bajarildi (2026-11-11, agentsiz):** qo'shimcha shablonlar: 21 elementning hammasida 241 shablon (≈9500 savol), har biriga mustaqil matematik tekshiruv; G–O mock variantlar (content/gen/mock-official.ts, content/variants/variant-G..O.json, qoralama) rasmiy joylashuvda, A–F va mashq zaxirasi bilan takrorlanmaydi.
+
+**Eski ro'yxat (bajarilgan):** qo'shimcha shablonlar (content/gen/extra: sonlar+algebra, tenglama+funksiya+analiz, to'plam+ma'lumotlar, geometriya) mustaqil matematik tekshiruvlar bilan; mavjud 1711 mashq savoli uchun mustaqil tekshiruvlar; G–O mock variantlar (rasmiy tasnif).
 
 **Qolgan:** natijalarni birlashtirish (pool + extra yuklash, G–O yuklash), mutaxassis tekshiruvi (matematika, qoraqalpoq tarjimasi, mavzu-element moslashtirish), kerak bo'lsa rasmiy ball naqshiga moslash (hozir Variant A bilan bir xil, qaror: A etalon).

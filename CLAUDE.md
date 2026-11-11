@@ -12,7 +12,7 @@ Tayyor:
 - Foydalanuvchi sahifalari: /start, /, /exams, /exams/[id], /attempts/[id], .../result, /history, /mistakes, /saved, /practice, /practice/[id], /practice/[id]/result, /dtm, /privacy. Server actions: app/attempts/actions.ts, app/start/actions.ts.
 - Tillar: uz, ru, kaa (qoraqalpoq lotin), en: lib/i18n/ (cookie `lang`, tipli lug'at, `useT`/`getI18n`), savollar tarjimasi questions.i18n da.
 - Admin: /admin (docs/admin.md): boshqaruv paneli, imtihonlar (nashr/arxiv), savollar + ko'rinish, JSON import, natijalar, ishtirokchilar, audit. Faqat o'zbekcha.
-- Kontent: content/gen/* generatorlari (original savollar, javoblar kod bilan hisoblanadi) -> content/variants/variant-A..F.json -> `pnpm content:seed` (seed faqat A ni ochadi; 2026-11-10 holatida A–F hammasi nashr etilgan, hammaga ochiq, variantlar uchun Pro talab qilinmaydi). docs/content.md.
+- Kontent: content/gen/* generatorlari (original savollar, javoblar kod bilan hisoblanadi) -> content/variants/variant-A..O.json -> `pnpm content:seed` (seed faqat A ni ochadi; 2026-11-10 holatida A–F hammasi nashr etilgan, hammaga ochiq, variantlar uchun Pro talab qilinmaydi). docs/content.md.
 - Pro huquqi (`profiles.is_pro`, admin panelda beriladi): qoralama/arxiv variantlar va to'liq tahlil; test akkaunt `@tester.invalid` + `/enter` bir martalik havola (docs/admin.md).
 - Xavfsizlik: nonce asosida CSP (proxy.ts, lib/security/csp.ts), xavfsizlik sarlavhalari (next.config.ts), Postgres rate limit, audit jurnali, rozilik, suv belgisi, tab-almashtirish logi, mehmon hisoblarni tozalash.
 
