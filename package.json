@@ -10,6 +10,7 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "gen:reference": "node scripts/generate-reference-data.ts",
+    "gen:elements": "node scripts/generate-elements.ts",
     "gen:types": "node --env-file=.env.local scripts/gen-types.mjs",
     "admin:create": "node --env-file=.env --env-file=.env.local scripts/create-admin.mjs",
     "content:dump": "node scripts/dump-variants.mjs",

@@ -4,6 +4,8 @@ import { z } from 'zod';
 export const practiceSessionSchema = z.object({
   id: z.string(),
   block_id: z.number().int(),
+  /** Rasmiy mazmun elementi ("2.4"); eski bo'lim bo'yicha mashqlarda null */
+  element_code: z.string().nullish(),
   difficulty: z.enum(['L1', 'L2', 'L3']).nullable(),
   mode: z.enum(['practice', 'timed', 'exam']),
   question_count: z.number().int(),
@@ -52,6 +54,7 @@ export const isRevealed = (a: PracticeAnswer | undefined): boolean => a?.is_corr
 export const practiceListRowSchema = z.object({
   id: z.string(),
   block_id: z.number().int(),
+  element_code: z.string().nullish(),
   difficulty: z.enum(['L1', 'L2', 'L3']).nullable(),
   mode: z.enum(['practice', 'timed', 'exam']),
   question_count: z.number().int(),
@@ -61,5 +64,7 @@ export const practiceListRowSchema = z.object({
   submitted_at: z.string().nullable(),
 });
 export type PracticeListRow = z.infer<typeof practiceListRowSchema>;
+
+export const elementStatSchema = z.object({ element_code: z.string(), difficulty: z.enum(['L1', 'L2', 'L3']), n: z.number().int() });
 
 export const poolStatSchema = z.object({ block_id: z.number().int(), difficulty: z.enum(['L1', 'L2', 'L3']), n: z.number().int() });

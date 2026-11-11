@@ -26,6 +26,8 @@ Muhim kelishuvlar:
 - Haqiqiy brauzerda tekshirish (headless Chrome + CDP) usuli: dev serverdan alohida `next start` + guest sessiya cookie'si (`sb-participant`); imtihon ekrani 1440x900 va 1366x680 da scrollsiz.
 - Figma o'qish chaqiruvlari cheklangan bo'lishi mumkin (aniq freymni so'rang): docs/design.md.
 
+Rejadan chiqarilgan (2026-11-10, docs/v2-reja.md): login/to'lov/tariflar, reyting/musobaqa/Telegram/SEO sahifalar/universitet vositalari/kirill tili va tungi rejim kerak emas; faqat matematika. Kontent (savol, test, mock) rasmiy DTM / Bilimni baholash agentligi metodikasiga asoslanishi shart, mutaxassis tekshiradi.
+
 Relizdan keyin: ichki platformaga ulash (docs/auth.md), Rasch (1PL) kalibrovkasi (100+ natija), kontent va qoraqalpoq tarjimasini mutaxassis tekshiruvi (docs/content.md).
 
 ## Asosiy hujjatlar

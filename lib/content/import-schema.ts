@@ -1,6 +1,7 @@
 import { z } from 'zod';
 import { mathFormatV1 } from '../../config/exam-format.math-v1';
-import { BLOCK_CODES, topicInBlock, type BlockCode } from '../../config/topics';
+import { MAX_TOPIC_ID, topicAllowedInBlock } from '../../config/elements';
+import { BLOCK_CODES, type BlockCode } from '../../config/topics';
 import { parsePayload, payloadShape, type ParsedPayload } from '../exam/payload';
 import { parseKey } from '../exam/schemas';
 
@@ -21,8 +22,8 @@ export const importQuestionSchema = z
     external_id: z.string().min(1).max(64).optional(),
     type: z.enum(['y1', 'y2', 'o']),
     block: z.enum(BLOCK_CODES),
-    topic: z.number().int().min(1).max(103),
-    extra_topics: z.array(z.number().int().min(1).max(103)).max(5).optional(),
+    topic: z.number().int().min(1).max(MAX_TOPIC_ID),
+    extra_topics: z.array(z.number().int().min(1).max(MAX_TOPIC_ID)).max(5).optional(),
     difficulty: z.enum(['L1', 'L2', 'L3']),
     weight: z.number().positive().max(10).optional(),
     est_seconds: z.number().int().positive().max(1800).optional(),
@@ -39,9 +40,9 @@ export const importQuestionSchema = z
   .superRefine((q, ctx) => {
     const add = (message: string, path: (string | number)[] = []) => ctx.addIssue({ code: 'custom', message, path });
 
-    if (!topicInBlock(q.block, q.topic)) add(`${q.topic}-mavzu "${q.block}" blokiga tegishli emas`, ['topic']);
+    if (!topicAllowedInBlock(q.block, q.topic)) add(`${q.topic}-mavzu "${q.block}" blokiga tegishli emas`, ['topic']);
     for (const t of q.extra_topics ?? []) {
-      if (t < 1 || t > 103) add(`qo'shimcha mavzu ${t} yaroqsiz`, ['extra_topics']);
+      if (t < 1 || t > MAX_TOPIC_ID) add(`qo'shimcha mavzu ${t} yaroqsiz`, ['extra_topics']);
     }
 
     let payload: ParsedPayload | null = null;

@@ -4,9 +4,14 @@
 //   - A+ va A: fan bo'yicha belgilangan maksimal ball
 //   - B+, B, C+, C: sertifikat foiziga proporsional ball
 //   - majburiy fanlarda: belgilangan eng yuqori ball (darajaga cheklov yozilmagan)
-// UCHINCHI TOMON (rasmiy hujjatda to'liq yozilmagan, taxminiy):
-//   - fan maksimallari 93 / 63 / 11 (infoedu.uz)
-//   - proporsional formula: ball / 65 * maksimal (infoedu.uz; 65 = A darajasi quyi chegarasi)
+// TEKSHIRUV (2026-11-10, docs/rasmiy-manbalar.md "DTM tekshiruvi"):
+//   - fan maksimallari 93 / 63 / 11, jami 189: Oliy ta'lim vazirligi buyrug'i haqidagi rasmiy xabarlarda (gazeta.uz 2025-03-13,
+//     oliygoh.uz 2026-05-25); buyruq matnining o'zi lex.uz da topilmadi
+//   - proporsional formula ball / 65 * maksimal: rasmiy matnda yo'q (qarorda faqat "umumiy ballga nisbatan foiz asosida proporsional");
+//     Agentlik nomidan e'lon qilingan jadvallar (talimxabarlari.uz) va infoedu.uz natijalariga aynan mos (60 -> 92,31%, 55 -> 84,62%, 46 -> 70,77%)
+//   - "ball / 75" (testmakon.uz) hech bir manbada tasdiqlanmadi, ishlatilmaydi
+//   - yaxlitlash qoidasi rasmiy e'lon qilinmagan: 2 xonagacha ko'rsatamiz (lib/format.ts formatPoints)
+//   - 2026-08-19: vazir o'rinbosari "maksimal ball mexanizmi ko'rib chiqilmoqda" degan (qaror yo'q): o'zgarishni kuzatib borish kerak
 // Ular o'zgarsa faqat shu faylni tahrirlang.
 
 export type DtmSubject = 'first' | 'second' | 'mandatory';

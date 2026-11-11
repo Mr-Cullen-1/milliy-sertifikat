@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { assemble } from '../../content/gen/assemble';
 import { slotRequests, VARIANT_COUNT } from '../../content/gen/layout';
 import { LANGS, type BlockGenerator, type QuestionSpec, type SlotRequest } from '../../content/gen/types';
+import { topicAllowedInBlock } from '../../config/elements';
 import { TOPIC_RANGES, type BlockCode } from '../../config/topics';
 import { importQuestionSchema } from '../../lib/content/import-schema';
 import { parsePayload } from '../../lib/exam/payload';
@@ -34,8 +35,7 @@ export function checkQuestion(spec: QuestionSpec, req: SlotRequest): string[] {
   const tag = `v${req.variant} #${req.position} ${req.block}/${req.type}/${req.difficulty}`;
 
   if (spec.difficulty !== req.difficulty) problems.push(`${tag}: qiyinlik ${spec.difficulty}, so'ralgani ${req.difficulty}`);
-  const [from, to] = TOPIC_RANGES[req.block];
-  if (spec.topic < from || spec.topic > to) problems.push(`${tag}: ${spec.topic}-mavzu blokka (${from}–${to}) tegishli emas`);
+  if (!topicAllowedInBlock(req.block, spec.topic)) problems.push(`${tag}: ${spec.topic}-mavzu ${req.block} blokka (ishchi diapazon ${TOPIC_RANGES[req.block].join('–')} yoki rasmiy joylashuv) tegishli emas`);
   if (spec.estSeconds !== undefined && (spec.estSeconds < 15 || spec.estSeconds > 900)) problems.push(`${tag}: estSeconds ${spec.estSeconds} g'alati`);
 
   for (const lang of LANGS) {

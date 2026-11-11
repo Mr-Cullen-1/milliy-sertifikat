@@ -13,28 +13,37 @@ import {
   type PracticeMode,
 } from '@/lib/practice/config';
 
-export interface SetupBlock {
+export interface SetupElement {
+  /** Rasmiy mazmun elementi kodi: "2.4" */
   code: string;
   label: string;
   /** mavjud mashq savollari: barchasi va qiyinlik bo'yicha */
   counts: Record<PracticeDifficulty, number>;
 }
 
+/** Rasmiy bo'lim (7 ta) va uning mazmun elementlari. */
+export interface SetupGroup {
+  block: string;
+  label: string;
+  elements: SetupElement[];
+}
+
 const optionBase =
   'flex flex-col gap-0.5 rounded-2xl border-2 border-b-[5px] px-4 py-3 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-45';
 const optionState = (on: boolean) => (on ? 'border-selected bg-accent-soft' : 'border-line bg-white hover:bg-surface');
 
-/** Mashqni sozlash: bo'lim, qiyinlik, rejim, savollar soni. Mavjud savollar soni tanlovga qarab ko'rsatiladi. */
-export function PracticeSetup({ blocks }: { blocks: SetupBlock[] }) {
+/** Mashqni sozlash: rasmiy mazmun elementi (bo'limlar bo'yicha guruhlangan), qiyinlik, rejim, savollar soni. Mavjud savollar soni tanlovga qarab ko'rsatiladi. */
+export function PracticeSetup({ groups }: { groups: SetupGroup[] }) {
   const t = useT();
-  const firstWithQuestions = blocks.find((b) => b.counts.all > 0)?.code ?? blocks[0]?.code ?? '';
+  const all = groups.flatMap((g) => g.elements);
+  const firstWithQuestions = all.find((e) => e.counts.all > 0)?.code ?? all[0]?.code ?? '';
   const [block, setBlock] = useState(firstWithQuestions);
   const [difficulty, setDifficulty] = useState<PracticeDifficulty>('all');
   const [mode, setMode] = useState<PracticeMode>('practice');
   const [count, setCount] = useState<number>(DEFAULT_PRACTICE_COUNT);
   const [state, action, pending] = useActionState<StartPracticeState, FormData>(startPracticeAction, {});
 
-  const selected = blocks.find((b) => b.code === block);
+  const selected = all.find((e) => e.code === block);
   const available = selected?.counts[difficulty] ?? 0;
   const diffLabel: Record<PracticeDifficulty, string> = { all: t('practice.diffAll'), L1: t('practice.diffL1'), L2: t('practice.diffL2'), L3: t('practice.diffL3') };
   const modeLabel: Record<PracticeMode, [string, string]> = {
@@ -55,21 +64,29 @@ export function PracticeSetup({ blocks }: { blocks: SetupBlock[] }) {
 
       <fieldset className="flex flex-col gap-3">
         <legend className="mb-1 font-heading text-[20px] font-semibold text-ink">{t('practice.block')}</legend>
-        <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
-          {blocks.map((b) => (
-            <button
-              key={b.code}
-              type="button"
-              aria-pressed={block === b.code}
-              disabled={b.counts.all === 0}
-              onClick={() => setBlock(b.code)}
-              className={`${optionBase} ${optionState(block === b.code)}`}
-            >
-              <span className="text-[16px] leading-5 font-extrabold text-ink">{b.label}</span>
-              <span className="text-[13px] font-bold text-muted">{t('practice.available', { n: b.counts.all })}</span>
-            </button>
-          ))}
-        </div>
+        {groups.map((g) => (
+          <div key={g.block} role="group" aria-label={g.label} className="flex flex-col gap-2">
+            <p className="text-[14px] font-extrabold tracking-wide text-muted uppercase">{g.label}</p>
+            <div className="grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
+              {g.elements.map((e) => (
+                <button
+                  key={e.code}
+                  type="button"
+                  aria-pressed={block === e.code}
+                  disabled={e.counts.all === 0}
+                  onClick={() => setBlock(e.code)}
+                  className={`${optionBase} ${optionState(block === e.code)}`}
+                >
+                  <span className="text-[16px] leading-5 font-extrabold text-ink">
+                    <span className="mr-1.5 text-muted">{e.code}</span>
+                    {e.label}
+                  </span>
+                  <span className="text-[13px] font-bold text-muted">{t('practice.available', { n: e.counts.all })}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
       </fieldset>
 
       <fieldset className="flex flex-col gap-3">

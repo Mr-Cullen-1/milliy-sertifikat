@@ -6,6 +6,7 @@ import { PageSkeleton } from '@/components/page-skeleton';
 import { PracticeRunner } from '@/components/practice/practice-runner';
 import { ProProvider } from '@/components/pro/pro-modal';
 import { BLOCK_CODES } from '@/config/topics';
+import { elementLabelKey } from '@/lib/practice/config';
 import type { AnswerValue } from '@/lib/exam/answer-state';
 import { getI18n } from '@/lib/i18n/server';
 import { getParticipant, requireParticipant } from '@/lib/participant.server';
@@ -37,7 +38,9 @@ async function PracticeRunnerPage({ params }: PageProps<'/practice/[sessionId]'>
   const isPro = !!participant?.isPro;
   const items = parseItems(state.items);
   const answerOf = new Map(state.answers.map((a) => [a.question_id, a]));
-  const blockName = t(`blocks.${BLOCK_CODES[session.block_id - 1] ?? 'sonlar'}`);
+  const blockName = session.element_code
+    ? `${session.element_code} ${t(elementLabelKey(session.element_code))}`
+    : t(`blocks.${BLOCK_CODES[session.block_id - 1] ?? 'sonlar'}`);
 
   const runnerItems: RunnerItem[] = items.map((it) => ({
     position: it.position,

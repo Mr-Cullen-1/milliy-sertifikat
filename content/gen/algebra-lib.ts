@@ -23,7 +23,8 @@ export interface Built {
 
 export interface Template {
   id: string;
-  build(variant: number): Built;
+  /** ns: ixtiyoriy seed nomlar maydoni (yangi mock variantlar G–O uchun); berilmasa eski xatti-harakat aynan saqlanadi. */
+  build(variant: number, ns?: string): Built;
 }
 
 export const T = (uz: string, ru: string, kaa: string, en: string): L10n => ({ uz, ru, kaa, en });
@@ -47,13 +48,13 @@ export function validBuilt(b: Built): boolean {
 export function tpl<P>(id: string, draw: (r: Rng) => P, build: (p: P) => Built, key: (p: P) => string = (p) => JSON.stringify(p)): Template {
   return {
     id,
-    build(variant: number): Built {
+    build(variant: number, ns?: string): Built {
       const used = new Set<string>();
       let out: Built | undefined;
       for (let u = 0; u <= variant; u++) {
         let picked: Built | undefined;
         for (let attempt = 0; attempt < 600 && !picked; attempt++) {
-          const p = draw(makeRng(`${id}|${u}|${attempt}`));
+          const p = draw(makeRng(ns ? `${ns}|${id}|${u}|${attempt}` : `${id}|${u}|${attempt}`));
           const k = key(p);
           if (used.has(k)) continue;
           let b: Built;

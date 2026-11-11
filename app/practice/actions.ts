@@ -2,6 +2,7 @@
 
 import { redirect } from 'next/navigation';
 import { z } from 'zod';
+import { isElementCode } from '@/config/elements';
 import { BLOCK_CODES } from '@/config/topics';
 import { getI18n } from '@/lib/i18n/server';
 import { getParticipant } from '@/lib/participant.server';
@@ -18,13 +19,13 @@ export interface StartPracticeState {
   error?: 'none' | 'tooMany' | 'invalid' | 'generic';
 }
 
-/** Mashqni boshlaydi va mashq ekraniga yo'naltiradi. Forma: block, difficulty, mode, count. */
+/** Mashqni boshlaydi va mashq ekraniga yo'naltiradi. Forma: block (bo'lim kodi yoki rasmiy element kodi "2.4"), difficulty, mode, count. */
 export async function startPracticeAction(_prev: StartPracticeState, formData: FormData): Promise<StartPracticeState> {
   const block = String(formData.get('block') ?? '');
   const difficulty = String(formData.get('difficulty') ?? 'all');
   const mode = String(formData.get('mode') ?? '');
   const count = Number(formData.get('count'));
-  if (!(BLOCK_CODES as readonly string[]).includes(block) || !isPracticeDifficulty(difficulty) || !isPracticeMode(mode) || !(PRACTICE_COUNTS as readonly number[]).includes(count)) {
+  if (!((BLOCK_CODES as readonly string[]).includes(block) || isElementCode(block)) || !isPracticeDifficulty(difficulty) || !isPracticeMode(mode) || !(PRACTICE_COUNTS as readonly number[]).includes(count)) {
     return { error: 'invalid' };
   }
 

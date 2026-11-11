@@ -1166,4 +1166,11 @@ export const generateAnaliz: BlockGenerator = (req) => {
   return pickTemplate(req, Y1_TEMPLATES)(req);
 };
 
+/**
+ * Shablonlar nomi bo'yicha (yangi mock variantlar G–O ularni rasmiy joylashuv bo'yicha tanlaydi: content/gen/mock-official.ts).
+ * Y-1: hosila/integral (60–66), progressiya (57, 58), limit (56, 59). O: hosila/integral, progressiya (57, 58), limit (59).
+ */
+export const ANALIZ_Y1_BY_ID = { chain: tplChain, tangent: tplTangent, extremum: tplExtremum, segment: tplSegment, ap: tplAp, gp: tplGp, lim00: tplLim00, seqLim: tplSeqLim, anti: tplAnti, area: tplArea, quot: tplQuot } as const;
+export const ANALIZ_O_BY_ID = { tangent: otplTangent, fence: otplFence, ap: otplAp, crit: otplCrit, between: otplBetween, gp: otplGp, box: otplBox, lim: otplLim } as const;
+
 export const ANALIZ_TEMPLATE_COUNTS = { y1: Y1_TEMPLATES.length, o: O_TEMPLATES.length };

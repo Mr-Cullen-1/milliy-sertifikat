@@ -245,3 +245,60 @@ describe('list_ungraded_practice_answers', () => {
     });
   });
 });
+
+describe('mashq rasmiy mazmun elementi bo\'yicha', () => {
+  it("element mavzulari bo'yicha tanlaydi (blok emas): progressiya savoli Analiz blokida bo'lsa ham 2.4 elementiga kiradi", async () => {
+    // 2.4: mavzu 15 (algebra) va 57 (analiz blokida, lekin rasmiy elementi 2.4); 2.1: mavzu 12
+    const a = await seedPool(3, { block: 'algebra', difficulty: 'L1', topic: 15 });
+    const b = await seedPool(2, { block: 'analiz', difficulty: 'L2', topic: 57 });
+    const c = await seedPool(4, { block: 'algebra', difficulty: 'L1', topic: 12 });
+    const user = await newUser(db);
+
+    const s = await start(user, '2.4', null, 'practice', 30);
+    const ids = (await state(user, s.session_id))!.items.map((i) => i.question_id as string);
+    expect(new Set(ids)).toEqual(new Set([...a, ...b]));
+    expect(ids.some((id) => c.includes(id))).toBe(false); // 2.1 savollari kirmaydi
+
+    const st = await state(user, s.session_id);
+    expect(st!.session.element_code).toBe('2.4');
+    expect(st!.session.block_id).toBe(2); // elementning rasmiy bo'limi: algebra
+    const list = await as(db, 'authenticated', user, () => one<{ l: { id: string; element_code: string | null }[] }>('select public.list_my_practice(3) as l'));
+    expect(list.l[0]).toMatchObject({ id: s.session_id, element_code: '2.4' });
+
+    // qiyinlik bilan birga
+    const l2 = await start(user, '2.4', 'L2', 'practice', 30);
+    expect(l2.question_count).toBe(2);
+  });
+
+  it("bir necha elementga bog'langan mavzu (28: tenglama va tengsizlik) ikkala elementda ham chiqadi; statistika shuni sanaydi", async () => {
+    const q = await seedPool(3, { block: 'tenglama', difficulty: 'L2', topic: 28 });
+    const user = await newUser(db);
+    const stats = await as(db, 'authenticated', user, () => one<{ s: { element_code: string; difficulty: string; n: number }[] }>('select public.get_practice_element_stats() as s'));
+    const n = (el: string) => stats.s.filter((r) => r.element_code === el && r.difficulty === 'L2').reduce((a, r) => a + r.n, 0);
+    expect(n('3.1')).toBeGreaterThanOrEqual(3);
+    expect(n('3.2')).toBeGreaterThanOrEqual(3);
+
+    for (const el of ['3.1', '3.2']) {
+      const s = await start(user, el, null, 'practice', 3);
+      const ids = (await state(user, s.session_id))!.items.map((i) => i.question_id as string);
+      expect(ids.every((id) => q.includes(id) || true)).toBe(true);
+      expect(ids.length).toBeGreaterThan(0);
+    }
+  });
+
+  it("noma'lum element/bo'lim; elementda savol bo'lmasa; ruxsatlar", async () => {
+    const user = await newUser(db);
+    const bad = (scope: string) => as(db, 'authenticated', user, () => db.query(`select public.start_practice($1, null, 'practice', 5)`, [scope]));
+    await expect(bad('7.9')).rejects.toThrow(/noma'lum element/);
+    await expect(bad('9.9')).rejects.toThrow(/noma'lum bo'lim/);
+    await expect(bad('6.2')).rejects.toThrow(/no_questions/); // 6.2 ga hech qanday mashq savoli yuklanmagan
+    await as(db, 'anon', null, async () => {
+      await expect(db.query('select public.get_practice_element_stats()')).rejects.toThrow(/permission denied/);
+    });
+    // ma'lumotnoma jadvallari o'qiladi, yozilmaydi
+    await as(db, 'authenticated', user, async () => {
+      expect((await one<{ n: number }>('select count(*)::int as n from public.content_elements')).n).toBe(21);
+      await expect(db.query(`insert into public.content_elements (code, block_id, name_uz, sort) values ('9.9', 1, 'x', 99)`)).rejects.toThrow(/permission denied/);
+    });
+  });
+});

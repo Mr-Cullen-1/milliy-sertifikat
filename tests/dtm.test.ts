@@ -1,5 +1,20 @@
 import { describe, expect, it } from 'vitest';
 import { dtmPoints, levelMinScore, LEVELS } from '../lib/dtm';
+import { formatPoints } from '../lib/format';
+
+describe("formatPoints: ikki marta yaxlitlash xatosi yo'q", () => {
+  it('B+ (60 ball, 1-fan): aniq qiymat 85,846 -> "85,85" (avval 85,9 chiqardi)', () => {
+    expect(formatPoints(dtmPoints('first', 60).points)).toBe('85,85');
+    expect(formatPoints(dtmPoints('first', 60).points)).not.toBe('85,9');
+  });
+
+  it('butun va 1-2 xonali qiymatlar ortiqcha nolsiz; en tilida nuqta', () => {
+    expect(formatPoints(93)).toBe('93');
+    expect(formatPoints(78.69)).toBe('78,69');
+    expect(formatPoints(dtmPoints('second', 60).points)).toBe('58,15');
+    expect(formatPoints(65.82, 'en')).toBe('65.82');
+  });
+});
 
 describe('dtmPoints', () => {
   it('A+ va A: maksimal ball', () => {

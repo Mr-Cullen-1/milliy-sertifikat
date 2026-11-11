@@ -3,7 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { buildVariantFile } from '../../content/gen';
 import { VARIANT_COUNT } from '../../content/gen/layout';
 import { buildPool, buildPoolItems, POOL_SOURCE } from '../../content/gen/pool';
-import { BLOCK_CODES, TOPIC_RANGES } from '../../config/topics';
+import { topicAllowedInBlock } from '../../config/elements';
+import { BLOCK_CODES, type BlockCode } from '../../config/topics';
 import { importQuestionSchema } from '../../lib/content/import-schema';
 import { validateImportText } from '../../lib/content/validate';
 import { checkQuestion } from './harness';
@@ -68,8 +69,7 @@ describe('mashq zaxirasi: to\'liq (standart 40 variant)', () => {
     for (const q of qs) {
       const r = importQuestionSchema.safeParse(q);
       if (!r.success) bad.push(`${q.external_id}: ${r.error.issues[0]?.message}`);
-      const [from, to] = TOPIC_RANGES[q.block as keyof typeof TOPIC_RANGES];
-      if (q.topic < from || q.topic > to) bad.push(`${q.external_id}: mavzu ${q.topic} blokka tegishli emas`);
+      if (!topicAllowedInBlock(q.block as BlockCode, q.topic)) bad.push(`${q.external_id}: mavzu ${q.topic} blokka tegishli emas`);
       if (JSON.stringify(q).includes('undefined') || /"NaN"|NaN\b/.test(JSON.stringify([q.stem_md, q.payload]))) bad.push(`${q.external_id}: undefined/NaN`);
     }
     expect(bad.slice(0, 10)).toEqual([]);

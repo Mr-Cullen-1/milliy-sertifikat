@@ -3,7 +3,7 @@ import { createDb } from './helpers';
 
 const PRIVS = ['select', 'insert', 'update', 'delete'] as const;
 
-const READ = ['audit_log', 'blocks', 'topics', 'exam_formats', 'profiles', 'exams', 'exam_items', 'attempts', 'answers', 'questions', 'question_topics', 'question_keys'];
+const READ = ['audit_log', 'blocks', 'topics', 'exam_formats', 'profiles', 'exams', 'exam_items', 'attempts', 'answers', 'questions', 'question_topics', 'question_keys', 'content_elements', 'topic_elements'];
 const WRITE = ['questions', 'question_topics', 'question_keys', 'exams', 'exam_items', 'exam_formats'];
 
 const expectedFor = (role: string, table: string, priv: (typeof PRIVS)[number]): boolean => {

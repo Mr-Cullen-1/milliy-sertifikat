@@ -9,6 +9,7 @@ import { PageSkeleton } from '@/components/page-skeleton';
 import { buttonClass } from '@/components/ui/button';
 import { ArrowDown } from '@/components/ui/icons';
 import { BLOCK_CODES } from '@/config/topics';
+import { elementLabelKey } from '@/lib/practice/config';
 import { isAnswered } from '@/lib/exam/answer-state';
 import { getI18n } from '@/lib/i18n/server';
 import { getParticipant, requireParticipant } from '@/lib/participant.server';
@@ -35,7 +36,9 @@ async function PracticeResult({ params }: PageProps<'/practice/[sessionId]/resul
   const savedIds = z.array(z.string()).catch([]).parse(savedRes.data ?? []);
   const items = parseItems(state.items);
   const answerOf = new Map(state.answers.map((a) => [a.question_id, a]));
-  const blockName = t(`blocks.${BLOCK_CODES[state.session.block_id - 1] ?? 'sonlar'}`);
+  const blockName = state.session.element_code
+    ? `${state.session.element_code} ${t(elementLabelKey(state.session.element_code))}`
+    : t(`blocks.${BLOCK_CODES[state.session.block_id - 1] ?? 'sonlar'}`);
 
   const correct = state.session.correct_count ?? 0;
   const total = state.session.question_count;

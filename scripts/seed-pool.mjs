@@ -1,4 +1,4 @@
-// content/pool/pool-*.json (mashq zaxirasi) ni bazaga yuklaydi: pnpm content:pool:seed
+// content/pool/pool-*.json va extra-*.json (mashq zaxirasi) ni bazaga yuklaydi: pnpm content:pool:seed
 //   pnpm content:pool:seed -- --dry-run   -> faqat tekshiradi va sanaydi (tarmoq ham, .env ham kerak emas)
 // Idempotent: external_id bo'yicha takrorlanmaydi. Savollar mockka kirmaydi (pool: 'practice'), darrov nashr etiladi.
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
@@ -9,7 +9,7 @@ const BATCH = 50;
 const dir = join(process.cwd(), 'content', 'pool');
 
 if (!existsSync(dir)) throw new Error(`${dir} yo'q; avval "pnpm content:pool" ni ishga tushiring`);
-const files = readdirSync(dir).filter((f) => /^pool-\d+\.json$/.test(f)).sort();
+const files = readdirSync(dir).filter((f) => /^(pool|extra)-\d+\.json$/.test(f)).sort();
 if (files.length === 0) throw new Error('pool-*.json topilmadi; avval "pnpm content:pool" ni ishga tushiring');
 
 const questions = [];

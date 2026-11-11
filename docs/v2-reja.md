@@ -86,18 +86,8 @@ Tartib: imtihon platformasining asosiy qiymatiga eng yaqin va eng arzon narsalar
 9. **O'quv reja:** zaif mavzular va imtihon sanasiga qarab qoidalar asosidagi reja (AI siz ham mumkin).
 10. **AI Mentor / tushuntirish** (LLM). Narxi, noto'g'ri foydalanishdan himoya (limit) va javob to'g'riligi alohida baholanadi (4-bo'lim, Q2).
 
-### Bosqich 4: akkaunt va savdo
-11. **Akkaunt (login).** V1 qarori: login yo'q, ichki platformaga ulanadi (docs/auth.md). Reyting, to'lov, saqlangan natijalarning qurilmalararo sinxroni va Telegram bot uchun login kerak bo'ladi. Q3 ga qarang.
-12. **To'lov** (Payme/Click) va tariflar, promo-kod. Hozirgi Pro mantig'i (5 ta bepul tahlil, qolgani Pro) shunday qoladi.
-13. **Pro oynasi matnini yangilash:** hozir "Barcha variantlarni yeching" va "9 ta variant, 405 ta test" deyiladi, bu endi noto'g'ri (4 tilda: lib/i18n/dictionaries/).
-
-### Bosqich 5: ijtimoiy va o'sish
-14. **Reyting** (umumiy, keyin maktab/hudud). Maxfiylik va ota-ona roziligi (voyaga yetmaganlar) hisobga olinadi.
-15. **Musobaqalar / duellar / o'yinlar.** Eng qimmat va eng kam kerakli, oxirida.
-16. **Telegram kanal/bot** (sanalar, natijalar).
-17. **Kontent sahifalari** (imtihon sanalari, "natijalar qachon", FAQ, maqolalar) SEO uchun.
-18. **Universitet vositalari** (o'tish ballari, katalog). Ma'lumot manbasi va uni yangilab turish kerak, ko'lami katta.
-19. **O'zbek kirill tili**, mutaxassis tarjimasi bilan (kaa va ru dagi kabi).
+### Bosqich 4 (akkaunt, login, to'lov) va Bosqich 5 (reyting, musobaqa, Telegram, SEO sahifalar, universitet vositalari, kirill tili): **REJADAN CHIQARILGAN** (2026-11-10)
+Foydalanuvchi qarori: bu bosqichlar umuman kerak emas. Loyiha loginsiz ichki platforma bo'lib qoladi, savdo va ijtimoiy qatlam qilinmaydi. 2-bo'limdagi tegishli bandlar (12–19, 21) bajarilmaydi.
 
 ## 4. Qarorlar (kutilmoqda)
 
@@ -105,9 +95,11 @@ Tartib: imtihon platformasining asosiy qiymatiga eng yaqin va eng arzon narsalar
 |---|---|---|
 | Q1 | Doira: faqat matematika yoki DTM ning boshqa fanlari ham? | (a) faqat matematika, DTM simulyatsiya yo'q; (b) DTM da faqat matematika bloki; (c) ko'p fanli (kontent hajmi bir necha barobar) |
 | Q2 | AI mentor kerakmi va qaysi model/byudjet? | Yo'q / qoidalar asosidagi reja / LLM |
-| Q3 | Login qo'shilsinmi? | Ichki platformaga ulash (docs/auth.md) / mustaqil Telegram yoki telefon login |
-| Q4 | Savdo qilinadimi yoki ichki platforma bo'lib qoladimi? | Bu 12-bandni va ko'p narsani belgilaydi |
+| Q3 | Login qo'shilsinmi? | **Yo'q** (Bosqich 4 rejadan chiqarilgan) |
+| Q4 | Savdo qilinadimi? | **Yo'q** (Bosqich 4 rejadan chiqarilgan) |
 | Q5 | Mavzu mashqi bepul/Pro chegarasi | Masalan: hamma mavzu ochiq, tahlil 5 ta bepul (hozirgi mantiq bilan mos) |
+
+> **Qolgan ishlar (2026-11-10):** Bosqich 1 (mavzu bo'yicha mashq, 1D mock variantlarni 15 taga yetkazish), Bosqich 2 (DTM kalkulyatorni rasmiy qoidaga keltirish), Bosqich 3 (zaif mavzular, o'quv reja). Qo'shimcha talab: barcha savol/test/mock rasmiy DTM yoki Bilimni baholash agentligi metodikasiga asoslanishi, mutaxassis tekshiradi (8-bo'lim).
 
 ## 5. Xavflar
 
@@ -115,8 +107,6 @@ Tartib: imtihon platformasining asosiy qiymatiga eng yaqin va eng arzon narsalar
 - **Rasmiy ma'lumotlar:** DTM/Milliy sertifikat qoidalari va ballari o'zgarishi mumkin, uchinchi tomon raqamlari tasdiqlanmagan (docs/rasmiy-manbalar.md). Natijalar doim "taxminiy".
 - **Ko'chirish:** raqobatchi savollari, matnlari va dizayni ko'chirilmaydi.
 - **AI:** noto'g'ri yechim berishi mumkin. Matematika tushuntirishida bu jiddiy xavf, savol kaliti (kod bilan hisoblangan javob) bilan tekshirib turish kerak.
-- **To'lov va shaxsiy ma'lumotlar:** to'lov va login qo'shilsa, maxfiylik, rozilik va xavfsizlik talablari (hozirgi CSP, rate limit, audit) kengaytiriladi.
-- **Hajm:** bosqich 5 (o'yinlar, universitet katalogi) alohida kichik loyihalar kattaligida.
 
 ## 6. Birinchi qadam (taklif)
 
@@ -224,6 +214,9 @@ Tekshiruv: `pnpm typecheck`, `lint`, `test` (yangi testlar: navigator bo'limlari
 | Q6 | Bayroq hamma o'lchamda savol kartasi burchagida (bajarilgan) |
 | Q7 | **Mobil pastki navigatsiya paneli kerak** (UI-12 tasdiqlandi): Imtihonlar, Natijalarim, Xatolar daftari, DTM; imtihon ekranida ko'rsatilmaydi |
 | Y-2 | **Bizning tuzilish saqlanadi** (docs/rasmiy-manbalar.md) |
+| Bosqich 4, 5 | **Kerak emas**: login, to'lov, reyting, musobaqa, Telegram, SEO sahifalar, universitet vositalari, kirill tili qilinmaydi (2026-11-10) |
+| Kontent talabi | Barcha savol, test va mocklar rasmiy DTM yoki Bilimni baholash agentligi tasdiqlagan metodika/manbalarga asoslanadi; Variant A etalon; yangi kontentni mutaxassis tekshiradi va natijani foydalanuvchi beradi (2026-11-10) |
+| Mock variantlar soni | 15 taga yetkaziladi (hozir 6) |
 
 ## 9. Bosqich 1 tayyorlik tekshiruvi (2026-11-10)
 
@@ -279,3 +272,22 @@ Supabase: REST va Postgres ulanishi ishlaydi. Yangi 3 ta migratsiya (`2026111010
 | Mavzu bo'yicha mashq (Q9) | Keyingi bosqich | Hozir faqat bo'lim darajasida; 9 mavzuda savol yo'q |
 
 Tekshiruv: baza sinovlari (PGlite) mashq va pool uchun; jonli testlar (`pnpm test:live`, real Supabase, `tests/live/practice.live.test.ts`): zaxira, boshlash, kalit faqat tekshirgandan keyin ochilishi, qulf, imtihon rejimi, yakunlash, saqlash, ruxsatlar, boshqa foydalanuvchidan yashirinligi; sinov ma'lumoti o'chirilgan (qolgan sinov foydalanuvchisi 0). Interfeys: sozlash va mashq ekrani Chrome'da (bazasiz sinov sahifasi) ko'rilgan. Brauzerda to'liq real oqim (guest sessiya bilan) va natija sahifasi hali qo'lda ko'rilmagan.
+
+## 10. Mavzu bo'yicha mashq va 15 mock variant (2026-11-10 qarorlari)
+
+**Qarorlar (foydalanuvchi):**
+- Mashq savollari mock variantlardan **alohida zaxirada** (mock savollari mashqqa kirmaydi).
+- Mavzu bo'yicha mashq **rasmiy 21 mazmun elementi** bo'yicha (config/elements.ts); bizning 103 ishchi mavzu ularga bog'lanadi, rasmiyda bor lekin bizda yo'q mavzular uchun yangi mavzular (104–121) va yangi savollar yoziladi.
+- Mock variantlar **15 taga** yetkaziladi: A–F o'zgarmaydi; G–O yangi, **Variant A tuzilishida** (qiyinlik joylashuvi, 45 savol, 32/3/10); bo'lim tasnifi **rasmiyga moslashtiriladi** (progressiya, matnli masala, foiz, nisbat Algebra slotlarida; Analiz faqat hosila va integral; Sonlar faqat 1.x).
+- Barcha yangi kontentni mutaxassis tekshiradi, natijani foydalanuvchi beradi; tekshiruvgacha "tasdiqlangan" deb atalmaydi.
+
+**Bajarildi (kodda):**
+- config/elements.ts: 21 rasmiy element, 103 mavzuning elementlarga moslashtirilishi (taxminiy), 18 yangi mavzu (104–121), `topicAllowedInBlock` (ishchi diapazon YOKI rasmiy joylashuv).
+- Baza (qo'llash kerak, `supabase/manual/2026-11-10-elements-apply.sql` + `...-elements-record-history.sql`): `content_elements`, `topic_elements`, yangi mavzular; mashq elementlar bo'yicha (`start_practice` bo'lim yoki element kodi, `get_practice_element_stats`).
+- Interfeys: /practice 21 element (7 bo'lim bo'yicha guruhlangan), mashq va natija sarlavhalarida element nomi (4 tilda; kaa tarjimasi tekshirilmagan).
+- DTM kalkulyator: ikki marta yaxlitlash xatosi tuzatildi; qoidalar tekshirildi (docs/rasmiy-manbalar.md "DTM tekshiruvi").
+- Bor testlar rasmiy 7 bo'limga solishtirildi: A–F ning 270 savolidan 17 tasi rasmiy bo'lim tasnifiga mos emas (A da bitta: #23 progressiya Analiz slotida).
+
+**Jarayonda (agentlar):** qo'shimcha shablonlar (content/gen/extra: sonlar+algebra, tenglama+funksiya+analiz, to'plam+ma'lumotlar, geometriya) mustaqil matematik tekshiruvlar bilan; mavjud 1711 mashq savoli uchun mustaqil tekshiruvlar; G–O mock variantlar (rasmiy tasnif).
+
+**Qolgan:** natijalarni birlashtirish (pool + extra yuklash, G–O yuklash), mutaxassis tekshiruvi (matematika, qoraqalpoq tarjimasi, mavzu-element moslashtirish), kerak bo'lsa rasmiy ball naqshiga moslash (hozir Variant A bilan bir xil, qaror: A etalon).

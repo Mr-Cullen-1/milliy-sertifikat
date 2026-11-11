@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useLang, useT } from '@/components/i18n/provider';
 import { DTM_MAX, type DtmSubject } from '@/config/dtm';
 import { dtmPoints, levelMinScore, LEVELS } from '@/lib/dtm';
-import { formatScore } from '@/lib/format';
+import { formatPoints, formatScore } from '@/lib/format';
 
 const SUBJECTS: DtmSubject[] = ['first', 'second', 'mandatory'];
 
@@ -140,7 +140,7 @@ export function DtmCalculator({ initialScore, initialLevel }: { initialScore?: n
           ) : (
             <>
               <p className="mt-1 flex items-end gap-2 leading-none">
-                <span className="text-[56px] font-black text-success-ink">{formatScore(result.points, lang)}</span>
+                <span className="text-[56px] font-black text-success-ink">{formatPoints(result.points, lang)}</span>
                 <span className="pb-1.5 text-[24px] font-extrabold text-muted">/ {result.max}</span>
               </p>
               <p className="mt-2 text-[17px] font-bold text-ink-soft">
@@ -172,7 +172,7 @@ export function DtmCalculator({ initialScore, initialLevel }: { initialScore?: n
                     <td className="px-3 py-2.5">{l.min}+</td>
                     {SUBJECTS.map((s) => (
                       <td key={s} className="px-3 py-2.5">
-                        {formatScore(dtmPoints(s, l.min).points, lang)}
+                        {formatPoints(dtmPoints(s, l.min).points, lang)}
                       </td>
                     ))}
                   </tr>

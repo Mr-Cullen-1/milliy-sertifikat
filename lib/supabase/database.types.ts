@@ -322,6 +322,9 @@ isOneToOne: false
 "list_ungraded_practice_answers":
 { Args: { "p_session": string }; Returns: Json
                            },
+"get_practice_element_stats":
+{ Args: Record<PropertyKey, never>; Returns: Json
+                           },
 "get_my_saved":
 { Args: { "p_lang"?: string }; Returns: Json
                            },

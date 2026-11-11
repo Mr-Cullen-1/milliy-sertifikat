@@ -2,29 +2,36 @@ import Link from 'next/link';
 import { z } from 'zod';
 import { PageHero } from '@/components/page-hero';
 import { PageShell } from '@/components/page-shell';
-import { PracticeSetup, type SetupBlock } from '@/components/practice/practice-setup';
+import { PracticeSetup, type SetupGroup } from '@/components/practice/practice-setup';
 import { Chip } from '@/components/ui/chip';
+import { ELEMENTS } from '@/config/elements';
 import { BLOCK_CODES } from '@/config/topics';
 import { getI18n } from '@/lib/i18n/server';
 import { requireParticipant } from '@/lib/participant.server';
-import { poolStatSchema, practiceListRowSchema } from '@/lib/practice/state';
+import { elementLabelKey } from '@/lib/practice/config';
+import { elementStatSchema, practiceListRowSchema } from '@/lib/practice/state';
 import { createClient } from '@/lib/supabase/server';
 
 /** Mashq: sozlash (bo'lim, qiyinlik, rejim, savollar soni) va oxirgi mashqlar. Mashq savollari mock variantlardan alohida zaxirada. */
 export default async function PracticePage() {
   const [{ t, lang }] = await Promise.all([getI18n(), requireParticipant('/practice')]);
   const supabase = await createClient();
-  const [statsRes, listRes] = await Promise.all([supabase.rpc('get_practice_pool_stats'), supabase.rpc('list_my_practice', { p_limit: 8 })]);
+  const [statsRes, listRes] = await Promise.all([supabase.rpc('get_practice_element_stats'), supabase.rpc('list_my_practice', { p_limit: 8 })]);
   // Migratsiya qo'llanmagan yoki zaxira bo'sh bo'lsa sahifa xatosiz, bo'sh holatda ochiladi
-  const stats = z.array(poolStatSchema).catch([]).parse(statsRes.data ?? []);
+  const stats = z.array(elementStatSchema).catch([]).parse(statsRes.data ?? []);
   const recent = z.array(practiceListRowSchema).catch([]).parse(listRes.data ?? []);
 
-  const blocks: SetupBlock[] = BLOCK_CODES.map((code, i) => {
-    const rows = stats.filter((s) => s.block_id === i + 1);
+  // Rasmiy 21 mazmun elementi, 7 bo'lim bo'yicha guruhlangan
+  const groups: SetupGroup[] = [];
+  for (const e of ELEMENTS) {
+    const rows = stats.filter((s) => s.element_code === e.code);
     const n = (d: string) => rows.find((r) => r.difficulty === d)?.n ?? 0;
-    return { code, label: t(`blocks.${code}`), counts: { L1: n('L1'), L2: n('L2'), L3: n('L3'), all: rows.reduce((a, r) => a + r.n, 0) } };
-  });
-  const empty = blocks.every((b) => b.counts.all === 0);
+    const element = { code: e.code, label: t(elementLabelKey(e.code)), counts: { L1: n('L1'), L2: n('L2'), L3: n('L3'), all: rows.reduce((a, r) => a + r.n, 0) } };
+    const last = groups[groups.length - 1];
+    if (last && last.block === e.block) last.elements.push(element);
+    else groups.push({ block: e.block, label: t(`blocks.${e.block}`), elements: [element] });
+  }
+  const empty = groups.every((g) => g.elements.every((e) => e.counts.all === 0));
   const modeName = { practice: t('practice.modePractice'), timed: t('practice.modeTimed'), exam: t('practice.modeExam') };
   const dateFmt = new Intl.DateTimeFormat(lang === 'kaa' ? 'uz' : lang, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
 
@@ -37,7 +44,7 @@ export default async function PracticePage() {
           <p className="text-[19px] leading-7 font-semibold text-muted">{t('practice.lead')}</p>
         </PageHero>
 
-        {empty ? <p className="text-[19px] font-semibold text-muted">{t('practice.poolEmpty')}</p> : <PracticeSetup blocks={blocks} />}
+        {empty ? <p className="text-[19px] font-semibold text-muted">{t('practice.poolEmpty')}</p> : <PracticeSetup groups={groups} />}
 
         <section aria-label={t('practice.recent')} className="flex flex-col gap-3">
           <h2 className="font-heading text-[22px] font-semibold text-ink">{t('practice.recent')}</h2>
@@ -47,7 +54,7 @@ export default async function PracticePage() {
             <ul className="grid gap-3 md:grid-cols-2">
               {recent.map((r) => {
                 const done = r.status === 'submitted';
-                const block = t(`blocks.${BLOCK_CODES[r.block_id - 1] ?? 'sonlar'}`);
+                const block = r.element_code ? `${r.element_code} ${t(elementLabelKey(r.element_code))}` : t(`blocks.${BLOCK_CODES[r.block_id - 1] ?? 'sonlar'}`);
                 return (
                   <li key={r.id}>
                     <Link

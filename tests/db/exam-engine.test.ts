@@ -32,9 +32,9 @@ const saveAnswer = (userId: string, attemptId: string, questionId: string, ...re
   );
 
 describe('ma\'lumotnoma ma\'lumotlari', () => {
-  it('7 blok, 103 mavzu, 1 format', async () => {
+  it('7 blok, 121 mavzu (103 ishchi + 18 yangi rasmiy), 1 format', async () => {
     expect((await one<{ n: number }>('select count(*)::int as n from public.blocks')).n).toBe(7);
-    expect((await one<{ n: number }>('select count(*)::int as n from public.topics')).n).toBe(103);
+    expect((await one<{ n: number }>('select count(*)::int as n from public.topics')).n).toBe(121);
     expect((await one<{ n: number }>('select count(*)::int as n from public.exam_formats')).n).toBe(1);
   });
 
@@ -42,7 +42,8 @@ describe('ma\'lumotnoma ma\'lumotlari', () => {
     const { rows } = await db.query<{ n: number }>(
       'select count(t.id)::int as n from public.blocks b left join public.topics t on t.block_id = b.id group by b.id order by b.id',
     );
-    expect(rows.map((r) => r.n)).toEqual([11, 16, 15, 13, 11, 27, 10]);
+    // 103 ishchi mavzu: 11/16/15/13/11/27/10; 18 yangi (104+) rasmiy bo'limiga qo'shilgan (config/elements.ts)
+    expect(rows.map((r) => r.n)).toEqual([12, 19, 17, 14, 12, 34, 13]);
   });
 });
 
