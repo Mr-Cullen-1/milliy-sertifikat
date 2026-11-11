@@ -53,12 +53,12 @@ export function AnswerY2({ payload, value, onChange }: Props) {
   const letters = options.map(([letter]) => letter);
 
   return (
-    <div className="grid gap-5 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-6">
-      <p className="-mb-2 rounded-xl bg-accent-soft px-3.5 py-2 text-[14px] leading-5 font-bold text-accent md:col-span-2">
+    <div className="grid gap-3 md:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] md:gap-5 lg:gap-6">
+      <p className="-mb-1 rounded-xl bg-accent-soft px-3 py-1.5 text-[12px] leading-4 font-bold text-accent sm:px-3.5 sm:py-2 sm:text-[14px] sm:leading-5 md:col-span-2">
         {t('answers.hintY2', { from: letters[0] ?? 'A', to: letters[letters.length - 1] ?? 'F' })}
       </p>
-      <div className="flex flex-col gap-2.5">
-        <p className="text-[15px] font-extrabold text-muted">{t('answers.items')}</p>
+      <div className="flex flex-col gap-1.5 sm:gap-2.5">
+        <p className="text-[13px] font-extrabold text-muted sm:text-[15px]">{t('answers.items')}</p>
         {payload.items.map((item, i) => {
           const chosen = value[item.id];
           const isActive = active === item.id;
@@ -69,7 +69,7 @@ export function AnswerY2({ payload, value, onChange }: Props) {
               aria-pressed={isActive}
               onClick={() => setActive(item.id)}
               className={
-                'flex items-center gap-3 rounded-2xl border-2 border-b-[5px] px-4 py-2.5 text-left transition ' +
+                'flex items-center gap-2 rounded-2xl border-2 border-b-[4px] px-3 py-1.5 text-left transition sm:gap-3 sm:border-b-[5px] sm:px-4 sm:py-2.5 ' +
                 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ' +
                 (chosen ? PAIRS[i % PAIRS.length].box : isActive ? 'border-selected bg-accent-soft' : 'border-line bg-white hover:bg-surface') +
                 (isActive ? ' ring-[3px] ring-selected/40' : '')
@@ -77,17 +77,17 @@ export function AnswerY2({ payload, value, onChange }: Props) {
             >
               <span
                 className={
-                  'flex size-7 shrink-0 items-center justify-center rounded-full text-[14px] font-black ' +
+                  'flex size-6 shrink-0 items-center justify-center rounded-full text-[13px] font-black sm:size-7 sm:text-[14px] ' +
                   (chosen ? `${PAIRS[i % PAIRS.length].dot} text-white` : 'bg-track text-muted')
                 }
               >
                 {i + 1}
               </span>
-              <span className="-my-2 min-w-0 flex-1 overflow-x-auto overflow-y-hidden py-2 text-[18px] font-bold text-ink">
+              <span className="-my-2 min-w-0 flex-1 overflow-x-auto overflow-y-hidden py-2 text-[16px] font-bold text-ink sm:text-[18px]">
                 <Markdown inline>{item.text_md}</Markdown>
               </span>
               {chosen && (
-                <span className={`flex size-7 shrink-0 items-center justify-center rounded-full text-[14px] font-black text-white ${PAIRS[i % PAIRS.length].dot}`}>
+                <span className={`flex size-5 shrink-0 items-center justify-center rounded-full text-[12px] font-black text-white sm:size-7 sm:text-[14px] ${PAIRS[i % PAIRS.length].dot}`}>
                   {chosen}
                 </span>
               )}
@@ -96,12 +96,12 @@ export function AnswerY2({ payload, value, onChange }: Props) {
         })}
       </div>
 
-      <div className="flex flex-col gap-2.5">
-        <p className="text-[15px] font-extrabold">
+      <div className="flex flex-col gap-1.5 sm:gap-2.5">
+        <p className="text-[13px] font-extrabold sm:text-[15px]">
           <span className="text-muted">{t('answers.variants')}</span>
           {active && <span className="text-accent"> · {t('answers.chooseFor', { n: itemNumber.get(active) ?? 0 })}</span>}
         </p>
-        <div className="grid gap-2.5 min-[480px]:grid-cols-2">
+        <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 md:grid-cols-2">
           {options.map(([letter, text]) => {
             const matchedBy = payload.items.filter((i) => value[i.id] === letter);
             const firstIdx = matchedBy.length > 0 ? payload.items.findIndex((i) => i.id === matchedBy[0].id) : -1;
@@ -113,19 +113,19 @@ export function AnswerY2({ payload, value, onChange }: Props) {
                 aria-pressed={forActive}
                 onClick={() => pick(letter)}
                 className={
-                  'flex items-center gap-3 rounded-2xl border-2 border-b-[5px] px-4 py-2.5 text-left transition ' +
+                  'flex items-center gap-1.5 rounded-2xl border-2 border-b-[4px] px-2 py-1.5 text-left transition sm:gap-3 sm:border-b-[5px] sm:px-4 sm:py-2.5 ' +
                   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ' +
                   (firstIdx >= 0 ? PAIRS[firstIdx % PAIRS.length].box : 'border-line bg-white hover:bg-surface')
                 }
               >
-                <span className="flex size-7 shrink-0 items-center justify-center rounded-full bg-track text-[14px] font-black text-muted">{letter}</span>
-                <span className="-my-2 min-w-0 flex-1 overflow-x-auto overflow-y-hidden py-2 text-[17px] font-bold text-ink">
+                <span className="flex size-6 shrink-0 items-center justify-center rounded-full bg-track text-[13px] font-black text-muted sm:size-7 sm:text-[14px]">{letter}</span>
+                <span className="-my-2 min-w-0 flex-1 overflow-x-auto overflow-y-hidden py-2 text-[15px] font-bold text-ink sm:text-[17px]">
                   <Markdown inline>{text}</Markdown>
                 </span>
                 {matchedBy.map((m) => (
                   <span
                     key={m.id}
-                    className={`flex size-7 shrink-0 items-center justify-center rounded-full text-[14px] font-black text-white ${PAIRS[(itemNumber.get(m.id) ?? 1) - 1 >= 0 ? ((itemNumber.get(m.id) ?? 1) - 1) % PAIRS.length : 0].dot}`}
+                    className={`flex size-5 shrink-0 items-center justify-center rounded-full text-[12px] font-black text-white sm:size-7 sm:text-[14px] ${PAIRS[(itemNumber.get(m.id) ?? 1) - 1 >= 0 ? ((itemNumber.get(m.id) ?? 1) - 1) % PAIRS.length : 0].dot}`}
                   >
                     {itemNumber.get(m.id)}
                   </span>

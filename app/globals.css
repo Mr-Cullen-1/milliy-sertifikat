@@ -40,13 +40,14 @@
     }
   }
 
-  /* Mashq: tekshirilgan javob oynasi tepadan tushadi (<dialog>); balandligi viewportning 62% i (60-65%), to'liq ekran emas. */
+  /* Mashq: tekshirilgan javob oynasi tepadan tushadi (<dialog>); balandligi kontentga moslashadi, lekin viewportning 62% idan oshmaydi
+     (oshsa ichki qism aylanadi). Kontent oz bo'lsa (masalan to'g'ri javob) oyna ham past bo'ladi. */
   .app-sheet-top {
     margin: 0 auto auto;
     width: min(100vw, 1100px);
     max-width: none;
-    height: 62dvh;
-    max-height: none;
+    height: fit-content; /* auto emas: modal inset:0 bilan cho'zilib ketadi */
+    max-height: 62dvh;
   }
   .app-sheet-top::backdrop {
     background: rgba(30, 27, 57, 0.34);

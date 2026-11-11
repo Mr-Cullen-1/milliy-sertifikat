@@ -46,6 +46,8 @@ export function RevealSheet({ open, reveal, correctText, isLast, onClose, onNext
   }, [open, reveal]);
 
   const tone = reveal ? toneOf(reveal) : 'bad';
+  // Kontent bo'lmasa (to'g'ri javob, yechim yo'q) bo'sh qism chiqarilmaydi: oyna faqat sarlavha va tugmalardan iborat past bo'ladi
+  const hasBody = !!reveal && ((!reveal.isCorrect && !!correctText) || !!reveal.solutionMd || (!!reveal.mistakeNoteMd && !reveal.isCorrect) || reveal.solutionLocked);
   const title = !reveal ? '' : reveal.isCorrect ? t('practice.correct') : tone === 'partial' ? t('practice.partial') : t('practice.wrong');
 
   return (
@@ -74,34 +76,36 @@ export function RevealSheet({ open, reveal, correctText, isLast, onClose, onNext
             </button>
           </div>
 
-          <div className="flex min-h-0 flex-1 flex-col gap-3 overflow-y-auto px-4 py-4 sm:px-6">
-            {!reveal.isCorrect && correctText && (
-              <p className="text-[17px] font-bold text-ink-soft">
-                {t('result.correctAnswer')}: <span className="font-extrabold text-success-ink">{correctText}</span>
-              </p>
-            )}
-            {reveal.solutionMd && (
-              <div className="rounded-2xl bg-surface p-4">
-                <p className="mb-1.5 text-[15px] font-extrabold text-brand-ink">{t('result.solution')}</p>
-                <Markdown className="text-[17px] font-semibold text-ink">{reveal.solutionMd}</Markdown>
-              </div>
-            )}
-            {reveal.mistakeNoteMd && !reveal.isCorrect && (
-              <div className="rounded-2xl bg-surface p-4">
-                <p className="mb-1.5 text-[15px] font-extrabold text-accent">{t('result.mistake')}</p>
-                <Markdown className="text-[17px] font-semibold text-ink">{reveal.mistakeNoteMd}</Markdown>
-              </div>
-            )}
-            {reveal.solutionLocked && (
-              <div className="flex flex-col gap-3 rounded-2xl bg-surface p-4 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-[16px] font-bold text-ink-soft">{t('practice.solutionLocked')}</p>
-                <ProOpenButton className={buttonClass('accent', 'shrink-0', 'sm')}>
-                  <CrownIcon size={18} />
-                  {t('pro.cardButton')}
-                </ProOpenButton>
-              </div>
-            )}
-          </div>
+          {hasBody && (
+            <div className="flex min-h-0 flex-initial flex-col gap-3 overflow-y-auto px-4 py-4 sm:px-6">
+              {!reveal.isCorrect && correctText && (
+                <p className="text-[17px] font-bold text-ink-soft">
+                  {t('result.correctAnswer')}: <span className="font-extrabold text-success-ink">{correctText}</span>
+                </p>
+              )}
+              {reveal.solutionMd && (
+                <div className="rounded-2xl bg-surface p-4">
+                  <p className="mb-1.5 text-[15px] font-extrabold text-brand-ink">{t('result.solution')}</p>
+                  <Markdown className="text-[17px] font-semibold text-ink">{reveal.solutionMd}</Markdown>
+                </div>
+              )}
+              {reveal.mistakeNoteMd && !reveal.isCorrect && (
+                <div className="rounded-2xl bg-surface p-4">
+                  <p className="mb-1.5 text-[15px] font-extrabold text-accent">{t('result.mistake')}</p>
+                  <Markdown className="text-[17px] font-semibold text-ink">{reveal.mistakeNoteMd}</Markdown>
+                </div>
+              )}
+              {reveal.solutionLocked && (
+                <div className="flex flex-col gap-3 rounded-2xl bg-surface p-4 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-[16px] font-bold text-ink-soft">{t('practice.solutionLocked')}</p>
+                  <ProOpenButton className={buttonClass('accent', 'shrink-0', 'sm')}>
+                    <CrownIcon size={18} />
+                    {t('pro.cardButton')}
+                  </ProOpenButton>
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="flex shrink-0 items-center justify-end gap-3 border-t-2 border-line px-4 py-3 sm:px-6">
             <Button variant="secondary" size="sm" onClick={onClose}>

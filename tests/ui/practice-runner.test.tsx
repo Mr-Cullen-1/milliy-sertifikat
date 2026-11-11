@@ -38,7 +38,7 @@ describe('PracticeRunner: mock test ekraniga o\'xshash tuzilish', () => {
 
   it("mock bilan bir xil ramka: kengligi 1480, yon panel (navigator), kalkulyator yozuvi, klaviatura yorlig'i", () => {
     expect(out).toContain('max-w-[1480px]');
-    expect(out).toContain('lg:h-dvh lg:overflow-hidden');
+    expect(out).toContain('h-dvh flex-col overflow-hidden');
     expect(out).toContain(uz.exam.noCalc);
     expect(out).toContain(uz.exam.panel); // yon panel sarlavhasi
     expect(out).toContain('aria-label="Savol 1"'.replace('Savol 1', uz.exam.questionAria.replace('{n}', '1')));
@@ -95,5 +95,25 @@ describe('RevealSheet: tepadan tushadigan javob oynasi', () => {
     expect(out).toContain(uz.practice.finish);
     expect(out).not.toContain(`${uz.result.correctAnswer}:`);
     expect(out).not.toContain('Tipik xato.');
+  });
+});
+
+describe('Ekranga moslash (scrollsiz) va javob oynasi balandligi', () => {
+  it("to'g'ri javobda yechim bo'lmasa bo'sh qism chiqmaydi (oyna kontentga moslashadi); yechim bo'lsa chiqadi", () => {
+    const ok: PracticeReveal = { ...reveal, isCorrect: true, mistakeNoteMd: null, solutionMd: null };
+    const bare = html(<RevealSheet open={false} reveal={ok} correctText="B" isLast={false} onClose={() => {}} onNext={() => {}} />);
+    expect(bare).not.toContain('overflow-y-auto');
+    const withSolution = html(<RevealSheet open={false} reveal={{ ...ok, solutionMd: 'Yechim: $1$' }} correctText="B" isLast={false} onClose={() => {}} onNext={() => {}} />);
+    expect(withSolution).toContain('overflow-y-auto');
+  });
+
+  it("mashq ekrani butun balandlikka (h-dvh) ega, pastki panel oqimda (fixed emas), javoblar Y-1 da har doim 2 ustunli", () => {
+    const out = html(
+      <PracticeRunner sessionId="s1" mode="practice" title="Mashq" items={items} initialAnswers={{}} initialReveals={{}} deadlineAt={null} serverNow="2026-11-11T00:00:00Z" />,
+    );
+    expect(out).toContain('h-dvh flex-col overflow-hidden');
+    expect(out).not.toContain('fixed inset-x-0 bottom-0');
+    expect(out).toContain('grid-cols-2');
+    expect(out).not.toContain('sm:grid-cols-2');
   });
 });

@@ -2,15 +2,20 @@
 
 import { useLayoutEffect, useRef, type ReactNode } from 'react';
 
-/** Savol matni uchun saqlanadigan minimal balandlik (px): question-view.tsx dagi `lg:min-h-[88px]` bilan mos. */
-const STEM_MIN = 88;
+/** Savol matni uchun saqlanadigan minimal balandlik (px): question-view.tsx dagi min-h sinflari bilan mos (lg+ 88; tor ekranda 64 yoki karta balandligining 28%). */
+const STEM_MIN_WIDE = 88;
+const STEM_MIN_NARROW = 64;
 
 interface Props {
   children: ReactNode;
   /** Savol almashganda qayta moslash uchun */
   contentKey: string;
   min?: number;
+  /** always rejimida tor ekranda (telefon) eng kichik masshtab */
+  minNarrow?: number;
   className?: string;
+  /** true: har qanday ekranda moslaydi; aks holda faqat lg+ */
+  always?: boolean;
 }
 
 /**
@@ -19,7 +24,7 @@ interface Props {
  * Ajratilgan joy = karta balandligi − sarlavha qatori − savol matni uchun minimal joy.
  * Ota element (section) `flex flex-col` bo'lishi, birinchi bola sarlavha qatori bo'lishi kerak.
  */
-export function FitZoom({ children, contentKey, min = 0.62, className = '' }: Props) {
+export function FitZoom({ children, contentKey, min = 0.5, minNarrow = 0.5, className = '', always = false }: Props) {
   const outer = useRef<HTMLDivElement>(null);
   const inner = useRef<HTMLDivElement>(null);
 
@@ -29,25 +34,26 @@ export function FitZoom({ children, contentKey, min = 0.62, className = '' }: Pr
     const section = o?.parentElement;
     if (!o || !i || !section) return;
     const wide = window.matchMedia('(min-width: 1024px)');
+    const active = () => always || wide.matches;
 
     const available = () => {
       const cs = getComputedStyle(section);
       const gap = parseFloat(cs.rowGap) || 0;
       const head = (section.firstElementChild as HTMLElement | null)?.offsetHeight ?? 0;
       const border = parseFloat(getComputedStyle(o).borderTopWidth) || 0;
-      return section.clientHeight - head - gap * 2 - STEM_MIN - border;
+      return section.clientHeight - head - gap * 2 - (wide.matches ? STEM_MIN_WIDE : Math.max(STEM_MIN_NARROW, Math.round(section.clientHeight * 0.28))) - border;
     };
     const height = () => i.getBoundingClientRect().height;
 
     const fit = () => {
-      if (!wide.matches) {
+      if (!active()) {
         i.style.zoom = '';
         return;
       }
       const avail = available();
       i.style.zoom = '1';
       if (height() <= avail) return;
-      let lo = min;
+      let lo = wide.matches ? min : minNarrow;
       let hi = 1;
       for (let k = 0; k < 9; k++) {
         const mid = (lo + hi) / 2;
@@ -58,7 +64,7 @@ export function FitZoom({ children, contentKey, min = 0.62, className = '' }: Pr
       i.style.zoom = String(Math.floor(lo * 100) / 100);
     };
     const recheck = () => {
-      if (wide.matches && height() > available() + 1) fit();
+      if (active() && height() > available() + 1) fit();
     };
 
     fit();
@@ -76,11 +82,14 @@ export function FitZoom({ children, contentKey, min = 0.62, className = '' }: Pr
       wide.removeEventListener('change', fit);
       fonts?.removeEventListener('loadingdone', fit);
     };
-  }, [min, contentKey]);
+  }, [min, minNarrow, contentKey, always]);
 
   return (
-    <div ref={outer} className={`lg:min-h-0 lg:shrink lg:overflow-hidden lg:border-t-2 lg:border-line ${className}`}>
-      <div ref={inner} className="flex flex-col gap-5 lg:pt-5">
+    <div
+      ref={outer}
+      className={`${always ? 'min-h-0 shrink overflow-hidden border-t-2 border-line' : 'lg:min-h-0 lg:shrink lg:overflow-hidden lg:border-t-2 lg:border-line'} ${className}`}
+    >
+      <div ref={inner} className={`flex flex-col gap-5 ${always ? 'pt-3 lg:pt-5' : 'lg:pt-5'}`}>
         {children}
       </div>
     </div>

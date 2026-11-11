@@ -13,6 +13,10 @@ interface Props {
   className?: string;
   /** Tashqi quti sinflari (balandlik/joylashuv) */
   boxClassName?: string;
+  /** true: har qanday ekranda moslaydi (ota quti aniq balandlikka ega); aks holda faqat lg+ */
+  always?: boolean;
+  /** always rejimida lg dan tor ekranda (telefon) boshlang'ich eng katta shrift (px); kengligi >=640px (planshet) ~1,35 baravar */
+  maxNarrow?: number;
 }
 
 /**
@@ -20,7 +24,7 @@ interface Props {
  * shunda matn tashqi qutiga scrollsiz sig'adi. Kichik ekranda oddiy oqim (sinfdagi hajm).
  * Tashqi quti aniq balandlikka ega bo'lishi kerak (flex-1/h-full + min-h-0). Matn quti o'rtasida turadi.
  */
-export function FitText({ children, contentKey, max, min = 18, id, className = '', boxClassName = '' }: Props) {
+export function FitText({ children, contentKey, max, min = 18, id, className = '', boxClassName = '', always = false, maxNarrow }: Props) {
   const outer = useRef<HTMLDivElement>(null);
   const inner = useRef<HTMLDivElement>(null);
 
@@ -29,6 +33,7 @@ export function FitText({ children, contentKey, max, min = 18, id, className = '
     const i = inner.current;
     if (!o || !i) return;
     const wide = window.matchMedia('(min-width: 1024px)');
+    const active = () => always || wide.matches;
 
     // Tashqi qutining ichki bo'sh joyi (padding hisobga olinadi)
     const room = () => {
@@ -42,19 +47,24 @@ export function FitText({ children, contentKey, max, min = 18, id, className = '
       const r = room();
       return i.scrollHeight > r.h - 4 || i.scrollWidth > r.w;
     };
+    // Tor ekranda (telefon/planshet) boshlang'ich hajm kichikroq va pastki chegara 14px (sig'masa kichrayadi)
+    const narrow = () => !wide.matches && !!maxNarrow;
+    const top = () => (narrow() ? Math.min(max, window.innerWidth >= 640 ? Math.round((maxNarrow ?? max) * 1.35) : (maxNarrow ?? max)) : max);
+    const floor = () => (narrow() ? 14 : min);
     const fits = (px: number) => {
       i.style.fontSize = `${px}px`;
       i.style.lineHeight = '1.28';
       return !overflows();
     };
     const fit = () => {
-      if (!wide.matches) {
+      if (!active()) {
         i.style.fontSize = '';
         i.style.lineHeight = '';
         return;
       }
-      let lo = min;
-      let hi = max;
+      const lowest = floor();
+      let lo = lowest;
+      let hi = top();
       if (fits(hi)) return;
       while (hi - lo > 1) {
         const mid = Math.floor((lo + hi) / 2);
@@ -63,12 +73,12 @@ export function FitText({ children, contentKey, max, min = 18, id, className = '
       }
       // Qator o'tishlari tufayli bog'liqlik monoton emas: yakuniy qiymat albatta sig'ishi shart
       let px = lo;
-      while (px > min && !fits(px)) px--;
-      if (px === min) fits(px);
+      while (px > lowest && !fits(px)) px--;
+      if (px === lowest) fits(px);
     };
     // Matn o'zi o'zgarsa (shrift yuklandi, qator o'tdi) va sig'may qolsa qayta moslaymiz
     const recheck = () => {
-      if (wide.matches && overflows()) fit();
+      if (active() && overflows()) fit();
     };
 
     fit();
@@ -87,7 +97,7 @@ export function FitText({ children, contentKey, max, min = 18, id, className = '
       wide.removeEventListener('change', fit);
       fonts?.removeEventListener('loadingdone', fit);
     };
-  }, [max, min, contentKey]);
+  }, [max, min, contentKey, always, maxNarrow]);
 
   return (
     <div ref={outer} className={`flex min-h-0 min-w-0 flex-col overflow-y-auto ${boxClassName}`}>

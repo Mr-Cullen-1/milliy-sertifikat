@@ -251,7 +251,7 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
         : null;
 
   return (
-    <div className="flex min-h-dvh flex-col lg:h-dvh lg:overflow-hidden">
+    <div className="flex h-dvh flex-col overflow-hidden">
       <Watermark text={watermark} />
 
       <header className="sticky top-0 z-10 border-b-2 border-line bg-white shadow-nav">
@@ -329,13 +329,14 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
         </div>
       )}
 
-      <div className="mx-auto flex w-full max-w-[1480px] min-h-0 flex-1 gap-5 px-4 py-4 pb-[calc(6rem+env(safe-area-inset-bottom))] lg:gap-6 lg:px-8 lg:pb-4">
-        <main className="min-w-0 flex-1 lg:flex lg:min-h-0 lg:flex-col">
-          <div className="rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-5 shadow-card sm:p-7 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
+      <div className="mx-auto flex w-full max-w-[1480px] min-h-0 flex-1 gap-5 px-3 py-3 sm:px-4 lg:gap-6 lg:px-8 lg:py-4">
+        <main className="flex min-h-0 min-w-0 flex-1 flex-col">
+          <div className="rounded-3xl border-2 border-b-[5px] border-line-strong bg-white p-3.5 shadow-card sm:p-6 lg:p-7 flex min-h-0 flex-1 flex-col">
             <QuestionView
               item={current}
               value={answers[current.questionId]}
               onChange={setAnswer}
+              fit
               flag={{ on: !!flags[current.questionId], disabled: busy, onToggle: toggleFlag }}
             />
           </div>
@@ -350,7 +351,7 @@ export function ExamRunner({ attemptId, title, deadlineAt, items, initialAnswers
         </aside>
       </div>
 
-      <footer className="fixed inset-x-0 bottom-0 z-10 shrink-0 border-t-2 border-line bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-6px_16px_-10px_rgba(38,24,110,0.25)] lg:static lg:pb-0">
+      <footer className="z-10 shrink-0 border-t-2 border-line bg-white pb-[env(safe-area-inset-bottom)] shadow-[0_-6px_16px_-10px_rgba(38,24,110,0.25)] lg:pb-0">
         <div className="mx-auto flex h-[68px] w-full max-w-[1480px] items-center justify-between gap-2 px-3 sm:px-4 lg:h-[76px] lg:gap-3 lg:px-8">
           <Button
             variant="secondary"

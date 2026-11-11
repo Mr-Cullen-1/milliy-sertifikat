@@ -28,7 +28,7 @@ export function AnswerY1({ payload, value, onChange }: Props) {
   });
 
   return (
-    <div role="radiogroup" aria-label={t('answers.options')} className="grid gap-3 sm:grid-cols-2">
+    <div role="radiogroup" aria-label={t('answers.options')} className="grid grid-cols-2 gap-2 sm:gap-3">
       {LETTERS.map((letter) => {
         const active = selected === letter;
         return (
@@ -39,14 +39,14 @@ export function AnswerY1({ payload, value, onChange }: Props) {
             aria-checked={active}
             onClick={() => onChange(letter)}
             className={
-              'flex items-center gap-4 rounded-2xl border-2 border-b-[5px] px-4 py-4 text-left text-[19px] font-bold text-ink transition ' +
+              'flex items-center gap-2 rounded-2xl border-2 border-b-[4px] px-2.5 py-2.5 text-left text-[16px] font-bold text-ink transition sm:gap-4 sm:border-b-[5px] sm:px-4 sm:py-4 sm:text-[19px] ' +
               'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent active:translate-y-[2px] active:border-b-[3px] ' +
               (active ? 'border-selected bg-accent-soft' : 'border-line bg-white hover:bg-surface')
             }
           >
             <span
               className={
-                'flex size-9 shrink-0 items-center justify-center rounded-full text-[17px] font-black ' +
+                'flex size-7 shrink-0 items-center justify-center rounded-full text-[14px] font-black sm:size-9 sm:text-[17px] ' +
                 (active ? 'bg-selected text-white' : 'bg-track text-muted')
               }
             >

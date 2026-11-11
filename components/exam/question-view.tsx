@@ -29,6 +29,11 @@ interface Props {
   flag?: { on: boolean; disabled?: boolean; onToggle: () => void };
   /** Javob o'zgartirib bo'lmaydi (mashqda tekshirilgan savol): javob maydonlari bosilmaydi. */
   locked?: boolean;
+  /**
+   * Karta aniq balandlikka ega (imtihon/mashq ekrani): savol matni va javoblar har qanday ekranda (telefon, planshet, kompyuter)
+   * ajratilgan joyga sig'adi, sahifa aylanmaydi. Yo'q bo'lsa (admin ko'rinishi): oddiy oqim, moslash faqat lg+ da.
+   */
+  fit?: boolean;
 }
 
 const asRecord = (v: AnswerValue | undefined): Record<string, string> => (v && typeof v === 'object' ? (v as Record<string, string>) : {});
@@ -39,10 +44,11 @@ const asRecord = (v: AnswerValue | undefined): Record<string, string> => (v && t
  */
 const SIZES = [
   // max: katta ekranda boshlang'ich (eng katta) hajm; FitText ajratilgan joyga sig'maguncha kichraytiradi
-  { cls: 'text-[30px] leading-[40px] lg:text-[48px]', max: 48, center: true },
-  { cls: 'text-[28px] leading-[38px] lg:text-[40px]', max: 40, center: true },
-  { cls: 'text-[26px] leading-[35px] lg:text-[33px]', max: 33, center: false },
-  { cls: 'text-[24px] leading-[33px] lg:text-[28px]', max: 28, center: false },
+  // phone: telefondagi boshlang'ich eng katta hajm (fit rejimi); undan keyin sig'maguncha kichrayadi
+  { cls: 'text-[30px] leading-[40px] lg:text-[48px]', max: 48, phone: 28, center: true },
+  { cls: 'text-[28px] leading-[38px] lg:text-[40px]', max: 40, phone: 25, center: true },
+  { cls: 'text-[26px] leading-[35px] lg:text-[33px]', max: 33, phone: 22, center: false },
+  { cls: 'text-[24px] leading-[33px] lg:text-[28px]', max: 28, phone: 20, center: false },
 ] as const;
 
 export function stemSize(stemMd: string, hasFigure: boolean) {
@@ -51,7 +57,7 @@ export function stemSize(stemMd: string, hasFigure: boolean) {
   return SIZES[Math.min(3, tier + (hasFigure ? 1 : 0))];
 }
 
-export function QuestionView({ item, value, onChange, flag, locked = false }: Props) {
+export function QuestionView({ item, value, onChange, flag, locked = false, fit = false }: Props) {
   const t = useT();
   const { payload } = item;
   const typeLabel = { y1: t('exam.typeY1'), y2: t('exam.typeY2'), o: t('exam.typeO') }[payload.type];
@@ -59,7 +65,7 @@ export function QuestionView({ item, value, onChange, flag, locked = false }: Pr
 
   return (
     // key: savol almashganda ichki holat (masalan Y-2 tanlangan band) qayta boshlanadi
-    <section key={item.questionId} aria-labelledby="question-title" className="flex flex-col gap-4 lg:min-h-0 lg:flex-1">
+    <section key={item.questionId} aria-labelledby="question-title" className={fit ? 'flex min-h-0 flex-1 flex-col gap-3 lg:gap-4' : 'flex flex-col gap-4 lg:min-h-0 lg:flex-1'}>
       <div className="flex items-center gap-2">
         <div className="flex min-w-0 flex-1 flex-wrap items-center gap-2">
           <Chip tone="brand">{t('exam.task', { n: item.position })}</Chip>
@@ -87,20 +93,28 @@ export function QuestionView({ item, value, onChange, flag, locked = false }: Pr
       </div>
 
       {/* Savol: kartaning o'rtasida. Chizma bo'lsa: matn chapda, chizma o'ngda va mavjud balandlikka sig'adi (scrollsiz) */}
-      <div className="flex flex-col lg:min-h-[88px] lg:flex-1">
+      <div className={fit ? 'flex min-h-[64px] flex-1 flex-col lg:min-h-[88px]' : 'flex flex-col lg:min-h-[88px] lg:flex-1'}>
         {payload.data.figure ? (
-          <div className="grid gap-5 py-3 lg:h-full lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)] lg:gap-10 lg:py-0">
+          <div
+            className={
+              fit
+                ? 'grid h-full grid-rows-[minmax(0,1fr)_minmax(0,1fr)] gap-3 sm:grid-cols-2 sm:grid-rows-[minmax(0,1fr)] sm:gap-6 lg:gap-10'
+                : 'grid gap-5 py-3 lg:h-full lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)] lg:gap-10 lg:py-0'
+            }
+          >
             <FitText
               id="question-title"
               contentKey={item.stemMd}
               max={size.max}
+              maxNarrow={size.phone}
+              always={fit}
               className={`font-heading font-semibold text-ink select-none ${size.cls}`}
-              boxClassName="lg:h-full"
+              boxClassName={fit ? 'h-full' : 'lg:h-full'}
             >
               <Markdown>{item.stemMd}</Markdown>
             </FitText>
-            <div className="flex min-h-0 items-center justify-center lg:h-full lg:py-1">
-              <FigureImage figure={payload.data.figure} fill />
+            <div className={fit ? 'flex min-h-0 items-center justify-center py-1' : 'flex min-h-0 items-center justify-center lg:h-full lg:py-1'}>
+              <FigureImage figure={payload.data.figure} fill={fit ? 'always' : true} />
             </div>
           </div>
         ) : (
@@ -108,8 +122,10 @@ export function QuestionView({ item, value, onChange, flag, locked = false }: Pr
             id="question-title"
             contentKey={item.stemMd}
             max={size.max}
+            maxNarrow={size.phone}
+            always={fit}
             className={`mx-auto max-w-[1000px] font-heading font-semibold text-ink select-none ${size.cls} ${size.center ? 'text-center' : ''}`}
-            boxClassName="py-3 lg:h-full lg:py-2"
+            boxClassName={fit ? 'h-full py-1 lg:py-2' : 'py-3 lg:h-full lg:py-2'}
           >
             <Markdown>{item.stemMd}</Markdown>
           </FitText>
@@ -117,7 +133,7 @@ export function QuestionView({ item, value, onChange, flag, locked = false }: Pr
       </div>
 
       {/* Javoblar: karta pastiga mahkamlangan, har savolda bir xil joyda; ajratilgan joyga sig'maguncha kichrayadi (scrollsiz) */}
-      <FitZoom contentKey={item.questionId}>
+      <FitZoom contentKey={item.questionId} always={fit}>
         <div inert={locked} className={locked ? 'opacity-90' : undefined}>
           {payload.type === 'y1' && <AnswerY1 payload={payload.data} value={typeof value === 'string' ? value : undefined} onChange={onChange} />}
           {payload.type === 'y2' && <AnswerY2 payload={payload.data} value={asRecord(value)} onChange={onChange} />}
