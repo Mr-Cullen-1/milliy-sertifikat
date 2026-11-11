@@ -402,6 +402,7 @@ export const en: Dict = {
     correct: 'Correct!',
     wrong: 'Incorrect',
     partial: 'Partly correct',
+    viewAnswer: 'View answer',
     solutionLocked: 'A Pro subscription is needed to see the solution (the first 5 solutions in each practice are free).',
     finishTitle: 'Finish this practice?',
     finishUnanswered: '{n} questions are unanswered',

@@ -39,6 +39,35 @@
       animation: none;
     }
   }
+
+  /* Mashq: tekshirilgan javob oynasi tepadan tushadi (<dialog>); balandligi viewportning 62% i (60-65%), to'liq ekran emas. */
+  .app-sheet-top {
+    margin: 0 auto auto;
+    width: min(100vw, 1100px);
+    max-width: none;
+    height: 62dvh;
+    max-height: none;
+  }
+  .app-sheet-top::backdrop {
+    background: rgba(30, 27, 57, 0.34);
+    backdrop-filter: blur(3px);
+  }
+  .app-sheet-top[open] {
+    animation: sheet-top-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes sheet-top-in {
+    from {
+      transform: translateY(-105%);
+    }
+    to {
+      transform: none;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .app-sheet-top[open] {
+      animation: none;
+    }
+  }
 }
 
 /*

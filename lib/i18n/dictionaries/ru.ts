@@ -402,6 +402,7 @@ export const ru: Dict = {
     correct: 'Верно!',
     wrong: 'Неверно',
     partial: 'Частично верно',
+    viewAnswer: 'Показать ответ',
     solutionLocked: 'Чтобы увидеть решение, нужна подписка Pro (первые 5 решений в каждой практике бесплатны).',
     finishTitle: 'Завершить практику?',
     finishUnanswered: 'Вопросов без ответа: {n}',

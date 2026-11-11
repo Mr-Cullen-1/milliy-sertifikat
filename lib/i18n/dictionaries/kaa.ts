@@ -402,6 +402,7 @@ export const kaa: Dict = {
     correct: 'Durıs!',
     wrong: 'Nadurıs',
     partial: 'Bólekshe durıs',
+    viewAnswer: 'Juwaptı kóriw',
     solutionLocked: 'Sheshimdi kóriw ushın Pro jazılıw kerek (hár jattığıwda dáslepki 5 sheshim biypul).',
     finishTitle: 'Jattığıwdı juwmaqlaymızba?',
     finishUnanswered: '{n} sorawǵa juwap berilmegen',

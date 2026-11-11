@@ -403,6 +403,7 @@ export const uz = {
     correct: "To'g'ri!",
     wrong: "Noto'g'ri",
     partial: "Qisman to'g'ri",
+    viewAnswer: "Javobni ko'rish",
     solutionLocked: "Yechimni ko'rish uchun Pro obuna kerak (har mashqda dastlabki 5 ta yechim bepul).",
     finishTitle: 'Mashqni yakunlaymizmi?',
     finishUnanswered: '{n} ta savolga javob berilmagan',
