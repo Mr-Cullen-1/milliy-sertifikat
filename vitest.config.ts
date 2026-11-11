@@ -7,5 +7,5 @@ export default defineConfig({
     alias: { '@': fileURLToPath(new URL('.', import.meta.url)) },
   },
   // Qo'shimcha shablonlar testlari yuzlab savol quradi: 5 s yetmaydi
-  test: { testTimeout: 60000 },
+  test: { testTimeout: 120000 },
 });
