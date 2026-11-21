@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1026" viewBox="0 0 1440 1026"><defs><style>@font-face{font-family:'Nunito';src:url('../fonts/Nunito.ttf') format('truetype');font-weight:200 1000}@font-face{font-family:'Onest';src:url('../fonts/Onest.ttf') format('truetype');font-weight:100 900}text{font-family:'Nunito',sans-serif}.h{font-family:'Onest','Nunito',sans-serif}</style><filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e1b39" flood-opacity="0.18"/></filter></defs><rect width="1440" height="1026" fill="#f3f1fb"/>
+<rect x="40" y="44" width="43" height="32" rx="16" fill="#fff0e6"/>
+<text x="61.5" y="64.9" font-size="14" font-weight="700" fill="#b03f05" text-anchor="middle">09</text>
+<text x="97.4" y="70" font-size="36" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">Ilova belgisi va splash (taklif)</text>
+<text x="40" y="110" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">Android adaptive icon: 108×108 dp tuval, xavfsiz zona 66 dp. Belgi: oq "π" to'q sariq fonda. Android 13+ uchun bir rangli (themed)</text>
+<text x="40" y="133.2" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">variant.</text>
+<rect x="40" y="150" width="1360" height="836" rx="32" fill="#ffffff" stroke="#d5d1e8" stroke-width="2"/>
+<text x="80" y="200" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Qatlamlar</text>
+<rect x="80" y="220" width="324" height="324" rx="0" fill="#e8590c"/>
+<text x="242" y="570" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="middle">Fon: #E8590C</text>
+<rect x="430" y="220" width="324" height="324" rx="0" fill="#4f4b6b"/>
+<circle cx="592" cy="382" r="99" fill="none" stroke="#ffd2b8" stroke-width="1.5" stroke-dasharray="6 5"/>
+<text x="592" y="456" font-size="190" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="592" y="570" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="middle">Old qatlam (shaffof): oq π, 66 dp xavfsiz zona</text>
+<text x="800" y="200" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Maska shakllari</text>
+<rect x="830" y="240" width="144" height="144" rx="72" fill="#b84306"/>
+<rect x="830" y="240" width="144" height="139" rx="72" fill="#e8590c"/>
+<text x="902" y="340.8" font-size="89.28" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="902" y="412" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="middle">Doira</text>
+<rect x="1020" y="240" width="144" height="144" rx="51.839999999999996" fill="#b84306"/>
+<rect x="1020" y="240" width="144" height="139" rx="51.839999999999996" fill="#e8590c"/>
+<text x="1092" y="340.8" font-size="89.28" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="1092" y="412" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="middle">Squircle</text>
+<rect x="1210" y="240" width="144" height="144" rx="31.68" fill="#b84306"/>
+<rect x="1210" y="240" width="144" height="139" rx="31.68" fill="#e8590c"/>
+<text x="1282" y="340.8" font-size="89.28" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="1282" y="412" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="middle">Yumaloq kvadrat</text>
+<text x="800" y="470" font-size="15" font-weight="800" fill="#4b2fd0" text-anchor="start">Themed (Android 13+, bir rangli)</text>
+<rect x="830" y="490" width="120" height="120" rx="60" fill="#f0ecff"/>
+<text x="890" y="570" font-size="76" font-weight="700" fill="#4b2fd0" text-anchor="middle" class="h">π</text>
+<rect x="990" y="490" width="120" height="120" rx="60" fill="#1e1b39"/>
+<text x="1050" y="570" font-size="76" font-weight="700" fill="#ffd2b8" text-anchor="middle" class="h">π</text>
+<text x="1140" y="516" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">Tizim fon rangini obis tanlaydi;</text>
+<text x="1140" y="532" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">qatlam faqat alfa kanalli, bitta</text>
+<text x="1140" y="548" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">rangda.</text>
+<text x="80" y="660" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Eksport o'lchamlari</text>
+<rect x="80" y="824" width="48" height="48" rx="10.56" fill="#b84306"/>
+<rect x="80" y="824" width="48" height="46" rx="10.56" fill="#e8590c"/>
+<text x="104" y="857.6" font-size="28.799999999999997" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="80" y="896" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">mdpi 48</text>
+<rect x="204" y="800" width="72" height="72" rx="15.84" fill="#b84306"/>
+<rect x="204" y="800" width="72" height="69.12" rx="15.84" fill="#e8590c"/>
+<text x="240" y="850.4" font-size="43.199999999999996" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="204" y="896" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">hdpi 72</text>
+<rect x="328" y="776" width="96" height="96" rx="21.12" fill="#b84306"/>
+<rect x="328" y="776" width="96" height="92.16" rx="21.12" fill="#e8590c"/>
+<text x="376" y="843.2" font-size="57.599999999999994" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="328" y="896" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">xhdpi 96</text>
+<rect x="452" y="728" width="144" height="144" rx="31.68" fill="#b84306"/>
+<rect x="452" y="728" width="144" height="138.24" rx="31.68" fill="#e8590c"/>
+<text x="524" y="828.8" font-size="86.39999999999999" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="452" y="896" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">xxhdpi 144</text>
+<rect x="620" y="680" width="192" height="192" rx="42.24" fill="#b84306"/>
+<rect x="620" y="680" width="192" height="184.32" rx="42.24" fill="#e8590c"/>
+<text x="716" y="814.4" font-size="115.19999999999999" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="620" y="896" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">xxxhdpi 192 (Play: 512)</text>
+<text x="1000" y="660" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Splash (Android 12+)</text>
+<rect x="1000" y="680" width="150" height="266" rx="22" fill="#f3f1fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="1075" cy="790" r="46" fill="#ffffff"/>
+<rect x="1051" y="766" width="48" height="48" rx="13.919999999999998" fill="#b84306"/>
+<rect x="1051" y="766" width="48" height="45" rx="13.919999999999998" fill="#e8590c"/>
+<text x="1075" y="798.4" font-size="28.799999999999997" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="1075" y="910" font-size="12" font-weight="600" fill="#1e1b39" text-anchor="middle" class="h">Milliy sertifikat</text>
+<text x="1170" y="700" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">Fon: page (#F3F1FB).</text>
+<text x="1170" y="716" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">Markazda belgi</text>
+<text x="1170" y="732" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">(animatsiyasiz yoki 400 ms</text>
+<text x="1170" y="748" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">scale). Brend nomi pastda.</text>
+<text x="1170" y="820" font-size="13" font-weight="800" fill="#4b2fd0" text-anchor="start">Bildirishnoma ikonkasi</text>
+<rect x="1170" y="836" width="120" height="40" rx="10" fill="#1e1b39"/>
+<text x="1200" y="864" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" class="h">π</text>
+<text x="1222" y="862" font-size="12" font-weight="700" fill="#a9a5c0" text-anchor="start">24 dp</text>
+</svg>

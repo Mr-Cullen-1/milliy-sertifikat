@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="space_4">4dp</dimen>
+    <dimen name="space_8">8dp</dimen>
+    <dimen name="space_12">12dp</dimen>
+    <dimen name="space_16">16dp</dimen>
+    <dimen name="space_20">20dp</dimen>
+    <dimen name="space_24">24dp</dimen>
+    <dimen name="radius_10">10dp</dimen>
+    <dimen name="radius_12">12dp</dimen>
+    <dimen name="radius_14">14dp</dimen>
+    <dimen name="radius_16">16dp</dimen>
+    <dimen name="radius_20">20dp</dimen>
+    <dimen name="radius_24">24dp</dimen>
+    <dimen name="radius_28">28dp</dimen>
+    <dimen name="radius_pill">999dp</dimen>
+    <dimen name="screen_width">360dp</dimen>
+    <dimen name="screen_height">800dp</dimen>
+    <dimen name="screen_margin">16dp</dimen>
+    <dimen name="status_bar">24dp</dimen>
+    <dimen name="top_bar">56dp</dimen>
+    <dimen name="bottom_nav">80dp</dimen>
+    <dimen name="exam_bottom_bar">84dp</dimen>
+    <dimen name="button_height">56dp</dimen>
+    <dimen name="input_height">56dp</dimen>
+    <dimen name="keypad_key">46dp</dimen>
+    <dimen name="option_min_height">60dp</dimen>
+    <dimen name="option_badge">34dp</dimen>
+    <dimen name="touch_min">48dp</dimen>
+    <dimen name="icon_default">24dp</dimen>
+</resources>

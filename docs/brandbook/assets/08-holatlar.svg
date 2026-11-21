@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1486" viewBox="0 0 1440 1486"><defs><style>@font-face{font-family:'Nunito';src:url('../fonts/Nunito.ttf') format('truetype');font-weight:200 1000}@font-face{font-family:'Onest';src:url('../fonts/Onest.ttf') format('truetype');font-weight:100 900}text{font-family:'Nunito',sans-serif}.h{font-family:'Onest','Nunito',sans-serif}</style><filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e1b39" flood-opacity="0.18"/></filter></defs><rect width="1440" height="1486" fill="#f3f1fb"/>
+<rect x="40" y="44" width="43" height="32" rx="16" fill="#fff0e6"/>
+<text x="61.5" y="64.9" font-size="14" font-weight="700" fill="#b03f05" text-anchor="middle">08</text>
+<text x="97.4" y="70" font-size="36" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">Holatlar (taklif)</text>
+<text x="40" y="110" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">Mashq rejimida javob tekshirilgandan keyingi ko'rinish uch savol turi uchun, shuningdek tizim holatlari. Imtihon rejimida</text>
+<text x="40" y="133.2" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">to'g'ri/noto'g'ri HECH QACHON ko'rsatilmaydi: faqat tanlangan javob (binafsha) ko'rinadi.</text>
+<rect x="40" y="150" width="1360" height="1296" rx="32" fill="#ffffff" stroke="#d5d1e8" stroke-width="2"/>
+<text x="80" y="200" font-size="15" font-weight="800" fill="#4b2fd0" text-anchor="start">Y-1: noto'g'ri tanlandi (mashq)</text>
+<rect x="80" y="216" width="400" height="60" rx="16" fill="#2fa84f"/>
+<rect x="82" y="218" width="396" height="54" rx="14" fill="#e6f7ea"/>
+<circle cx="112" cy="244" r="17" fill="#2fa84f"/>
+<g transform="translate(102 234) scale(0.8333333333333334)" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></g>
+<text x="140" y="251" font-size="16" font-weight="800" fill="#1e1b39" text-anchor="start">16/15</text>
+<text x="466" y="250" font-size="11" font-weight="800" fill="#1c6e33" text-anchor="end">To'g'ri javob</text>
+<rect x="80" y="286" width="400" height="60" rx="16" fill="#d5d1e8"/>
+<rect x="82" y="288" width="396" height="54" rx="14" fill="#ffffff"/>
+<circle cx="112" cy="314" r="17" fill="#eceaf5"/>
+<text x="112" y="320" font-size="16" font-weight="800" fill="#1e1b39" text-anchor="middle">B</text>
+<text x="140" y="321" font-size="16" font-weight="800" fill="#1e1b39" text-anchor="start">3/5</text>
+<rect x="80" y="356" width="400" height="60" rx="16" fill="#d92d3a"/>
+<rect x="82" y="358" width="396" height="54" rx="14" fill="#fde8ea"/>
+<circle cx="112" cy="384" r="17" fill="#d92d3a"/>
+<g transform="translate(102 374) scale(0.8333333333333334)" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></g>
+<text x="140" y="391" font-size="16" font-weight="800" fill="#1e1b39" text-anchor="start">32/15</text>
+<text x="466" y="390" font-size="11" font-weight="800" fill="#cc2a37" text-anchor="end">Sizning javobingiz</text>
+<rect x="80" y="426" width="400" height="60" rx="16" fill="#d5d1e8"/>
+<rect x="82" y="428" width="396" height="54" rx="14" fill="#ffffff"/>
+<circle cx="112" cy="454" r="17" fill="#eceaf5"/>
+<text x="112" y="460" font-size="16" font-weight="800" fill="#1e1b39" text-anchor="middle">D</text>
+<text x="140" y="461" font-size="16" font-weight="800" fill="#1e1b39" text-anchor="start">2</text>
+<rect x="80" y="502" width="400" height="190" rx="24" fill="#fde8ea" stroke="#d92d3a" stroke-width="2"/>
+<g transform="translate(100 522) scale(1)" fill="none" stroke="#d92d3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></g>
+<text x="134" y="542" font-size="20" font-weight="600" fill="#cc2a37" text-anchor="start" class="h">Noto'g'ri</text>
+<text x="100" y="574" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">Suratni suratga, maxrajni maxrajga</text>
+<text x="100" y="594" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">ko'paytiramiz: 4·4 / 5·3 = 16/15.</text>
+<rect x="100" y="626" width="360" height="50" rx="16" fill="#a8202b"/>
+<rect x="100" y="626" width="360" height="45" rx="16" fill="#d92d3a"/>
+<text x="280" y="654.5" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">Keyingi</text>
+<text x="520" y="200" font-size="15" font-weight="800" fill="#4b2fd0" text-anchor="start">Y-2: bandlar (mashq tekshiruvi)</text>
+<rect x="520" y="216" width="400" height="64" rx="16" fill="#2fa84f"/>
+<rect x="522" y="218" width="396" height="58" rx="14" fill="#e6f7ea"/>
+<circle cx="548" cy="245" r="14" fill="#2fa84f"/>
+<text x="548" y="250" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+<text x="574" y="251" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Aylana uzunligi</text>
+<rect x="860" y="228" width="40" height="36" rx="12" fill="#2fa84f"/>
+<text x="880" y="252" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">F</text>
+<rect x="520" y="290" width="400" height="64" rx="16" fill="#d92d3a"/>
+<rect x="522" y="292" width="396" height="58" rx="14" fill="#fde8ea"/>
+<circle cx="548" cy="319" r="14" fill="#d92d3a"/>
+<text x="548" y="324" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+<text x="574" y="325" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Doira yuzi</text>
+<rect x="860" y="302" width="40" height="36" rx="12" fill="#d92d3a"/>
+<text x="880" y="326" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">C</text>
+<text x="574" y="344" font-size="11" font-weight="800" fill="#1c6e33" text-anchor="start">To'g'ri juft: D (81π)</text>
+<rect x="520" y="364" width="400" height="64" rx="16" fill="#2fa84f"/>
+<rect x="522" y="366" width="396" height="58" rx="14" fill="#e6f7ea"/>
+<circle cx="548" cy="393" r="14" fill="#2fa84f"/>
+<text x="548" y="398" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+<text x="574" y="399" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Sektor yuzi</text>
+<rect x="860" y="376" width="40" height="36" rx="12" fill="#2fa84f"/>
+<text x="880" y="400" font-size="15" font-weight="800" fill="#ffffff" text-anchor="middle">C</text>
+<rect x="520" y="444" width="400" height="100" rx="20" fill="#fff6db"/>
+<g transform="translate(536 460) scale(0.8333333333333334)" fill="none" stroke="#b03f05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/><path d="M12 16v-4"/><path d="M12 8h.01"/></g>
+<text x="568" y="474" font-size="13" font-weight="600" fill="#4f4b6b" text-anchor="start">Bitta band xato: Y-2 da ball faqat barcha</text>
+<text x="568" y="492" font-size="13" font-weight="600" fill="#4f4b6b" text-anchor="start">bandlar to'g'ri bo'lsagina beriladi (qisman</text>
+<text x="568" y="510" font-size="13" font-weight="600" fill="#4f4b6b" text-anchor="start">ball yo'q).</text>
+<text x="960" y="200" font-size="15" font-weight="800" fill="#4b2fd0" text-anchor="start">O: ochiq javob (mashq tekshiruvi)</text>
+<circle cx="972" cy="228" r="12" fill="#f0ecff"/>
+<text x="972" y="233" font-size="13" font-weight="800" fill="#4b2fd0" text-anchor="middle">a</text>
+<text x="994" y="233" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Katta ildizni toping.</text>
+<rect x="960" y="244" width="400" height="56" rx="16" fill="#2fa84f"/>
+<rect x="962" y="246" width="396" height="48" rx="14" fill="#e6f7ea"/>
+<text x="976" y="278" font-size="20" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">−5/3</text>
+<g transform="translate(1320 260) scale(1)" fill="none" stroke="#2fa84f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></g>
+<circle cx="972" cy="328" r="12" fill="#f0ecff"/>
+<text x="972" y="333" font-size="13" font-weight="800" fill="#4b2fd0" text-anchor="middle">b</text>
+<text x="994" y="333" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">x₁² + x₂² ni toping.</text>
+<rect x="960" y="344" width="400" height="56" rx="16" fill="#d92d3a"/>
+<rect x="962" y="346" width="396" height="48" rx="14" fill="#fde8ea"/>
+<text x="976" y="378" font-size="20" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">325/35</text>
+<g transform="translate(1320 360) scale(1)" fill="none" stroke="#d92d3a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></g>
+<text x="960" y="422" font-size="14" font-weight="800" fill="#1c6e33" text-anchor="start">To'g'ri javob: 325/36</text>
+<text x="960" y="442" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Qabul qilinadigan shakllar: 325/36, 9.0277…</text>
+<text x="960" y="472" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">Javob raqam sifatida solishtiriladi: 3/4 = 0.75 = 0,75.</text>
+<text x="80" y="800" font-size="20" font-weight="800" fill="#1e1b39" text-anchor="start">Tizim holatlari</text>
+<rect x="80" y="824" width="296" height="330" rx="24" fill="#d5d1e8"/>
+<rect x="82" y="826" width="292" height="324" rx="22" fill="#ffffff"/>
+<text x="100" y="856" font-size="13" font-weight="800" fill="#6f6b8a" text-anchor="start">BO'SH (natijalar yo'q)</text>
+<rect x="188" y="890" width="80" height="80" rx="40" fill="#fff0e6"/>
+<g transform="translate(212 914) scale(1.3333333333333333)" fill="none" stroke="#e8590c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></g>
+<text x="228" y="1010" font-size="18" font-weight="600" fill="#1e1b39" text-anchor="middle" class="h">Hali natija yo'q</text>
+<text x="228" y="1036" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="middle">Birinchi variantni yeching,</text>
+<text x="228" y="1054" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="middle">natijangiz shu yerda chiqadi.</text>
+<rect x="108" y="1084" width="240" height="48" rx="16" fill="#b84306"/>
+<rect x="108" y="1084" width="240" height="43" rx="16" fill="#e8590c"/>
+<text x="228" y="1111.5" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle">Variantlarga o'tish</text>
+<rect x="396" y="824" width="296" height="330" rx="24" fill="#d5d1e8"/>
+<rect x="398" y="826" width="292" height="324" rx="22" fill="#ffffff"/>
+<text x="416" y="856" font-size="13" font-weight="800" fill="#6f6b8a" text-anchor="start">XATO (tarmoq)</text>
+<rect x="504" y="890" width="80" height="80" rx="40" fill="#fde8ea"/>
+<g transform="translate(528 914) scale(1.3333333333333333)" fill="none" stroke="#d92d3a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l20 20"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 4.17-2.65"/><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"/><path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"/><path d="M5 13a10 10 0 0 1 5.24-2.76"/><path d="M12 20h.01"/></g>
+<text x="544" y="1010" font-size="18" font-weight="600" fill="#1e1b39" text-anchor="middle" class="h">Ulanish yo'q</text>
+<text x="544" y="1036" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="middle">Javoblaringiz telefonda</text>
+<text x="544" y="1054" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="middle">saqlandi, internet qaytganda</text>
+<text x="544" y="1072" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="middle">yuboriladi.</text>
+<rect x="424" y="1084" width="240" height="48" rx="16" fill="#d5d1e8"/>
+<rect x="426" y="1086" width="236" height="42" rx="14" fill="#ffffff"/>
+<text x="544" y="1112" font-size="16" font-weight="900" fill="#1e1b39" text-anchor="middle">Qayta urinish</text>
+<rect x="712" y="824" width="296" height="330" rx="24" fill="#d5d1e8"/>
+<rect x="714" y="826" width="292" height="324" rx="22" fill="#ffffff"/>
+<text x="732" y="856" font-size="13" font-weight="800" fill="#6f6b8a" text-anchor="start">OFFLINE BANNER</text>
+<rect x="732" y="880" width="256" height="44" rx="14" fill="#fff6db"/>
+<g transform="translate(744 892) scale(0.8333333333333334)" fill="none" stroke="#b03f05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 2l20 20"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 4.17-2.65"/><path d="M10.66 5c4.01-.36 8.14.9 11.34 3.76"/><path d="M16.85 11.25a10 10 0 0 1 2.22 1.68"/><path d="M5 13a10 10 0 0 1 5.24-2.76"/><path d="M12 20h.01"/></g>
+<text x="772" y="907" font-size="13" font-weight="800" fill="#b03f05" text-anchor="start">Offline. Javoblar saqlanmoqda</text>
+<rect x="732" y="940" width="256" height="44" rx="14" fill="#e6f7ea"/>
+<g transform="translate(744 952) scale(0.8333333333333334)" fill="none" stroke="#1c6e33" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></g>
+<text x="772" y="967" font-size="13" font-weight="800" fill="#1c6e33" text-anchor="start">Yuborildi</text>
+<text x="732" y="1020" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">Banner ekran tepasida, top bar ostida;</text>
+<text x="732" y="1036" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">ulanish tiklanganda 2 soniyadan so'ng</text>
+<text x="732" y="1052" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">yo'qoladi.</text>
+<rect x="1028" y="824" width="296" height="330" rx="24" fill="#d5d1e8"/>
+<rect x="1030" y="826" width="292" height="324" rx="22" fill="#ffffff"/>
+<text x="1048" y="856" font-size="13" font-weight="800" fill="#6f6b8a" text-anchor="start">YUKLANMOQDA (skeleton)</text>
+<rect x="1048" y="870" width="256" height="60" rx="16" fill="#f6f5fb"/>
+<rect x="1060" y="882" width="36" height="36" rx="12" fill="#eceaf5"/>
+<rect x="1108" y="886" width="120" height="10" rx="5" fill="#eceaf5"/>
+<rect x="1108" y="904" width="80" height="8" rx="4" fill="#eceaf5"/>
+<rect x="1048" y="944" width="256" height="60" rx="16" fill="#f6f5fb"/>
+<rect x="1060" y="956" width="36" height="36" rx="12" fill="#eceaf5"/>
+<rect x="1108" y="960" width="120" height="10" rx="5" fill="#eceaf5"/>
+<rect x="1108" y="978" width="80" height="8" rx="4" fill="#eceaf5"/>
+<rect x="1048" y="1018" width="256" height="60" rx="16" fill="#f6f5fb"/>
+<rect x="1060" y="1030" width="36" height="36" rx="12" fill="#eceaf5"/>
+<rect x="1108" y="1034" width="120" height="10" rx="5" fill="#eceaf5"/>
+<rect x="1108" y="1052" width="80" height="8" rx="4" fill="#eceaf5"/>
+<text x="1048" y="1110" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">Skeleton: track rangi, 1.2 s yumshoq</text>
+<text x="1048" y="1126" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">pulsatsiya. Spinner faqat tugma ichida.</text>
+<text x="80" y="1190" font-size="20" font-weight="800" fill="#1e1b39" text-anchor="start">Daraja nishonlari (taklif)</text>
+<rect x="80" y="1214" width="140" height="150" rx="24" fill="#f6f5fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="150" cy="1280" r="38" fill="#c98700"/><circle cx="150" cy="1276" r="38" fill="#f5a400"/>
+<text x="150" y="1289" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">A+</text>
+<text x="150" y="1348" font-size="12" font-weight="800" fill="#6f6b8a" text-anchor="middle">ball 70+</text>
+<rect x="250" y="1214" width="140" height="150" rx="24" fill="#f6f5fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="320" cy="1280" r="38" fill="#c98700"/><circle cx="320" cy="1276" r="38" fill="#f5a400"/>
+<text x="320" y="1289" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">A</text>
+<text x="320" y="1348" font-size="12" font-weight="800" fill="#6f6b8a" text-anchor="middle">ball 65+</text>
+<rect x="420" y="1214" width="140" height="150" rx="24" fill="#f6f5fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="490" cy="1280" r="38" fill="#1c6e33"/><circle cx="490" cy="1276" r="38" fill="#2fa84f"/>
+<text x="490" y="1289" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">B+</text>
+<text x="490" y="1348" font-size="12" font-weight="800" fill="#6f6b8a" text-anchor="middle">ball 60+</text>
+<rect x="590" y="1214" width="140" height="150" rx="24" fill="#f6f5fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="660" cy="1280" r="38" fill="#1c6e33"/><circle cx="660" cy="1276" r="38" fill="#2fa84f"/>
+<text x="660" y="1289" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">B</text>
+<text x="660" y="1348" font-size="12" font-weight="800" fill="#6f6b8a" text-anchor="middle">ball 55+</text>
+<rect x="760" y="1214" width="140" height="150" rx="24" fill="#f6f5fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="830" cy="1280" r="38" fill="#6c47ff"/><circle cx="830" cy="1276" r="38" fill="#4b2fd0"/>
+<text x="830" y="1289" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">C+</text>
+<text x="830" y="1348" font-size="12" font-weight="800" fill="#6f6b8a" text-anchor="middle">ball 50+</text>
+<rect x="930" y="1214" width="140" height="150" rx="24" fill="#f6f5fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="1000" cy="1280" r="38" fill="#6c47ff"/><circle cx="1000" cy="1276" r="38" fill="#4b2fd0"/>
+<text x="1000" y="1289" font-size="28" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">C</text>
+<text x="1000" y="1348" font-size="12" font-weight="800" fill="#6f6b8a" text-anchor="middle">ball 46+</text>
+<rect x="1100" y="1214" width="140" height="150" rx="24" fill="#f6f5fb" stroke="#d5d1e8" stroke-width="2"/>
+<circle cx="1170" cy="1280" r="38" fill="#d5d1e8"/><circle cx="1170" cy="1276" r="38" fill="#eceaf5"/>
+<text x="1170" y="1289" font-size="28" font-weight="600" fill="#6f6b8a" text-anchor="middle" class="h">—</text>
+<text x="1170" y="1348" font-size="12" font-weight="800" fill="#6f6b8a" text-anchor="middle">ball &lt;46</text>
+<text x="80" y="1400" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">Daraja chegaralari (75 ball): A+ 70, A 65, B+ 60, B 55, C+ 50, C 46. Natija doim "taxminiy" belgisi bilan ko'rsatiladi.</text>
+</svg>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Milliy sertifikat: dizayn tokenlari (app/globals.css bilan bir xil) -->
+<resources>
+    <color name="ink">#FF1E1B39</color>
+    <color name="ink_soft">#FF4F4B6B</color>
+    <color name="muted">#FF6F6B8A</color>
+    <color name="faint">#FFA9A5C0</color>
+    <color name="line">#FFD6D2EC</color>
+    <color name="line_strong">#FFD5D1E8</color>
+    <color name="page">#FFF3F1FB</color>
+    <color name="surface">#FFF6F5FB</color>
+    <color name="track">#FFECEAF5</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="brand">#FFE8590C</color>
+    <color name="brand_edge">#FFB84306</color>
+    <color name="brand_current">#FFFA4F28</color>
+    <color name="brand_soft">#FFFFD2B8</color>
+    <color name="brand_tint">#FFFFF0E6</color>
+    <color name="brand_ink">#FFB03F05</color>
+    <color name="accent">#FF4B2FD0</color>
+    <color name="accent_soft">#FFF0ECFF</color>
+    <color name="selected">#FF6C47FF</color>
+    <color name="success">#FF2FA84F</color>
+    <color name="success_soft">#FFE6F7EA</color>
+    <color name="success_line">#FFBFE6C9</color>
+    <color name="success_ink">#FF1C6E33</color>
+    <color name="danger">#FFD92D3A</color>
+    <color name="danger_soft">#FFFDE8EA</color>
+    <color name="gold">#FFF5A400</color>
+    <color name="gold_edge">#FFC98700</color>
+    <color name="warn_soft">#FFFFF6DB</color>
+    <color name="disabled_bg">#FFECEAF4</color>
+    <color name="disabled_edge">#FFDEDBEB</color>
+</resources>

@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1124" viewBox="0 0 1440 1124"><defs><style>@font-face{font-family:'Nunito';src:url('../fonts/Nunito.ttf') format('truetype');font-weight:200 1000}@font-face{font-family:'Onest';src:url('../fonts/Onest.ttf') format('truetype');font-weight:100 900}text{font-family:'Nunito',sans-serif}.h{font-family:'Onest','Nunito',sans-serif}</style><filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e1b39" flood-opacity="0.18"/></filter></defs><rect width="1440" height="1124" fill="#f3f1fb"/>
+<rect x="40" y="44" width="43" height="32" rx="16" fill="#fff0e6"/>
+<text x="61.5" y="64.9" font-size="14" font-weight="700" fill="#b03f05" text-anchor="middle">03</text>
+<text x="97.4" y="70" font-size="36" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">Kontrast (WCAG 2.x)</text>
+<text x="40" y="110" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">AA: oddiy matn uchun 4.5:1, katta matn (24 px yoki 18.7 px qalin) uchun 3:1. Nisbatlar rang qiymatlaridan hisoblangan.</text>
+<rect x="40" y="150" width="1360" height="934" rx="32" fill="#ffffff" stroke="#d5d1e8" stroke-width="2"/>
+<rect x="80" y="190" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="82" y="192" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="94" y="201" width="64" height="52" rx="14" fill="#ffffff" stroke="#d5d1e8" stroke-width="1"/>
+<text x="126" y="235" font-size="20" font-weight="600" fill="#1e1b39" text-anchor="middle" class="h">Aa</text>
+<text x="174" y="220" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Asosiy matn</text>
+<text x="174" y="242" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">ink / white</text>
+<rect x="590.2" y="216" width="106" height="24" rx="12" fill="#e6f7ea"/>
+<text x="643.2" y="232.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">16.52:1 · AAA</text>
+<rect x="740" y="190" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="742" y="192" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="754" y="201" width="64" height="52" rx="14" fill="#ffffff" stroke="#d5d1e8" stroke-width="1"/>
+<text x="786" y="235" font-size="20" font-weight="600" fill="#4f4b6b" text-anchor="middle" class="h">Aa</text>
+<text x="834" y="220" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Ikkilamchi matn</text>
+<text x="834" y="242" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">ink-soft / white</text>
+<rect x="1256.8" y="216" width="99" height="24" rx="12" fill="#e6f7ea"/>
+<text x="1306.3" y="232.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">8.23:1 · AAA</text>
+<rect x="80" y="282" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="82" y="284" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="94" y="293" width="64" height="52" rx="14" fill="#ffffff" stroke="#d5d1e8" stroke-width="1"/>
+<text x="126" y="327" font-size="20" font-weight="600" fill="#6f6b8a" text-anchor="middle" class="h">Aa</text>
+<text x="174" y="312" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Izoh matni</text>
+<text x="174" y="334" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">muted / white</text>
+<rect x="603.4" y="308" width="93" height="24" rx="12" fill="#e6f7ea"/>
+<text x="649.9" y="324.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">5.07:1 · AA</text>
+<rect x="740" y="282" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="742" y="284" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="754" y="293" width="64" height="52" rx="14" fill="#ffffff" stroke="#d5d1e8" stroke-width="1"/>
+<text x="786" y="327" font-size="20" font-weight="600" fill="#a9a5c0" text-anchor="middle" class="h">Aa</text>
+<text x="834" y="312" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Placeholder</text>
+<text x="834" y="334" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">faint / white</text>
+<rect x="1223.8" y="308" width="132" height="24" rx="12" fill="#fde8ea"/>
+<text x="1289.8" y="324.2" font-size="12" font-weight="700" fill="#d92d3a" text-anchor="middle">2.38:1 · o'tmaydi</text>
+<rect x="80" y="374" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="82" y="376" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="94" y="385" width="64" height="52" rx="14" fill="#e8590c" stroke="#d5d1e8" stroke-width="1"/>
+<text x="126" y="419" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">Aa</text>
+<text x="174" y="404" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Tugma matni (Button 16 Black)</text>
+<text x="174" y="426" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">white / brand</text>
+<rect x="511" y="400" width="185" height="24" rx="12" fill="#fff6db"/>
+<text x="603.5" y="416.2" font-size="12" font-weight="700" fill="#b03f05" text-anchor="middle">3.58:1 · faqat katta matn</text>
+<rect x="740" y="374" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="742" y="376" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="754" y="385" width="64" height="52" rx="14" fill="#fff0e6" stroke="#d5d1e8" stroke-width="1"/>
+<text x="786" y="419" font-size="20" font-weight="600" fill="#b03f05" text-anchor="middle" class="h">Aa</text>
+<text x="834" y="404" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">To'q sariq chip</text>
+<text x="834" y="426" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">brand-ink / brand-tint</text>
+<rect x="1263.4" y="400" width="93" height="24" rx="12" fill="#e6f7ea"/>
+<text x="1309.9" y="416.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">5.30:1 · AA</text>
+<rect x="80" y="466" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="82" y="468" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="94" y="477" width="64" height="52" rx="14" fill="#fff6db" stroke="#d5d1e8" stroke-width="1"/>
+<text x="126" y="511" font-size="20" font-weight="600" fill="#b03f05" text-anchor="middle" class="h">Aa</text>
+<text x="174" y="496" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Ogohlantirish</text>
+<text x="174" y="518" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">brand-ink / warn-soft</text>
+<rect x="603.4" y="492" width="93" height="24" rx="12" fill="#e6f7ea"/>
+<text x="649.9" y="508.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">5.47:1 · AA</text>
+<rect x="740" y="466" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="742" y="468" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="754" y="477" width="64" height="52" rx="14" fill="#f0ecff" stroke="#d5d1e8" stroke-width="1"/>
+<text x="786" y="511" font-size="20" font-weight="600" fill="#4b2fd0" text-anchor="middle" class="h">Aa</text>
+<text x="834" y="496" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Binafsha chip</text>
+<text x="834" y="518" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">accent / accent-soft</text>
+<rect x="1263.4" y="492" width="93" height="24" rx="12" fill="#e6f7ea"/>
+<text x="1309.9" y="508.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">6.94:1 · AA</text>
+<rect x="80" y="558" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="82" y="560" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="94" y="569" width="64" height="52" rx="14" fill="#e6f7ea" stroke="#d5d1e8" stroke-width="1"/>
+<text x="126" y="603" font-size="20" font-weight="600" fill="#1c6e33" text-anchor="middle" class="h">Aa</text>
+<text x="174" y="588" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Yashil chip</text>
+<text x="174" y="610" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">success-ink / success-soft</text>
+<rect x="603.4" y="584" width="93" height="24" rx="12" fill="#e6f7ea"/>
+<text x="649.9" y="600.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">5.67:1 · AA</text>
+<rect x="740" y="558" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="742" y="560" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="754" y="569" width="64" height="52" rx="14" fill="#2fa84f" stroke="#d5d1e8" stroke-width="1"/>
+<text x="786" y="603" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">Aa</text>
+<text x="834" y="588" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Yashil nishon</text>
+<text x="834" y="610" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">white / success</text>
+<rect x="1171" y="584" width="185" height="24" rx="12" fill="#fff6db"/>
+<text x="1263.5" y="600.2" font-size="12" font-weight="700" fill="#b03f05" text-anchor="middle">3.07:1 · faqat katta matn</text>
+<rect x="80" y="650" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="82" y="652" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="94" y="661" width="64" height="52" rx="14" fill="#fde8ea" stroke="#d5d1e8" stroke-width="1"/>
+<text x="126" y="695" font-size="20" font-weight="600" fill="#d92d3a" text-anchor="middle" class="h">Aa</text>
+<text x="174" y="680" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Xato matni</text>
+<text x="174" y="702" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">danger / danger-soft</text>
+<rect x="511" y="676" width="185" height="24" rx="12" fill="#fff6db"/>
+<text x="603.5" y="692.2" font-size="12" font-weight="700" fill="#b03f05" text-anchor="middle">4.08:1 · faqat katta matn</text>
+<rect x="740" y="650" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="742" y="652" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="754" y="661" width="64" height="52" rx="14" fill="#d92d3a" stroke="#d5d1e8" stroke-width="1"/>
+<text x="786" y="695" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">Aa</text>
+<text x="834" y="680" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Xato nishoni</text>
+<text x="834" y="702" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">white / danger</text>
+<rect x="1263.4" y="676" width="93" height="24" rx="12" fill="#e6f7ea"/>
+<text x="1309.9" y="692.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">4.79:1 · AA</text>
+<rect x="80" y="742" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="82" y="744" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="94" y="753" width="64" height="52" rx="14" fill="#6c47ff" stroke="#d5d1e8" stroke-width="1"/>
+<text x="126" y="787" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">Aa</text>
+<text x="174" y="772" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Tanlangan harf nishoni</text>
+<text x="174" y="794" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">white / selected</text>
+<rect x="603.4" y="768" width="93" height="24" rx="12" fill="#e6f7ea"/>
+<text x="649.9" y="784.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">5.27:1 · AA</text>
+<rect x="740" y="742" width="640" height="78" rx="18" fill="#d5d1e8"/>
+<rect x="742" y="744" width="636" height="73" rx="16" fill="#ffffff"/>
+<rect x="754" y="753" width="64" height="52" rx="14" fill="#4b2fd0" stroke="#d5d1e8" stroke-width="1"/>
+<text x="786" y="787" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" class="h">Aa</text>
+<text x="834" y="772" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="start">Binafsha tugma</text>
+<text x="834" y="794" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">white / accent</text>
+<rect x="1256.8" y="768" width="99" height="24" rx="12" fill="#e6f7ea"/>
+<text x="1306.3" y="784.2" font-size="12" font-weight="700" fill="#1c6e33" text-anchor="middle">8.03:1 · AAA</text>
+<rect x="80" y="854" width="1240" height="190" rx="20" fill="#fff6db" stroke="#ffd2b8" stroke-width="2"/>
+<text x="110" y="890" font-size="18" font-weight="800" fill="#b03f05" text-anchor="start">Topilmalar va takliflar</text>
+<text x="110" y="918" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">1) Tugmadagi oq matn #E8590C fonida 3.58:1: faqat katta matn sifatida o'tadi, 16 px Button uchun AA emas. Variantlar: matnni 18.7 px+ Black qiling yoki</text>
+<text x="110" y="938" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">tugma fonini #CC4E0B gacha to'qlashtiring.</text>
+<text x="110" y="962" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">2) faint (#A9A5C0) oq fonda 2.38:1: faqat o'chirilgan holat va dekor uchun. Placeholder uchun #777487 ishlating.</text>
+<text x="110" y="986" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">3) Oq belgi yashil nishonda 3.07:1: belgini qalin 18 px+ qiling yoki yashilni #268740 ga to'qlashtiring.</text>
+<text x="110" y="1010" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">4) Xato matni danger-soft fonda 4.08:1: matn rangini #CC2A37 ga to'qlashtiring.</text>
+</svg>

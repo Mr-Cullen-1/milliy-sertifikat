@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1008" viewBox="0 0 1440 1008"><defs><style>@font-face{font-family:'Nunito';src:url('../fonts/Nunito.ttf') format('truetype');font-weight:200 1000}@font-face{font-family:'Onest';src:url('../fonts/Onest.ttf') format('truetype');font-weight:100 900}text{font-family:'Nunito',sans-serif}.h{font-family:'Onest','Nunito',sans-serif}</style><filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e1b39" flood-opacity="0.18"/></filter></defs><rect width="1440" height="1008" fill="#f3f1fb"/>
+<rect x="40" y="44" width="43" height="32" rx="16" fill="#fff0e6"/>
+<text x="61.5" y="64.9" font-size="14" font-weight="700" fill="#b03f05" text-anchor="middle">10</text>
+<text x="97.4" y="70" font-size="36" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">Ekranlar xaritasi</text>
+<text x="40" y="110" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">Figma faylidagi 17 ekranning o'zaro bog'lanishi. Pastki navigatsiya 5 tab: Bosh sahifa, Imtihon, Mashq, Natijalar, Yana. Kirish yo'q:</text>
+<text x="40" y="133.2" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">ism/telefon/sinf bilan jim "mehmon" hisob.</text>
+<rect x="40" y="150" width="1360" height="818" rx="32" fill="#ffffff" stroke="#d5d1e8" stroke-width="2"/>
+<rect x="80" y="312" width="160" height="64" rx="16" fill="#e8590c"/>
+<rect x="82" y="314" width="156" height="59" rx="14" fill="#fff0e6"/>
+<text x="94" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">01 Boshlang'ich</text>
+<text x="94" y="360" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Boshlash</text>
+<rect x="80" y="404" width="160" height="64" rx="16" fill="#d5d1e8"/>
+<rect x="82" y="406" width="156" height="59" rx="14" fill="#ffffff"/>
+<text x="94" y="432" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">02 Forma</text>
+<text x="94" y="452" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Ism, telefon, sinf</text>
+<rect x="80" y="496" width="160" height="64" rx="16" fill="#e8590c"/>
+<rect x="82" y="498" width="156" height="59" rx="14" fill="#fff0e6"/>
+<text x="94" y="524" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">03 Bosh sahifa</text>
+<text x="94" y="544" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Hub</text>
+<rect x="330" y="220" width="160" height="64" rx="16" fill="#6c47ff"/>
+<rect x="332" y="222" width="156" height="59" rx="14" fill="#f0ecff"/>
+<text x="344" y="248" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">04 Imtihonlar</text>
+<text x="344" y="268" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Imtihon tabi</text>
+<rect x="330" y="404" width="160" height="64" rx="16" fill="#6c47ff"/>
+<rect x="332" y="406" width="156" height="59" rx="14" fill="#f0ecff"/>
+<text x="344" y="432" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">15 Mashq</text>
+<text x="344" y="452" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Mashq tabi</text>
+<rect x="330" y="588" width="160" height="64" rx="16" fill="#6c47ff"/>
+<rect x="332" y="590" width="156" height="59" rx="14" fill="#f0ecff"/>
+<text x="344" y="616" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">13 Natijalar</text>
+<text x="344" y="636" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Natijalar tabi</text>
+<rect x="330" y="772" width="160" height="64" rx="16" fill="#6c47ff"/>
+<rect x="332" y="774" width="156" height="59" rx="14" fill="#f0ecff"/>
+<text x="344" y="800" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">17 Yana</text>
+<text x="344" y="820" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Yana tabi</text>
+<rect x="550" y="220" width="160" height="64" rx="16" fill="#d5d1e8"/>
+<rect x="552" y="222" width="156" height="59" rx="14" fill="#ffffff"/>
+<text x="564" y="248" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">05 Tafsilot</text>
+<text x="564" y="268" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Qoidalar, boshlash</text>
+<rect x="770" y="220" width="160" height="64" rx="16" fill="#f5a400"/>
+<rect x="772" y="222" width="156" height="59" rx="14" fill="#fff6db"/>
+<text x="784" y="248" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">06 Y-1</text>
+<text x="784" y="268" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Yopiq savol</text>
+<rect x="770" y="312" width="160" height="64" rx="16" fill="#f5a400"/>
+<rect x="772" y="314" width="156" height="59" rx="14" fill="#fff6db"/>
+<text x="784" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">07 Y-2</text>
+<text x="784" y="360" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Moslashtirish</text>
+<rect x="770" y="404" width="160" height="64" rx="16" fill="#f5a400"/>
+<rect x="772" y="406" width="156" height="59" rx="14" fill="#fff6db"/>
+<text x="784" y="432" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">08 O</text>
+<text x="784" y="452" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Ochiq javob</text>
+<rect x="990" y="312" width="160" height="64" rx="16" fill="#d5d1e8"/>
+<rect x="992" y="314" width="156" height="59" rx="14" fill="#ffffff"/>
+<text x="1004" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">09 Panel</text>
+<text x="1004" y="360" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Savollar, sheet</text>
+<rect x="1200" y="312" width="160" height="64" rx="16" fill="#d5d1e8"/>
+<rect x="1202" y="314" width="156" height="59" rx="14" fill="#ffffff"/>
+<text x="1214" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">10 Tasdiqlash</text>
+<text x="1214" y="360" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Dialog</text>
+<rect x="1200" y="496" width="160" height="64" rx="16" fill="#2fa84f"/>
+<rect x="1202" y="498" width="156" height="59" rx="14" fill="#e6f7ea"/>
+<text x="1214" y="524" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">11 Natija</text>
+<text x="1214" y="544" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Taxminiy ball</text>
+<rect x="1200" y="680" width="160" height="64" rx="16" fill="#2fa84f"/>
+<rect x="1202" y="682" width="156" height="59" rx="14" fill="#e6f7ea"/>
+<text x="1214" y="708" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">12 Tahlil</text>
+<text x="1214" y="728" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Bloklar bo'yicha</text>
+<rect x="550" y="772" width="160" height="64" rx="16" fill="#d5d1e8"/>
+<rect x="552" y="774" width="156" height="59" rx="14" fill="#ffffff"/>
+<text x="564" y="800" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">14 Xatolar daftari</text>
+<text x="564" y="820" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Yana ichida</text>
+<rect x="550" y="864" width="160" height="64" rx="16" fill="#d5d1e8"/>
+<rect x="552" y="866" width="156" height="59" rx="14" fill="#ffffff"/>
+<text x="564" y="892" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">16 DTM kalkulyator</text>
+<text x="564" y="912" font-size="11" font-weight="700" fill="#6f6b8a" text-anchor="start">Yana ichida</text>
+<path d="M160 376 L160 404" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M155.20574461395796 395.22417438109625 L160 404 L164.79425538604204 395.22417438109625" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160 468 L160 496" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M155.20574461395796 487.22417438109625 L160 496 L164.79425538604204 487.22417438109625" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240 528 L285 528 L285 252 L330 252" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M321.22417438109625 256.79425538604204 L330 252 L321.22417438109625 247.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240 528 L285 528 L285 436 L330 436" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M321.22417438109625 440.79425538604204 L330 436 L321.22417438109625 431.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240 528 L285 528 L285 620 L330 620" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M321.22417438109625 624.794255386042 L330 620 L321.22417438109625 615.205744613958" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240 528 L285 528 L285 804 L330 804" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M321.22417438109625 808.794255386042 L330 804 L321.22417438109625 799.205744613958" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M490 252 L550 252" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M541.2241743810963 256.79425538604204 L550 252 L541.2241743810963 247.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M710 252 L740 252 L740 252 L770 252" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M761.2241743810963 256.79425538604204 L770 252 L761.2241743810963 247.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M710 252 L740 252 L740 344 L770 344" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M761.2241743810963 348.79425538604204 L770 344 L761.2241743810963 339.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M710 252 L740 252 L740 436 L770 436" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M761.2241743810963 440.79425538604204 L770 436 L761.2241743810963 431.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M930 252 L960 252 L960 344 L990 344" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M981.2241743810963 348.79425538604204 L990 344 L981.2241743810963 339.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M930 344 L960 344 L960 344 L990 344" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M981.2241743810963 348.79425538604204 L990 344 L981.2241743810963 339.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M930 436 L960 436 L960 344 L990 344" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M981.2241743810963 348.79425538604204 L990 344 L981.2241743810963 339.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1150 344 L1200 344" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M1191.2241743810962 348.79425538604204 L1200 344 L1191.2241743810962 339.20574461395796" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1280 376 L1280 496" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M1275.205744613958 487.22417438109625 L1280 496 L1284.794255386042 487.22417438109625" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1280 560 L1280 680" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M1275.205744613958 671.2241743810963 L1280 680 L1284.794255386042 671.2241743810963" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M490 620 L1170 620 L1170 528 L1200 528" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/><path d="M1191.2241743810962 532.794255386042 L1200 528 L1191.2241743810962 523.205744613958" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M490 804 L550 804" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M541.2241743810963 808.794255386042 L550 804 L541.2241743810963 799.205744613958" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M490 804 L520 804 L520 896 L550 896" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round"/><path d="M541.2241743810963 900.794255386042 L550 896 L541.2241743810963 891.205744613958" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1280 744 L1280 804 L710 804" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linejoin="round" stroke-dasharray="6 5"/><path d="M718.7758256189037 799.205744613958 L710 804 L718.7758256189037 808.794255386042" fill="none" stroke="#4f4b6b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="80" y="190" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">Qattiq chiziq: asosiy yo'l · uzilgan: ikkilamchi yo'l</text>
+</svg>

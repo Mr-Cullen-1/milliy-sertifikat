@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1348" viewBox="0 0 1440 1348"><defs><style>@font-face{font-family:'Nunito';src:url('../fonts/Nunito.ttf') format('truetype');font-weight:200 1000}@font-face{font-family:'Onest';src:url('../fonts/Onest.ttf') format('truetype');font-weight:100 900}text{font-family:'Nunito',sans-serif}.h{font-family:'Onest','Nunito',sans-serif}</style><filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e1b39" flood-opacity="0.18"/></filter></defs><rect width="1440" height="1348" fill="#f3f1fb"/>
+<rect x="40" y="44" width="43" height="32" rx="16" fill="#fff0e6"/>
+<text x="61.5" y="64.9" font-size="14" font-weight="700" fill="#b03f05" text-anchor="middle">05</text>
+<text x="97.4" y="70" font-size="36" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">O'lchamlar va shakl</text>
+<text x="40" y="110" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">Android (dp): ekran 360×800, 4 dp qadam. Touch maydoni kamida 48×48 dp.</text>
+<rect x="40" y="150" width="1360" height="1158" rx="32" fill="#ffffff" stroke="#d5d1e8" stroke-width="2"/>
+<text x="80" y="200" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Ekran anatomiyasi (0.5×)</text>
+<rect x="80" y="218" width="184" height="226" rx="14" fill="#d5d1e8"/>
+<rect x="82" y="220" width="180" height="12" rx="0" fill="#eceaf5"/>
+<text x="172" y="230" font-size="10.5" font-weight="700" fill="#4f4b6b" text-anchor="middle">Status bar · 24</text>
+<rect x="82" y="232" width="180" height="28" rx="0" fill="#f0ecff"/>
+<text x="172" y="250" font-size="10.5" font-weight="700" fill="#4f4b6b" text-anchor="middle">Top bar · 56</text>
+<rect x="82" y="260" width="180" height="100" rx="0" fill="#f6f5fb"/>
+<text x="172" y="314" font-size="10.5" font-weight="700" fill="#4f4b6b" text-anchor="middle">Kontent · 200</text>
+<rect x="82" y="360" width="180" height="42" rx="0" fill="#fff0e6"/>
+<text x="172" y="385" font-size="10.5" font-weight="700" fill="#4f4b6b" text-anchor="middle">Imtihon bottom bar · 84</text>
+<rect x="82" y="402" width="180" height="40" rx="0" fill="#ffd2b8"/>
+<text x="172" y="426" font-size="10.5" font-weight="700" fill="#4f4b6b" text-anchor="middle">Bottom nav · 80</text>
+<text x="330" y="200" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Metrikalar</text>
+<text x="344" y="242" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Ekran</text>
+<text x="600" y="242" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">360 × 800 dp</text>
+<text x="810" y="242" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Asosiy kadr</text>
+<rect x="330" y="254" width="1030" height="34" rx="8" fill="#f6f5fb"/>
+<text x="344" y="276" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Gorizontal chekka</text>
+<text x="600" y="276" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">16 dp</text>
+<text x="810" y="276" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Kontent chetidan</text>
+<text x="344" y="310" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Kartalar orasi</text>
+<text x="600" y="310" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">12–16 dp</text>
+<text x="810" y="310" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Vertikal ritm</text>
+<rect x="330" y="322" width="1030" height="34" rx="8" fill="#f6f5fb"/>
+<text x="344" y="344" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Karta ichki bo'shlig'i</text>
+<text x="600" y="344" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">16 dp (ixcham: 12)</text>
+<text x="810" y="344" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Padding</text>
+<text x="344" y="378" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Status bar</text>
+<text x="600" y="378" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">24 dp</text>
+<text x="810" y="378" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Tizim</text>
+<rect x="330" y="390" width="1030" height="34" rx="8" fill="#f6f5fb"/>
+<text x="344" y="412" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Top bar</text>
+<text x="600" y="412" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">56 dp</text>
+<text x="810" y="412" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Markazlashgan sarlavha</text>
+<text x="344" y="446" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Bottom nav</text>
+<text x="600" y="446" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">80 dp</text>
+<text x="810" y="446" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">5 tab, faol "tabletka" 64×32</text>
+<rect x="330" y="458" width="1030" height="34" rx="8" fill="#f6f5fb"/>
+<text x="344" y="480" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Imtihon pastki paneli</text>
+<text x="600" y="480" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">84 dp</text>
+<text x="810" y="480" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Oldingi / Savollar / Keyingi</text>
+<text x="344" y="514" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Tugma balandligi</text>
+<text x="600" y="514" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">56 dp</text>
+<text x="810" y="514" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Primary va Secondary</text>
+<rect x="330" y="526" width="1030" height="34" rx="8" fill="#f6f5fb"/>
+<text x="344" y="548" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Kiritish maydoni</text>
+<text x="600" y="548" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">52–56 dp</text>
+<text x="810" y="548" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Raqamli klaviatura tugmasi 46 dp</text>
+<text x="344" y="582" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Variant kartasi</text>
+<text x="600" y="582" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">≥ 60 dp</text>
+<text x="810" y="582" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Harf nishoni 34 dp</text>
+<rect x="330" y="594" width="1030" height="34" rx="8" fill="#f6f5fb"/>
+<text x="344" y="616" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">Touch maydon</text>
+<text x="600" y="616" font-size="14" font-weight="800" fill="#b03f05" text-anchor="start">≥ 48 dp</text>
+<text x="810" y="616" font-size="13" font-weight="600" fill="#6f6b8a" text-anchor="start">Ikonka tugmalari 44–48</text>
+<text x="80" y="670" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Bo'shliq shkalasi</text>
+<rect x="80" y="736" width="4" height="4" rx="3" fill="#e8590c"/>
+<text x="80" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">4</text>
+<rect x="150" y="732" width="8" height="8" rx="3" fill="#e8590c"/>
+<text x="150" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">8</text>
+<rect x="220" y="728" width="12" height="12" rx="3" fill="#e8590c"/>
+<text x="220" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">12</text>
+<rect x="290" y="724" width="16" height="16" rx="3" fill="#e8590c"/>
+<text x="290" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">16</text>
+<rect x="360" y="720" width="20" height="20" rx="3" fill="#e8590c"/>
+<text x="360" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">20</text>
+<rect x="430" y="716" width="24" height="24" rx="3" fill="#e8590c"/>
+<text x="430" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">24</text>
+<rect x="500" y="708" width="32" height="32" rx="3" fill="#ffd2b8"/>
+<text x="500" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">32</text>
+<text x="500" y="784" font-size="10" font-weight="700" fill="#6f6b8a" text-anchor="start">taklif</text>
+<rect x="570" y="692" width="48" height="48" rx="3" fill="#ffd2b8"/>
+<text x="570" y="766" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">48</text>
+<text x="570" y="784" font-size="10" font-weight="700" fill="#6f6b8a" text-anchor="start">taklif</text>
+<text x="80" y="830" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Burchak radiusi</text>
+<rect x="80" y="850" width="140" height="84" rx="10" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="80" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">radius/10</text>
+<text x="80" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Klaviatura tugmasi</text>
+<rect x="238" y="850" width="140" height="84" rx="12" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="238" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">radius/12</text>
+<text x="238" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Segment, kichik maydon</text>
+<rect x="396" y="850" width="140" height="84" rx="14" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="396" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">radius/14</text>
+<text x="396" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Ikonka tile</text>
+<rect x="554" y="850" width="140" height="84" rx="16" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="554" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">radius/16</text>
+<text x="554" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Tugma, kiritish,</text>
+<text x="554" y="992" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">variant</text>
+<rect x="712" y="850" width="140" height="84" rx="20" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="712" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">radius/20</text>
+<text x="712" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Karta</text>
+<rect x="870" y="850" width="140" height="84" rx="24" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="870" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">radius/24</text>
+<text x="870" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Katta karta</text>
+<rect x="1028" y="850" width="140" height="84" rx="28" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="1028" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">radius/28</text>
+<text x="1028" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Dialog, bottom sheet</text>
+<rect x="1186" y="850" width="140" height="84" rx="42" fill="#fff0e6" stroke="#e8590c" stroke-width="2"/>
+<text x="1186" y="960" font-size="13" font-weight="800" fill="#1e1b39" text-anchor="start">999 (pill)</text>
+<text x="1186" y="978" font-size="11" font-weight="600" fill="#6f6b8a" text-anchor="start">Chip, pill</text>
+<text x="80" y="1050" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Chegara: "bosiladigan" qirra</text>
+<rect x="80" y="1074" width="160" height="84" rx="16" fill="#d5d1e8"/>
+<rect x="82" y="1076" width="156" height="78" rx="14" fill="#ffffff"/>
+<text x="80" y="1180" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="start">Karta: 2 + 4 px</text>
+<rect x="270" y="1074" width="160" height="84" rx="16" fill="#b84306"/>
+<rect x="270" y="1074" width="160" height="79" rx="16" fill="#e8590c"/>
+<text x="350" y="1119.5" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle"></text>
+<text x="270" y="1180" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="start">Tugma: pastki 5 px</text>
+<rect x="460" y="1074" width="160" height="84" rx="16" fill="#6c47ff"/>
+<rect x="462" y="1076" width="156" height="78" rx="14" fill="#f0ecff"/>
+<text x="460" y="1180" font-size="13" font-weight="700" fill="#6f6b8a" text-anchor="start">Tanlangan: 2 + 4 px</text>
+<text x="680" y="1094" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">Chegara doim ichkarida (inside). Faqat</text>
+<text x="680" y="1114" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">pastki qirra qalinroq: tugma bosilganda 4–5</text>
+<text x="680" y="1134" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">px pastga "cho'kadi" (pressed holat: qirra</text>
+<text x="680" y="1154" font-size="14" font-weight="600" fill="#4f4b6b" text-anchor="start">1 px, kontent 4 px pastga).</text>
+<text x="1060" y="1050" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Soya: Shadow/Card</text>
+<rect x="1040" y="1070" width="290" height="150" rx="16" fill="#f3f1fb"/>
+<g filter="url(#shadow)"><rect x="1080" y="1100" width="210" height="90" rx="20" fill="#fff"/></g>
+<rect x="1080" y="1100" width="210" height="90" rx="20" fill="none" stroke="#d5d1e8" stroke-width="2"/>
+<text x="1185" y="1152" font-size="15" font-weight="800" fill="#1e1b39" text-anchor="middle">Karta</text>
+<text x="1040" y="1246" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">0 / 8 / blur 20, spread −10, ink 18%. Faqat</text>
+<text x="1040" y="1262" font-size="12" font-weight="600" fill="#6f6b8a" text-anchor="start">suzuvchi elementlar uchun.</text>
+</svg>

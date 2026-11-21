@@ -1,0 +1,237 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1562" viewBox="0 0 1440 1562"><defs><style>@font-face{font-family:'Nunito';src:url('../fonts/Nunito.ttf') format('truetype');font-weight:200 1000}@font-face{font-family:'Onest';src:url('../fonts/Onest.ttf') format('truetype');font-weight:100 900}text{font-family:'Nunito',sans-serif}.h{font-family:'Onest','Nunito',sans-serif}</style><filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e1b39" flood-opacity="0.18"/></filter></defs><rect width="1440" height="1562" fill="#f3f1fb"/>
+<rect x="40" y="44" width="43" height="32" rx="16" fill="#fff0e6"/>
+<text x="61.5" y="64.9" font-size="14" font-weight="700" fill="#b03f05" text-anchor="middle">02</text>
+<text x="97.4" y="70" font-size="36" font-weight="600" fill="#1e1b39" text-anchor="start" class="h">Ranglar</text>
+<text x="40" y="110" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">Barcha ranglar app/globals.css dagi --color-* tokenlari bilan bir xil nom va qiymatda. Android uchun tokens/colors.xml va Color.kt</text>
+<text x="40" y="133.2" font-size="16" font-weight="600" fill="#6f6b8a" text-anchor="start">fayllari berilgan.</text>
+<rect x="40" y="150" width="1360" height="1372" rx="32" fill="#ffffff" stroke="#d5d1e8" stroke-width="2"/>
+<text x="80" y="208" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Brend (to'q sariq)</text>
+<rect x="80" y="226" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="82" y="228" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpbrand18"><rect x="80" y="226" width="200" height="84" rx="20"/></clipPath>
+<rect x="80" y="226" width="200" height="94" fill="#e8590c" clip-path="url(#cpbrand18)"/>
+<text x="94" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">brand</text>
+<text x="94" y="358" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#E8590C</text>
+<text x="94" y="374" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Asosiy tugma, faol tab,</text>
+<text x="94" y="387" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">to'ldirilgan progress</text>
+<rect x="293" y="226" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="295" y="228" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpbrand-edge18"><rect x="293" y="226" width="200" height="84" rx="20"/></clipPath>
+<rect x="293" y="226" width="200" height="94" fill="#b84306" clip-path="url(#cpbrand-edge18)"/>
+<text x="307" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">brand-edge</text>
+<text x="307" y="358" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#B84306</text>
+<text x="307" y="374" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Tugmaning pastki 3D qirrasi</text>
+<rect x="506" y="226" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="508" y="228" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpbrand-current18"><rect x="506" y="226" width="200" height="84" rx="20"/></clipPath>
+<rect x="506" y="226" width="200" height="94" fill="#fa4f28" clip-path="url(#cpbrand-current18)"/>
+<text x="520" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">brand-current</text>
+<text x="520" y="358" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#FA4F28</text>
+<text x="520" y="374" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Joriy savol segmenti</text>
+<rect x="719" y="226" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="721" y="228" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpbrand-soft18"><rect x="719" y="226" width="200" height="84" rx="20"/></clipPath>
+<rect x="719" y="226" width="200" height="94" fill="#ffd2b8" clip-path="url(#cpbrand-soft18)"/>
+<text x="733" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">brand-soft</text>
+<text x="733" y="358" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#FFD2B8</text>
+<text x="733" y="374" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Yumshoq urg'u: grafik ustun,</text>
+<text x="733" y="387" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">chegara</text>
+<rect x="932" y="226" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="934" y="228" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpbrand-tint18"><rect x="932" y="226" width="200" height="84" rx="20"/></clipPath>
+<rect x="932" y="226" width="200" height="94" fill="#fff0e6" clip-path="url(#cpbrand-tint18)"/>
+<rect x="934" y="316" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="946" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">brand-tint</text>
+<text x="946" y="358" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#FFF0E6</text>
+<text x="946" y="374" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Chip va izoh foni</text>
+<rect x="1145" y="226" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="1147" y="228" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpbrand-ink18"><rect x="1145" y="226" width="200" height="84" rx="20"/></clipPath>
+<rect x="1145" y="226" width="200" height="94" fill="#b03f05" clip-path="url(#cpbrand-ink18)"/>
+<text x="1159" y="340" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">brand-ink</text>
+<text x="1159" y="358" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#B03F05</text>
+<text x="1159" y="374" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">To'q sariq fondagi matn</text>
+<text x="80" y="440" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Aksent (binafsha)</text>
+<rect x="80" y="458" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="82" y="460" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpaccent17"><rect x="80" y="458" width="200" height="84" rx="20"/></clipPath>
+<rect x="80" y="458" width="200" height="94" fill="#4b2fd0" clip-path="url(#cpaccent17)"/>
+<text x="94" y="572" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">accent</text>
+<text x="94" y="590" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#4B2FD0</text>
+<text x="94" y="606" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Havola, chip matni, ikkilamchi</text>
+<text x="94" y="619" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">urg'u</text>
+<rect x="293" y="458" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="295" y="460" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpaccent-soft17"><rect x="293" y="458" width="200" height="84" rx="20"/></clipPath>
+<rect x="293" y="458" width="200" height="94" fill="#f0ecff" clip-path="url(#cpaccent-soft17)"/>
+<rect x="295" y="548" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="307" y="572" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">accent-soft</text>
+<text x="307" y="590" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#F0ECFF</text>
+<text x="307" y="606" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Chip va tanlangan band foni</text>
+<rect x="506" y="458" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="508" y="460" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpselected17"><rect x="506" y="458" width="200" height="84" rx="20"/></clipPath>
+<rect x="506" y="458" width="200" height="94" fill="#6c47ff" clip-path="url(#cpselected17)"/>
+<text x="520" y="572" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">selected</text>
+<text x="520" y="590" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#6C47FF</text>
+<text x="520" y="606" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Tanlangan element chegarasi</text>
+<text x="80" y="672" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Holat</text>
+<rect x="80" y="690" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="82" y="692" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpsuccess5"><rect x="80" y="690" width="200" height="84" rx="20"/></clipPath>
+<rect x="80" y="690" width="200" height="94" fill="#2fa84f" clip-path="url(#cpsuccess5)"/>
+<text x="94" y="804" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">success</text>
+<text x="94" y="822" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#2FA84F</text>
+<text x="94" y="838" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">To'g'ri, juftlangan, o'sish</text>
+<rect x="293" y="690" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="295" y="692" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpsuccess-soft5"><rect x="293" y="690" width="200" height="84" rx="20"/></clipPath>
+<rect x="293" y="690" width="200" height="94" fill="#e6f7ea" clip-path="url(#cpsuccess-soft5)"/>
+<rect x="295" y="780" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="307" y="804" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">success-soft</text>
+<text x="307" y="822" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#E6F7EA</text>
+<text x="307" y="838" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">To'g'ri javob foni</text>
+<rect x="506" y="690" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="508" y="692" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpsuccess-line5"><rect x="506" y="690" width="200" height="84" rx="20"/></clipPath>
+<rect x="506" y="690" width="200" height="94" fill="#bfe6c9" clip-path="url(#cpsuccess-line5)"/>
+<text x="520" y="804" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">success-line</text>
+<text x="520" y="822" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#BFE6C9</text>
+<text x="520" y="838" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Yashil karta chegarasi</text>
+<rect x="719" y="690" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="721" y="692" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpsuccess-ink5"><rect x="719" y="690" width="200" height="84" rx="20"/></clipPath>
+<rect x="719" y="690" width="200" height="94" fill="#1c6e33" clip-path="url(#cpsuccess-ink5)"/>
+<text x="733" y="804" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">success-ink</text>
+<text x="733" y="822" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#1C6E33</text>
+<text x="733" y="838" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Yashil fondagi matn</text>
+<rect x="932" y="690" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="934" y="692" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpdanger5"><rect x="932" y="690" width="200" height="84" rx="20"/></clipPath>
+<rect x="932" y="690" width="200" height="94" fill="#d92d3a" clip-path="url(#cpdanger5)"/>
+<text x="946" y="804" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">danger</text>
+<text x="946" y="822" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#D92D3A</text>
+<text x="946" y="838" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Xato, noto'g'ri</text>
+<rect x="1145" y="690" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="1147" y="692" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpdanger-soft5"><rect x="1145" y="690" width="200" height="84" rx="20"/></clipPath>
+<rect x="1145" y="690" width="200" height="94" fill="#fde8ea" clip-path="url(#cpdanger-soft5)"/>
+<rect x="1147" y="780" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="1159" y="804" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">danger-soft</text>
+<text x="1159" y="822" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#FDE8EA</text>
+<text x="1159" y="838" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Xato foni</text>
+<rect x="80" y="882" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="82" y="884" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpgold5"><rect x="80" y="882" width="200" height="84" rx="20"/></clipPath>
+<rect x="80" y="882" width="200" height="94" fill="#f5a400" clip-path="url(#cpgold5)"/>
+<text x="94" y="996" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">gold</text>
+<text x="94" y="1014" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#F5A400</text>
+<text x="94" y="1030" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Daraja nishoni, belgilangan</text>
+<text x="94" y="1043" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">savol</text>
+<rect x="293" y="882" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="295" y="884" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpgold-edge5"><rect x="293" y="882" width="200" height="84" rx="20"/></clipPath>
+<rect x="293" y="882" width="200" height="94" fill="#c98700" clip-path="url(#cpgold-edge5)"/>
+<text x="307" y="996" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">gold-edge</text>
+<text x="307" y="1014" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#C98700</text>
+<text x="307" y="1030" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Kubok pastki qirrasi</text>
+<rect x="506" y="882" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="508" y="884" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpwarn-soft5"><rect x="506" y="882" width="200" height="84" rx="20"/></clipPath>
+<rect x="506" y="882" width="200" height="94" fill="#fff6db" clip-path="url(#cpwarn-soft5)"/>
+<rect x="508" y="972" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="520" y="996" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">warn-soft</text>
+<text x="520" y="1014" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#FFF6DB</text>
+<text x="520" y="1030" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Ogohlantirish, tavsiya foni</text>
+<text x="80" y="1096" font-size="18" font-weight="800" fill="#1e1b39" text-anchor="start">Neytral</text>
+<rect x="80" y="1114" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="82" y="1116" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpink7"><rect x="80" y="1114" width="200" height="84" rx="20"/></clipPath>
+<rect x="80" y="1114" width="200" height="94" fill="#1e1b39" clip-path="url(#cpink7)"/>
+<text x="94" y="1228" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">ink</text>
+<text x="94" y="1246" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#1E1B39</text>
+<text x="94" y="1262" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Asosiy matn</text>
+<rect x="293" y="1114" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="295" y="1116" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpink-soft7"><rect x="293" y="1114" width="200" height="84" rx="20"/></clipPath>
+<rect x="293" y="1114" width="200" height="94" fill="#4f4b6b" clip-path="url(#cpink-soft7)"/>
+<text x="307" y="1228" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">ink-soft</text>
+<text x="307" y="1246" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#4F4B6B</text>
+<text x="307" y="1262" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Ikkilamchi matn</text>
+<rect x="506" y="1114" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="508" y="1116" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpmuted7"><rect x="506" y="1114" width="200" height="84" rx="20"/></clipPath>
+<rect x="506" y="1114" width="200" height="94" fill="#6f6b8a" clip-path="url(#cpmuted7)"/>
+<text x="520" y="1228" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">muted</text>
+<text x="520" y="1246" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#6F6B8A</text>
+<text x="520" y="1262" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Izoh, yordamchi matn</text>
+<rect x="719" y="1114" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="721" y="1116" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpfaint7"><rect x="719" y="1114" width="200" height="84" rx="20"/></clipPath>
+<rect x="719" y="1114" width="200" height="94" fill="#a9a5c0" clip-path="url(#cpfaint7)"/>
+<text x="733" y="1228" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">faint</text>
+<text x="733" y="1246" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#A9A5C0</text>
+<text x="733" y="1262" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Placeholder, o'chirilgan matn</text>
+<rect x="932" y="1114" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="934" y="1116" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpline7"><rect x="932" y="1114" width="200" height="84" rx="20"/></clipPath>
+<rect x="932" y="1114" width="200" height="94" fill="#d6d2ec" clip-path="url(#cpline7)"/>
+<rect x="934" y="1204" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="946" y="1228" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">line</text>
+<text x="946" y="1246" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#D6D2EC</text>
+<text x="946" y="1262" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Ajratgich chiziq</text>
+<rect x="1145" y="1114" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="1147" y="1116" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpline-strong7"><rect x="1145" y="1114" width="200" height="84" rx="20"/></clipPath>
+<rect x="1145" y="1114" width="200" height="94" fill="#d5d1e8" clip-path="url(#cpline-strong7)"/>
+<text x="1159" y="1228" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">line-strong</text>
+<text x="1159" y="1246" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#D5D1E8</text>
+<text x="1159" y="1262" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Karta va tugma chegarasi</text>
+<rect x="80" y="1306" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="82" y="1308" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cppage7"><rect x="80" y="1306" width="200" height="84" rx="20"/></clipPath>
+<rect x="80" y="1306" width="200" height="94" fill="#f3f1fb" clip-path="url(#cppage7)"/>
+<rect x="82" y="1396" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="94" y="1420" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">page</text>
+<text x="94" y="1438" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#F3F1FB</text>
+<text x="94" y="1454" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Ekran foni</text>
+<rect x="293" y="1306" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="295" y="1308" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpsurface7"><rect x="293" y="1306" width="200" height="84" rx="20"/></clipPath>
+<rect x="293" y="1306" width="200" height="94" fill="#f6f5fb" clip-path="url(#cpsurface7)"/>
+<rect x="295" y="1396" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="307" y="1420" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">surface</text>
+<text x="307" y="1438" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#F6F5FB</text>
+<text x="307" y="1454" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Karta ichidagi fon</text>
+<rect x="506" y="1306" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="508" y="1308" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cptrack7"><rect x="506" y="1306" width="200" height="84" rx="20"/></clipPath>
+<rect x="506" y="1306" width="200" height="94" fill="#eceaf5" clip-path="url(#cptrack7)"/>
+<rect x="508" y="1396" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="520" y="1420" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">track</text>
+<text x="520" y="1438" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#ECEAF5</text>
+<text x="520" y="1454" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Progress yo'li, nofaol fon</text>
+<rect x="719" y="1306" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="721" y="1308" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpwhite7"><rect x="719" y="1306" width="200" height="84" rx="20"/></clipPath>
+<rect x="719" y="1306" width="200" height="94" fill="#ffffff" clip-path="url(#cpwhite7)"/>
+<rect x="721" y="1396" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="733" y="1420" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">white</text>
+<text x="733" y="1438" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#FFFFFF</text>
+<text x="733" y="1454" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">Karta va tugma foni</text>
+<rect x="932" y="1306" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="934" y="1308" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpdisabled-bg7"><rect x="932" y="1306" width="200" height="84" rx="20"/></clipPath>
+<rect x="932" y="1306" width="200" height="94" fill="#eceaf4" clip-path="url(#cpdisabled-bg7)"/>
+<rect x="934" y="1396" width="196" height="2" rx="0" fill="#d5d1e8"/>
+<text x="946" y="1420" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">disabled-bg</text>
+<text x="946" y="1438" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#ECEAF4</text>
+<text x="946" y="1454" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">O'chirilgan tugma foni</text>
+<rect x="1145" y="1306" width="200" height="176" rx="20" fill="#d5d1e8"/>
+<rect x="1147" y="1308" width="196" height="170" rx="18" fill="#ffffff"/>
+<clipPath id="cpdisabled-edge7"><rect x="1145" y="1306" width="200" height="84" rx="20"/></clipPath>
+<rect x="1145" y="1306" width="200" height="94" fill="#dedbeb" clip-path="url(#cpdisabled-edge7)"/>
+<text x="1159" y="1420" font-size="14" font-weight="800" fill="#1e1b39" text-anchor="start">disabled-edge</text>
+<text x="1159" y="1438" font-size="12" font-weight="700" fill="#6f6b8a" text-anchor="start">#DEDBEB</text>
+<text x="1159" y="1454" font-size="10.5" font-weight="600" fill="#a9a5c0" text-anchor="start">O'chirilgan tugma qirrasi</text>
+</svg>
