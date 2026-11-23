@@ -15,6 +15,7 @@
     "admin:create": "node --env-file=.env --env-file=.env.local scripts/create-admin.mjs",
     "content:dump": "node scripts/dump-variants.mjs",
     "content:export": "node scripts/export-variants-v2.mjs",
+    "content:export:practice": "node scripts/export-practice-v2.mjs",
     "content:seed": "node --env-file=.env --env-file=.env.local scripts/seed-content.mjs",
     "content:pool": "node scripts/dump-pool.mjs",
     "content:pool:seed": "node --env-file=.env --env-file=.env.local scripts/seed-pool.mjs",

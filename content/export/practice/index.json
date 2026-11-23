@@ -1,0 +1,2092 @@
+{
+  "schema_version": 2,
+  "pool": "practice",
+  "total_questions": 11237,
+  "total_files": 120,
+  "per_file_max": 500,
+  "topics": [
+    {
+      "topic": 1,
+      "name": "Natural sonlar va ular ustida amallar",
+      "block": "sonlar",
+      "folder": "mavzu-001-natural-sonlar-va-ular-ustida-amallar",
+      "questions": 167,
+      "by_difficulty": {
+        "L1": 47,
+        "L2": 80,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 127,
+        "o": 40
+      },
+      "files": [
+        "mavzu-001-01.v2.json"
+      ]
+    },
+    {
+      "topic": 2,
+      "name": "Bo'linish belgilari; tub va murakkab sonlar",
+      "block": "sonlar",
+      "folder": "mavzu-002-bolinish-belgilari-tub-va-murakkab-sonlar",
+      "questions": 243,
+      "by_difficulty": {
+        "L1": 47,
+        "L2": 120,
+        "L3": 76
+      },
+      "by_type": {
+        "y1": 207,
+        "o": 36
+      },
+      "files": [
+        "mavzu-002-01.v2.json"
+      ]
+    },
+    {
+      "topic": 3,
+      "name": "EKUB va EKUK",
+      "block": "sonlar",
+      "folder": "mavzu-003-ekub-va-ekuk",
+      "questions": 167,
+      "by_difficulty": {
+        "L1": 87,
+        "L2": 40,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 167
+      },
+      "files": [
+        "mavzu-003-01.v2.json"
+      ]
+    },
+    {
+      "topic": 4,
+      "name": "Oddiy kasrlar va ular ustida amallar",
+      "block": "sonlar",
+      "folder": "mavzu-004-oddiy-kasrlar-va-ular-ustida-amallar",
+      "questions": 128,
+      "by_difficulty": {
+        "L1": 48,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 128
+      },
+      "files": [
+        "mavzu-004-01.v2.json"
+      ]
+    },
+    {
+      "topic": 5,
+      "name": "O'nli va davriy kasrlar",
+      "block": "sonlar",
+      "folder": "mavzu-005-onli-va-davriy-kasrlar",
+      "questions": 88,
+      "by_difficulty": {
+        "L1": 48,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 88
+      },
+      "files": [
+        "mavzu-005-01.v2.json"
+      ]
+    },
+    {
+      "topic": 6,
+      "name": "Butun va ratsional sonlar; sonning moduli",
+      "block": "sonlar",
+      "folder": "mavzu-006-butun-va-ratsional-sonlar-sonning-moduli",
+      "questions": 88,
+      "by_difficulty": {
+        "L1": 48,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 88
+      },
+      "files": [
+        "mavzu-006-01.v2.json"
+      ]
+    },
+    {
+      "topic": 7,
+      "name": "Nisbat va proporsiya",
+      "block": "sonlar",
+      "folder": "mavzu-007-nisbat-va-proporsiya",
+      "questions": 87,
+      "by_difficulty": {
+        "L1": 47,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 87
+      },
+      "files": [
+        "mavzu-007-01.v2.json"
+      ]
+    },
+    {
+      "topic": 8,
+      "name": "Foiz va foizga oid masalalar",
+      "block": "sonlar",
+      "folder": "mavzu-008-foiz-va-foizga-oid-masalalar",
+      "questions": 47,
+      "by_difficulty": {
+        "L1": 7,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 47
+      },
+      "files": [
+        "mavzu-008-01.v2.json"
+      ]
+    },
+    {
+      "topic": 9,
+      "name": "Sonli ifodalar qiymatini hisoblash va taqqoslash",
+      "block": "sonlar",
+      "folder": "mavzu-009-sonli-ifodalar-qiymatini-hisoblash-va-taqqoslash",
+      "questions": 47,
+      "by_difficulty": {
+        "L1": 7,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 47
+      },
+      "files": [
+        "mavzu-009-01.v2.json"
+      ]
+    },
+    {
+      "topic": 10,
+      "name": "Yaxlitlash, taqribiy hisoblash, standart shakl",
+      "block": "sonlar",
+      "folder": "mavzu-010-yaxlitlash-taqribiy-hisoblash-standart-shakl",
+      "questions": 82,
+      "by_difficulty": {
+        "L1": 7,
+        "L2": 75
+      },
+      "by_type": {
+        "y1": 47,
+        "o": 35
+      },
+      "files": [
+        "mavzu-010-01.v2.json"
+      ]
+    },
+    {
+      "topic": 11,
+      "name": "Irratsional va haqiqiy sonlar",
+      "block": "sonlar",
+      "folder": "mavzu-011-irratsional-va-haqiqiy-sonlar",
+      "questions": 87,
+      "by_difficulty": {
+        "L1": 47,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 87
+      },
+      "files": [
+        "mavzu-011-01.v2.json"
+      ]
+    },
+    {
+      "topic": 12,
+      "name": "Butun ko'rsatkichli daraja va uning xossalari",
+      "block": "algebra",
+      "folder": "mavzu-012-butun-korsatkichli-daraja-va-uning-xossalari",
+      "questions": 196,
+      "by_difficulty": {
+        "L1": 76,
+        "L3": 40,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 196
+      },
+      "files": [
+        "mavzu-012-01.v2.json"
+      ]
+    },
+    {
+      "topic": 13,
+      "name": "Arifmetik ildiz va uning xossalari",
+      "block": "algebra",
+      "folder": "mavzu-013-arifmetik-ildiz-va-uning-xossalari",
+      "questions": 137,
+      "by_difficulty": {
+        "L1": 58,
+        "L2": 79
+      },
+      "by_type": {
+        "y1": 137
+      },
+      "files": [
+        "mavzu-013-01.v2.json"
+      ]
+    },
+    {
+      "topic": 14,
+      "name": "Ratsional ko'rsatkichli daraja",
+      "block": "algebra",
+      "folder": "mavzu-014-ratsional-korsatkichli-daraja",
+      "questions": 98,
+      "by_difficulty": {
+        "L1": 58,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 98
+      },
+      "files": [
+        "mavzu-014-01.v2.json"
+      ]
+    },
+    {
+      "topic": 15,
+      "name": "Birhad va ko'phadlar; ular ustida amallar",
+      "block": "algebra",
+      "folder": "mavzu-015-birhad-va-kophadlar-ular-ustida-amallar",
+      "questions": 58,
+      "by_difficulty": {
+        "L1": 18,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 58
+      },
+      "files": [
+        "mavzu-015-01.v2.json"
+      ]
+    },
+    {
+      "topic": 16,
+      "name": "Qisqa ko'paytirish formulalari",
+      "block": "algebra",
+      "folder": "mavzu-016-qisqa-kopaytirish-formulalari",
+      "questions": 76,
+      "by_difficulty": {
+        "L1": 38,
+        "L2": 38
+      },
+      "by_type": {
+        "y1": 76
+      },
+      "files": [
+        "mavzu-016-01.v2.json"
+      ]
+    },
+    {
+      "topic": 17,
+      "name": "Ko'paytuvchilarga ajratish usullari",
+      "block": "algebra",
+      "folder": "mavzu-017-kopaytuvchilarga-ajratish-usullari",
+      "questions": 59,
+      "by_difficulty": {
+        "L1": 19,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 59
+      },
+      "files": [
+        "mavzu-017-01.v2.json"
+      ]
+    },
+    {
+      "topic": 18,
+      "name": "Algebraik kasrlar: qisqartirish va amallar",
+      "block": "algebra",
+      "folder": "mavzu-018-algebraik-kasrlar-qisqartirish-va-amallar",
+      "questions": 87,
+      "by_difficulty": {
+        "L1": 39,
+        "L2": 48
+      },
+      "by_type": {
+        "y1": 87
+      },
+      "files": [
+        "mavzu-018-01.v2.json"
+      ]
+    },
+    {
+      "topic": 19,
+      "name": "Maxrajdagi irratsionallikdan qutulish",
+      "block": "algebra",
+      "folder": "mavzu-019-maxrajdagi-irratsionallikdan-qutulish",
+      "questions": 107,
+      "by_difficulty": {
+        "L1": 20,
+        "L2": 48,
+        "L3": 39
+      },
+      "by_type": {
+        "y1": 107
+      },
+      "files": [
+        "mavzu-019-01.v2.json"
+      ]
+    },
+    {
+      "topic": 20,
+      "name": "Ildizli ifodalarni soddalashtirish",
+      "block": "algebra",
+      "folder": "mavzu-020-ildizli-ifodalarni-soddalashtirish",
+      "questions": 100,
+      "by_difficulty": {
+        "L1": 60,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 100
+      },
+      "files": [
+        "mavzu-020-01.v2.json"
+      ]
+    },
+    {
+      "topic": 21,
+      "name": "Logarifm ta'rifi va xossalari; logarifmik ifodalar",
+      "block": "algebra",
+      "folder": "mavzu-021-logarifm-tarifi-va-xossalari-logarifmik-ifodalar",
+      "questions": 204,
+      "by_difficulty": {
+        "L1": 77,
+        "L2": 88,
+        "L3": 39
+      },
+      "by_type": {
+        "y1": 165,
+        "o": 39
+      },
+      "files": [
+        "mavzu-021-01.v2.json"
+      ]
+    },
+    {
+      "topic": 22,
+      "name": "Asosiy trigonometrik ayniyatlar",
+      "block": "algebra",
+      "folder": "mavzu-022-asosiy-trigonometrik-ayniyatlar",
+      "questions": 144,
+      "by_difficulty": {
+        "L1": 60,
+        "L2": 46,
+        "L3": 38
+      },
+      "by_type": {
+        "y1": 144
+      },
+      "files": [
+        "mavzu-022-01.v2.json"
+      ]
+    },
+    {
+      "topic": 23,
+      "name": "Keltirish formulalari",
+      "block": "algebra",
+      "folder": "mavzu-023-keltirish-formulalari",
+      "questions": 119,
+      "by_difficulty": {
+        "L1": 39,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 119
+      },
+      "files": [
+        "mavzu-023-01.v2.json"
+      ]
+    },
+    {
+      "topic": 24,
+      "name": "Yig'indi va ayirma, ikkilangan va yarim burchak formulalari",
+      "block": "algebra",
+      "folder": "mavzu-024-yigindi-va-ayirma-ikkilangan-va-yarim-burchak-fo",
+      "questions": 99,
+      "by_difficulty": {
+        "L1": 19,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 99
+      },
+      "files": [
+        "mavzu-024-01.v2.json"
+      ]
+    },
+    {
+      "topic": 25,
+      "name": "Yig'indini ko'paytmaga va ko'paytmani yig'indiga keltirish formulalari",
+      "block": "algebra",
+      "folder": "mavzu-025-yigindini-kopaytmaga-va-kopaytmani-yigindiga-kel",
+      "questions": 98,
+      "by_difficulty": {
+        "L1": 19,
+        "L2": 40,
+        "L3": 39
+      },
+      "by_type": {
+        "y1": 98
+      },
+      "files": [
+        "mavzu-025-01.v2.json"
+      ]
+    },
+    {
+      "topic": 26,
+      "name": "Trigonometrik ifodalar qiymatini hisoblash",
+      "block": "algebra",
+      "folder": "mavzu-026-trigonometrik-ifodalar-qiymatini-hisoblash",
+      "questions": 59,
+      "by_difficulty": {
+        "L1": 19,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 59
+      },
+      "files": [
+        "mavzu-026-01.v2.json"
+      ]
+    },
+    {
+      "topic": 27,
+      "name": "Modul qatnashgan ifodalarni soddalashtirish",
+      "block": "algebra",
+      "folder": "mavzu-027-modul-qatnashgan-ifodalarni-soddalashtirish",
+      "questions": 66,
+      "by_difficulty": {
+        "L1": 18,
+        "L2": 48
+      },
+      "by_type": {
+        "y1": 66
+      },
+      "files": [
+        "mavzu-027-01.v2.json"
+      ]
+    },
+    {
+      "topic": 28,
+      "name": "Chiziqli tenglama va tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-028-chiziqli-tenglama-va-tengsizliklar",
+      "questions": 40,
+      "by_difficulty": {
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-028-01.v2.json"
+      ]
+    },
+    {
+      "topic": 29,
+      "name": "Kvadrat tenglama; diskriminant; Viyet teoremasi",
+      "block": "tenglama",
+      "folder": "mavzu-029-kvadrat-tenglama-diskriminant-viyet-teoremasi",
+      "questions": 115,
+      "by_difficulty": {
+        "L2": 35,
+        "L3": 80
+      },
+      "by_type": {
+        "y1": 99,
+        "o": 16
+      },
+      "files": [
+        "mavzu-029-01.v2.json"
+      ]
+    },
+    {
+      "topic": 30,
+      "name": "Kvadrat tengsizliklar va oraliqlar usuli",
+      "block": "tenglama",
+      "folder": "mavzu-030-kvadrat-tengsizliklar-va-oraliqlar-usuli",
+      "questions": 115,
+      "by_difficulty": {
+        "L2": 75,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 99,
+        "o": 16
+      },
+      "files": [
+        "mavzu-030-01.v2.json"
+      ]
+    },
+    {
+      "topic": 31,
+      "name": "Yuqori darajali va bikvadrat tenglamalar; o'zgaruvchini almashtirish",
+      "block": "tenglama",
+      "folder": "mavzu-031-yuqori-darajali-va-bikvadrat-tenglamalar-ozgaruv",
+      "questions": 16,
+      "by_difficulty": {
+        "L2": 16
+      },
+      "by_type": {
+        "o": 16
+      },
+      "files": [
+        "mavzu-031-01.v2.json"
+      ]
+    },
+    {
+      "topic": 32,
+      "name": "Kasr-ratsional tenglama va tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-032-kasr-ratsional-tenglama-va-tengsizliklar",
+      "questions": 98,
+      "by_difficulty": {
+        "L2": 98
+      },
+      "by_type": {
+        "y1": 98
+      },
+      "files": [
+        "mavzu-032-01.v2.json"
+      ]
+    },
+    {
+      "topic": 33,
+      "name": "Modulli tenglama va tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-033-modulli-tenglama-va-tengsizliklar",
+      "questions": 197,
+      "by_difficulty": {
+        "L2": 77,
+        "L3": 80,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 157,
+        "o": 40
+      },
+      "files": [
+        "mavzu-033-01.v2.json"
+      ]
+    },
+    {
+      "topic": 34,
+      "name": "Irratsional tenglama va tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-034-irratsional-tenglama-va-tengsizliklar",
+      "questions": 138,
+      "by_difficulty": {
+        "L2": 98,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 138
+      },
+      "files": [
+        "mavzu-034-01.v2.json"
+      ]
+    },
+    {
+      "topic": 35,
+      "name": "Tenglamalar sistemasi (chiziqli va nochiziqli)",
+      "block": "tenglama",
+      "folder": "mavzu-035-tenglamalar-sistemasi-chiziqli-va-nochiziqli",
+      "questions": 113,
+      "by_difficulty": {
+        "L2": 73,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 58,
+        "o": 55
+      },
+      "files": [
+        "mavzu-035-01.v2.json"
+      ]
+    },
+    {
+      "topic": 36,
+      "name": "Tengsizliklar sistemasi va majmuasi",
+      "block": "tenglama",
+      "folder": "mavzu-036-tengsizliklar-sistemasi-va-majmuasi",
+      "questions": 80,
+      "by_difficulty": {
+        "L3": 40,
+        "L1": 40
+      },
+      "by_type": {
+        "o": 40,
+        "y1": 40
+      },
+      "files": [
+        "mavzu-036-01.v2.json"
+      ]
+    },
+    {
+      "topic": 37,
+      "name": "Ko'rsatkichli tenglama va tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-037-korsatkichli-tenglama-va-tengsizliklar",
+      "questions": 139,
+      "by_difficulty": {
+        "L2": 99,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 139
+      },
+      "files": [
+        "mavzu-037-01.v2.json"
+      ]
+    },
+    {
+      "topic": 38,
+      "name": "Logarifmik tenglama va tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-038-logarifmik-tenglama-va-tengsizliklar",
+      "questions": 95,
+      "by_difficulty": {
+        "L2": 95
+      },
+      "by_type": {
+        "y1": 95
+      },
+      "files": [
+        "mavzu-038-01.v2.json"
+      ]
+    },
+    {
+      "topic": 39,
+      "name": "Trigonometrik tenglamalar",
+      "block": "tenglama",
+      "folder": "mavzu-039-trigonometrik-tenglamalar",
+      "questions": 58,
+      "by_difficulty": {
+        "L2": 58
+      },
+      "by_type": {
+        "y1": 58
+      },
+      "files": [
+        "mavzu-039-01.v2.json"
+      ]
+    },
+    {
+      "topic": 40,
+      "name": "Trigonometrik tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-040-trigonometrik-tengsizliklar",
+      "questions": 39,
+      "by_difficulty": {
+        "L2": 39
+      },
+      "by_type": {
+        "y1": 39
+      },
+      "files": [
+        "mavzu-040-01.v2.json"
+      ]
+    },
+    {
+      "topic": 41,
+      "name": "Parametrli tenglama va tengsizliklar",
+      "block": "tenglama",
+      "folder": "mavzu-041-parametrli-tenglama-va-tengsizliklar",
+      "questions": 58,
+      "by_difficulty": {
+        "L2": 19,
+        "L3": 39
+      },
+      "by_type": {
+        "y1": 19,
+        "o": 39
+      },
+      "files": [
+        "mavzu-041-01.v2.json"
+      ]
+    },
+    {
+      "topic": 42,
+      "name": "Matnli masalalar: harakat, ish, aralashma, qotishma",
+      "block": "tenglama",
+      "folder": "mavzu-042-matnli-masalalar-harakat-ish-aralashma-qotishma",
+      "questions": 172,
+      "by_difficulty": {
+        "L2": 132,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 156,
+        "o": 16
+      },
+      "files": [
+        "mavzu-042-01.v2.json"
+      ]
+    },
+    {
+      "topic": 43,
+      "name": "Funksiya tushunchasi; aniqlanish va qiymatlar sohasi",
+      "block": "funksiyalar",
+      "folder": "mavzu-043-funksiya-tushunchasi-aniqlanish-va-qiymatlar-soh",
+      "questions": 50,
+      "by_difficulty": {
+        "L2": 50
+      },
+      "by_type": {
+        "y1": 50
+      },
+      "files": [
+        "mavzu-043-01.v2.json"
+      ]
+    },
+    {
+      "topic": 44,
+      "name": "Funksiyaning juft-toqligi va davriyligi",
+      "block": "funksiyalar",
+      "folder": "mavzu-044-funksiyaning-juft-toqligi-va-davriyligi",
+      "questions": 100,
+      "by_difficulty": {
+        "L2": 100
+      },
+      "by_type": {
+        "y1": 100
+      },
+      "files": [
+        "mavzu-044-01.v2.json"
+      ]
+    },
+    {
+      "topic": 45,
+      "name": "Funksiyaning monotonligi va ekstremumlari",
+      "block": "funksiyalar",
+      "folder": "mavzu-045-funksiyaning-monotonligi-va-ekstremumlari",
+      "questions": 40,
+      "by_difficulty": {
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-045-01.v2.json"
+      ]
+    },
+    {
+      "topic": 46,
+      "name": "Chiziqli funksiya va uning grafigi",
+      "block": "funksiyalar",
+      "folder": "mavzu-046-chiziqli-funksiya-va-uning-grafigi",
+      "questions": 50,
+      "by_difficulty": {
+        "L2": 10,
+        "L1": 40
+      },
+      "by_type": {
+        "o": 10,
+        "y1": 40
+      },
+      "files": [
+        "mavzu-046-01.v2.json"
+      ]
+    },
+    {
+      "topic": 47,
+      "name": "Kvadrat funksiya va uning grafigi",
+      "block": "funksiyalar",
+      "folder": "mavzu-047-kvadrat-funksiya-va-uning-grafigi",
+      "questions": 100,
+      "by_difficulty": {
+        "L2": 60,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 90,
+        "o": 10
+      },
+      "files": [
+        "mavzu-047-01.v2.json"
+      ]
+    },
+    {
+      "topic": 48,
+      "name": "Teskari proporsionallik; kasr-chiziqli funksiya",
+      "block": "funksiyalar",
+      "folder": "mavzu-048-teskari-proporsionallik-kasr-chiziqli-funksiya",
+      "questions": 9,
+      "by_difficulty": {
+        "L2": 9
+      },
+      "by_type": {
+        "o": 9
+      },
+      "files": [
+        "mavzu-048-01.v2.json"
+      ]
+    },
+    {
+      "topic": 49,
+      "name": "Darajali va ildiz funksiyalar",
+      "block": "funksiyalar",
+      "folder": "mavzu-049-darajali-va-ildiz-funksiyalar",
+      "questions": 40,
+      "by_difficulty": {
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-049-01.v2.json"
+      ]
+    },
+    {
+      "topic": 50,
+      "name": "Ko'rsatkichli funksiya",
+      "block": "funksiyalar",
+      "folder": "mavzu-050-korsatkichli-funksiya",
+      "questions": 90,
+      "by_difficulty": {
+        "L2": 90
+      },
+      "by_type": {
+        "y1": 90
+      },
+      "files": [
+        "mavzu-050-01.v2.json"
+      ]
+    },
+    {
+      "topic": 51,
+      "name": "Logarifmik funksiya",
+      "block": "funksiyalar",
+      "folder": "mavzu-051-logarifmik-funksiya",
+      "questions": 130,
+      "by_difficulty": {
+        "L2": 90,
+        "L1": 40
+      },
+      "by_type": {
+        "o": 10,
+        "y1": 120
+      },
+      "files": [
+        "mavzu-051-01.v2.json"
+      ]
+    },
+    {
+      "topic": 52,
+      "name": "Trigonometrik funksiyalar va ularning grafiklari",
+      "block": "funksiyalar",
+      "folder": "mavzu-052-trigonometrik-funksiyalar-va-ularning-grafiklari",
+      "questions": 130,
+      "by_difficulty": {
+        "L2": 50,
+        "L1": 40,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 130
+      },
+      "files": [
+        "mavzu-052-01.v2.json"
+      ]
+    },
+    {
+      "topic": 53,
+      "name": "Teskari trigonometrik funksiyalar",
+      "block": "funksiyalar",
+      "folder": "mavzu-053-teskari-trigonometrik-funksiyalar",
+      "questions": 79,
+      "by_difficulty": {
+        "L2": 79
+      },
+      "by_type": {
+        "y1": 79
+      },
+      "files": [
+        "mavzu-053-01.v2.json"
+      ]
+    },
+    {
+      "topic": 54,
+      "name": "Grafiklarni almashtirish (siljitish, cho'zish, modul bilan)",
+      "block": "funksiyalar",
+      "folder": "mavzu-054-grafiklarni-almashtirish-siljitish-chozish-modul",
+      "questions": 50,
+      "by_difficulty": {
+        "L2": 50
+      },
+      "by_type": {
+        "y1": 50
+      },
+      "files": [
+        "mavzu-054-01.v2.json"
+      ]
+    },
+    {
+      "topic": 55,
+      "name": "Murakkab va teskari funksiya",
+      "block": "funksiyalar",
+      "folder": "mavzu-055-murakkab-va-teskari-funksiya",
+      "questions": 50,
+      "by_difficulty": {
+        "L2": 50
+      },
+      "by_type": {
+        "y1": 50
+      },
+      "files": [
+        "mavzu-055-01.v2.json"
+      ]
+    },
+    {
+      "topic": 56,
+      "name": "Sonli ketma-ketlik va uning limiti",
+      "block": "analiz",
+      "folder": "mavzu-056-sonli-ketma-ketlik-va-uning-limiti",
+      "questions": 47,
+      "by_difficulty": {
+        "L2": 7,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 47
+      },
+      "files": [
+        "mavzu-056-01.v2.json"
+      ]
+    },
+    {
+      "topic": 57,
+      "name": "Arifmetik progressiya",
+      "block": "analiz",
+      "folder": "mavzu-057-arifmetik-progressiya",
+      "questions": 58,
+      "by_difficulty": {
+        "L2": 48,
+        "L3": 10
+      },
+      "by_type": {
+        "y1": 48,
+        "o": 10
+      },
+      "files": [
+        "mavzu-057-01.v2.json"
+      ]
+    },
+    {
+      "topic": 58,
+      "name": "Geometrik progressiya; cheksiz kamayuvchi geometrik progressiya",
+      "block": "analiz",
+      "folder": "mavzu-058-geometrik-progressiya-cheksiz-kamayuvchi-geometr",
+      "questions": 94,
+      "by_difficulty": {
+        "L3": 10,
+        "L2": 84
+      },
+      "by_type": {
+        "o": 10,
+        "y1": 84
+      },
+      "files": [
+        "mavzu-058-01.v2.json"
+      ]
+    },
+    {
+      "topic": 59,
+      "name": "Funksiya limiti va uzluksizligi",
+      "block": "analiz",
+      "folder": "mavzu-059-funksiya-limiti-va-uzluksizligi",
+      "questions": 138,
+      "by_difficulty": {
+        "L2": 88,
+        "L3": 10,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 128,
+        "o": 10
+      },
+      "files": [
+        "mavzu-059-01.v2.json"
+      ]
+    },
+    {
+      "topic": 60,
+      "name": "Hosila ta'rifi va hisoblash qoidalari",
+      "block": "analiz",
+      "folder": "mavzu-060-hosila-tarifi-va-hisoblash-qoidalari",
+      "questions": 127,
+      "by_difficulty": {
+        "L2": 87,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 127
+      },
+      "files": [
+        "mavzu-060-01.v2.json"
+      ]
+    },
+    {
+      "topic": 61,
+      "name": "Murakkab funksiyaning hosilasi",
+      "block": "analiz",
+      "folder": "mavzu-061-murakkab-funksiyaning-hosilasi",
+      "questions": 87,
+      "by_difficulty": {
+        "L2": 87
+      },
+      "by_type": {
+        "y1": 87
+      },
+      "files": [
+        "mavzu-061-01.v2.json"
+      ]
+    },
+    {
+      "topic": 62,
+      "name": "Hosilaning geometrik ma'nosi; urinma tenglamasi",
+      "block": "analiz",
+      "folder": "mavzu-062-hosilaning-geometrik-manosi-urinma-tenglamasi",
+      "questions": 98,
+      "by_difficulty": {
+        "L2": 48,
+        "L3": 10,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 88,
+        "o": 10
+      },
+      "files": [
+        "mavzu-062-01.v2.json"
+      ]
+    },
+    {
+      "topic": 63,
+      "name": "Funksiyaning monotonligi va ekstremumlarini hosila orqali tekshirish",
+      "block": "analiz",
+      "folder": "mavzu-063-funksiyaning-monotonligi-va-ekstremumlarini-hosi",
+      "questions": 96,
+      "by_difficulty": {
+        "L2": 46,
+        "L3": 50
+      },
+      "by_type": {
+        "y1": 86,
+        "o": 10
+      },
+      "files": [
+        "mavzu-063-01.v2.json"
+      ]
+    },
+    {
+      "topic": 64,
+      "name": "Eng katta va eng kichik qiymatni topish (optimallashtirish)",
+      "block": "analiz",
+      "folder": "mavzu-064-eng-katta-va-eng-kichik-qiymatni-topish-optimall",
+      "questions": 60,
+      "by_difficulty": {
+        "L3": 53,
+        "L2": 7
+      },
+      "by_type": {
+        "o": 13,
+        "y1": 47
+      },
+      "files": [
+        "mavzu-064-01.v2.json"
+      ]
+    },
+    {
+      "topic": 65,
+      "name": "Boshlang'ich funksiya",
+      "block": "analiz",
+      "folder": "mavzu-065-boshlangich-funksiya",
+      "questions": 87,
+      "by_difficulty": {
+        "L2": 47,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 87
+      },
+      "files": [
+        "mavzu-065-01.v2.json"
+      ]
+    },
+    {
+      "topic": 66,
+      "name": "Aniq integral va egri chiziqli trapetsiya yuzi",
+      "block": "analiz",
+      "folder": "mavzu-066-aniq-integral-va-egri-chiziqli-trapetsiya-yuzi",
+      "questions": 174,
+      "by_difficulty": {
+        "L3": 47,
+        "L2": 87,
+        "L1": 40
+      },
+      "by_type": {
+        "o": 7,
+        "y1": 167
+      },
+      "files": [
+        "mavzu-066-01.v2.json"
+      ]
+    },
+    {
+      "topic": 67,
+      "name": "Burchaklar; parallel va kesishuvchi to'g'ri chiziqlar",
+      "block": "geometriya",
+      "folder": "mavzu-067-burchaklar-parallel-va-kesishuvchi-togri-chiziql",
+      "questions": 39,
+      "by_difficulty": {
+        "L1": 39
+      },
+      "by_type": {
+        "y1": 39
+      },
+      "files": [
+        "mavzu-067-01.v2.json"
+      ]
+    },
+    {
+      "topic": 68,
+      "name": "Uchburchaklar: turlari, burchaklari, tengsizligi",
+      "block": "geometriya",
+      "folder": "mavzu-068-uchburchaklar-turlari-burchaklari-tengsizligi",
+      "questions": 96,
+      "by_difficulty": {
+        "L2": 56,
+        "L1": 40
+      },
+      "by_type": {
+        "y2": 16,
+        "y1": 80
+      },
+      "files": [
+        "mavzu-068-01.v2.json"
+      ]
+    },
+    {
+      "topic": 69,
+      "name": "Uchburchaklarning tengligi va o'xshashligi",
+      "block": "geometriya",
+      "folder": "mavzu-069-uchburchaklarning-tengligi-va-oxshashligi",
+      "questions": 41,
+      "by_difficulty": {
+        "L3": 3,
+        "L2": 38
+      },
+      "by_type": {
+        "o": 3,
+        "y1": 38
+      },
+      "files": [
+        "mavzu-069-01.v2.json"
+      ]
+    },
+    {
+      "topic": 70,
+      "name": "To'g'ri burchakli uchburchak; Pifagor teoremasi",
+      "block": "geometriya",
+      "folder": "mavzu-070-togri-burchakli-uchburchak-pifagor-teoremasi",
+      "questions": 99,
+      "by_difficulty": {
+        "L3": 19,
+        "L2": 40,
+        "L1": 40
+      },
+      "by_type": {
+        "y2": 19,
+        "y1": 80
+      },
+      "files": [
+        "mavzu-070-01.v2.json"
+      ]
+    },
+    {
+      "topic": 71,
+      "name": "Sinuslar va kosinuslar teoremalari",
+      "block": "geometriya",
+      "folder": "mavzu-071-sinuslar-va-kosinuslar-teoremalari",
+      "questions": 13,
+      "by_difficulty": {
+        "L2": 13
+      },
+      "by_type": {
+        "y1": 13
+      },
+      "files": [
+        "mavzu-071-01.v2.json"
+      ]
+    },
+    {
+      "topic": 72,
+      "name": "Uchburchakning medianasi, balandligi, bissektrisasi, o'rta chizig'i",
+      "block": "geometriya",
+      "folder": "mavzu-072-uchburchakning-medianasi-balandligi-bissektrisas",
+      "questions": 98,
+      "by_difficulty": {
+        "L3": 18,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 98
+      },
+      "files": [
+        "mavzu-072-01.v2.json"
+      ]
+    },
+    {
+      "topic": 73,
+      "name": "Uchburchak yuzi formulalari",
+      "block": "geometriya",
+      "folder": "mavzu-073-uchburchak-yuzi-formulalari",
+      "questions": 120,
+      "by_difficulty": {
+        "L1": 40,
+        "L2": 40,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 80,
+        "o": 40
+      },
+      "files": [
+        "mavzu-073-01.v2.json"
+      ]
+    },
+    {
+      "topic": 74,
+      "name": "Parallelogramm va romb",
+      "block": "geometriya",
+      "folder": "mavzu-074-parallelogramm-va-romb",
+      "questions": 54,
+      "by_difficulty": {
+        "L2": 54
+      },
+      "by_type": {
+        "y1": 54
+      },
+      "files": [
+        "mavzu-074-01.v2.json"
+      ]
+    },
+    {
+      "topic": 75,
+      "name": "To'g'ri to'rtburchak va kvadrat",
+      "block": "geometriya",
+      "folder": "mavzu-075-togri-tortburchak-va-kvadrat",
+      "questions": 38,
+      "by_difficulty": {
+        "L1": 38
+      },
+      "by_type": {
+        "y1": 38
+      },
+      "files": [
+        "mavzu-075-01.v2.json"
+      ]
+    },
+    {
+      "topic": 76,
+      "name": "Trapetsiya",
+      "block": "geometriya",
+      "folder": "mavzu-076-trapetsiya",
+      "questions": 70,
+      "by_difficulty": {
+        "L2": 53,
+        "L3": 17
+      },
+      "by_type": {
+        "y1": 70
+      },
+      "files": [
+        "mavzu-076-01.v2.json"
+      ]
+    },
+    {
+      "topic": 77,
+      "name": "Ko'pburchaklar (qavariq va muntazam)",
+      "block": "geometriya",
+      "folder": "mavzu-077-kopburchaklar-qavariq-va-muntazam",
+      "questions": 52,
+      "by_difficulty": {
+        "L2": 13,
+        "L1": 39
+      },
+      "by_type": {
+        "y1": 52
+      },
+      "files": [
+        "mavzu-077-01.v2.json"
+      ]
+    },
+    {
+      "topic": 78,
+      "name": "Aylana va doira: uzunlik, yuza, sektor",
+      "block": "geometriya",
+      "folder": "mavzu-078-aylana-va-doira-uzunlik-yuza-sektor",
+      "questions": 180,
+      "by_difficulty": {
+        "L2": 100,
+        "L1": 80
+      },
+      "by_type": {
+        "y2": 20,
+        "y1": 120,
+        "o": 40
+      },
+      "files": [
+        "mavzu-078-01.v2.json"
+      ]
+    },
+    {
+      "topic": 79,
+      "name": "Aylanada burchaklar; vatar, urinma, kesuvchi",
+      "block": "geometriya",
+      "folder": "mavzu-079-aylanada-burchaklar-vatar-urinma-kesuvchi",
+      "questions": 118,
+      "by_difficulty": {
+        "L3": 26,
+        "L2": 92
+      },
+      "by_type": {
+        "o": 8,
+        "y1": 110
+      },
+      "files": [
+        "mavzu-079-01.v2.json"
+      ]
+    },
+    {
+      "topic": 80,
+      "name": "Ichki va tashqi chizilgan aylanalar",
+      "block": "geometriya",
+      "folder": "mavzu-080-ichki-va-tashqi-chizilgan-aylanalar",
+      "questions": 59,
+      "by_difficulty": {
+        "L3": 19,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 59
+      },
+      "files": [
+        "mavzu-080-01.v2.json"
+      ]
+    },
+    {
+      "topic": 81,
+      "name": "Tekislikda koordinatalar va vektorlar",
+      "block": "geometriya",
+      "folder": "mavzu-081-tekislikda-koordinatalar-va-vektorlar",
+      "questions": 80,
+      "by_difficulty": {
+        "L3": 27,
+        "L2": 13,
+        "L1": 40
+      },
+      "by_type": {
+        "o": 27,
+        "y1": 53
+      },
+      "files": [
+        "mavzu-081-01.v2.json"
+      ]
+    },
+    {
+      "topic": 82,
+      "name": "Geometrik almashtirishlar (simmetriya, ko'chirish, burish, gomotetiya)",
+      "block": "geometriya",
+      "folder": "mavzu-082-geometrik-almashtirishlar-simmetriya-kochirish-b",
+      "questions": 58,
+      "by_difficulty": {
+        "L3": 18,
+        "L2": 40
+      },
+      "by_type": {
+        "y2": 18,
+        "y1": 40
+      },
+      "files": [
+        "mavzu-082-01.v2.json"
+      ]
+    },
+    {
+      "topic": 83,
+      "name": "Fazoda to'g'ri chiziq va tekisliklarning o'zaro joylashuvi",
+      "block": "geometriya",
+      "folder": "mavzu-083-fazoda-togri-chiziq-va-tekisliklarning-ozaro-joy",
+      "questions": 10,
+      "by_difficulty": {
+        "L2": 10
+      },
+      "by_type": {
+        "y1": 10
+      },
+      "files": [
+        "mavzu-083-01.v2.json"
+      ]
+    },
+    {
+      "topic": 84,
+      "name": "Fazoda burchaklar va masofalar",
+      "block": "geometriya",
+      "folder": "mavzu-084-fazoda-burchaklar-va-masofalar",
+      "questions": 88,
+      "by_difficulty": {
+        "L2": 88
+      },
+      "by_type": {
+        "y1": 88
+      },
+      "files": [
+        "mavzu-084-01.v2.json"
+      ]
+    },
+    {
+      "topic": 85,
+      "name": "Prizma",
+      "block": "geometriya",
+      "folder": "mavzu-085-prizma",
+      "questions": 46,
+      "by_difficulty": {
+        "L3": 6,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 46
+      },
+      "files": [
+        "mavzu-085-01.v2.json"
+      ]
+    },
+    {
+      "topic": 86,
+      "name": "Parallelepiped va kub",
+      "block": "geometriya",
+      "folder": "mavzu-086-parallelepiped-va-kub",
+      "questions": 59,
+      "by_difficulty": {
+        "L3": 10,
+        "L2": 10,
+        "L1": 39
+      },
+      "by_type": {
+        "y2": 10,
+        "y1": 49
+      },
+      "files": [
+        "mavzu-086-01.v2.json"
+      ]
+    },
+    {
+      "topic": 87,
+      "name": "Piramida va kesik piramida",
+      "block": "geometriya",
+      "folder": "mavzu-087-piramida-va-kesik-piramida",
+      "questions": 83,
+      "by_difficulty": {
+        "L3": 34,
+        "L2": 49
+      },
+      "by_type": {
+        "y1": 56,
+        "o": 27
+      },
+      "files": [
+        "mavzu-087-01.v2.json"
+      ]
+    },
+    {
+      "topic": 88,
+      "name": "Silindr",
+      "block": "geometriya",
+      "folder": "mavzu-088-silindr",
+      "questions": 60,
+      "by_difficulty": {
+        "L3": 10,
+        "L2": 10,
+        "L1": 40
+      },
+      "by_type": {
+        "y2": 10,
+        "y1": 50
+      },
+      "files": [
+        "mavzu-088-01.v2.json"
+      ]
+    },
+    {
+      "topic": 89,
+      "name": "Konus va kesik konus",
+      "block": "geometriya",
+      "folder": "mavzu-089-konus-va-kesik-konus",
+      "questions": 66,
+      "by_difficulty": {
+        "L2": 49,
+        "L3": 17
+      },
+      "by_type": {
+        "y1": 56,
+        "y2": 10
+      },
+      "files": [
+        "mavzu-089-01.v2.json"
+      ]
+    },
+    {
+      "topic": 90,
+      "name": "Shar va sfera",
+      "block": "geometriya",
+      "folder": "mavzu-090-shar-va-sfera",
+      "questions": 61,
+      "by_difficulty": {
+        "L2": 10,
+        "L3": 12,
+        "L1": 39
+      },
+      "by_type": {
+        "y1": 49,
+        "o": 12
+      },
+      "files": [
+        "mavzu-090-01.v2.json"
+      ]
+    },
+    {
+      "topic": 91,
+      "name": "Ko'pyoqlilar va aylanish jismlarining kesimlari",
+      "block": "geometriya",
+      "folder": "mavzu-091-kopyoqlilar-va-aylanish-jismlarining-kesimlari",
+      "questions": 63,
+      "by_difficulty": {
+        "L3": 63
+      },
+      "by_type": {
+        "o": 16,
+        "y1": 47
+      },
+      "files": [
+        "mavzu-091-01.v2.json"
+      ]
+    },
+    {
+      "topic": 92,
+      "name": "Chizilgan va tashqi chizilgan jismlar",
+      "block": "geometriya",
+      "folder": "mavzu-092-chizilgan-va-tashqi-chizilgan-jismlar",
+      "questions": 45,
+      "by_difficulty": {
+        "L3": 45
+      },
+      "by_type": {
+        "y1": 45
+      },
+      "files": [
+        "mavzu-092-01.v2.json"
+      ]
+    },
+    {
+      "topic": 93,
+      "name": "Fazoda koordinatalar va vektorlar",
+      "block": "geometriya",
+      "folder": "mavzu-093-fazoda-koordinatalar-va-vektorlar",
+      "questions": 82,
+      "by_difficulty": {
+        "L3": 32,
+        "L2": 50
+      },
+      "by_type": {
+        "o": 16,
+        "y1": 56,
+        "y2": 10
+      },
+      "files": [
+        "mavzu-093-01.v2.json"
+      ]
+    },
+    {
+      "topic": 94,
+      "name": "To'plamlar va ular ustida amallar (Eyler-Venn diagrammalari)",
+      "block": "toplam",
+      "folder": "mavzu-094-toplamlar-va-ular-ustida-amallar-eyler-venn-diag",
+      "questions": 334,
+      "by_difficulty": {
+        "L3": 54,
+        "L1": 120,
+        "L2": 160
+      },
+      "by_type": {
+        "y1": 328,
+        "o": 6
+      },
+      "files": [
+        "mavzu-094-01.v2.json"
+      ]
+    },
+    {
+      "topic": 95,
+      "name": "Mulohazalar va mantiq amallari (inkor, konyunksiya, dizyunksiya, implikatsiya)",
+      "block": "toplam",
+      "folder": "mavzu-095-mulohazalar-va-mantiq-amallari-inkor-konyunksiya",
+      "questions": 7,
+      "by_difficulty": {
+        "L3": 7
+      },
+      "by_type": {
+        "y1": 7
+      },
+      "files": [
+        "mavzu-095-01.v2.json"
+      ]
+    },
+    {
+      "topic": 96,
+      "name": "Kombinatorika qoidalari (qo'shish va ko'paytirish)",
+      "block": "toplam",
+      "folder": "mavzu-096-kombinatorika-qoidalari-qoshish-va-kopaytirish",
+      "questions": 48,
+      "by_difficulty": {
+        "L3": 8,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 48
+      },
+      "files": [
+        "mavzu-096-01.v2.json"
+      ]
+    },
+    {
+      "topic": 97,
+      "name": "O'rin almashtirish, o'rinlashtirish va guruhlash",
+      "block": "toplam",
+      "folder": "mavzu-097-orin-almashtirish-orinlashtirish-va-guruhlash",
+      "questions": 157,
+      "by_difficulty": {
+        "L3": 46,
+        "L2": 111
+      },
+      "by_type": {
+        "y1": 155,
+        "o": 2
+      },
+      "files": [
+        "mavzu-097-01.v2.json"
+      ]
+    },
+    {
+      "topic": 98,
+      "name": "Nyuton binomi",
+      "block": "toplam",
+      "folder": "mavzu-098-nyuton-binomi",
+      "questions": 87,
+      "by_difficulty": {
+        "L3": 47,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 48,
+        "o": 39
+      },
+      "files": [
+        "mavzu-098-01.v2.json"
+      ]
+    },
+    {
+      "topic": 99,
+      "name": "Klassik ehtimollik",
+      "block": "toplam",
+      "folder": "mavzu-099-klassik-ehtimollik",
+      "questions": 99,
+      "by_difficulty": {
+        "L3": 13,
+        "L2": 48,
+        "L1": 38
+      },
+      "by_type": {
+        "o": 14,
+        "y1": 85
+      },
+      "files": [
+        "mavzu-099-01.v2.json"
+      ]
+    },
+    {
+      "topic": 100,
+      "name": "Ehtimollarni qo'shish va ko'paytirish; shartli ehtimollik",
+      "block": "toplam",
+      "folder": "mavzu-100-ehtimollarni-qoshish-va-kopaytirish-shartli-ehti",
+      "questions": 95,
+      "by_difficulty": {
+        "L3": 55,
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 88,
+        "o": 7
+      },
+      "files": [
+        "mavzu-100-01.v2.json"
+      ]
+    },
+    {
+      "topic": 101,
+      "name": "Statistik ko'rsatkichlar (o'rtacha, moda, mediana, dispersiya)",
+      "block": "toplam",
+      "folder": "mavzu-101-statistik-korsatkichlar-ortacha-moda-mediana-dis",
+      "questions": 135,
+      "by_difficulty": {
+        "L3": 15,
+        "L2": 80,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 128,
+        "o": 7
+      },
+      "files": [
+        "mavzu-101-01.v2.json"
+      ]
+    },
+    {
+      "topic": 102,
+      "name": "Ma'lumotlarni jadval, diagramma va grafikda tahlil qilish",
+      "block": "toplam",
+      "folder": "mavzu-102-malumotlarni-jadval-diagramma-va-grafikda-tahlil",
+      "questions": 128,
+      "by_difficulty": {
+        "L3": 8,
+        "L2": 40,
+        "L1": 80
+      },
+      "by_type": {
+        "y1": 128
+      },
+      "files": [
+        "mavzu-102-01.v2.json"
+      ]
+    },
+    {
+      "topic": 103,
+      "name": "Real vaziyatni matematik modelga aylantirish",
+      "block": "toplam",
+      "folder": "mavzu-103-real-vaziyatni-matematik-modelga-aylantirish",
+      "questions": 88,
+      "by_difficulty": {
+        "L3": 8,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 88
+      },
+      "files": [
+        "mavzu-103-01.v2.json"
+      ]
+    },
+    {
+      "topic": 104,
+      "name": "Kompleks sonlar",
+      "block": "sonlar",
+      "folder": "mavzu-104-kompleks-sonlar",
+      "questions": 199,
+      "by_difficulty": {
+        "L2": 80,
+        "L1": 80,
+        "L3": 39
+      },
+      "by_type": {
+        "y1": 160,
+        "o": 39
+      },
+      "files": [
+        "mavzu-104-01.v2.json"
+      ]
+    },
+    {
+      "topic": 105,
+      "name": "Masshtab",
+      "block": "algebra",
+      "folder": "mavzu-105-masshtab",
+      "questions": 79,
+      "by_difficulty": {
+        "L2": 39,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 79
+      },
+      "files": [
+        "mavzu-105-01.v2.json"
+      ]
+    },
+    {
+      "topic": 106,
+      "name": "Sonli tengsizliklar va ularni darajaga ko'tarish",
+      "block": "algebra",
+      "folder": "mavzu-106-sonli-tengsizliklar-va-ularni-darajaga-kotarish",
+      "questions": 119,
+      "by_difficulty": {
+        "L1": 39,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 79,
+        "o": 40
+      },
+      "files": [
+        "mavzu-106-01.v2.json"
+      ]
+    },
+    {
+      "topic": 107,
+      "name": "Burchakning radian o'lchovi; nuqtani burish",
+      "block": "algebra",
+      "folder": "mavzu-107-burchakning-radian-olchovi-nuqtani-burish",
+      "questions": 199,
+      "by_difficulty": {
+        "L2": 80,
+        "L1": 79,
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 199
+      },
+      "files": [
+        "mavzu-107-01.v2.json"
+      ]
+    },
+    {
+      "topic": 108,
+      "name": "Ikki o'zgaruvchili tengsizliklar sistemasi",
+      "block": "tenglama",
+      "folder": "mavzu-108-ikki-ozgaruvchili-tengsizliklar-sistemasi",
+      "questions": 157,
+      "by_difficulty": {
+        "L2": 77,
+        "L3": 40,
+        "L1": 40
+      },
+      "by_type": {
+        "y1": 120,
+        "o": 37
+      },
+      "files": [
+        "mavzu-108-01.v2.json"
+      ]
+    },
+    {
+      "topic": 109,
+      "name": "Tenglama va tengsizlikni grafik usulda yechish",
+      "block": "tenglama",
+      "folder": "mavzu-109-tenglama-va-tengsizlikni-grafik-usulda-yechish",
+      "questions": 158,
+      "by_difficulty": {
+        "L3": 78,
+        "L2": 80
+      },
+      "by_type": {
+        "y1": 158
+      },
+      "files": [
+        "mavzu-109-01.v2.json"
+      ]
+    },
+    {
+      "topic": 110,
+      "name": "Hosilaning fizik ma'nosi; normal tenglamasi",
+      "block": "analiz",
+      "folder": "mavzu-110-hosilaning-fizik-manosi-normal-tenglamasi",
+      "questions": 159,
+      "by_difficulty": {
+        "L3": 40,
+        "L2": 79,
+        "L1": 40
+      },
+      "by_type": {
+        "o": 79,
+        "y1": 80
+      },
+      "files": [
+        "mavzu-110-01.v2.json"
+      ]
+    },
+    {
+      "topic": 112,
+      "name": "Standart chetlanish",
+      "block": "toplam",
+      "folder": "mavzu-112-standart-chetlanish",
+      "questions": 79,
+      "by_difficulty": {
+        "L2": 79
+      },
+      "by_type": {
+        "y1": 79
+      },
+      "files": [
+        "mavzu-112-01.v2.json"
+      ]
+    },
+    {
+      "topic": 113,
+      "name": "Modellashtirish: chiziqli, kvadratik, ko'rsatkichli va trigonometrik modellar",
+      "block": "toplam",
+      "folder": "mavzu-113-modellashtirish-chiziqli-kvadratik-korsatkichli",
+      "questions": 160,
+      "by_difficulty": {
+        "L2": 160
+      },
+      "by_type": {
+        "y1": 120,
+        "o": 40
+      },
+      "files": [
+        "mavzu-113-01.v2.json"
+      ]
+    },
+    {
+      "topic": 114,
+      "name": "Fales teoremasi",
+      "block": "geometriya",
+      "folder": "mavzu-114-fales-teoremasi",
+      "questions": 40,
+      "by_difficulty": {
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-114-01.v2.json"
+      ]
+    },
+    {
+      "topic": 115,
+      "name": "Uch perpendikulyar teoremasi; proyeksiyalar",
+      "block": "geometriya",
+      "folder": "mavzu-115-uch-perpendikulyar-teoremasi-proyeksiyalar",
+      "questions": 38,
+      "by_difficulty": {
+        "L2": 38
+      },
+      "by_type": {
+        "y1": 38
+      },
+      "files": [
+        "mavzu-115-01.v2.json"
+      ]
+    },
+    {
+      "topic": 116,
+      "name": "Eyler teoremasi; muntazam ko'pyoqlar",
+      "block": "geometriya",
+      "folder": "mavzu-116-eyler-teoremasi-muntazam-kopyoqlar",
+      "questions": 39,
+      "by_difficulty": {
+        "L1": 39
+      },
+      "by_type": {
+        "y1": 39
+      },
+      "files": [
+        "mavzu-116-01.v2.json"
+      ]
+    },
+    {
+      "topic": 117,
+      "name": "Shar segmenti, sektori va qatlami",
+      "block": "geometriya",
+      "folder": "mavzu-117-shar-segmenti-sektori-va-qatlami",
+      "questions": 40,
+      "by_difficulty": {
+        "L3": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-117-01.v2.json"
+      ]
+    },
+    {
+      "topic": 118,
+      "name": "Sfera tenglamasi",
+      "block": "geometriya",
+      "folder": "mavzu-118-sfera-tenglamasi",
+      "questions": 40,
+      "by_difficulty": {
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-118-01.v2.json"
+      ]
+    },
+    {
+      "topic": 119,
+      "name": "Kollinear va komplanar vektorlar; bazis bo'yicha yoyish",
+      "block": "geometriya",
+      "folder": "mavzu-119-kollinear-va-komplanar-vektorlar-bazis-boyicha-y",
+      "questions": 40,
+      "by_difficulty": {
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-119-01.v2.json"
+      ]
+    },
+    {
+      "topic": 120,
+      "name": "Kesmani berilgan nisbatda bo'lish",
+      "block": "geometriya",
+      "folder": "mavzu-120-kesmani-berilgan-nisbatda-bolish",
+      "questions": 40,
+      "by_difficulty": {
+        "L2": 40
+      },
+      "by_type": {
+        "y1": 40
+      },
+      "files": [
+        "mavzu-120-01.v2.json"
+      ]
+    },
+    {
+      "topic": 121,
+      "name": "Funksional bog'liqlik: jadval, grafik va formula",
+      "block": "funksiyalar",
+      "folder": "mavzu-121-funksional-bogliqlik-jadval-grafik-va-formula",
+      "questions": 200,
+      "by_difficulty": {
+        "L1": 80,
+        "L2": 120
+      },
+      "by_type": {
+        "y1": 160,
+        "o": 40
+      },
+      "files": [
+        "mavzu-121-01.v2.json"
+      ]
+    }
+  ]
+}
