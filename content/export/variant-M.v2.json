@@ -3,7 +3,7 @@
   "exam": {
     "title": "Variant M",
     "code": "M",
-    "slug": "variant-m",
+    "slug": "variant-m-v2",
     "format": "math-v1",
     "duration_seconds": 9000,
     "is_free": true,

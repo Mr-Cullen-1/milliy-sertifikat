@@ -22,9 +22,10 @@ describe('v2 eksport: barcha variantlar', () => {
       expect(res.summary.byType).toEqual({ y1: 32, y2: 3, o: 10 });
       expect(res.summary.translated).toEqual({ ru: 45, kaa: 45, en: 45 });
 
-      const out = JSON.parse(text) as { schema_version: number; exam: { code: string; status: string }; questions: Array<Record<string, unknown>> };
+      const out = JSON.parse(text) as { schema_version: number; exam: { code: string; slug: string; status: string }; questions: Array<Record<string, unknown>> };
       expect(out.schema_version).toBe(2);
       expect(out.exam.status).toBe('draft');
+      expect(out.exam.slug).toBe(`variant-${out.exam.code.toLowerCase()}-v2`);
       out.questions.forEach((q, i) => expect(q.position).toBe(i + 1));
 
       const src = JSON.parse(readFileSync(join(variantsDir, `variant-${out.exam.code}.json`), 'utf8')) as { questions: Array<Record<string, unknown>> };

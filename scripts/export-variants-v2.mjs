@@ -3,6 +3,11 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
+// exam.slug: variant-a-v2. Ilovada shu slug eski formatda band bo'lsa qiymatni o'zgartiring: pnpm content:export -- --slug-suffix=v3 (bo'sh: --slug-suffix=)
+const suffixArg = process.argv.find((a) => a.startsWith('--slug-suffix='));
+const suffix = suffixArg ? suffixArg.slice('--slug-suffix='.length) : 'v2';
+if (!/^[a-z0-9-]*$/.test(suffix)) throw new Error('--slug-suffix faqat kichik harf, raqam va "-" dan iborat bo\'lsin');
+
 const src = join(process.cwd(), 'content', 'variants');
 const out = join(process.cwd(), 'content', 'export');
 mkdirSync(out, { recursive: true });
@@ -18,7 +23,7 @@ for (const f of files) {
     exam: {
       title,
       code,
-      slug: `variant-${String(code).toLowerCase()}`,
+      slug: `variant-${String(code).toLowerCase()}${suffix ? `-${suffix}` : ''}`,
       format: 'math-v1',
       duration_seconds: 9000,
       is_free: isFree ?? false,
