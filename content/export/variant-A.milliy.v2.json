@@ -1,0 +1,1406 @@
+{
+  "schema_version": 2,
+  "exam": {
+    "slug": "variant-a",
+    "title": "Variant A",
+    "description": "Milliy sertifikat (Matematika), Variant A: 45 topshiriq (32 yopiq, 3 moslashtirish, 10 ochiq), 150 daqiqa. Original savollar.",
+    "duration_seconds": 9000,
+    "format": "milliy-math-v1",
+    "purpose": "mock",
+    "status": "published",
+    "access": "free",
+    "content_version": "A-v1",
+    "metadata": {
+      "variant_code": "A",
+      "generator": "gen:v1"
+    }
+  },
+  "questions": [
+    {
+      "id": "gen-A-01",
+      "number": 1,
+      "kind": "y1",
+      "block_code": "sonlar",
+      "element_code": "e11",
+      "difficulty": "L1",
+      "prompt": "$24$ va $84$ sonlarining EKUKini toping.",
+      "payload": {
+        "options": {
+          "A": "$2016$",
+          "B": "$108$",
+          "C": "$12$",
+          "D": "$168$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Sonlarni tub ko'paytuvchilarga ajratamiz:\n\n$$24=2^{3}\\cdot 3,\\qquad 84=2^{2}\\cdot 3\\cdot 7$$\n\nEKUK — barcha tub ko'paytuvchilarning eng katta darajalari ko'paytmasi:\n\n$$\\operatorname{lcm}(24,84)=2^{3}\\cdot 3\\cdot 7=168$$",
+      "typical_error": "EKUB bilan EKUKni adashtirish yoki umumiy ko'paytuvchilarni noto'g'ri tanlash.",
+      "metadata": {
+        "topic": 3,
+        "est_seconds": 60,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-02",
+      "number": 2,
+      "kind": "y1",
+      "block_code": "sonlar",
+      "element_code": "e12",
+      "difficulty": "L1",
+      "prompt": "Hisoblang.\n\n$$\\frac{4}{5}\\cdot\\frac{4}{3}$$",
+      "payload": {
+        "options": {
+          "A": "$\\frac{16}{15}$",
+          "B": "$\\frac{3}{5}$",
+          "C": "$\\frac{32}{15}$",
+          "D": "$2$"
+        }
+      },
+      "answer_key": {
+        "correct": "A"
+      },
+      "explanation": "Suratni suratga, maxrajni maxrajga ko'paytiramiz.\n\n$$\\frac{4}{5}\\cdot\\frac{4}{3}=\\frac{4\\cdot 4}{5\\cdot 3}=\\frac{16}{15}$$",
+      "typical_error": "Bo'lishda ikkinchi kasrni teskari aylantirmaslik yoki kasrlarni umumiy maxrajga keltirib ko'paytirish.",
+      "metadata": {
+        "topic": 4,
+        "est_seconds": 60,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-03",
+      "number": 3,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e21",
+      "difficulty": "L1",
+      "prompt": "Hisoblang.\n\n$$\\frac{4^{4}\\cdot 2^{4}}{8^{1}}$$",
+      "payload": {
+        "options": {
+          "A": "$1024$",
+          "B": "$512$",
+          "C": "$256$",
+          "D": "$128$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "Daraja xossalari: $a^m\\cdot a^n=a^{m+n}$, $a^m:a^n=a^{m-n}$, $(a^m)^n=a^{mn}$.\n\nHammasini 2 asosiga keltiramiz.\n\n$$\\frac{4^{4}\\cdot 2^{4}}{8^{1}}=\\frac{2^{2\\cdot 4}\\cdot 2^{4}}{2^{3\\cdot 1}}=2^{8+4-3}=2^{9}=512$$",
+      "typical_error": "Ko'paytirishda ko'rsatkichlarni qo'shish o'rniga ko'paytirish yoki asoslarni ko'paytirib yuborish.",
+      "metadata": {
+        "topic": 12,
+        "est_seconds": 60,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-04",
+      "number": 4,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e21",
+      "difficulty": "L1",
+      "prompt": "Hisoblang.\n\n$$3^{-3}+4^{-2}$$",
+      "payload": {
+        "options": {
+          "A": "$-43$",
+          "B": "$43$",
+          "C": "$\\frac{43}{432}$",
+          "D": "$\\frac{1}{43}$"
+        }
+      },
+      "answer_key": {
+        "correct": "C"
+      },
+      "explanation": "Manfiy ko'rsatkich: $a^{-n}=\\dfrac{1}{a^n}$, $\\left(\\dfrac{a}{b}\\right)^{-n}=\\left(\\dfrac{b}{a}\\right)^n$.\n\n$$3^{-3}+4^{-2}=\\frac{1}{27}+\\frac{1}{16}=\\frac{43}{432}$$",
+      "typical_error": "Manfiy ko'rsatkichni ishora o'zgarishi deb tushunish yoki asosni teskari aylantirmaslik.",
+      "metadata": {
+        "topic": 12,
+        "est_seconds": 70,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-05",
+      "number": 5,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e21",
+      "difficulty": "L1",
+      "prompt": "Hisoblang.\n\n$$\\sqrt[3]{24}\\cdot\\sqrt[3]{72}$$",
+      "payload": {
+        "options": {
+          "A": "$12$",
+          "B": "$4$",
+          "C": "$15$",
+          "D": "$36$"
+        }
+      },
+      "answer_key": {
+        "correct": "A"
+      },
+      "explanation": "Bir xil darajali ildizlar ko'paytmasi: $\\sqrt[n]{a}\\cdot\\sqrt[n]{b}=\\sqrt[n]{ab}$.\n\n$$\\sqrt[3]{24}\\cdot\\sqrt[3]{72}=\\sqrt[3]{24\\cdot 72}=\\sqrt[3]{1728}=\\sqrt[3]{12^3}=12$$",
+      "typical_error": "Ildiz ostidagi sonlarni ko'paytirgach ildizni to'liq chiqarmaslik yoki ildiz ostidagi sonlarni qo'shib yuborish.",
+      "metadata": {
+        "topic": 13,
+        "est_seconds": 70,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-06",
+      "number": 6,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e21",
+      "difficulty": "L1",
+      "prompt": "Hisoblang.\n\n$$125^{-\\frac{1}{3}}$$",
+      "payload": {
+        "options": {
+          "A": "$-\\frac{1}{5}$",
+          "B": "$\\frac{1}{5}$",
+          "C": "$5$",
+          "D": "$\\frac{1}{25}$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "Ratsional ko'rsatkich: $a^{\\frac{m}{n}}=\\left(\\sqrt[n]{a}\\right)^{m}$, $a^{-k}=\\dfrac{1}{a^{k}}$.\n\n$$125^{-\\frac{1}{3}}=\\frac{1}{125^{\\frac{1}{3}}}=\\frac{1}{\\left(\\sqrt[3]{125}\\right)^{1}}=\\frac{1}{5^{1}}=\\frac{1}{5}$$",
+      "typical_error": "Kasr ko'rsatkichning surat va maxrajini almashtirib yuborish (ildiz darajasi bilan daraja o'rnini adashtirish) yoki manfiy ishorani e'tiborsiz qoldirish.",
+      "metadata": {
+        "topic": 14,
+        "est_seconds": 80,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-07",
+      "number": 7,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e24",
+      "difficulty": "L1",
+      "prompt": "Qavslarni oching va o'xshash hadlarni ixchamlang.\n\n$$(-4x^2-5x+5)-(-5x^2+6x+5)$$",
+      "payload": {
+        "options": {
+          "A": "$-x^2+11x$",
+          "B": "$-9x^2+x+10$",
+          "C": "$x^2+x+10$",
+          "D": "$x^2-11x$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Minus ishorali qavsni ochganda qavs ichidagi hamma hadlarning ishorasi o'zgaradi:\n\n$$(-4x^2-5x+5)-(-5x^2+6x+5)=-4x^2-5x+5+5x^2-6x-5=x^2-11x$$",
+      "typical_error": "Minus ishorali qavsni ochganda faqat birinchi hadning ishorasini o'zgartirish.",
+      "metadata": {
+        "topic": 15,
+        "est_seconds": 75,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-08",
+      "number": 8,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e24",
+      "difficulty": "L1",
+      "prompt": "Qavslarni oching va o'xshash hadlarni ixchamlang.\n\n$$(x-6y)^2$$",
+      "payload": {
+        "options": {
+          "A": "$x^2-6xy+36y^2$",
+          "B": "$x^2+36y^2$",
+          "C": "$x^2+12xy+36y^2$",
+          "D": "$x^2-12xy+36y^2$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Qisqa ko'paytirish formulasi: $(u+v)^2=u^2+2uv+v^2$.\n\n$$(x-6y)^2=(x)^2+2\\cdot x\\cdot (-6y)+(-6y)^2=x^2-12xy+36y^2$$",
+      "typical_error": "O'rtadagi $2uv$ hadni tashlab ketish: $(u+v)^2=u^2+v^2$.",
+      "metadata": {
+        "topic": 16,
+        "est_seconds": 70,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-09",
+      "number": 9,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e24",
+      "difficulty": "L1",
+      "prompt": "Hisoblang.\n\n$$\\frac{79^2-37^2}{79-37}$$",
+      "payload": {
+        "options": {
+          "A": "$116$",
+          "B": "$42$",
+          "C": "$158$",
+          "D": "$74$"
+        }
+      },
+      "answer_key": {
+        "correct": "A"
+      },
+      "explanation": "Kvadratlar ayirmasi: $u^2-v^2=(u-v)(u+v)$.\n\n$$\\frac{79^2-37^2}{79-37}=\\frac{(79-37)(79+37)}{79-37}=79+37=116$$",
+      "typical_error": "Kvadratlar ayirmasini $(u-v)^2$ bilan adashtirish yoki har bir sonni alohida kvadratga oshirib ketish.",
+      "metadata": {
+        "topic": 16,
+        "est_seconds": 70,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-10",
+      "number": 10,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e24",
+      "difficulty": "L1",
+      "prompt": "Ko'paytuvchilarga ajrating.\n\n$$x^2-x-6$$",
+      "payload": {
+        "options": {
+          "A": "$(x-3)(x-2)$",
+          "B": "$(x+2)(x+3)$",
+          "C": "$(x-2)(x+3)$",
+          "D": "$(x-3)(x+2)$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Viyet teoremasiga ko'ra yig'indisi $-1$, ko'paytmasi $-6$ bo'lgan ikki sonni qidiramiz: bular $2$ va $-3$.\n\n$$x^2-x-6=(x-3)(x+2)$$",
+      "typical_error": "Ko'paytuvchilardagi sonlarning ishorasini teskari yozish: ildizlar bilan ko'paytuvchi ozod hadlarini adashtirish.",
+      "metadata": {
+        "topic": 17,
+        "est_seconds": 80,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-11",
+      "number": 11,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e24",
+      "difficulty": "L1",
+      "prompt": "Kasrni qisqartiring.\n\n$$\\frac{x^2-9x+14}{x^2-4}$$",
+      "payload": {
+        "options": {
+          "A": "$\\frac{x-7}{x-2}$",
+          "B": "$\\frac{x+7}{x+2}$",
+          "C": "$\\frac{x-7}{x+2}$",
+          "D": "$\\frac{x+7}{x-2}$"
+        }
+      },
+      "answer_key": {
+        "correct": "C"
+      },
+      "explanation": "Surat va maxrajni ko'paytuvchilarga ajratamiz:\n\n$$x^2-9x+14=(x-2)(x-7),\\qquad x^2-4=(x-2)(x+2)$$\n\nUmumiy ko'paytuvchi $x-2$ ga qisqartiramiz:\n\n$$\\frac{(x-2)(x-7)}{(x-2)(x+2)}=\\frac{x-7}{x+2}$$",
+      "typical_error": "Qisqartirishda hadlarni emas, faqat ko'paytuvchilarni qisqartirish mumkin; ishora xatosi ko'p uchraydi.",
+      "metadata": {
+        "topic": 18,
+        "est_seconds": 90,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-12",
+      "number": 12,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e24",
+      "difficulty": "L1",
+      "prompt": "Ifodani soddalashtiring.\n\n$$\\frac{2}{x-5}-\\frac{2}{x+5}$$",
+      "payload": {
+        "options": {
+          "A": "$\\frac{-20}{x^2-25}$",
+          "B": "$\\frac{20}{x^2+25}$",
+          "C": "$\\frac{20}{x^2-25}$",
+          "D": "$\\frac{4x}{x^2-25}$"
+        }
+      },
+      "answer_key": {
+        "correct": "C"
+      },
+      "explanation": "Umumiy maxraj: $(x-5)(x+5)=x^2-25$.\n\n$$\\frac{2}{x-5}-\\frac{2}{x+5}=\\frac{2(x+5)-2(x-5)}{x^2-25}=\\frac{2x+10-2x+10}{x^2-25}=\\frac{20}{x^2-25}$$",
+      "typical_error": "Qo'shish/ayirishda maxrajlarni qo'shib yuborish yoki surat qavsini ochganda ishorani adashtirish.",
+      "metadata": {
+        "topic": 18,
+        "est_seconds": 100,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-13",
+      "number": 13,
+      "kind": "y1",
+      "block_code": "algebra",
+      "element_code": "e24",
+      "difficulty": "L2",
+      "prompt": "Ifodaning qiymatini toping.\n\n$$|\\sqrt{22}-4|-|\\sqrt{22}-6|$$",
+      "payload": {
+        "options": {
+          "A": "$2\\sqrt{22}-10$",
+          "B": "$-2$",
+          "C": "$2$",
+          "D": "$10-2\\sqrt{22}$"
+        }
+      },
+      "answer_key": {
+        "correct": "A"
+      },
+      "explanation": "Avval 4, 6 va $\\sqrt{22}$ ni taqqoslaymiz: $16<22<36$ bo'lgani uchun $4<\\sqrt{22}<6$.\n\n$$|\\sqrt{22}-4|=\\sqrt{22}-4,\\qquad |\\sqrt{22}-6|=6-\\sqrt{22}$$\n\nModullarni ochib, hisoblaymiz:\n\n$$(\\sqrt{22}-4)-(6-\\sqrt{22})=2\\sqrt{22}-10$$",
+      "typical_error": "Modul ostidagi ifodaning ishorasini baholamasdan modulni shunchaki tashlab yuborish.",
+      "metadata": {
+        "topic": 27,
+        "extra_topics": [
+          13
+        ],
+        "est_seconds": 130,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-14",
+      "number": 14,
+      "kind": "y1",
+      "block_code": "tenglama",
+      "element_code": "e31",
+      "difficulty": "L2",
+      "prompt": "$x^{2} + 7x - 3 = 0$ kvadrat tenglamaning ildizlari $x_1$ va $x_2$ bo'lsin. $x_1^3 + x_2^3$ ifodaning qiymatini toping.",
+      "payload": {
+        "options": {
+          "A": "$-280$",
+          "B": "$-406$",
+          "C": "$-364$",
+          "D": "$-334$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "Viyet teoremasiga ko'ra $x_1 + x_2 = -7, \\quad x_1x_2 = -3$.\n\nIfodani yig'indi va ko'paytma orqali yozamiz: $x_1^3 + x_2^3 = (x_1 + x_2)^3 - 3x_1x_2(x_1 + x_2)$.\n\nQiymatlarni qo'yamiz: $\\left(-7\\right)^3 - 3\\cdot \\left(-3\\right)\\cdot \\left(-7\\right) = -406$.",
+      "typical_error": "Viyet teoremasida yig'indi $-\\frac{b}{a}$ ekanini (ishorani) unutish yoki ifodani yig'indi va ko'paytma orqali noto'g'ri yozish.",
+      "metadata": {
+        "topic": 29,
+        "est_seconds": 130,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-15",
+      "number": 15,
+      "kind": "y1",
+      "block_code": "tenglama",
+      "element_code": "e32",
+      "difficulty": "L2",
+      "prompt": "$x^{2} - 8x \\le 0$ tengsizlikning butun yechimlari yig'indisini toping.",
+      "payload": {
+        "options": {
+          "A": "$35$",
+          "B": "$28$",
+          "C": "$36$",
+          "D": "$37$"
+        }
+      },
+      "answer_key": {
+        "correct": "C"
+      },
+      "explanation": "Mos tenglamaning ildizlari $0$ va $8$ (Viyet teoremasi: yig'indisi 8, ko'paytmasi 0).\n\nParabolaning shoxlari yuqoriga qaragan, shuning uchun tengsizlik ildizlar orasida bajariladi: $x \\in [0;\\ 8]$.\n\nButun yechimlar: $0, 1, 2, 3, 4, 5, 6, 7, 8$. Ularning yig'indisi 36. Javob: $36$.",
+      "typical_error": "Qat'iymas tengsizlikda ildizlarning o'zi ham yechimga kiradi: chegaralarni tashlab yuborish.",
+      "metadata": {
+        "topic": 30,
+        "est_seconds": 110,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-16",
+      "number": 16,
+      "kind": "y1",
+      "block_code": "tenglama",
+      "element_code": "e31",
+      "difficulty": "L2",
+      "prompt": "$3^{2x} - 30\\cdot 3^{x} + 81 = 0$ tenglama ildizlarining ko'paytmasini toping.",
+      "payload": {
+        "options": {
+          "A": "$81$",
+          "B": "$3$",
+          "C": "$4$",
+          "D": "$30$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "$t = 3^x$ almashtirish olamiz ($t > 0$): $t^2 - 30t + 81 = 0$.\n\nViyet teoremasi bo'yicha $t = 3$ yoki $t = 27$. Ikkalasi ham musbat.\n\n$3^x = 3$ dan $x = 1$, $3^x = 27$ dan $x = 3$. Javob: $1 \\cdot 3 = 3$.",
+      "typical_error": "$t$ ning topilgan qiymatlarini $x$ ning qiymati deb olish: $3^x = t$ tenglamani yechishni unutish.",
+      "metadata": {
+        "topic": 37,
+        "extra_topics": [
+          31
+        ],
+        "est_seconds": 140,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-17",
+      "number": 17,
+      "kind": "y1",
+      "block_code": "tenglama",
+      "element_code": "e31",
+      "difficulty": "L2",
+      "prompt": "$\\sqrt{x + 30} = x$ tenglamaning ildizini toping.",
+      "payload": {
+        "options": {
+          "A": "$-5$",
+          "B": "$6$",
+          "C": "$-30$",
+          "D": "$1$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "Ikkala qismni kvadratga ko'taramiz (shart: $x \\ge 0$): $x + 30 = x^2$.\n\nSoddalashtiramiz: $x^{2} - x - 30 = 0$, ildizlari $6$ va $-5$.\n\nShartni tekshiramiz: $6$ uchun $6 - 0 = 6 \\ge 0$ to'g'ri, $-5$ uchun $-5 - 0 = -5 < 0$ begona ildiz. Javob: $6$.",
+      "typical_error": "Kvadratga ko'tarishda paydo bo'lgan begona ildizni tekshirmaslik (o'ng tomon manfiy bo'lmasligi shartini unutish).",
+      "metadata": {
+        "topic": 34,
+        "est_seconds": 150,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-18",
+      "number": 18,
+      "kind": "y1",
+      "block_code": "tenglama",
+      "element_code": "e31",
+      "difficulty": "L2",
+      "prompt": "$|x + 2| + |x| = 4$ tenglamaning eng kichik ildizini toping.",
+      "payload": {
+        "options": {
+          "A": "$1$",
+          "B": "$-2$",
+          "C": "$4$",
+          "D": "$-3$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Modullarni ochish uchun uch oraliqni qaraymiz.\n\n$x < -2$: $-(x + 2) - x = 4$, bundan $x = -3$ (shart bajariladi).\n\n$-2 \\le x \\le 0$: ifoda doim $2$ ga teng, $2 \\ne 4$, yechim yo'q.\n\n$x > 0$: $(x + 2) + x = 4$, bundan $x = 1$. Javob: $-3$.",
+      "typical_error": "Modul belgisini oraliqlarga ajratmasdan ochish yoki topilgan ildizni mos oraliqqa tegishliligini tekshirmaslik.",
+      "metadata": {
+        "topic": 33,
+        "est_seconds": 140,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-19",
+      "number": 19,
+      "kind": "y1",
+      "block_code": "tenglama",
+      "element_code": "e31",
+      "difficulty": "L2",
+      "prompt": "Tenglamalar sistemasi berilgan: $\\begin{cases} x - y = 7 \\\\ x^2 - y^2 = -21 \\end{cases}$ $xy$ ko'paytmaning qiymatini toping.",
+      "payload": {
+        "options": {
+          "A": "$-10$",
+          "B": "$10$",
+          "C": "$29$",
+          "D": "$-3$"
+        }
+      },
+      "answer_key": {
+        "correct": "A"
+      },
+      "explanation": "$x^2 - y^2 = (x - y)(x + y)$ bo'lgani uchun ikkinchi tenglamadan $7(x + y) = -21$, ya'ni $x + y = -3$.\n\n$x - y = 7$ bilan qo'shib: $2x = 4$, $x = 2$, keyin $y = -5$.\n\n$xy = 2 \\cdot (-5) = -10$.",
+      "typical_error": "Kvadratlar ayirmasini ko'paytuvchilarga ajratmaslik yoki $x$ va $y$ ni topishda ishora xatosiga yo'l qo'yish.",
+      "metadata": {
+        "topic": 35,
+        "est_seconds": 140,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-20",
+      "number": 20,
+      "kind": "y1",
+      "block_code": "funksiyalar",
+      "element_code": "e41",
+      "difficulty": "L2",
+      "prompt": "$f(x) = \\frac{\\sqrt{49 - x^2}}{x^2 - 36}$ funksiyaning aniqlanish sohasiga nechta butun son tegishli?",
+      "payload": {
+        "options": {
+          "A": "$13$",
+          "B": "$15$",
+          "C": "$14$",
+          "D": "$12$"
+        }
+      },
+      "answer_key": {
+        "correct": "A"
+      },
+      "explanation": "Ildiz ostidagi ifoda manfiy bo'lmasligi, maxraj esa nolga teng bo'lmasligi (yoki ildiz maxrajda qat'iy musbat) kerak.\n\n$49 - x^2 \\ge 0 \\Rightarrow -7 \\le x \\le 7$.\n\n$x^2 \\ne 36 \\Rightarrow x \\ne \\pm 6$.\n\nAniqlanish sohasi: $[-7;\\ 7] \\setminus \\{-6;\\ 6\\}$. Butun sonlar soni: $15 - 2 = 13$. Javob: $13$.",
+      "typical_error": "Maxrajni nolga aylantiradigan nuqtalarni ($x = -c$ va $x = c$) aniqlanish sohasidan chiqarishni unutish.",
+      "metadata": {
+        "topic": 43,
+        "est_seconds": 100,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-21",
+      "number": 21,
+      "kind": "y1",
+      "block_code": "funksiyalar",
+      "element_code": "e41",
+      "difficulty": "L2",
+      "prompt": "$f(x) = -3x^{2} - 12x - 7$ funksiyaning $[-3;\\ 2]$ kesmadagi eng kichik qiymatini toping.",
+      "payload": {
+        "options": {
+          "A": "$-43$",
+          "B": "$2$",
+          "C": "$-42$",
+          "D": "$5$"
+        }
+      },
+      "answer_key": {
+        "correct": "A"
+      },
+      "explanation": "Parabola uchining absissasi: $x_0 = -\\frac{b}{2a} = -2$. Uch $[-3;\\ 2]$ kesmaning ichida, shuning uchun ekstremum uchda yoki kesma uchlarida bo'ladi.\n\nQiymatlar: $f(-3) = 2, \\quad f(2) = -43, \\quad f(-2) = 5$.\n\nEng kichik qiymat: $-43$.",
+      "typical_error": "Parabola uchidagi qiymatni har doim javob deb olish: uch kesmadan tashqarida bo'lsa yoki yo'nalish (a ishorasi) teskari bo'lsa, javob kesma uchlarida bo'ladi.",
+      "metadata": {
+        "topic": 47,
+        "est_seconds": 150,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-22",
+      "number": 22,
+      "kind": "y1",
+      "block_code": "analiz",
+      "element_code": "e61",
+      "difficulty": "L2",
+      "prompt": "$f(x)=(-2x+4)^{3}$ funksiyaning $x_0=3$ nuqtadagi hosilasi $f^{\\prime}(x_0)$ ni toping.",
+      "payload": {
+        "options": {
+          "A": "$48$",
+          "B": "$-8$",
+          "C": "$12$",
+          "D": "$-24$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Murakkab funksiya hosilasi: $f^{\\prime}(x)=3(-2x+4)^{2}\\cdot(-2)$. $x=3$ da $-2x+4=-2$, shuning uchun $f^{\\prime}(3)=3\\cdot(-2)^{2}\\cdot(-2)=-24$.",
+      "typical_error": "Ichki funksiya hosilasi $-2$ ga ko'paytirishni unutish.",
+      "metadata": {
+        "topic": 61,
+        "est_seconds": 110,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-23",
+      "number": 23,
+      "kind": "y1",
+      "block_code": "analiz",
+      "element_code": "e24",
+      "difficulty": "L2",
+      "prompt": "Arifmetik progressiyada $a_{4}=5,\\ a_{7}=2$. Progressiyaning dastlabki $11$ ta hadi yig'indisini toping.",
+      "payload": {
+        "options": {
+          "A": "$30$",
+          "B": "$-22$",
+          "C": "$35$",
+          "D": "$33$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "$d=\\dfrac{2-5}{7-4}=-1$, $a_1=5-3\\cdot(-1)=8$. $S_{11}=\\dfrac{2\\cdot8+10\\cdot(-1)}{2}\\cdot 11=33$.",
+      "typical_error": "Yig'indi formulasida $n-1$ o'rniga $n$ ni qo'yish yoki $a_1$ ni noto'g'ri topish.",
+      "metadata": {
+        "topic": 57,
+        "est_seconds": 120,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-24",
+      "number": 24,
+      "kind": "y1",
+      "block_code": "geometriya",
+      "element_code": "e72",
+      "difficulty": "L2",
+      "prompt": "$ABCD$ rombning diagonallari $10$ sm va $24$ sm. Rombning perimetrini (sm da) toping.",
+      "payload": {
+        "options": {
+          "A": "$104$",
+          "B": "$68$",
+          "C": "$13$",
+          "D": "$52$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Romb diagonallari o'zaro perpendikulyar va kesishish nuqtasida teng ikkiga bo'linadi. Shuning uchun romb tomoni katetlari $5$ va $12$ bo'lgan to'g'ri burchakli uchburchakning gipotenuzasi bo'ladi.\n\n$a=\\sqrt{5^2+12^2}=\\sqrt{169}=13$.\n\nPerimetr: $P=4a=4\\cdot 13=52$ sm.",
+      "typical_error": "Yarim diagonallar o'rniga butun diagonallarni Pifagor formulasiga qo'yish yoki tomonni topgach uni $4$ ga ko'paytirishni unutish.",
+      "metadata": {
+        "topic": 74,
+        "est_seconds": 100,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"127.5,110 160,32 192.5,110 160,188\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"127.5\" y1=\"110\" x2=\"192.5\" y2=\"110\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><line x1=\"160\" y1=\"32\" x2=\"160\" y2=\"188\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><polyline points=\"171,110 171,99 160,99\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.4\"/><text x=\"112.5\" y=\"110\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"160\" y=\"17\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"207.5\" y=\"110\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"160\" y=\"203\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">D</text><text x=\"145.1\" y=\"97\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">10</text><text x=\"173\" y=\"74.1\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">24</text></svg>",
+        "alt": "Romb ABCD, diagonallari AC = 10 va BD = 24, ular perpendikulyar kesishadi."
+      }
+    },
+    {
+      "id": "gen-A-25",
+      "number": 25,
+      "kind": "y1",
+      "block_code": "geometriya",
+      "element_code": "e74",
+      "difficulty": "L2",
+      "prompt": "To'g'ri burchakli parallelepipedning asosi tomonlari $3$ va $6$, diagonali esa $9$ ga teng. Parallelepipedning hajmini toping.",
+      "payload": {
+        "options": {
+          "A": "$162$",
+          "B": "$108$",
+          "C": "$36$",
+          "D": "$126$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "Parallelepiped diagonalining kvadrati uchta o'lcham kvadratlari yig'indisiga teng: $d^2=a^2+b^2+c^2$.\n\n$c^2=9^2-3^2-6^2=81-9-36=36$, $c=6$.\n\n$V=abc=3\\cdot6\\cdot6=108$.",
+      "typical_error": "Diagonal formulasida kvadratlarni unutish ($d=a+b+c$ deb olish) yoki diagonalni balandlik o'rnida ishlatish.",
+      "metadata": {
+        "topic": 86,
+        "est_seconds": 120,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"220\" fill=\"#ffffff\"/><line x1=\"218\" y1=\"153.9\" x2=\"150\" y2=\"153.9\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"102\" y1=\"202\" x2=\"150\" y2=\"153.9\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"150\" y1=\"153.9\" x2=\"150\" y2=\"18\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"102\" y1=\"202\" x2=\"170\" y2=\"202\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"170\" y1=\"202\" x2=\"218\" y2=\"153.9\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"102\" y1=\"66.1\" x2=\"170\" y2=\"66.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"170\" y1=\"66.1\" x2=\"218\" y2=\"18\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"218\" y1=\"18\" x2=\"150\" y2=\"18\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"102\" y1=\"66.1\" x2=\"150\" y2=\"18\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"170\" y1=\"202\" x2=\"170\" y2=\"66.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"102\" y1=\"202\" x2=\"102\" y2=\"66.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"218\" y1=\"153.9\" x2=\"218\" y2=\"18\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"96.1\" y=\"215.5\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">A</text><text x=\"171.1\" y=\"217.1\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">B</text><text x=\"226.8\" y=\"164.8\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">C</text><text x=\"147.6\" y=\"168.9\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">D</text><text x=\"93.2\" y=\"63.6\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">A1</text><text x=\"172.4\" y=\"59.5\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">B1</text><text x=\"223.9\" y=\"12.9\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">C1</text><text x=\"148.9\" y=\"11.3\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">D1</text><line x1=\"102\" y1=\"202\" x2=\"218\" y2=\"18\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><text x=\"136\" y=\"217.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">3</text><text x=\"133.8\" y=\"189.9\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">6</text><text x=\"169\" y=\"106.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">9</text></svg>",
+        "alt": "To'g'ri burchakli parallelepiped: asosi tomonlari 3 va 6, diagonali 9."
+      }
+    },
+    {
+      "id": "gen-A-26",
+      "number": 26,
+      "kind": "y1",
+      "block_code": "geometriya",
+      "element_code": "e72",
+      "difficulty": "L2",
+      "prompt": "Teng yonli $ABCD$ trapetsiyaning asoslari $BC=4$ sm va $AD=16$ sm, yon tomoni $AB=10$ sm. Trapetsiyaning yuzini (sm² da) toping.",
+      "payload": {
+        "options": {
+          "A": "$100$",
+          "B": "$160$",
+          "C": "$80$",
+          "D": "$128$"
+        }
+      },
+      "answer_key": {
+        "correct": "C"
+      },
+      "explanation": "$B$ uchidan balandlik tushiramiz: $BH\\perp AD$. Teng yonli trapetsiyada $AH=\\dfrac{AD-BC}{2}=\\dfrac{16-4}{2}=6$.\n\nTo'g'ri burchakli $ABH$ uchburchakdan: $BH=\\sqrt{AB^2-AH^2}=\\sqrt{10^2-6^2}=8$.\n\nYuza: $S=\\dfrac{BC+AD}{2}\\cdot BH=\\dfrac{4+16}{2}\\cdot 8=80$ sm².",
+      "typical_error": "Balandlik o'rniga yon tomonni ishlatish ($S=\\dfrac{BC+AD}{2}\\cdot AB$) yoki yuzni hisoblashda $\\dfrac12$ ni unutish.",
+      "metadata": {
+        "topic": 76,
+        "est_seconds": 120,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"32,174 128,46 192,46 288,174\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"128\" y1=\"46\" x2=\"128\" y2=\"174\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><polyline points=\"128,163 139,163 139,174\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.4\"/><text x=\"18.6\" y=\"180.7\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"121.3\" y=\"32.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"198.7\" y=\"32.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"301.4\" y=\"180.7\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">D</text><text x=\"128\" y=\"187\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">H</text><text x=\"160\" y=\"33\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">4</text><text x=\"160\" y=\"187\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">16</text><text x=\"69.6\" y=\"102.2\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">10</text></svg>",
+        "alt": "Teng yonli ABCD trapetsiya: BC = 4 yuqori asos, AD = 16 pastki asos, AB = 10 yon tomon; B uchidan AD ga BH balandlik tushirilgan."
+      }
+    },
+    {
+      "id": "gen-A-27",
+      "number": 27,
+      "kind": "y1",
+      "block_code": "geometriya",
+      "element_code": "e73",
+      "difficulty": "L2",
+      "prompt": "Berilgan: muntazam beshburchakli prizma $ABCDEA_1B_1C_1D_1E_1$. Qolgan qirralari yotgan to'g'ri chiziqlardan nechtasi $DD_1$ qirra yotgan to'g'ri chiziq bilan parallel bo'ladi?",
+      "payload": {
+        "options": {
+          "A": "3",
+          "B": "4",
+          "C": "5",
+          "D": "10"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "$DD_1$ qirraga nisbatan qolgan qirralarni tekshiramiz (to'g'ri chiziqlar sifatida).\n\nparallel: $BB_1,\\ AA_1,\\ CC_1,\\ EE_1$ (4); kesishuvchi: $CD,\\ DE,\\ C_1D_1,\\ D_1E_1$ (4); ayqash: $AB,\\ BC,\\ AE,\\ A_1B_1,\\ B_1C_1,\\ A_1E_1$ (6).\n\nJavob: $4$.",
+      "typical_error": "Parallel yoki kesishuvchi qirralarni ayqashlar qatoriga qo'shib yuborish, yoki qirraning o'zini sanash.",
+      "metadata": {
+        "topic": 83,
+        "est_seconds": 120,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"220\" fill=\"#ffffff\"/><line x1=\"239.5\" y1=\"169.5\" x2=\"181.4\" y2=\"149.5\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"181.4\" y1=\"149.5\" x2=\"83.2\" y2=\"169.5\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"80.5\" y1=\"202\" x2=\"83.2\" y2=\"169.5\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"181.4\" y1=\"149.5\" x2=\"181.4\" y2=\"18\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"83.2\" y1=\"169.5\" x2=\"83.2\" y2=\"38.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"80.5\" y1=\"202\" x2=\"177.1\" y2=\"202\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"177.1\" y1=\"202\" x2=\"239.5\" y2=\"169.5\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"80.5\" y1=\"70.5\" x2=\"177.1\" y2=\"70.5\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"177.1\" y1=\"70.5\" x2=\"239.5\" y2=\"38.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"239.5\" y1=\"38.1\" x2=\"181.4\" y2=\"18\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"181.4\" y1=\"18\" x2=\"83.2\" y2=\"38.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"80.5\" y1=\"70.5\" x2=\"83.2\" y2=\"38.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"177.1\" y1=\"202\" x2=\"177.1\" y2=\"70.5\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"80.5\" y1=\"202\" x2=\"80.5\" y2=\"70.5\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"239.5\" y1=\"169.5\" x2=\"239.5\" y2=\"38.1\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"181.4\" y1=\"149.5\" x2=\"181.4\" y2=\"18\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><text x=\"73.7\" y=\"214.8\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">A</text><text x=\"180.1\" y=\"216.8\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">B</text><text x=\"248.7\" y=\"179.7\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">C</text><text x=\"188.2\" y=\"162.3\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">D</text><text x=\"74.7\" y=\"180.7\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">E</text><text x=\"71.1\" y=\"69.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">A1</text><text x=\"182.7\" y=\"65.3\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">B1</text><text x=\"247.8\" y=\"35.1\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">C1</text><text x=\"184.6\" y=\"11.7\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">D1</text><text x=\"75.7\" y=\"34.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">E1</text></svg>",
+        "alt": "muntazam beshburchakli prizma ABCDEA1B1C1D1E1; DD1 qirrasi ajratib ko'rsatilgan."
+      }
+    },
+    {
+      "id": "gen-A-28",
+      "number": 28,
+      "kind": "y1",
+      "block_code": "geometriya",
+      "element_code": "e72",
+      "difficulty": "L3",
+      "prompt": "To'g'ri burchakli uchburchakning gipotenuzasi $15$ sm, unga ichki chizilgan aylananing radiusi $3$ sm. Uchburchakning yuzini (sm² da) toping.",
+      "payload": {
+        "options": {
+          "A": "$63$",
+          "B": "$45$",
+          "C": "$27$",
+          "D": "$54$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Katetlarni $a$ va $b$ deb belgilaymiz. To'g'ri burchakli uchburchakda ichki chizilgan aylana radiusi $r=\\dfrac{a+b-c}{2}$, bundan $a+b=c+2r=15+6=21$.\n\nYarim perimetr: $p=\\dfrac{a+b+c}{2}=\\dfrac{21+15}{2}=18$.\n\nYuza: $S=pr=18\\cdot 3=54$ sm².",
+      "typical_error": "$S=pr$ formulasida $p$ — yarim perimetr ekanini unutib, butun perimetrni qo'yish, yoki yuzani $\\dfrac{rc}{2}$ deb olish.",
+      "metadata": {
+        "topic": 80,
+        "extra_topics": [
+          70,
+          73
+        ],
+        "est_seconds": 200,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"101.5,32 218.5,188 101.5,188\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><circle cx=\"140.5\" cy=\"149\" r=\"39\" fill=\"none\" stroke=\"#6d28d9\" stroke-width=\"1.8\"/><line x1=\"140.5\" y1=\"149\" x2=\"140.5\" y2=\"188\" stroke=\"#6d28d9\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><circle cx=\"140.5\" cy=\"149\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><polyline points=\"112.5,188 112.5,177 101.5,177\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.4\"/><text x=\"96.2\" y=\"18\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"231\" y=\"196.3\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"92.5\" y=\"200\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"170.4\" y=\"102.2\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">15</text><text x=\"151.5\" y=\"168.5\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">3</text></svg>",
+        "alt": "To'g'ri burchakli ABC uchburchak (C uchida to'g'ri burchak), gipotenuza 15, ichiga radiusi 3 bo'lgan aylana chizilgan."
+      }
+    },
+    {
+      "id": "gen-A-29",
+      "number": 29,
+      "kind": "y1",
+      "block_code": "geometriya",
+      "element_code": "e74",
+      "difficulty": "L3",
+      "prompt": "Hajmi $\\frac{2048}{3}\\pi$ bo'lgan sharga konus chizilgan: konusning uchi va asosining aylanasi shar sirtida yotadi, o'q kesimi esa teng tomonli uchburchak. Konusning hajmini toping.",
+      "payload": {
+        "options": {
+          "A": "$\\frac{1024}{3}\\pi$",
+          "B": "$192\\pi$",
+          "C": "$512\\pi$",
+          "D": "$128\\pi$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "Shar radiusi: $\\frac43\\pi R^3=\\frac{2048}{3}\\pi$, bundan $R^3=512$, $R=8$.\n\nO'q kesimi radiusi $R$ bo'lgan aylanaga chizilgan teng tomonli uchburchak: balandligi $h=\\frac{3R}{2}=12$, tomoni $R\\sqrt3$, asos radiusi $r=\\frac{R\\sqrt3}{2}$, $r^2=\\frac{3R^2}{4}=48$.\n\n$V=\\frac13\\pi r^2h=\\frac13\\pi\\cdot48\\cdot12=192\\pi$.",
+      "typical_error": "Teng tomonli uchburchakning balandligi $\\frac{3R}{2}$ ekanini unutib, balandlikni $R$ yoki $2R$ deb olish.",
+      "metadata": {
+        "topic": 92,
+        "est_seconds": 210,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"220\" fill=\"#ffffff\"/><circle cx=\"160\" cy=\"112\" r=\"82\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><polygon points=\"160,30 89,153 231,153\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 89 153 A 71 19.9 0 0 0 231 153\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 89 153 A 71 19.9 0 0 1 231 153\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"160\" y1=\"30\" x2=\"160\" y2=\"153\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"160\" y1=\"112\" x2=\"231\" y2=\"153\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><circle cx=\"160\" cy=\"112\" r=\"2.4\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"150\" y=\"108.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">O</text><text x=\"209\" y=\"140.6\" font-family=\"sans-serif\" font-size=\"13\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">R</text></svg>",
+        "alt": "Sharga chizilgan konus: o'q kesimi — shar katta doirasiga chizilgan teng tomonli uchburchak."
+      }
+    },
+    {
+      "id": "gen-A-30",
+      "number": 30,
+      "kind": "y1",
+      "block_code": "geometriya",
+      "element_code": "e72",
+      "difficulty": "L3",
+      "prompt": "Teng yonli $ABCD$ trapetsiyaning asoslari $AD=18$ sm va $BC=12$ sm, diagonallari o'zaro perpendikulyar. Trapetsiyaning yuzini (sm² da) toping.",
+      "payload": {
+        "options": {
+          "A": "$216$",
+          "B": "$225$",
+          "C": "$450$",
+          "D": "$45$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "$C$ nuqtadan $BD$ ga parallel to'g'ri chiziq o'tkazamiz; u $AD$ ning davomini $E$ nuqtada kesadi. $BCED$ parallelogramm, shuning uchun $DE=BC=12$ va $CE=BD$.\n\nTeng yonli trapetsiyada diagonallar teng: $AC=BD=CE$. $AC\\perp BD$ va $CE\\parallel BD$ bo'lgani uchun $AC\\perp CE$. Demak, $ACE$ — teng yonli to'g'ri burchakli uchburchak, uning gipotenuzasi $AE=18+12=30$.\n\nGipotenuzaga tushirilgan balandlik $\\dfrac{AE}{2}=15$ — bu trapetsiyaning ham balandligi.\n\n$S=\\dfrac{18+12}{2}\\cdot 15=225$ sm².",
+      "typical_error": "Balandlikni $\\dfrac{a-b}{2}$ deb olish. Diagonallar perpendikulyar bo'lsa, balandlik o'rta chiziqqa teng: $h=\\dfrac{a+b}{2}$.",
+      "metadata": {
+        "topic": 76,
+        "est_seconds": 210,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"66.4,188 97.6,32 222.4,32 253.6,188\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"66.4\" y1=\"188\" x2=\"222.4\" y2=\"32\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><line x1=\"97.6\" y1=\"32\" x2=\"253.6\" y2=\"188\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><polyline points=\"166.4,88 172.7,94.4 166.4,100.8\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.4\"/><text x=\"54.9\" y=\"197.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"88.2\" y=\"20.3\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"231.8\" y=\"20.3\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"265.1\" y=\"197.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">D</text><text x=\"160\" y=\"19\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">12</text><text x=\"160\" y=\"201\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">18</text></svg>",
+        "alt": "Teng yonli ABCD trapetsiya: asoslari AD = 18, BC = 12; AC va BD diagonallari perpendikulyar kesishadi."
+      }
+    },
+    {
+      "id": "gen-A-31",
+      "number": 31,
+      "kind": "y1",
+      "block_code": "toplam",
+      "element_code": "e51",
+      "difficulty": "L3",
+      "prompt": "Sinfdagi $25$ ta o'quvchidan $15$ tasi shaxmat, $12$ tasi rasm, $13$ tasi musiqa to'garagiga qatnashadi. Shaxmat va rasmga $5$ ta, shaxmat va musiqaga $10$ ta, rasm va musiqaga $5$ ta o'quvchi qatnashadi, uchala to'garakka esa $4$ ta o'quvchi qatnashadi. Roppa-rosa bitta to'garakka qatnashadigan o'quvchilar nechta?",
+      "payload": {
+        "options": {
+          "A": "$4$",
+          "B": "$12$",
+          "C": "$20$",
+          "D": "$24$"
+        }
+      },
+      "answer_key": {
+        "correct": "B"
+      },
+      "explanation": "Faqat bitta to'garak: $X+Y+Z-2(P+Q+R)+3T=15+12+13-2\\cdot 20+3\\cdot 4=12$. (Tekshirish: faqat shaxmat $4$, faqat rasm $6$, faqat musiqa $2$.)",
+      "typical_error": "Juft kesishmalar uchlik kesishmani ham o'z ichiga oladi: $X+Y+Z-(P+Q+R)$ faqat bitta va roppa-rosa ikkita to'garakkagina qatnashuvchilarning yig'indisini beradi.",
+      "metadata": {
+        "topic": 94,
+        "est_seconds": 220,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-32",
+      "number": 32,
+      "kind": "y1",
+      "block_code": "toplam",
+      "element_code": "e53",
+      "difficulty": "L3",
+      "prompt": "$0,\\ 2,\\ 3,\\ 6,\\ 7,\\ 9$ raqamlaridan (har bir raqamdan ko'pi bilan bir marta foydalanib) tuzilgan 3 xonali juft sonlar nechta?",
+      "payload": {
+        "options": {
+          "A": "$60$",
+          "B": "$120$",
+          "C": "$100$",
+          "D": "$52$"
+        }
+      },
+      "answer_key": {
+        "correct": "D"
+      },
+      "explanation": "Shart: oxirgi raqam juft; birinchi raqam $0$ bo'lmasligi kerak. Oxirgi raqam bo'yicha hollarga ajratamiz. Oxirgi raqam $0$ bo'lsa (1 xil tanlov): birinchi raqam $5$ usul. Oxirgi raqam $0$ dan boshqa (2 xil tanlov): birinchi raqam $4$ usul. O'rtadagi 1 ta o'rin qolgan $4$ ta raqamdan $4$ usulda to'ldiriladi. Jami: $4\\cdot(1\\cdot 5+2\\cdot 4)=52$.",
+      "typical_error": "Birinchi raqam $0$ bo'lishi mumkin emasligini unutish (barcha 60 ta tartibni sanash).",
+      "metadata": {
+        "topic": 96,
+        "extra_topics": [
+          97
+        ],
+        "est_seconds": 220,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-33",
+      "number": 33,
+      "kind": "y2",
+      "block_code": "geometriya",
+      "element_code": "e72",
+      "difficulty": "L2",
+      "prompt": "Radiusi $9$ sm bo'lgan aylana va doira berilgan. Har bir kattalikni uning qiymati bilan moslang (qiymatlar $\\pi$ ga ko'paytma ko'rinishida; uzunlik sm da, yuza sm² da).",
+      "payload": {
+        "items": [
+          {
+            "id": "1",
+            "text": "Aylana uzunligi"
+          },
+          {
+            "id": "2",
+            "text": "Doira yuzi"
+          },
+          {
+            "id": "3",
+            "text": "Markaziy burchagi $120^{\\circ}$ bo'lgan sektor yuzi"
+          }
+        ],
+        "options": {
+          "A": "$162\\pi$",
+          "B": "$9\\pi$",
+          "C": "$27\\pi$",
+          "D": "$81\\pi$",
+          "E": "$36\\pi$",
+          "F": "$18\\pi$"
+        }
+      },
+      "answer_key": {
+        "1": "F",
+        "2": "D",
+        "3": "C"
+      },
+      "explanation": "Aylana uzunligi: $C=2\\pi r=2\\pi\\cdot 9=18\\pi$.\n\nDoira yuzi: $S=\\pi r^2=\\pi\\cdot 9^2=81\\pi$.\n\nSektor yuzi doira yuzining $\\dfrac{120}{360}=\\dfrac13$ qismi: $\\dfrac13\\cdot 81\\pi=27\\pi$.",
+      "typical_error": "Aylana uzunligini $\\pi r$, doira yuzini esa $2\\pi r$ deb adashtirish; sektor yuzini butun doira yuzidan kichraytirmasdan yozish.",
+      "metadata": {
+        "topic": 78,
+        "est_seconds": 180,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"160\" cy=\"110\" r=\"82\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"160\" y1=\"110\" x2=\"242\" y2=\"110\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"160\" y1=\"110\" x2=\"119\" y2=\"39\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><path d=\"M 176 110 A 16 16 0 0 0 152 96.1\" fill=\"none\" stroke=\"#6d28d9\" stroke-width=\"1.6\"/><text x=\"176.5\" y=\"81.4\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">120&#176;</text><circle cx=\"160\" cy=\"110\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"151.5\" y=\"118.5\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">O</text><text x=\"257\" y=\"110\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"111.5\" y=\"26\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"209.2\" y=\"123\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">9</text></svg>",
+        "alt": "O markazli aylana, radiusi 9; OA va OB radiuslar orasidagi markaziy burchak 120 gradus."
+      }
+    },
+    {
+      "id": "gen-A-34",
+      "number": 34,
+      "kind": "y2",
+      "block_code": "geometriya",
+      "element_code": "e74",
+      "difficulty": "L3",
+      "prompt": "Jismlarni (chizmada raqamlar bilan belgilangan) ularning hajmlari bilan moslang.",
+      "payload": {
+        "items": [
+          {
+            "id": "1",
+            "text": "Asosining radiusi $3$, balandligi $8$ bo'lgan silindr"
+          },
+          {
+            "id": "2",
+            "text": "Asosining radiusi $7$, balandligi $8$ bo'lgan konus"
+          },
+          {
+            "id": "3",
+            "text": "Radiusi $2$ bo'lgan shar"
+          }
+        ],
+        "options": {
+          "A": "$48\\pi$",
+          "B": "$\\frac{32}{3}\\pi$",
+          "C": "$32\\pi$",
+          "D": "$\\frac{392}{3}\\pi$",
+          "E": "$72\\pi$",
+          "F": "$\\frac{448}{3}\\pi$"
+        }
+      },
+      "answer_key": {
+        "1": "E",
+        "2": "D",
+        "3": "B"
+      },
+      "explanation": "Hajm formulalari: $V=\\pi R^2h$, $V=\\frac13\\pi R^2h$, $V=\\frac43\\pi R^3$.\n\n$V_1=\\pi\\cdot3^2\\cdot8=72\\pi$\n\n$V_2=\\frac13\\pi\\cdot7^2\\cdot8=\\frac{392}{3}\\pi$\n\n$V_3=\\frac43\\pi\\cdot2^3=\\frac{32}{3}\\pi$\n\n1 → E;  2 → D;  3 → B",
+      "typical_error": "Konus va shar formulalaridagi $\\frac13$ va $\\frac43$ ko'paytuvchilarini tushirib qoldirish; shar hajmi o'rniga sirt yuzi formulasini olish.",
+      "metadata": {
+        "topic": 89,
+        "est_seconds": 300,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"220\" fill=\"#ffffff\"/><line x1=\"30\" y1=\"160\" x2=\"30\" y2=\"86\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"86\" y1=\"160\" x2=\"86\" y2=\"86\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 30 160 A 28 8.4 0 0 0 86 160\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 30 160 A 28 8.4 0 0 1 86 160\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><ellipse cx=\"58\" cy=\"86\" rx=\"28\" ry=\"8.4\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"160\" y1=\"70\" x2=\"128\" y2=\"160\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"160\" y1=\"70\" x2=\"192\" y2=\"160\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 128 160 A 32 9.6 0 0 0 192 160\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 128 160 A 32 9.6 0 0 1 192 160\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><circle cx=\"264\" cy=\"124\" r=\"38\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 226 124 A 38 11.4 0 0 0 302 124\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 226 124 A 38 11.4 0 0 1 302 124\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><text x=\"58\" y=\"205.6\" font-family=\"sans-serif\" font-size=\"16\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">1</text><text x=\"160\" y=\"205.6\" font-family=\"sans-serif\" font-size=\"16\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">2</text><text x=\"264\" y=\"205.6\" font-family=\"sans-serif\" font-size=\"16\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">3</text></svg>",
+        "alt": "Uchta jism: 1 — silindr, 2 — konus, 3 — shar."
+      }
+    },
+    {
+      "id": "gen-A-35",
+      "number": 35,
+      "kind": "y2",
+      "block_code": "geometriya",
+      "element_code": "e72",
+      "difficulty": "L3",
+      "prompt": "$A(6;-3)$ nuqtaga turli almashtirishlar qo'llandi. Har bir almashtirishni hosil bo'lgan nuqtaning koordinatalari bilan moslang.",
+      "payload": {
+        "items": [
+          {
+            "id": "1",
+            "text": "Ox o'qiga nisbatan simmetriya"
+          },
+          {
+            "id": "2",
+            "text": "Oy o'qiga nisbatan simmetriya"
+          },
+          {
+            "id": "3",
+            "text": "Koordinatalar boshi atrofida soat mili bo'yicha $90^{\\circ}$ ga burish"
+          }
+        ],
+        "options": {
+          "A": "$(6;3)$",
+          "B": "$(-3;-6)$",
+          "C": "$(-3;6)$",
+          "D": "$(3;6)$",
+          "E": "$(-6;3)$",
+          "F": "$(-6;-3)$"
+        }
+      },
+      "answer_key": {
+        "1": "A",
+        "2": "F",
+        "3": "B"
+      },
+      "explanation": "Qoidalar: $Ox$ ga nisbatan $(x;y)\\to(x;-y)$; $Oy$ ga nisbatan $(x;y)\\to(-x;y)$; koordinatalar boshiga nisbatan $(x;y)\\to(-x;-y)$; $y=x$ ga nisbatan $(x;y)\\to(y;x)$; soat miliga teskari $90^{\\circ}$ ga burishda $(x;y)\\to(-y;x)$; soat mili bo'yicha burishda $(x;y)\\to(y;-x)$.\n\n1-band: $(6;3)$; 2-band: $(-6;-3)$; 3-band: $(-3;-6)$.",
+      "typical_error": "Soat miliga teskari va soat mili bo'yicha burishni, hamda $Ox$ va $Oy$ o'qlariga nisbatan simmetriyani bir-biri bilan adashtirish.",
+      "metadata": {
+        "topic": 82,
+        "extra_topics": [
+          81
+        ],
+        "est_seconds": 240,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"70\" y1=\"110\" x2=\"250\" y2=\"110\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"160\" y1=\"200\" x2=\"160\" y2=\"20\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"227.5\" y1=\"143.8\" x2=\"227.5\" y2=\"110\" stroke=\"#6d28d9\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><line x1=\"227.5\" y1=\"143.8\" x2=\"160\" y2=\"143.8\" stroke=\"#6d28d9\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><circle cx=\"227.5\" cy=\"143.8\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"250\" y=\"99.9\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">x</text><text x=\"170.1\" y=\"20\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">y</text><text x=\"245.4\" y=\"152.7\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A(6;-3)</text></svg>",
+        "alt": "Koordinata tekisligida A(6; -3) nuqta."
+      }
+    },
+    {
+      "id": "gen-A-36",
+      "number": 36,
+      "kind": "o",
+      "block_code": "tenglama",
+      "element_code": "e31",
+      "difficulty": "L2",
+      "prompt": "Kvadrat tenglama berilgan: $6x^{2} + 25x + 25 = 0$. Uning ildizlari $x_1$ va $x_2$.\n\na) Tenglamaning katta ildizini toping. Javobni butun son, oddiy kasr (masalan 3/4) yoki o'nli kasr (masalan 0.75) ko'rinishida yozing.\n\nb) $x_1^2 + x_2^2$ ning qiymatini toping. Javobni butun son, oddiy kasr (masalan 3/4) yoki o'nli kasr (masalan 0.75) ko'rinishida yozing.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "-5/3"
+        ],
+        "b": [
+          "325/36"
+        ]
+      },
+      "explanation": "Diskriminant: $D = 625 - 4\\cdot 6\\cdot 25 = 25$, $\\sqrt{D} = 5$.\n\nIldizlar: $x_{1,2} = \\frac{-25 \\pm 5}{12}$, ya'ni $x_1 = -\\frac{5}{2}$, $x_2 = -\\frac{5}{3}$. Katta ildiz $-\\frac{5}{3}$.\n\nKvadratlar yig'indisi: $x_1^2 + x_2^2 = \\frac{325}{36}$.",
+      "typical_error": "Diskriminantni hisoblashda yoki kasr ildizni kvadratga ko'tarishda (faqat suratni kvadratga oshirib, maxrajni unutish) xato qilish.",
+      "metadata": {
+        "topic": 29,
+        "est_seconds": 320,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-37",
+      "number": 37,
+      "kind": "o",
+      "block_code": "tenglama",
+      "element_code": "e32",
+      "difficulty": "L2",
+      "prompt": "$2x^{2} - 6x - 8 < 0$ tengsizlik berilgan.\n\na) Tengsizlikning butun yechimlari sonini toping.\n\nb) Tengsizlikning barcha butun yechimlari yig'indisini toping.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "4"
+        ],
+        "b": [
+          "6"
+        ]
+      },
+      "explanation": "$2$ ga bo'lib, ildizlarni topamiz: ildizlar $-1$ va $4$ (yig'indisi 3, ko'paytmasi -4). Parabola shoxlari yuqoriga qaragan, shuning uchun yechim: $x \\in (-1;\\ 4)$.\n\nButun yechimlar: $0, 1, 2, 3$. Ularning soni 4 ta, yig'indisi 6.",
+      "typical_error": "Qat'iy tengsizlikda ildizlarni yechimga kiritib yuborish.",
+      "metadata": {
+        "topic": 30,
+        "est_seconds": 300,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-38",
+      "number": 38,
+      "kind": "o",
+      "block_code": "funksiyalar",
+      "element_code": "e41",
+      "difficulty": "L2",
+      "prompt": "$f(x) = x^{2} - 2x + 9$ kvadrat funksiya berilgan. Uning grafigi parabola.\n\na) Parabola uchining absissasini toping.\n\nb) Funksiyaning eng kichik qiymatini toping.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "1"
+        ],
+        "b": [
+          "8"
+        ]
+      },
+      "explanation": "Uchning absissasi: $x_0 = -\\frac{b}{2a} = -\\frac{(-2)}{2\\cdot 1} = 1$.\n\nUchning ordinatasi: $f(1) = 8$. $a > 0$ bo'lgani uchun shoxlar yuqoriga qaragan, shuning uchun bu eng kichik qiymat.",
+      "typical_error": "Uchning absissasini $-b/(2a)$ o'rniga $b/(2a)$ deb olish (ishora xatosi) yoki a ning ishorasiga qarab eng katta/eng kichik qiymatni adashtirish.",
+      "metadata": {
+        "topic": 47,
+        "est_seconds": 260,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-39",
+      "number": 39,
+      "kind": "o",
+      "block_code": "analiz",
+      "element_code": "e61",
+      "difficulty": "L3",
+      "prompt": "$f(x)=x^{3}-x^{2}-x-5$ funksiya grafigiga abssissasi $x_0=-2$ bo'lgan nuqtada urinma o'tkazilgan.\n\na) Urinmaning burchak koeffitsiyentini toping.\n\nb) Urinmaning $Ox$ o'qi bilan kesishish nuqtasi abssissasini toping. Butun son, oddiy kasr (masalan 3/4) yoki o'nli kasr.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "15"
+        ],
+        "b": [
+          "-1"
+        ]
+      },
+      "explanation": "a) $f^{\\prime}(x)=3x^{2}-2x-1$, $k=f^{\\prime}(-2)=15$. b) $f(-2)=-15$, urinma $y=15x+15$. $y=0$ da $x=-1$.",
+      "typical_error": "$y=0$ qo'yib $x$ ni topishda ishora xatosi: $x=-\\dfrac{b}{k}$.",
+      "metadata": {
+        "topic": 62,
+        "extra_topics": [
+          60
+        ],
+        "est_seconds": 360,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-40",
+      "number": 40,
+      "kind": "o",
+      "block_code": "analiz",
+      "element_code": "e61",
+      "difficulty": "L3",
+      "prompt": "Devor yonida to'g'ri to'rtburchak shaklidagi maydon to'r bilan o'raladi: devorga parallel bitta tomon va devorga perpendikulyar uchta to'siq ($x$ uzunlikdagi uch bo'lak, shundan biri maydonni o'rtadan ikkiga bo'ladi). Jami to'r uzunligi $84$ m. Maydonning yuzi eng katta bo'lsin.\n\na) $x$ ning qiymatini (metrda) toping.\n\nb) Maydonning eng katta yuzini toping. Kvadrat metrda.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "14"
+        ],
+        "b": [
+          "588"
+        ]
+      },
+      "explanation": "Devorga parallel tomon $y=84-3x$. Yuza $S(x)=x(84-3x)=84x-3x^{2}$. $S^{\\prime}(x)=84-6x=0$ dan $x=14$. U maksimum nuqtasi (parabola shoxlari pastga). $S(14)=14\\cdot 42=588$.",
+      "typical_error": "Uchta perpendikulyar to'siq o'rniga ikkitasini hisoblash ($y=L-2x$ deb olish).",
+      "metadata": {
+        "topic": 64,
+        "est_seconds": 360,
+        "source": "gen:v1"
+      }
+    },
+    {
+      "id": "gen-A-41",
+      "number": 41,
+      "kind": "o",
+      "block_code": "geometriya",
+      "element_code": "e75",
+      "difficulty": "L3",
+      "prompt": "Koordinata tekisligida $A(10;20)$, $B(3;-4)$ va $C(17;-4)$ nuqtalar berilgan. $ABC$ uchburchak uchun quyidagilarni toping.\n\na) Uchburchakning yuzini toping. Javobni butun son, oddiy kasr yoki o'nli kasr (nuqta bilan) ko'rinishida yozing.\n\nb) Uchburchakka ichki chizilgan aylananing radiusini toping. Javobni butun son, oddiy kasr yoki o'nli kasr (nuqta bilan) ko'rinishida yozing.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "168"
+        ],
+        "b": [
+          "21/4",
+          "5.25"
+        ]
+      },
+      "explanation": "$B$ va $C$ nuqtalarning ordinatalari teng ($-4$), shuning uchun $BC\\parallel Ox$ va $BC=|17-3|=14$. $A$ nuqtadan $BC$ gacha masofa $h=|20-(-4)|=24$.\n\na) $S=\\dfrac12\\cdot BC\\cdot h=\\dfrac12\\cdot 14\\cdot 24=168$.\n\nb) Tomonlar: $AB=\\sqrt{(10-3)^2+(20-(-4))^2}=25$, $AC=\\sqrt{(10-17)^2+(20-(-4))^2}=25$. Yarim perimetr $p=\\dfrac{25+14+25}{2}=32$.\n\nIchki chizilgan aylana radiusi: $r=\\dfrac{S}{p}=\\dfrac{168}{32}=\\frac{21}{4}$.",
+      "typical_error": "$r=\\dfrac{S}{p}$ da $p$ — yarim perimetr ekanini unutib, butun perimetrni qo'yish; yoki $BC$ ga balandlikni noto'g'ri hisoblash.",
+      "metadata": {
+        "topic": 81,
+        "extra_topics": [
+          73,
+          80
+        ],
+        "est_seconds": 330,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"160,50 125,170 195,170\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><circle cx=\"160\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"125\" cy=\"170\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"195\" cy=\"170\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"160\" y=\"26\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A(10;20)</text><text x=\"107.9\" y=\"189.6\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B(3;-4)</text><text x=\"212.1\" y=\"189.6\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C(17;-4)</text></svg>",
+        "alt": "Koordinata tekisligidagi ABC uchburchak: A(10; 20), B(3; -4), C(17; -4)."
+      }
+    },
+    {
+      "id": "gen-A-42",
+      "number": 42,
+      "kind": "o",
+      "block_code": "geometriya",
+      "element_code": "e74",
+      "difficulty": "L3",
+      "prompt": "Muntazam to'rtburchakli piramidaning asosi tomoni $4$, yon qirrasi $3$ ga teng.\n\na) Piramidaning balandligini toping. Javobni butun son yoki oddiy kasr (masalan 7/3) ko'rinishida yozing.\n\nb) Piramidaning hajmini toping. Javobni butun son yoki oddiy kasr (masalan 7/3) ko'rinishida yozing.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "1"
+        ],
+        "b": [
+          "16/3"
+        ]
+      },
+      "explanation": "a) Asos diagonalining yarmi $\\frac{a\\sqrt2}{2}$, yon qirra va balandlik bilan to'g'ri burchakli uchburchak hosil qiladi: $h^2=l^2-\\frac{a^2}{2}=9-8=1$, $h=1$.\n\nb) $V=\\frac13a^2h=\\frac13\\cdot16\\cdot1=\\frac{16}{3}$.",
+      "typical_error": "Balandlikni topishda asos diagonalining yarmi o'rniga $\\frac a2$ ni olish: bu apofema uchun to'g'ri, yon qirra uchun emas.",
+      "metadata": {
+        "topic": 87,
+        "est_seconds": 360,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"220\" fill=\"#ffffff\"/><line x1=\"294\" y1=\"126.8\" x2=\"96\" y2=\"126.8\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"26\" y1=\"196.8\" x2=\"96\" y2=\"126.8\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"96\" y1=\"126.8\" x2=\"160\" y2=\"23.2\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"26\" y1=\"196.8\" x2=\"224\" y2=\"196.8\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"224\" y1=\"196.8\" x2=\"294\" y2=\"126.8\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"224\" y1=\"196.8\" x2=\"160\" y2=\"23.2\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"26\" y1=\"196.8\" x2=\"160\" y2=\"23.2\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"294\" y1=\"126.8\" x2=\"160\" y2=\"23.2\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"26\" y1=\"196.8\" x2=\"160\" y2=\"23.2\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><text x=\"16\" y=\"205.7\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">A</text><text x=\"231.9\" y=\"208.7\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">B</text><text x=\"305\" y=\"130.4\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">C</text><text x=\"85.1\" y=\"129.8\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">D</text><text x=\"160\" y=\"16.4\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">S</text><line x1=\"160\" y1=\"161.8\" x2=\"160\" y2=\"23.2\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><circle cx=\"160\" cy=\"161.8\" r=\"2\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"169\" y=\"174\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">O</text><text x=\"125\" y=\"212\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">4</text><text x=\"84.3\" y=\"107.5\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">3</text></svg>",
+        "alt": "Muntazam to'rtburchakli piramida SABCD: asos tomoni 4, yon qirrasi 3."
+      }
+    },
+    {
+      "id": "gen-A-43",
+      "number": 43,
+      "kind": "o",
+      "block_code": "geometriya",
+      "element_code": "e72",
+      "difficulty": "L3",
+      "prompt": "$O$ markazli aylananing radiusi $17$ ga teng, $AB$ vatarning uzunligi $16$. Quyidagilarni toping.\n\na) $O$ nuqtadan $AB$ vatargacha bo'lgan masofani toping. Javobni butun son, oddiy kasr yoki o'nli kasr (nuqta bilan) ko'rinishida yozing.\n\nb) $AOB$ uchburchakning yuzini toping. Javobni butun son, oddiy kasr yoki o'nli kasr (nuqta bilan) ko'rinishida yozing.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "15"
+        ],
+        "b": [
+          "120"
+        ]
+      },
+      "explanation": "$OM\\perp AB$ o'tkazamiz. Markazdan vatarga tushirilgan perpendikulyar vatarni teng ikkiga bo'ladi: $AM=\\dfrac{AB}{2}=8$.\n\na) To'g'ri burchakli $OMA$ uchburchakdan $OM=\\sqrt{OA^2-AM^2}=\\sqrt{17^2-8^2}=15$.\n\nb) $S(AOB)=\\dfrac12\\cdot AB\\cdot OM=\\dfrac12\\cdot 16\\cdot 15=120$.",
+      "typical_error": "Pifagor teoremasiga vatarning o'zini ($AB$) qo'yish; to'g'risi — uning yarmi $AM$. Yuzni hisoblashda $\\dfrac12$ ni unutish.",
+      "metadata": {
+        "topic": 79,
+        "extra_topics": [
+          73,
+          70
+        ],
+        "est_seconds": 300,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"160\" cy=\"110\" r=\"78\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"123.3\" y1=\"178.8\" x2=\"196.7\" y2=\"178.8\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><line x1=\"160\" y1=\"110\" x2=\"123.3\" y2=\"178.8\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><line x1=\"160\" y1=\"110\" x2=\"196.7\" y2=\"178.8\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><line x1=\"160\" y1=\"110\" x2=\"160\" y2=\"178.8\" stroke=\"#1e1b39\" stroke-width=\"1.8\" stroke-dasharray=\"5 4\"/><polyline points=\"160,169.8 169,169.8 169,178.8\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.4\"/><circle cx=\"160\" cy=\"110\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"160\" y=\"96\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">O</text><text x=\"116.2\" y=\"192.1\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"203.8\" y=\"192.1\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"160\" y=\"192.8\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">M</text><text x=\"130.2\" y=\"138.3\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">17</text><text x=\"160\" y=\"191.8\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">16</text></svg>",
+        "alt": "O markazli aylana, radiusi 17; AB vatar uzunligi 16, OM perpendikulyar vatarga tushirilgan."
+      }
+    },
+    {
+      "id": "gen-A-44",
+      "number": 44,
+      "kind": "o",
+      "block_code": "geometriya",
+      "element_code": "e74",
+      "difficulty": "L3",
+      "prompt": "Shar markazining ikki tomonida joylashgan ikkita parallel tekislik sharni radiuslari $15$ va $7$ bo'lgan doiralar bo'yicha kesadi. Tekisliklar orasidagi masofa $44$ ga teng.\n\na) Shar radiusini toping. Javobni butun son yoki oddiy kasr (masalan 7/3) ko'rinishida yozing.\n\nb) Shar hajmini $\\pi$ ga bo'lib, hosil bo'lgan sonni toping. Javobni butun son yoki oddiy kasr (masalan 7/3) ko'rinishida yozing.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "25"
+        ],
+        "b": [
+          "62500/3"
+        ]
+      },
+      "explanation": "a) Markazdan tekisliklargacha masofalar $x$ va $44-x$. $R^2=15^2+x^2=7^2+(44-x)^2$, bundan $x=\\frac{44^2+7^2-15^2}{2\\cdot44}=20$. $R^2=225+400=625$, $R=25$.\n\nb) $\\frac V\\pi=\\frac43R^3=\\frac43\\cdot15625=\\frac{62500}{3}$.",
+      "typical_error": "Tekisliklar orasidagi masofani markazdan bir tekislikkacha masofa deb olish; $R=r_1+r_2$ yoki $R=\\frac t2$ deb taxmin qilish.",
+      "metadata": {
+        "topic": 90,
+        "est_seconds": 360,
+        "source": "gen:v1"
+      },
+      "figure": {
+        "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\"><rect x=\"0\" y=\"0\" width=\"320\" height=\"220\" fill=\"#ffffff\"/><circle cx=\"150\" cy=\"112\" r=\"80\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 70 112 A 80 24 0 0 0 230 112\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><path d=\"M 70 112 A 80 24 0 0 1 230 112\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><ellipse cx=\"150\" cy=\"48\" rx=\"48\" ry=\"14.4\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><ellipse cx=\"150\" cy=\"188.8\" rx=\"22.4\" ry=\"6.7\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"150\" y1=\"48\" x2=\"150\" y2=\"188.8\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"1.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"5 4\"/><line x1=\"150\" y1=\"48\" x2=\"198\" y2=\"48\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><line x1=\"150\" y1=\"188.8\" x2=\"172.4\" y2=\"188.8\" fill=\"none\" stroke=\"#4f46e5\" stroke-width=\"2.4\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/><circle cx=\"150\" cy=\"112\" r=\"2.2\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"141\" y=\"117.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#1e1b39\" font-weight=\"bold\">O</text><text x=\"174\" y=\"43.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">15</text><text x=\"161.2\" y=\"206\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">7</text><text x=\"164\" y=\"114.2\" font-family=\"sans-serif\" font-size=\"12\" text-anchor=\"middle\" fill=\"#4f46e5\" font-weight=\"bold\">44</text></svg>",
+        "alt": "Shar va markazning ikki tomonidagi parallel kesimlar: radiuslari 15 va 7, orasidagi masofa 44."
+      }
+    },
+    {
+      "id": "gen-A-45",
+      "number": 45,
+      "kind": "o",
+      "block_code": "toplam",
+      "element_code": "e54",
+      "difficulty": "L3",
+      "prompt": "Qutida $3$ ta qizil, $4$ ta ko'k va $3$ ta yashil shar bor. Qutidan bir vaqtda tasodifan ikkita shar olinadi.\n\na) Ikkita sharni tanlashning barcha mumkin bo'lgan usullari sonini toping.\n\nb) Ikkala shar bir xil rangda bo'lish ehtimolini toping. Oddiy kasr (masalan 3/8) yoki o'nli kasr.",
+      "payload": {
+        "parts": {
+          "a": "a) band javobi",
+          "b": "b) band javobi"
+        }
+      },
+      "answer_key": {
+        "a": [
+          "45"
+        ],
+        "b": [
+          "4/15"
+        ]
+      },
+      "explanation": "a) $C_{10}^{2}=\\dfrac{10\\cdot 9}{2}=45$. b) Bir xil rang: $C_{3}^{2}+C_{4}^{2}+C_{3}^{2}=12$. Ehtimollik $\\dfrac{12}{45}=\\frac{4}{15}$.",
+      "typical_error": "Sharlar bir vaqtda olingani uchun tartib ahamiyatsiz: $C_n^2$ o'rniga $n(n-1)$ ni olish.",
+      "metadata": {
+        "topic": 99,
+        "extra_topics": [
+          97
+        ],
+        "est_seconds": 330,
+        "source": "gen:v1"
+      }
+    }
+  ]
+}
