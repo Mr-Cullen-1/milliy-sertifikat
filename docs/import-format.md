@@ -1,26 +1,79 @@
 # Test (mock variant) JSON formati — v2
 
-Bu hujjat ikki narsani beradi: (1) `example-exam.json` (SAT, `schema_version: 1`) formatining kamchiliklari; (2) bizning testlar (Milliy sertifikat, Matematika) **yo'qotishsiz** qabul qilinishi uchun ilova kutishi kerak bo'lgan JSON formati. v2 formati platformaning o'z import sxemasi bilan bir xil ([lib/content/import-schema.ts](../lib/content/import-schema.ts)), shuning uchun v2 fayl admin paneldagi *Yuklash* orqali ham o'tadi. Tayyor namuna: [content/export/variant-A.v2.json](../content/export/variant-A.v2.json) (Variant A, 45 savol).
+**Kimga:** platforma (app) dasturchilari jamoasi.
+**Maqsad:** bizning variantlar (A–O) o'zgarmaydi: platforma shu formatdagi faylni **o'zgartirishsiz** qabul qilishi kerak. Hujjat sizning `example-milliy.v2.json` namunangizdan bizning v2 formatiga o'tish uchun platformada nima o'zgarishini beradi.
+
+**Namunaviy fayl:** [content/export/variant-A.v2.json](../content/export/variant-A.v2.json) — Variant A: 45 topshiriq (32 Y-1, 3 Y-2, 10 O), 14 chizma, har savolda ru/kaa/en tarjima. Bizning platformaning import validatoridan xatosiz o'tadi.
+
+**Etalon kod** (hujjat va kod farq qilsa, kod to'g'ri): [lib/content/import-schema.ts](../lib/content/import-schema.ts) (fayl va savol sxemasi), [lib/exam/payload.ts](../lib/exam/payload.ts) (payload va SVG qoidalari), [lib/exam/schemas.ts](../lib/exam/schemas.ts) (javob kaliti), [lib/content/validate.ts](../lib/content/validate.ts) (xato xabarlari).
 
 ---
 
-## 1. `example-exam.json` kamchiliklari
+## 1. `example-milliy.v2.json` → v2: platformada nimani o'zgartirish kerak
 
-| # | Kamchilik | Nega muammo |
-|---|-----------|-------------|
-| 1 | Faqat **bitta tur**: `options` aynan 4 ta, `correct` 0–3 | Bizning variantda 3 tur bor: Y-1 (yopiq A–D, 32 ta), **Y-2** (moslashtirish: 3 ta band, A–F variantlar, 3 ta), **O** (ochiq, son javob, a/b band, 10 ta). 45 tadan 13 tasi (Y-2 va O) bu formatga sig'maydi. Importer 6 variantli savolda `must contain 4 items`, `must be between 0 and 3` xatosini beradi. |
-| 2 | Savol **turi** (`type`) maydoni yo'q | Qabul qiluvchi savol qanday ko'rsatilishi va qanday tekshirilishini bilolmaydi. |
-| 3 | `section` — yopiq ro'yxat (`"Math"`), `topic` — erkin matn | Bizda 7 ta rasmiy blok (kod bilan) va 103 ta raqamli mavzu bor (docs/mavzular.md). Erkin matn bilan statistika, "xatolar daftari", mavzu bo'yicha mashq ishlamaydi. Birinchi urinishdagi `section is invalid` xatosi shundan. |
-| 4 | To'g'ri javob `correct` — **indeks**, savol ichida | Variantlar aralashtirilsa indeks buziladi; harf (A–D) barqaror. Kalit savol bilan bir obyektda: ilova mijozga (brauzerga) jo'natib yuborsa, javob fosh bo'ladi. Bizda kalit alohida (`key`), ko'rsatish ma'lumotidan (`payload`) ajratilgan. |
-| 5 | **Qiyinlik** (L1/L2/L3) va **vazn** yo'q | Ball savolning qiyinligiga bog'liq (Y-1: 1,3 / 1,3 / 2,2; Y-2: 2,2; O: a 1,5, b 1,7, ikkalasi 3,2). Qiyinliksiz ball hisoblab bo'lmaydi. |
-| 6 | **Chizma** yo'q | Variant A da 14 ta savolda SVG chizma bor (geometriya, statistika). Formatda joy yo'q. |
-| 7 | **Tarjima** yo'q | Savollar 4 tilda: uz (asosiy), ru, kaa, en. Example'da bitta til. |
-| 8 | Faqat `explanation` | Bizda `solution_md` (yechim) va `mistake_note_md` (tipik xato) alohida: "xatolar daftari" uchun kerak. |
-| 9 | Matn formati belgilanmagan | Matematikada formulalar kerak. v2 da barcha matnlar **Markdown + KaTeX** (`$...$`, `$$...$$`) deb kelishilgan. |
-| 10 | Tuzilish nazorati yo'q | Mock 45 ta savoldan, 32 Y-1 + 3 Y-2 + 10 O, bloklar bo'yicha soni qat'iy (2/11/8/3/4/14/3). Example'da bunday tekshiruv ham, tartib qoidasi ham yo'q. |
-| 11 | `key` (savol identifikatori) va `position` (0 dan) ikki joyda | Tartib massivda ham, `position` da ham: ular farq qilsa qaysi biri to'g'ri? `key` nomi esa "javob kaliti" bilan chalkashadi. v2 da `external_id` (barqaror ID) va `position` (1 dan, massiv tartibiga teng bo'lishi shart). |
-| 12 | Imtihon meta-ma'lumoti yetarli emas | `label: "SAT"`, `description` na vaqtni, na formatni bog'laydi; `duration_seconds` bor, lekin "qaysi format" (`math-v1`), variant kodi (A, B…), bepul/Pro belgisi yo'q. |
-| 13 | Cheklovlar va xavfsizlik qoidalari yo'q | Maydon uzunligi, fayl hajmi, SVG xavfsizligi (skript, tashqi havola taqiqlanishi) belgilanmagan. |
+### 1.1. Maydonlar moslik jadvali
+
+**Imtihon (`exam`)**
+
+| Sizning namuna | Bizning v2 | Platformada qilinadigan ish |
+|---|---|---|
+| `slug` | `exam.slug` (ixtiyoriy) | O'qing; bo'lmasa `code` dan hosil qiling. |
+| `title` | `exam.title` | O'zgarishsiz. |
+| — | `exam.code` (`A`…`O`) | Ro'yxatda nom va tartib uchun o'qing. |
+| `description` | yo'q | Majburiy qilmang. |
+| `duration_seconds` | `exam.duration_seconds` (9000) | O'zgarishsiz. |
+| `format: "milliy-math-v1"` | `exam.format: "math-v1"` | Ikkalasi bir formatga (45 topshiriq, 150 daq, 32/3/10) bog'lansin. |
+| `purpose: "mock"` | savolda `pool` (`exam` standart, `practice` — mashq zaxirasi) | `exam` bloki berilsa fayl mock; `purpose` ni talab qilmang. |
+| `status`, `access: "free"` | `exam.status` (`draft`), `exam.is_free: true` | `access: free` ≡ `is_free: true`. Fayldagi `status` qoralama; nashr admindan. |
+| `content_version` | yo'q | Talab qilmang: nashr etilgan variant o'zgarmaydi, tuzatish uchun yangi variant yuklanadi. |
+| `metadata` | yo'q | Ixtiyoriy. |
+
+**Savol (`questions[]`)**
+
+| Sizning namuna | Bizning v2 | Platformada qilinadigan ish |
+|---|---|---|
+| `id` | `external_id` (`gen-A-01`…) | Barqaror ID; qayta import dublikat yaratmasin. |
+| `number` | `position` (1 dan) | Berilsa massiv tartibiga teng bo'lishi shart. |
+| `kind` | `type` (`y1`, `y2`, `o`) | Nom o'zgaradi. |
+| `block_code` | `block` | Kodlar bir xil. |
+| `element_code` | yo'q | Faylda element yo'q: `topic` dan 3-bo'lim jadvali bilan hosil qiling. |
+| — | `topic` (1–121), `extra_topics` | Saqlang: mavzu bo'yicha tahlil va mashq shunga tayanadi. |
+| `difficulty` | `difficulty` | O'zgarishsiz. |
+| `prompt` | `stem_md` | Nom o'zgaradi. |
+| `payload.options` | `payload.options` | Y-1: `A–D`, Y-2: `A–F`. |
+| Y-2 `payload.items[].text` | `payload.items[].text_md` | Nom o'zgaradi. |
+| O `payload.parts.a` (matn) | `payload.parts.a` = `{ prompt_md, hint? }` | **Obyekt**: band savoli va javob ko'rsatmasi (1.2-a). |
+| `answer_key` | `key` | Nom o'zgaradi. |
+| Y-2 `answer_key: {"1":"F"}` | `key: { "pairs": {"1":"F"} }` | `pairs` o'rami. |
+| `answer_key.correct`, `.a`/`.b` | `key.correct`, `key.a`/`key.b` | O'zgarishsiz. |
+| `explanation` | `solution_md` | Nom o'zgaradi. |
+| `typical_error` | `mistake_note_md` | Nom o'zgaradi. |
+| `figure` (savol darajasida) | `payload.figure` | `payload` ichida: `{ svg, alt }`. |
+| `metadata` | yo'q | `est_seconds`, `source`, `weight` alohida maydonlar. |
+| — | `i18n` | Tarjimalar (1.2-c). |
+
+### 1.2. Muhim farqlar
+
+**a) Ochiq savol (O) bandlari.** Har band `{ "prompt_md": "...", "hint": "..." }`. `prompt_md` — shu bandning savoli (`stem_md` esa umumiy shart). `hint` — javob formati yoki o'lchov birligi; Variant A da 20 ta bandning 13 tasida bor (masalan «oddiy kasr (masalan 7/3) ko'rinishida yozing», «Kvadrat metrda»). Platforma `hint` ni kiritish maydoni ostida ko'rsatsin; band savoli `stem_md` ga qo'shilmaydi.
+
+**b) Kalit alohida.** `key` ko'rsatish ma'lumotidan (`payload`) ajratilgan. Imtihon topshirilgunga qadar `key`, `solution_md` va `mistake_note_md` mijozga yuborilmasin.
+
+**c) Tarjimalar.** `i18n.{ru,kaa,en}` — har tilda `stem_md`, `payload` (asosiy bilan **bir xil tuzilishda**: bir xil variant harflari, band `id` lari, a/b), ixtiyoriy `solution_md` va `mistake_note_md`. Asosiy til — o'zbek. Tarjima bo'lmasa o'zbekcha matn chiqsin. `key` va `figure.svg` tarjima qilinmaydi, hamma tilga umumiy. Variant A da 45 savolning hammasida uch til to'liq.
+
+**d) Mavzu, blok va element.** `topic` — raqam (1–121), faylda element yo'q. Platforma mavzuni blok va elementga 3-bo'lim jadvali orqali bog'laydi. `block` mock tuzilmasi (blueprint) uchun, element mazmun tasnifi uchun: element **blokdan tashqarida** bo'lishi mumkin (3-bo'limdagi eslatma). Masalan Variant A ning 23-savoli: `block: analiz`, `topic: 57` (arifmetik progressiya), elementi `2.4` (algebra). Bunday savolni rad etmang.
+
+**e) Matnlar.** Barchasi Markdown + KaTeX: `$…$` va ko'rinish formulalari `$$…$$`, abzaslar `\n\n` bilan. Bir nechta savolda `tipik xato` matni «Tipik xato:» bilan boshlanadi (Variant A da 13 ta): matnni o'zgartirmay ko'rsating.
+
+### 1.3. Platformada majburiy o'zgarishlar (qisqa ro'yxat)
+
+1. Uch tur sxemasi: Y-1 (`A–D`), Y-2 (umumiy `A–F`, band `id` lari, `key.pairs`), O (`parts` obyektlari, `key.a`/`key.b` — qabul qilinadigan javoblar ro'yxati).
+2. `payload.figure` ({ `svg`, `alt` }) va 2.6-bo'limdagi SVG xavfsizlik qoidalari.
+3. `i18n` (ru, kaa, en) saqlash va ko'rsatish; tuzilma tekshiruvi.
+4. `topic` (1–121), `extra_topics`, `est_seconds`, `source`, `weight`, `pool` maydonlarini saqlash.
+5. Mavzu → element jadvali (3-bo'lim) va «element blokdan tashqarida bo'lishi mumkin» qoidasi.
+6. Mock tuzilmasini tekshirish: aynan 45 savol, 1–32 `y1`, 33–35 `y2`, 36–45 `o`, blok soni (2.5).
+7. `external_id` bo'yicha takrorsiz import; xatolar savol raqami va maydon yo'li bilan; hammasi yoki hech narsa.
+8. Nashr etilgan variant o'zgarmaydi: tuzatish yangi variant bilan, eskisi arxivga.
 
 ---
 
@@ -66,8 +119,8 @@ Qo'shimcha (noma'lum) maydonlar rad etilmaydi, e'tiborga olinmaydi. Fayl hajmi �
 | `position` | yo'q | 1 dan. Berilsa massivdagi tartibga teng bo'lishi kerak (mock uchun: 1–45). |
 | `type` | ha | `y1`, `y2` yoki `o`. |
 | `block` | ha | `sonlar`, `algebra`, `tenglama`, `funksiyalar`, `analiz`, `geometriya`, `toplam`. |
-| `topic` | ha | Butun son, 1–103 (docs/mavzular.md) va mavzu shu blokka tegishli bo'lishi shart. |
-| `extra_topics` | yo'q | Qo'shimcha mavzu raqamlari, ko'pi bilan 5 ta. |
+| `topic` | ha | Butun son, 1–121 (1–103: ishchi mavzular, docs/mavzular.md; 104–121: rasmiy spetsifikatsiyadagi qo'shimcha mavzular). Mavzu blokka tegishli: ishchi diapazonda yoki uning elementi shu bo'limda (3-bo'lim). |
+| `extra_topics` | yo'q | Qo'shimcha mavzu raqamlari (1–121), ko'pi bilan 5 ta. |
 | `difficulty` | ha | `L1`, `L2`, `L3`. |
 | `weight` | yo'q | 0 dan katta, 10 gacha. Berilmasa format bo'yicha (qiyinlik va turdan). |
 | `est_seconds` | yo'q | Taxminiy yechish vaqti, butun son, 1–1800. |
@@ -183,18 +236,60 @@ Asosiy matn — o'zbek (lotin). Tillar: `ru`, `kaa` (qoraqalpoq, lotin), `en`; h
 
 ---
 
-## 3. Eski formatdan moslik jadvali
+## 3. Mavzu → rasmiy element (platformada saqlanadigan ma'lumotnoma)
 
-| `example-exam.json` | v2 |
-|---------------------|----|
-| `schema_version: 1` | `schema_version: 2` |
-| `title`, `slug`, `duration_seconds`, `status` | `exam.title`, `exam.slug`, `exam.duration_seconds`, `exam.status` |
-| `description`, `label` | v2 da yo'q (kerak bo'lsa ilova o'zi `exam.code` va `exam.format` dan hosil qiladi) |
-| `questions[].key` | `external_id` |
-| `section` + `topic` (matn) | `block` (kod) + `topic` (raqam) |
-| `prompt` | `stem_md` |
-| `options: [..4 ta..]` | `payload.options: {A,B,C,D}` |
-| `correct: 1` | `key: {"correct": "B"}` |
-| `explanation` | `solution_md` |
-| `position` (0 dan) | `position` (1 dan) |
-| — | `type`, `difficulty`, `est_seconds`, `mistake_note_md`, `payload.figure`, `i18n` |
+Faylda element yo'q; platforma `topic` raqamidan elementni shu jadval orqali oladi. Jadval `config/elements.ts` dan olingan; **moslashtirish taxminiy, mutaxassis tekshiradi** (har mavzuning birinchi elementi asosiy).
+
+| Element | Nomi | Rasmiy bo‘lim | Asosiy element bo‘lgan mavzular | Qo‘shimcha element bo‘lgan mavzular |
+|---|---|---|---|---|
+| `1.1` | Natural sonlar | `sonlar` | 1–3 | — |
+| `1.2` | Sonlar ustida amallar | `sonlar` | 4–6, 9–11, 104 | — |
+| `2.1` | Daraja va ildiz | `algebra` | 12–14, 19–20, 106 | — |
+| `2.2` | Trigonometriya asoslari | `algebra` | 22–26, 107 | 52 |
+| `2.3` | Ko'rsatkichli va logarifmik funksiyalar | `algebra` | 21 | 50–51 |
+| `2.4` | Ifodalarning shaklini almashtirish | `algebra` | 7–8, 15–18, 27, 42, 56–58, 105 | — |
+| `3.1` | Tenglamalar | `tenglama` | 28–29, 31–35, 37–39, 41, 109 | — |
+| `3.2` | Tengsizliklar | `tenglama` | 30, 36, 40, 108 | 28, 32–34, 37–38, 109 |
+| `4.1` | Funksiyalar | `funksiyalar` | 43–55, 59, 121 | — |
+| `5.1` | To'plam, mulohaza va mantiq | `toplam` | 94–95, 111 | — |
+| `5.2` | Ma'lumotlar tahlili | `toplam` | 101–102, 112 | — |
+| `5.3` | Kombinatorika | `toplam` | 96–98 | — |
+| `5.4` | Ehtimol | `toplam` | 99–100 | — |
+| `5.5` | Modellashtirish | `toplam` | 103, 113 | — |
+| `6.1` | Hosila | `analiz` | 60–64, 110 | — |
+| `6.2` | Boshlang'ich funksiya va integral | `analiz` | 65–66 | — |
+| `7.1` | Shakl o'lchovlari | `geometriya` | — | 73, 78, 84 |
+| `7.2` | Planimetriya | `geometriya` | 67–80, 82 | — |
+| `7.3` | Fazoda to'g'ri chiziq va tekislik | `geometriya` | 83–84, 114–115 | — |
+| `7.4` | Fazoviy jismlar | `geometriya` | 85–92, 116–117 | — |
+| `7.5` | Koordinatalar va vektorlar | `geometriya` | 81, 93, 118–120 | — |
+
+1–103 — ishchi mavzular ([mavzular.md](mavzular.md)), 104–121 — rasmiy spetsifikatsiyadagi qo'shimcha mavzular.
+
+**Eslatma: ishchi blok va rasmiy element bo'limi har doim ham mos kelmaydi.** Variant A–F ishchi mavzu diapazonlari bo'yicha tuzilgan: `sonlar` 1–11, `algebra` 12–27, `tenglama` 28–42, `funksiyalar` 43–55, `analiz` 56–66, `geometriya` 67–93, `toplam` 94–103. Quyidagi mavzularning elementi boshqa rasmiy bo'limda:
+
+| Mavzular | Ishchi blok | Elementning rasmiy bo'limi |
+|---|---|---|
+| 7–8 | `sonlar` | `algebra (2.4)` |
+| 42 | `tenglama` | `algebra (2.4)` |
+| 56–58 | `analiz` | `algebra (2.4)` |
+| 59 | `analiz` | `funksiyalar (4.1)` |
+
+Import tekshiruvi mavzuni blokka shunday qabul qiladi: mavzu ishchi diapazonda **yoki** uning elementi shu bo'limda bo'lsa yaroqli. Variant A da shunday savol bitta (23-savol), B da 4 ta, C da 5 ta, D da 2 ta, E da 3 ta, F da 2 ta, G–O da yo'q.
+
+---
+
+## 4. Qabul tekshiruvi: Variant A
+
+1. `variant-A.v2.json` import qilinganda: 45 savol (32 `y1`, 3 `y2`, 10 `o`), 14 chizma; matn, variantlar, kalit, yechim, tipik xato va ru/kaa/en tarjimalar yo'qolmagan; blok soni `sonlar 2, algebra 11, tenglama 8, funksiyalar 3, analiz 4, geometriya 14, toplam 3`.
+2. Shu fayl qayta import qilinsa dublikat yaratilmaydi (`gen-A-01` … `gen-A-45`).
+3. 23-savol (`analiz`, mavzu 57, element `2.4`) rad etilmaydi.
+4. Rad etilishi kerak bo'lgan fayllar (aniq xato, savol raqami va maydon yo'li bilan; hech narsa yuklanmaydi):
+   - 44 savolli fayl («mock uchun 45 ta savol kerak, 44 ta berilgan»);
+   - 33–35-savolda `key.pairs` band `id` lariga mos emas yoki kalit harfi `options` da yo'q;
+   - 36–45-savolda `parts` va `key` bandlari mos emas;
+   - mavzu blokka mos emas;
+   - tarjimaning `payload` tuzilishi asosiydan farq qiladi;
+   - chizma `svg` ida `<script>`, `href` yoki `on…=` bor.
+5. Imtihon davomida (`in_progress`) javobda `key`, `solution_md`, `mistake_note_md` yo'q.
+6. Ekranda: formulalar xom `\frac`/`$` ko'rinishida chiqmaydi, 14 chizma o'qiladi (24-savol — romb), 33-savolning uch bandi navigatorda bitta raqam, 36-savolda a va b alohida kiritiladi.
