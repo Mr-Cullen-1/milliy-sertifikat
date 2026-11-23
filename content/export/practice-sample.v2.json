@@ -1,0 +1,1177 @@
+{
+  "schema_version": 2,
+  "questions": [
+    {
+      "external_id": "gen-P018-02",
+      "type": "y1",
+      "block": "sonlar",
+      "topic": 7,
+      "difficulty": "L1",
+      "est_seconds": 60,
+      "source": "gen:pool-v1",
+      "stem_md": "$x:6=4:2$ proporsiyadan $x$ ni toping.",
+      "payload": {
+        "options": {
+          "A": "$3$",
+          "B": "$\\frac{4}{3}$",
+          "C": "$12$",
+          "D": "$8$"
+        }
+      },
+      "key": {
+        "correct": "C"
+      },
+      "solution_md": "Proporsiyaning asosiy xossasi: chetki hadlar ko'paytmasi o'rta hadlar ko'paytmasiga teng.\n\n$$x\\cdot 2=6\\cdot 4\\ \\Rightarrow\\ x=\\frac{24}{2}=12$$",
+      "mistake_note_md": "Tipik xato: Proporsiyada noma'lum hadni topishda ko'paytirish va bo'lishni adashtirish (teskari nisbat olish).",
+      "i18n": {
+        "ru": {
+          "stem_md": "Найдите $x$ из пропорции $x:6=4:2$.",
+          "payload": {
+            "options": {
+              "A": "$3$",
+              "B": "$\\frac{4}{3}$",
+              "C": "$12$",
+              "D": "$8$"
+            }
+          },
+          "solution_md": "Основное свойство пропорции: произведение крайних членов равно произведению средних.\n\n$$x\\cdot 2=6\\cdot 4\\ \\Rightarrow\\ x=\\frac{24}{2}=12$$",
+          "mistake_note_md": "Типичная ошибка: Путать умножение и деление при нахождении неизвестного члена (брать обратное отношение)."
+        },
+        "kaa": {
+          "stem_md": "$x:6=4:2$ proporciyasınan $x$ tı tabıń.",
+          "payload": {
+            "options": {
+              "A": "$3$",
+              "B": "$\\frac{4}{3}$",
+              "C": "$12$",
+              "D": "$8$"
+            }
+          },
+          "solution_md": "Proporciyanıń tiykarǵı qásiyeti: shetki aǵzalar kóbeymesi ortaǵı aǵzalar kóbeymesine teń.\n\n$$x\\cdot 2=6\\cdot 4\\ \\Rightarrow\\ x=\\frac{24}{2}=12$$",
+          "mistake_note_md": "Tipik qátelik: Proporciyada belgisiz aǵzanı tabıwda kóbeytiw menen bóliwdi shatastırıw (teskeri qatnas alıw)."
+        },
+        "en": {
+          "stem_md": "Find $x$ from the proportion $x:6=4:2$.",
+          "payload": {
+            "options": {
+              "A": "$3$",
+              "B": "$\\frac{4}{3}$",
+              "C": "$12$",
+              "D": "$8$"
+            }
+          },
+          "solution_md": "Basic property of a proportion: the product of the extremes equals the product of the means.\n\n$$x\\cdot 2=6\\cdot 4\\ \\Rightarrow\\ x=\\frac{24}{2}=12$$",
+          "mistake_note_md": "Typical mistake: Mixing up multiplication and division when finding the unknown term (using the inverse ratio)."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P030-01",
+      "type": "y1",
+      "block": "sonlar",
+      "topic": 8,
+      "difficulty": "L1",
+      "est_seconds": 50,
+      "source": "gen:pool-v1",
+      "stem_md": "$160$ sonining $75$ foizini toping.",
+      "payload": {
+        "options": {
+          "A": "$1200$",
+          "B": "$2{,}13$",
+          "C": "$120$",
+          "D": "$40$"
+        }
+      },
+      "key": {
+        "correct": "C"
+      },
+      "solution_md": "Foizni kasrga aylantiramiz: $p\\%=\\dfrac{p}{100}$.\n\n$$160\\cdot\\frac{75}{100}=120$$",
+      "mistake_note_md": "Tipik xato: Foizni 100 ga bo'lishni unutish yoki sonni foizga bo'lib yuborish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Найдите $75$ процентов от числа $160$.",
+          "payload": {
+            "options": {
+              "A": "$1200$",
+              "B": "$2{,}13$",
+              "C": "$120$",
+              "D": "$40$"
+            }
+          },
+          "solution_md": "Переведём проценты в дробь: $p\\%=\\dfrac{p}{100}$.\n\n$$160\\cdot\\frac{75}{100}=120$$",
+          "mistake_note_md": "Типичная ошибка: Забыть разделить проценты на 100 или разделить число на проценты."
+        },
+        "kaa": {
+          "stem_md": "$160$ sanınıń $75$ procentin tabıń.",
+          "payload": {
+            "options": {
+              "A": "$1200$",
+              "B": "$2{,}13$",
+              "C": "$120$",
+              "D": "$40$"
+            }
+          },
+          "solution_md": "Procentti bólshekke aylandıramız: $p\\%=\\dfrac{p}{100}$.\n\n$$160\\cdot\\frac{75}{100}=120$$",
+          "mistake_note_md": "Tipik qátelik: Procentti 100 ge bóliwdi umıtıw yamasa sandı procentke bólip jiberiw."
+        },
+        "en": {
+          "stem_md": "Find $75$ percent of $160$.",
+          "payload": {
+            "options": {
+              "A": "$1200$",
+              "B": "$2{,}13$",
+              "C": "$120$",
+              "D": "$40$"
+            }
+          },
+          "solution_md": "Convert the percent to a fraction: $p\\%=\\dfrac{p}{100}$.\n\n$$160\\cdot\\frac{75}{100}=120$$",
+          "mistake_note_md": "Typical mistake: Forgetting to divide the percent by 100, or dividing the number by the percent."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P011-13",
+      "type": "y1",
+      "block": "algebra",
+      "topic": 21,
+      "difficulty": "L2",
+      "est_seconds": 140,
+      "source": "gen:pool-v1",
+      "stem_md": "Hisoblang.\n\n$$3^{\\log_{3} 5+1}$$",
+      "payload": {
+        "options": {
+          "A": "$8$",
+          "B": "$5$",
+          "C": "$15$",
+          "D": "$30$"
+        }
+      },
+      "key": {
+        "correct": "C"
+      },
+      "solution_md": "Asosiy logarifmik ayniyat: $a^{\\log_a x}=x$. Darajani ko'paytuvchilarga ajratamiz:\n\n$$3^{\\log_{3} 5+1}=\\left(3^{\\log_{3} 5}\\right)^{1}\\cdot 3^{1}=5^{1}\\cdot 3=15$$",
+      "mistake_note_md": "Tipik xato: Ko'rsatkichdagi yig'indini daraja ko'paytmasi o'rniga yig'indi sifatida qoldirish: $a^{x+c}=a^x\\cdot a^c$.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Вычислите.\n\n$$3^{\\log_{3} 5+1}$$",
+          "payload": {
+            "options": {
+              "A": "$8$",
+              "B": "$5$",
+              "C": "$15$",
+              "D": "$30$"
+            }
+          },
+          "solution_md": "Основное логарифмическое тождество: $a^{\\log_a x}=x$. Разложим степень на множители:\n\n$$3^{\\log_{3} 5+1}=\\left(3^{\\log_{3} 5}\\right)^{1}\\cdot 3^{1}=5^{1}\\cdot 3=15$$",
+          "mistake_note_md": "Типичная ошибка: Не разложить показатель-сумму в произведение: $a^{x+c}=a^x\\cdot a^c$."
+        },
+        "kaa": {
+          "stem_md": "Esaplań.\n\n$$3^{\\log_{3} 5+1}$$",
+          "payload": {
+            "options": {
+              "A": "$8$",
+              "B": "$5$",
+              "C": "$15$",
+              "D": "$30$"
+            }
+          },
+          "solution_md": "Tiykarǵı logarifmlik ayniyat: $a^{\\log_a x}=x$. Dárejeni kóbeytiwshilerge ajıratamız:\n\n$$3^{\\log_{3} 5+1}=\\left(3^{\\log_{3} 5}\\right)^{1}\\cdot 3^{1}=5^{1}\\cdot 3=15$$",
+          "mistake_note_md": "Tipik qátelik: Kórsetkishtegi qosındını dáreje kóbeymesi ornına qosındı retinde qaldırıw: $a^{x+c}=a^x\\cdot a^c$."
+        },
+        "en": {
+          "stem_md": "Evaluate.\n\n$$3^{\\log_{3} 5+1}$$",
+          "payload": {
+            "options": {
+              "A": "$8$",
+              "B": "$5$",
+              "C": "$15$",
+              "D": "$30$"
+            }
+          },
+          "solution_md": "Basic logarithmic identity: $a^{\\log_a x}=x$. Split the power into factors:\n\n$$3^{\\log_{3} 5+1}=\\left(3^{\\log_{3} 5}\\right)^{1}\\cdot 3^{1}=5^{1}\\cdot 3=15$$",
+          "mistake_note_md": "Typical mistake: Not splitting a sum in the exponent into a product: $a^{x+c}=a^x\\cdot a^c$."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P027-37",
+      "type": "o",
+      "block": "tenglama",
+      "topic": 29,
+      "difficulty": "L2",
+      "est_seconds": 320,
+      "source": "gen:pool-v1",
+      "stem_md": "Kvadrat tenglama berilgan: $x^{2} + 4x + 3 = 0$. Uning ildizlari $x_1$ va $x_2$.",
+      "payload": {
+        "parts": {
+          "a": {
+            "prompt_md": "Tenglamaning katta ildizini toping.",
+            "hint": "Javobni butun son, oddiy kasr (masalan 3/4) yoki o'nli kasr (masalan 0.75) ko'rinishida yozing."
+          },
+          "b": {
+            "prompt_md": "$x_1^2 + x_2^2$ ning qiymatini toping.",
+            "hint": "Javobni butun son, oddiy kasr (masalan 3/4) yoki o'nli kasr (masalan 0.75) ko'rinishida yozing."
+          }
+        }
+      },
+      "key": {
+        "a": [
+          "-1"
+        ],
+        "b": [
+          "10"
+        ]
+      },
+      "solution_md": "Diskriminant: $D = 16 - 4\\cdot 1\\cdot 3 = 4$, $\\sqrt{D} = 2$.\n\nIldizlar: $x_{1,2} = \\frac{-4 \\pm 2}{2}$, ya'ni $x_1 = -3$, $x_2 = -1$. Katta ildiz $-1$.\n\nKvadratlar yig'indisi: $x_1^2 + x_2^2 = 10$.",
+      "mistake_note_md": "Diskriminantni hisoblashda yoki kasr ildizni kvadratga ko'tarishda (faqat suratni kvadratga oshirib, maxrajni unutish) xato qilish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Дано квадратное уравнение $x^{2} + 4x + 3 = 0$. Его корни — $x_1$ и $x_2$.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Найдите больший корень уравнения.",
+                "hint": "Запишите ответ целым числом, обыкновенной дробью (например, 3/4) или десятичной дробью (например, 0.75)."
+              },
+              "b": {
+                "prompt_md": "Найдите значение $x_1^2 + x_2^2$.",
+                "hint": "Запишите ответ целым числом, обыкновенной дробью (например, 3/4) или десятичной дробью (например, 0.75)."
+              }
+            }
+          },
+          "solution_md": "Дискриминант: $D = 16 - 4\\cdot 1\\cdot 3 = 4$, $\\sqrt{D} = 2$.\n\nКорни: $x_{1,2} = \\frac{-4 \\pm 2}{2}$, то есть $x_1 = -3$, $x_2 = -1$. Больший корень равен $-1$.\n\nСумма квадратов: $x_1^2 + x_2^2 = 10$.",
+          "mistake_note_md": "Ошибки при вычислении дискриминанта или при возведении дробного корня в квадрат (возводят в квадрат только числитель)."
+        },
+        "kaa": {
+          "stem_md": "Kvadrat teńleme berilgen: $x^{2} + 4x + 3 = 0$. Onıń túbirleri $x_1$ hám $x_2$.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Teńlemeniń úlken túbirin tabıń.",
+                "hint": "Juwaptı pútin san, ápiwayı bólshek (mısalı 3/4) yamasa onlıq bólshek (mısalı 0.75) kórinisinde jazıń."
+              },
+              "b": {
+                "prompt_md": "$x_1^2 + x_2^2$ tiń mánisin tabıń.",
+                "hint": "Juwaptı pútin san, ápiwayı bólshek (mısalı 3/4) yamasa onlıq bólshek (mısalı 0.75) kórinisinde jazıń."
+              }
+            }
+          },
+          "solution_md": "Diskriminant: $D = 16 - 4\\cdot 1\\cdot 3 = 4$, $\\sqrt{D} = 2$.\n\nTúbirler: $x_{1,2} = \\frac{-4 \\pm 2}{2}$, yaǵnıy $x_1 = -3$, $x_2 = -1$. Úlken túbir $-1$.\n\nKvadratlar qosındısı: $x_1^2 + x_2^2 = 10$.",
+          "mistake_note_md": "Diskriminantti esaplawda yamasa bólshek túbirdi kvadratqa kóteriwde (tek alımdı kvadratqa kóterip, bólimdi umıtıw) qátelesiw."
+        },
+        "en": {
+          "stem_md": "The quadratic equation $x^{2} + 4x + 3 = 0$ is given. Its roots are $x_1$ and $x_2$.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Find the larger root of the equation.",
+                "hint": "Write the answer as an integer, a common fraction (e.g. 3/4) or a decimal (e.g. 0.75)."
+              },
+              "b": {
+                "prompt_md": "Find the value of $x_1^2 + x_2^2$.",
+                "hint": "Write the answer as an integer, a common fraction (e.g. 3/4) or a decimal (e.g. 0.75)."
+              }
+            }
+          },
+          "solution_md": "Discriminant: $D = 16 - 4\\cdot 1\\cdot 3 = 4$, $\\sqrt{D} = 2$.\n\nRoots: $x_{1,2} = \\frac{-4 \\pm 2}{2}$, that is $x_1 = -3$, $x_2 = -1$. The larger root is $-1$.\n\nSum of squares: $x_1^2 + x_2^2 = 10$.",
+          "mistake_note_md": "Errors when computing the discriminant or when squaring a fractional root (squaring only the numerator)."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P022-38",
+      "type": "o",
+      "block": "funksiyalar",
+      "topic": 51,
+      "difficulty": "L2",
+      "est_seconds": 270,
+      "source": "gen:pool-v1",
+      "stem_md": "$f(x) = \\log_{a} x$ funksiyaning grafigi $(8;\\ 3)$ nuqtadan o'tadi ($a > 0$, $a \\ne 1$).",
+      "payload": {
+        "parts": {
+          "a": {
+            "prompt_md": "Logarifm asosi $a$ ni toping."
+          },
+          "b": {
+            "prompt_md": "$f(16)$ ning qiymatini toping."
+          }
+        }
+      },
+      "key": {
+        "a": [
+          "2"
+        ],
+        "b": [
+          "4"
+        ]
+      },
+      "solution_md": "Nuqta grafikda yotgani uchun $\\log_{a} 8 = 3 \\Rightarrow a^{3} = 8 \\Rightarrow a = 2$.\n\nEndi qiymatni hisoblaymiz: $f(16) = \\log_{2} 16 = \\log_{2} 2^{4} = 4$.",
+      "mistake_note_md": "Asosni topishda $a = q$ yoki $a = N/q$ deb olish; manfiy darajali argumentda ($1/a^r$) logarifm ishorasini unutish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "График функции $f(x) = \\log_{a} x$ проходит через точку $(8;\\ 3)$ ($a > 0$, $a \\ne 1$).",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Найдите основание логарифма $a$."
+              },
+              "b": {
+                "prompt_md": "Найдите значение $f(16)$."
+              }
+            }
+          },
+          "solution_md": "Точка лежит на графике, поэтому $\\log_{a} 8 = 3 \\Rightarrow a^{3} = 8 \\Rightarrow a = 2$.\n\nТеперь вычислим значение: $f(16) = \\log_{2} 16 = \\log_{2} 2^{4} = 4$.",
+          "mistake_note_md": "Берут основание $a = q$ или $a = N/q$; забывают знак логарифма для аргумента с отрицательной степенью ($1/a^r$)."
+        },
+        "kaa": {
+          "stem_md": "$f(x) = \\log_{a} x$ funkciyasınıń grafigi $(8;\\ 3)$ noqatınan ótedi ($a > 0$, $a \\ne 1$).",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Logarifm tiykari $a$ nı tabıń."
+              },
+              "b": {
+                "prompt_md": "$f(16)$ tiń mánisin tabıń."
+              }
+            }
+          },
+          "solution_md": "Noqat grafikte jatqanlıqtan $\\log_{a} 8 = 3 \\Rightarrow a^{3} = 8 \\Rightarrow a = 2$.\n\nEndi mánisti esaplaymız: $f(16) = \\log_{2} 16 = \\log_{2} 2^{4} = 4$.",
+          "mistake_note_md": "Tiykardı tabıwda $a = q$ yamasa $a = N/q$ dep alıw; teris dárejeli argumentte ($1/a^r$) logarifm belgisin umıtıw."
+        },
+        "en": {
+          "stem_md": "The graph of $f(x) = \\log_{a} x$ passes through the point $(8;\\ 3)$ ($a > 0$, $a \\ne 1$).",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Find the base $a$ of the logarithm."
+              },
+              "b": {
+                "prompt_md": "Find the value of $f(16)$."
+              }
+            }
+          },
+          "solution_md": "The point lies on the graph, so $\\log_{a} 8 = 3 \\Rightarrow a^{3} = 8 \\Rightarrow a = 2$.\n\nNow compute the value: $f(16) = \\log_{2} 16 = \\log_{2} 2^{4} = 4$.",
+          "mistake_note_md": "Taking the base as $a = q$ or $a = N/q$; forgetting the sign of the logarithm for an argument with a negative power ($1/a^r$)."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P043-20",
+      "type": "y1",
+      "block": "funksiyalar",
+      "topic": 55,
+      "difficulty": "L2",
+      "est_seconds": 130,
+      "source": "gen:pool-v1",
+      "stem_md": "$f(x) = 4x - 4$ va $g(x) = 3x^{2} + 4$ funksiyalar berilgan. $g\\left(f^{-1}(0)\\right)$ ning qiymatini toping.",
+      "payload": {
+        "options": {
+          "A": "$24$",
+          "B": "$4$",
+          "C": "$8$",
+          "D": "$7$"
+        }
+      },
+      "key": {
+        "correct": "D"
+      },
+      "solution_md": "$f^{-1}(0)$ bu $f(x) = 0$ tenglamaning yechimi: $f^{-1}(0) = x \\Leftrightarrow 4x - 4 = 0 \\Rightarrow x = 1$.\n\nShunda $g(1) = 3\\cdot 1^2 + 4 = 7$. Javob: $7$.",
+      "mistake_note_md": "Teskari funksiyaning qiymatini topish o'rniga f ning o'zini hisoblash (f(m) ni olish) yoki tenglamani yechishda b ning ishorasini xato qo'yish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Даны функции $f(x) = 4x - 4$ и $g(x) = 3x^{2} + 4$. Найдите значение $g\\left(f^{-1}(0)\\right)$.",
+          "payload": {
+            "options": {
+              "A": "$24$",
+              "B": "$4$",
+              "C": "$8$",
+              "D": "$7$"
+            }
+          },
+          "solution_md": "Значение $f^{-1}(0)$ — это решение уравнения $f(x) = 0$: $f^{-1}(0) = x \\Leftrightarrow 4x - 4 = 0 \\Rightarrow x = 1$.\n\nТогда $g(1) = 3\\cdot 1^2 + 4 = 7$. Ответ: $7$.",
+          "mistake_note_md": "Вместо значения обратной функции вычисляют саму f (берут f(m)) или ошибаются в знаке b при решении уравнения."
+        },
+        "kaa": {
+          "stem_md": "$f(x) = 4x - 4$ hám $g(x) = 3x^{2} + 4$ funkciyaları berilgen. $g\\left(f^{-1}(0)\\right)$ tiń mánisin tabıń.",
+          "payload": {
+            "options": {
+              "A": "$24$",
+              "B": "$4$",
+              "C": "$8$",
+              "D": "$7$"
+            }
+          },
+          "solution_md": "$f^{-1}(0)$ bul $f(x) = 0$ teńlemesiniń sheshimi: $f^{-1}(0) = x \\Leftrightarrow 4x - 4 = 0 \\Rightarrow x = 1$.\n\nSonda $g(1) = 3\\cdot 1^2 + 4 = 7$. Juwap: $7$.",
+          "mistake_note_md": "Keri funkciyanıń mánisin tabıw ornına f tiń ózin esaplaw (f(m) di alıw) yamasa teńlemeni sheshiwde b nıń belgisin qáte qoyıw."
+        },
+        "en": {
+          "stem_md": "The functions $f(x) = 4x - 4$ and $g(x) = 3x^{2} + 4$ are given. Find the value of $g\\left(f^{-1}(0)\\right)$.",
+          "payload": {
+            "options": {
+              "A": "$24$",
+              "B": "$4$",
+              "C": "$8$",
+              "D": "$7$"
+            }
+          },
+          "solution_md": "The value $f^{-1}(0)$ is the solution of $f(x) = 0$: $f^{-1}(0) = x \\Leftrightarrow 4x - 4 = 0 \\Rightarrow x = 1$.\n\nThen $g(1) = 3\\cdot 1^2 + 4 = 7$. Answer: $7$.",
+          "mistake_note_md": "Computing f itself (taking f(m)) instead of the inverse value, or getting the sign of b wrong when solving the equation."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P031-22",
+      "type": "y1",
+      "block": "analiz",
+      "topic": 64,
+      "extra_topics": [
+        63
+      ],
+      "difficulty": "L2",
+      "est_seconds": 160,
+      "source": "gen:pool-v1",
+      "stem_md": "$f(x)=x^{3}-3x+4$ funksiyaning $[0;\\,2]$ kesmadagi eng katta qiymatini toping.",
+      "payload": {
+        "options": {
+          "A": "$2$",
+          "B": "$8$",
+          "C": "$6$",
+          "D": "$4$"
+        }
+      },
+      "key": {
+        "correct": "C"
+      },
+      "solution_md": "$f^{\\prime}(x)=3x^{2}-3=0$ dan kritik nuqtalar $x=\\pm 1$. Kesma ichidagi kritik nuqtalar va chetlaridagi qiymatlar: $4$, $6$, $2$. Javob: $6$.",
+      "mistake_note_md": "Kesma uchlaridagi qiymatlarni tekshirmay, faqat lokal ekstremumni javob qilib olish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Найдите наибольшее значение функции $f(x)=x^{3}-3x+4$ на отрезке $[0;\\,2]$.",
+          "payload": {
+            "options": {
+              "A": "$2$",
+              "B": "$8$",
+              "C": "$6$",
+              "D": "$4$"
+            }
+          },
+          "solution_md": "Из $f^{\\prime}(x)=3x^{2}-3=0$ получаем критические точки $x=\\pm 1$. Значения в критических точках внутри отрезка и на концах: $4$, $6$, $2$. Ответ: $6$.",
+          "mistake_note_md": "Не проверить значения на концах отрезка и взять только локальный экстремум."
+        },
+        "kaa": {
+          "stem_md": "$f(x)=x^{3}-3x+4$ funkciyasınıń $[0;\\,2]$ kesindidegi eń úlken mánisin tabıń.",
+          "payload": {
+            "options": {
+              "A": "$2$",
+              "B": "$8$",
+              "C": "$6$",
+              "D": "$4$"
+            }
+          },
+          "solution_md": "$f^{\\prime}(x)=3x^{2}-3=0$ nan kritikalıq noqatlar $x=\\pm 1$. Kesindi ishindegi kritikalıq noqatlardaǵı hám shetlerindegi mánisler: $4$, $6$, $2$. Juwap: $6$.",
+          "mistake_note_md": "Kesindi ushlarındaǵı mánislerdi teksermey, tek lokal ekstremumdı juwap etip alıw."
+        },
+        "en": {
+          "stem_md": "Find the largest value of $f(x)=x^{3}-3x+4$ on the segment $[0;\\,2]$.",
+          "payload": {
+            "options": {
+              "A": "$2$",
+              "B": "$8$",
+              "C": "$6$",
+              "D": "$4$"
+            }
+          },
+          "solution_md": "From $f^{\\prime}(x)=3x^{2}-3=0$ the critical points are $x=\\pm 1$. Values at the critical points inside the segment and at the endpoints: $4$, $6$, $2$. Answer: $6$.",
+          "mistake_note_md": "Not checking the endpoints of the segment and taking only a local extremum."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P033-23",
+      "type": "y1",
+      "block": "analiz",
+      "topic": 57,
+      "difficulty": "L2",
+      "est_seconds": 120,
+      "source": "gen:pool-v1",
+      "stem_md": "Arifmetik progressiyada $a_{5}=8,\\ a_{7}=10$. Progressiyaning dastlabki $14$ ta hadi yig'indisini toping.",
+      "payload": {
+        "options": {
+          "A": "$165$",
+          "B": "$130$",
+          "C": "$238$",
+          "D": "$147$"
+        }
+      },
+      "key": {
+        "correct": "D"
+      },
+      "solution_md": "$d=\\dfrac{10-8}{7-5}=1$, $a_1=8-4\\cdot1=4$. $S_{14}=\\dfrac{2\\cdot4+13\\cdot1}{2}\\cdot 14=147$.",
+      "mistake_note_md": "Yig'indi formulasida $n-1$ o'rniga $n$ ni qo'yish yoki $a_1$ ni noto'g'ri topish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "В арифметической прогрессии $a_{5}=8,\\ a_{7}=10$. Найдите сумму первых $14$ членов прогрессии.",
+          "payload": {
+            "options": {
+              "A": "$165$",
+              "B": "$130$",
+              "C": "$238$",
+              "D": "$147$"
+            }
+          },
+          "solution_md": "$d=\\dfrac{10-8}{7-5}=1$, $a_1=8-4\\cdot1=4$. $S_{14}=\\dfrac{2\\cdot4+13\\cdot1}{2}\\cdot 14=147$.",
+          "mistake_note_md": "Подставить $n$ вместо $n-1$ в формулу суммы или неверно найти $a_1$."
+        },
+        "kaa": {
+          "stem_md": "Arifmetikalıq progressiyada $a_{5}=8,\\ a_{7}=10$. Progressiyanıń dáslepki $14$ aǵzasınıń qosındısın tabıń.",
+          "payload": {
+            "options": {
+              "A": "$165$",
+              "B": "$130$",
+              "C": "$238$",
+              "D": "$147$"
+            }
+          },
+          "solution_md": "$d=\\dfrac{10-8}{7-5}=1$, $a_1=8-4\\cdot1=4$. $S_{14}=\\dfrac{2\\cdot4+13\\cdot1}{2}\\cdot 14=147$.",
+          "mistake_note_md": "Qosındı formulasında $n-1$ ornına $n$ di qoyıw yamasa $a_1$ di qáte tabıw."
+        },
+        "en": {
+          "stem_md": "In an arithmetic progression $a_{5}=8,\\ a_{7}=10$. Find the sum of the first $14$ terms.",
+          "payload": {
+            "options": {
+              "A": "$165$",
+              "B": "$130$",
+              "C": "$238$",
+              "D": "$147$"
+            }
+          },
+          "solution_md": "$d=\\dfrac{10-8}{7-5}=1$, $a_1=8-4\\cdot1=4$. $S_{14}=\\dfrac{2\\cdot4+13\\cdot1}{2}\\cdot 14=147$.",
+          "mistake_note_md": "Using $n$ instead of $n-1$ in the sum formula or finding $a_1$ incorrectly."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P017-39",
+      "type": "o",
+      "block": "analiz",
+      "topic": 57,
+      "difficulty": "L3",
+      "est_seconds": 330,
+      "source": "gen:pool-v1",
+      "stem_md": "Arifmetik progressiyada $a_2+a_9=19,\\ a_5=9$.",
+      "payload": {
+        "parts": {
+          "a": {
+            "prompt_md": "Progressiya ayirmasi $d$ ni toping."
+          },
+          "b": {
+            "prompt_md": "Dastlabki $14$ ta hadi yig'indisini toping."
+          }
+        }
+      },
+      "key": {
+        "a": [
+          "1"
+        ],
+        "b": [
+          "161"
+        ]
+      },
+      "solution_md": "$a_2+a_9=2a_1+9d=19$, $a_5=a_1+4d=9$. Ikkinchisini $2$ ga ko'paytirib ayiramiz: $d=19-2\\cdot 9=1$, keyin $a_1=9-4\\cdot 1=5$. $S_{14}=\\dfrac{2\\cdot 5+13\\cdot 1}{2}\\cdot 14=161$.",
+      "mistake_note_md": "$a_9$ ni $a_1+9d$ deb yozish ($a_1+8d$ o'rniga).",
+      "i18n": {
+        "ru": {
+          "stem_md": "В арифметической прогрессии $a_2+a_9=19,\\ a_5=9$.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Найдите разность $d$ прогрессии."
+              },
+              "b": {
+                "prompt_md": "Найдите сумму первых $14$ членов."
+              }
+            }
+          },
+          "solution_md": "$a_2+a_9=2a_1+9d=19$, $a_5=a_1+4d=9$. Умножим второе на $2$ и вычтем: $d=19-2\\cdot 9=1$, тогда $a_1=9-4\\cdot 1=5$. $S_{14}=\\dfrac{2\\cdot 5+13\\cdot 1}{2}\\cdot 14=161$.",
+          "mistake_note_md": "Записать $a_9=a_1+9d$ вместо $a_1+8d$."
+        },
+        "kaa": {
+          "stem_md": "Arifmetikalıq progressiyada $a_2+a_9=19,\\ a_5=9$.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Progressiya ayırması $d$ nı tabıń."
+              },
+              "b": {
+                "prompt_md": "Dáslepki $14$ aǵzasınıń qosındısın tabıń."
+              }
+            }
+          },
+          "solution_md": "$a_2+a_9=2a_1+9d=19$, $a_5=a_1+4d=9$. Ekinshisin $2$ ge kóbeytip ayıramız: $d=19-2\\cdot 9=1$, soń $a_1=9-4\\cdot 1=5$. $S_{14}=\\dfrac{2\\cdot 5+13\\cdot 1}{2}\\cdot 14=161$.",
+          "mistake_note_md": "$a_9$ dı $a_1+9d$ dep jazıw ($a_1+8d$ ornına)."
+        },
+        "en": {
+          "stem_md": "In an arithmetic progression $a_2+a_9=19,\\ a_5=9$.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Find the common difference $d$."
+              },
+              "b": {
+                "prompt_md": "Find the sum of the first $14$ terms."
+              }
+            }
+          },
+          "solution_md": "$a_2+a_9=2a_1+9d=19$, $a_5=a_1+4d=9$. Multiply the second equation by $2$ and subtract: $d=19-2\\cdot 9=1$, then $a_1=9-4\\cdot 1=5$. $S_{14}=\\dfrac{2\\cdot 5+13\\cdot 1}{2}\\cdot 14=161$.",
+          "mistake_note_md": "Writing $a_9=a_1+9d$ instead of $a_1+8d$."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P011-32",
+      "type": "y1",
+      "block": "toplam",
+      "topic": 98,
+      "difficulty": "L3",
+      "est_seconds": 220,
+      "source": "gen:pool-v1",
+      "stem_md": "$\\left(2x+\\dfrac{2}{x^{2}}\\right)^{5}$ ifodaning yoyilmasida $x^{2}$ oldidagi koeffitsiyentni toping.",
+      "payload": {
+        "options": {
+          "A": "$5$",
+          "B": "$32$",
+          "C": "$160$",
+          "D": "$10$"
+        }
+      },
+      "key": {
+        "correct": "C"
+      },
+      "solution_md": "Umumiy had: $\\binom{5}{j}\\,a^{5-j}b^{j}x^{5-3j}$. Daraja $2$ bo'lishi uchun $5-3j=2$, ya'ni $j=1$. Koeffitsiyent: $\\binom{5}{1}\\cdot 2^{4}\\cdot 2^{1}=160$.",
+      "mistake_note_md": "$a$ va $b$ koeffitsiyentlarini darajaga ko'tarishni unutish yoki $b$ ning ishorasini yo'qotish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Найдите коэффициент при $x^{2}$ в разложении $\\left(2x+\\dfrac{2}{x^{2}}\\right)^{5}$.",
+          "payload": {
+            "options": {
+              "A": "$5$",
+              "B": "$32$",
+              "C": "$160$",
+              "D": "$10$"
+            }
+          },
+          "solution_md": "Общий член: $\\binom{5}{j}\\,a^{5-j}b^{j}x^{5-3j}$. Показатель равен $2$ при $5-3j=2$, то есть $j=1$. Коэффициент: $\\binom{5}{1}\\cdot 2^{4}\\cdot 2^{1}=160$.",
+          "mistake_note_md": "Забыть возвести коэффициенты $a$ и $b$ в степень или потерять знак $b$."
+        },
+        "kaa": {
+          "stem_md": "$\\left(2x+\\dfrac{2}{x^{2}}\\right)^{5}$ an'latpasınıń jayılmasında $x^{2}$ aldındaǵı koeffitsiyentti tabıń.",
+          "payload": {
+            "options": {
+              "A": "$5$",
+              "B": "$32$",
+              "C": "$160$",
+              "D": "$10$"
+            }
+          },
+          "solution_md": "Ulıwma aǵza: $\\binom{5}{j}\\,a^{5-j}b^{j}x^{5-3j}$. Dáreje $2$ bolıwı ushın $5-3j=2$, yaǵnıy $j=1$. Koeffitsiyent: $\\binom{5}{1}\\cdot 2^{4}\\cdot 2^{1}=160$.",
+          "mistake_note_md": "$a$ hám $b$ koeffitsiyentlerin dárejege kóteriwdi umıtıw yamasa $b$ nıń belgisin joǵaltıw."
+        },
+        "en": {
+          "stem_md": "Find the coefficient of $x^{2}$ in the expansion of $\\left(2x+\\dfrac{2}{x^{2}}\\right)^{5}$.",
+          "payload": {
+            "options": {
+              "A": "$5$",
+              "B": "$32$",
+              "C": "$160$",
+              "D": "$10$"
+            }
+          },
+          "solution_md": "General term: $\\binom{5}{j}\\,a^{5-j}b^{j}x^{5-3j}$. The exponent equals $2$ when $5-3j=2$, i.e. $j=1$. Coefficient: $\\binom{5}{1}\\cdot 2^{4}\\cdot 2^{1}=160$.",
+          "mistake_note_md": "Forgetting to raise the coefficients $a$ and $b$ to powers or losing the sign of $b$."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P013-33",
+      "type": "y2",
+      "block": "geometriya",
+      "topic": 68,
+      "extra_topics": [
+        67
+      ],
+      "difficulty": "L2",
+      "est_seconds": 180,
+      "source": "gen:pool-v1",
+      "stem_md": "$ABC$ uchburchak burchaklarining nisbati $2:3:5$ kabi. Quyidagi kattaliklarni qiymatlari (gradusda) bilan moslang.",
+      "payload": {
+        "options": {
+          "A": "$54^{\\circ}$",
+          "B": "$36^{\\circ}$",
+          "C": "$90^{\\circ}$",
+          "D": "$144^{\\circ}$",
+          "E": "$72^{\\circ}$",
+          "F": "$126^{\\circ}$"
+        },
+        "items": [
+          {
+            "id": "1",
+            "text_md": "Eng kichik burchak"
+          },
+          {
+            "id": "2",
+            "text_md": "Eng katta burchak"
+          },
+          {
+            "id": "3",
+            "text_md": "Eng kichik burchak uchidagi tashqi burchak"
+          }
+        ],
+        "figure": {
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"36,169 284,169 198.3,51\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><text x=\"21.6\" y=\"173.1\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"298.1\" y=\"174\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"203\" y=\"36.8\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text></svg>",
+          "alt": "ABC uchburchak (burchaklar nisbati berilgan, shakl taxminiy)."
+        }
+      },
+      "key": {
+        "pairs": {
+          "1": "B",
+          "2": "C",
+          "3": "D"
+        }
+      },
+      "solution_md": "Burchaklar yig'indisi $180^{\\circ}$: $2x+3x+5x=180^{\\circ}$, bundan $x=18^{\\circ}$.\n\nBurchaklar: $36^{\\circ}$, $54^{\\circ}$, $90^{\\circ}$. Eng kichigi $36^{\\circ}$, eng kattasi $90^{\\circ}$.\n\nTashqi burchak qo'shni ichki burchak bilan birga $180^{\\circ}$ ni tashkil qiladi: $180^{\\circ}-36^{\\circ}=144^{\\circ}$.",
+      "mistake_note_md": "Tashqi burchakni qo'shni ichki burchak bilan emas, boshqa burchak bilan adashtirish yoki nisbat qismlarini $180^{\\circ}$ ga bo'lmasdan, $360^{\\circ}$ ga bo'lish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Углы треугольника $ABC$ относятся как $2:3:5$. Сопоставьте величины с их значениями (в градусах).",
+          "payload": {
+            "options": {
+              "A": "$54^{\\circ}$",
+              "B": "$36^{\\circ}$",
+              "C": "$90^{\\circ}$",
+              "D": "$144^{\\circ}$",
+              "E": "$72^{\\circ}$",
+              "F": "$126^{\\circ}$"
+            },
+            "items": [
+              {
+                "id": "1",
+                "text_md": "Наименьший угол"
+              },
+              {
+                "id": "2",
+                "text_md": "Наибольший угол"
+              },
+              {
+                "id": "3",
+                "text_md": "Внешний угол при вершине наименьшего угла"
+              }
+            ],
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"36,169 284,169 198.3,51\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><text x=\"21.6\" y=\"173.1\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"298.1\" y=\"174\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"203\" y=\"36.8\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text></svg>",
+              "alt": "Треугольник ABC (углы заданы отношением, рисунок схематичный)."
+            }
+          },
+          "solution_md": "Сумма углов равна $180^{\\circ}$: $2x+3x+5x=180^{\\circ}$, откуда $x=18^{\\circ}$.\n\nУглы: $36^{\\circ}$, $54^{\\circ}$, $90^{\\circ}$. Наименьший — $36^{\\circ}$, наибольший — $90^{\\circ}$.\n\nВнешний угол вместе со смежным внутренним даёт $180^{\\circ}$: $180^{\\circ}-36^{\\circ}=144^{\\circ}$.",
+          "mistake_note_md": "Путают внешний угол со смежным внутренним либо делят $360^{\\circ}$ (а не $180^{\\circ}$) в заданном отношении."
+        },
+        "kaa": {
+          "stem_md": "$ABC$ úshmúyeshliktiń múyeshleri $2:3:5$ qatnasında. Tómendegi shamalardı mánisleri (gradusta) menen sáykes qoyıń.",
+          "payload": {
+            "options": {
+              "A": "$54^{\\circ}$",
+              "B": "$36^{\\circ}$",
+              "C": "$90^{\\circ}$",
+              "D": "$144^{\\circ}$",
+              "E": "$72^{\\circ}$",
+              "F": "$126^{\\circ}$"
+            },
+            "items": [
+              {
+                "id": "1",
+                "text_md": "Eń kishi múyesh"
+              },
+              {
+                "id": "2",
+                "text_md": "Eń úlken múyesh"
+              },
+              {
+                "id": "3",
+                "text_md": "Eń kishi múyesh túyinindegi sırtqı múyesh"
+              }
+            ],
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"36,169 284,169 198.3,51\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><text x=\"21.6\" y=\"173.1\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"298.1\" y=\"174\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"203\" y=\"36.8\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text></svg>",
+              "alt": "ABC úshmúyeshlik (múyeshler qatnası berilgen, súwret shama menen)."
+            }
+          },
+          "solution_md": "Múyeshler jıyındısı $180^{\\circ}$: $2x+3x+5x=180^{\\circ}$, bunnan $x=18^{\\circ}$.\n\nMúyeshler: $36^{\\circ}$, $54^{\\circ}$, $90^{\\circ}$. Eń kishisi $36^{\\circ}$, eń úlkeni $90^{\\circ}$.\n\nSırtqı múyesh qońsı ishki múyesh penen birge $180^{\\circ}$ boladı: $180^{\\circ}-36^{\\circ}=144^{\\circ}$.",
+          "mistake_note_md": "Sırtqı múyeshti qońsı ishki múyesh penen emes, basqa múyesh penen shatastırıw yamasa qatnastı $180^{\\circ}$ qa emes, $360^{\\circ}$ qa bóliw."
+        },
+        "en": {
+          "stem_md": "The angles of triangle $ABC$ are in the ratio $2:3:5$. Match each quantity with its value (in degrees).",
+          "payload": {
+            "options": {
+              "A": "$54^{\\circ}$",
+              "B": "$36^{\\circ}$",
+              "C": "$90^{\\circ}$",
+              "D": "$144^{\\circ}$",
+              "E": "$72^{\\circ}$",
+              "F": "$126^{\\circ}$"
+            },
+            "items": [
+              {
+                "id": "1",
+                "text_md": "The smallest angle"
+              },
+              {
+                "id": "2",
+                "text_md": "The largest angle"
+              },
+              {
+                "id": "3",
+                "text_md": "The exterior angle at the vertex of the smallest angle"
+              }
+            ],
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"36,169 284,169 198.3,51\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><text x=\"21.6\" y=\"173.1\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"298.1\" y=\"174\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"203\" y=\"36.8\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text></svg>",
+              "alt": "Triangle ABC (angles are given by a ratio; the sketch is approximate)."
+            }
+          },
+          "solution_md": "The angles add up to $180^{\\circ}$: $2x+3x+5x=180^{\\circ}$, so $x=18^{\\circ}$.\n\nThe angles are $36^{\\circ}$, $54^{\\circ}$, $90^{\\circ}$. The smallest is $36^{\\circ}$, the largest is $90^{\\circ}$.\n\nAn exterior angle and the adjacent interior angle sum to $180^{\\circ}$: $180^{\\circ}-36^{\\circ}=144^{\\circ}$.",
+          "mistake_note_md": "Confusing the exterior angle with another angle instead of the adjacent interior one, or splitting $360^{\\circ}$ rather than $180^{\\circ}$ in the given ratio."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P031-26",
+      "type": "y1",
+      "block": "geometriya",
+      "topic": 71,
+      "difficulty": "L2",
+      "est_seconds": 120,
+      "source": "gen:pool-v1",
+      "stem_md": "$ABC$ uchburchakda $AB=8$ sm, $AC=15$ sm va $\\angle BAC=60^{\\circ}$. $BC$ tomonning uzunligini (sm da) toping.",
+      "payload": {
+        "options": {
+          "A": "$23$",
+          "B": "$17$",
+          "C": "$13$",
+          "D": "$7$"
+        },
+        "figure": {
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"112,188 208,188 202,32\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><path d=\"M 132 188 A 20 20 0 0 0 122 170.7\" fill=\"none\" stroke=\"#6d28d9\" stroke-width=\"1.6\"/><text x=\"144\" y=\"169.5\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">60&#176;</text><text x=\"100.5\" y=\"197.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"216.2\" y=\"200.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"205.9\" y=\"17.5\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"160\" y=\"201\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"145.7\" y=\"103.5\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">15</text></svg>",
+          "alt": "ABC uchburchak: AB = 8, AC = 15, A uchidagi burchak 60 gradus."
+        }
+      },
+      "key": {
+        "correct": "C"
+      },
+      "solution_md": "Kosinuslar teoremasi: $BC^2=AB^2+AC^2-2\\cdot AB\\cdot AC\\cdot\\cos A$.\n\n$\\cos 60^{\\circ}=\\dfrac12$, shuning uchun $BC^2=64+225-120=169$.\n\n$BC=\\sqrt{169}=13$ sm.",
+      "mistake_note_md": "Pifagor teoremasini qo'llash ($BC^2=AB^2+AC^2$) yoki $\\cos 120^{\\circ}$ ning ishorasini adashtirish: $-\\dfrac12$ bo'lgani uchun $-2ab\\cos A=+ab$ bo'ladi.",
+      "i18n": {
+        "ru": {
+          "stem_md": "В треугольнике $ABC$ известно: $AB=8$ см, $AC=15$ см, $\\angle BAC=60^{\\circ}$. Найдите длину стороны $BC$ (в см).",
+          "payload": {
+            "options": {
+              "A": "$23$",
+              "B": "$17$",
+              "C": "$13$",
+              "D": "$7$"
+            },
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"112,188 208,188 202,32\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><path d=\"M 132 188 A 20 20 0 0 0 122 170.7\" fill=\"none\" stroke=\"#6d28d9\" stroke-width=\"1.6\"/><text x=\"144\" y=\"169.5\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">60&#176;</text><text x=\"100.5\" y=\"197.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"216.2\" y=\"200.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"205.9\" y=\"17.5\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"160\" y=\"201\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"145.7\" y=\"103.5\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">15</text></svg>",
+              "alt": "Треугольник ABC: AB = 8, AC = 15, угол при вершине A равен 60 градусов."
+            }
+          },
+          "solution_md": "Теорема косинусов: $BC^2=AB^2+AC^2-2\\cdot AB\\cdot AC\\cdot\\cos A$.\n\n$\\cos 60^{\\circ}=\\dfrac12$, поэтому $BC^2=64+225-120=169$.\n\n$BC=\\sqrt{169}=13$ см.",
+          "mistake_note_md": "Применяют теорему Пифагора ($BC^2=AB^2+AC^2$) или путают знак $\\cos 120^{\\circ}$: он равен $-\\dfrac12$, поэтому $-2ab\\cos A=+ab$."
+        },
+        "kaa": {
+          "stem_md": "$ABC$ úshmúyeshlikte $AB=8$ sm, $AC=15$ sm hám $\\angle BAC=60^{\\circ}$. $BC$ táreptiń uzınlıǵın (sm de) tabıń.",
+          "payload": {
+            "options": {
+              "A": "$23$",
+              "B": "$17$",
+              "C": "$13$",
+              "D": "$7$"
+            },
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"112,188 208,188 202,32\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><path d=\"M 132 188 A 20 20 0 0 0 122 170.7\" fill=\"none\" stroke=\"#6d28d9\" stroke-width=\"1.6\"/><text x=\"144\" y=\"169.5\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">60&#176;</text><text x=\"100.5\" y=\"197.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"216.2\" y=\"200.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"205.9\" y=\"17.5\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"160\" y=\"201\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"145.7\" y=\"103.5\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">15</text></svg>",
+              "alt": "ABC úshmúyeshlik: AB = 8, AC = 15, A túyinindegi múyesh 60 gradus."
+            }
+          },
+          "solution_md": "Kosinuslar teoreması: $BC^2=AB^2+AC^2-2\\cdot AB\\cdot AC\\cdot\\cos A$.\n\n$\\cos 60^{\\circ}=\\dfrac12$, sonlıqtan $BC^2=64+225-120=169$.\n\n$BC=\\sqrt{169}=13$ sm.",
+          "mistake_note_md": "Pifagor teoremasın qollanıw ($BC^2=AB^2+AC^2$) yamasa $\\cos 120^{\\circ}$ tıń belgisin shatastırıw: ol $-\\dfrac12$, sonlıqtan $-2ab\\cos A=+ab$ boladı."
+        },
+        "en": {
+          "stem_md": "In triangle $ABC$, $AB=8$ cm, $AC=15$ cm and $\\angle BAC=60^{\\circ}$. Find the length of side $BC$ (in cm).",
+          "payload": {
+            "options": {
+              "A": "$23$",
+              "B": "$17$",
+              "C": "$13$",
+              "D": "$7$"
+            },
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"112,188 208,188 202,32\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><path d=\"M 132 188 A 20 20 0 0 0 122 170.7\" fill=\"none\" stroke=\"#6d28d9\" stroke-width=\"1.6\"/><text x=\"144\" y=\"169.5\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">60&#176;</text><text x=\"100.5\" y=\"197.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A</text><text x=\"216.2\" y=\"200.6\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B</text><text x=\"205.9\" y=\"17.5\" dy=\"0.35em\" font-size=\"16\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C</text><text x=\"160\" y=\"201\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">8</text><text x=\"145.7\" y=\"103.5\" dy=\"0.35em\" font-size=\"14\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\">15</text></svg>",
+              "alt": "Triangle ABC with AB = 8, AC = 15 and the angle at A equal to 60 degrees."
+            }
+          },
+          "solution_md": "Law of cosines: $BC^2=AB^2+AC^2-2\\cdot AB\\cdot AC\\cdot\\cos A$.\n\n$\\cos 60^{\\circ}=\\dfrac12$, so $BC^2=64+225-120=169$.\n\n$BC=\\sqrt{169}=13$ cm.",
+          "mistake_note_md": "Applying the Pythagorean theorem ($BC^2=AB^2+AC^2$) or mixing up the sign of $\\cos 120^{\\circ}$: it is $-\\dfrac12$, so $-2ab\\cos A=+ab$."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P025-34",
+      "type": "y2",
+      "block": "geometriya",
+      "topic": 93,
+      "difficulty": "L3",
+      "est_seconds": 300,
+      "source": "gen:pool-v1",
+      "stem_md": "Kattaliklarni ularning qiymatlari bilan moslang.",
+      "payload": {
+        "options": {
+          "A": "$3$",
+          "B": "$1$",
+          "C": "$-10$",
+          "D": "$5$",
+          "E": "$17$",
+          "F": "$11$"
+        },
+        "items": [
+          {
+            "id": "1",
+            "text_md": "$\\vec a=(2;\\,2;\\,1)$ vektorning uzunligi"
+          },
+          {
+            "id": "2",
+            "text_md": "$\\vec a=(2;\\,2;\\,1)$ va $\\vec b=(-4;\\,-2;\\,2)$ vektorlarning skalyar ko'paytmasi"
+          },
+          {
+            "id": "3",
+            "text_md": "$P(-2;\\,3;\\,-2)$ va $Q(7;\\,1;\\,-8)$ nuqtalar orasidagi masofa"
+          }
+        ]
+      },
+      "key": {
+        "pairs": {
+          "1": "A",
+          "2": "C",
+          "3": "F"
+        }
+      },
+      "solution_md": "Formulalar: $|\\vec a|=\\sqrt{x^2+y^2+z^2}$, $\\vec a\\cdot\\vec b=x_1x_2+y_1y_2+z_1z_2$, $|PQ|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$.\n\n$|\\vec a|=\\sqrt{4+4+1}=3$\n\n$\\vec a\\cdot\\vec b=2\\cdot(-4)+2\\cdot(-2)+1\\cdot2=-10$\n\n$|PQ|=\\sqrt{81+4+36}=11$\n\n1 → A;  2 → C;  3 → F",
+      "mistake_note_md": "Uzunlik o'rniga uning kvadratini yoki koordinatalar yig'indisini yozish; skalyar ko'paytmada ishorani adashtirish.",
+      "i18n": {
+        "ru": {
+          "stem_md": "Установите соответствие между величинами и их значениями.",
+          "payload": {
+            "options": {
+              "A": "$3$",
+              "B": "$1$",
+              "C": "$-10$",
+              "D": "$5$",
+              "E": "$17$",
+              "F": "$11$"
+            },
+            "items": [
+              {
+                "id": "1",
+                "text_md": "Длина вектора $\\vec a=(2;\\,2;\\,1)$"
+              },
+              {
+                "id": "2",
+                "text_md": "Скалярное произведение векторов $\\vec a=(2;\\,2;\\,1)$ и $\\vec b=(-4;\\,-2;\\,2)$"
+              },
+              {
+                "id": "3",
+                "text_md": "Расстояние между точками $P(-2;\\,3;\\,-2)$ и $Q(7;\\,1;\\,-8)$"
+              }
+            ]
+          },
+          "solution_md": "Формулы: $|\\vec a|=\\sqrt{x^2+y^2+z^2}$, $\\vec a\\cdot\\vec b=x_1x_2+y_1y_2+z_1z_2$, $|PQ|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$.\n\n$|\\vec a|=\\sqrt{4+4+1}=3$\n\n$\\vec a\\cdot\\vec b=2\\cdot(-4)+2\\cdot(-2)+1\\cdot2=-10$\n\n$|PQ|=\\sqrt{81+4+36}=11$\n\n1 → A;  2 → C;  3 → F",
+          "mistake_note_md": "Записать вместо длины её квадрат или сумму координат; ошибиться со знаком в скалярном произведении."
+        },
+        "kaa": {
+          "stem_md": "Shamalardı olardıń mánisleri menen sáykes qoyıń.",
+          "payload": {
+            "options": {
+              "A": "$3$",
+              "B": "$1$",
+              "C": "$-10$",
+              "D": "$5$",
+              "E": "$17$",
+              "F": "$11$"
+            },
+            "items": [
+              {
+                "id": "1",
+                "text_md": "$\\vec a=(2;\\,2;\\,1)$ vektordıń uzınlıǵı"
+              },
+              {
+                "id": "2",
+                "text_md": "$\\vec a=(2;\\,2;\\,1)$ hám $\\vec b=(-4;\\,-2;\\,2)$ vektorlardıń skalyar kóbeymesi"
+              },
+              {
+                "id": "3",
+                "text_md": "$P(-2;\\,3;\\,-2)$ hám $Q(7;\\,1;\\,-8)$ noqatları arasındaǵı aralıq"
+              }
+            ]
+          },
+          "solution_md": "Formulalar: $|\\vec a|=\\sqrt{x^2+y^2+z^2}$, $\\vec a\\cdot\\vec b=x_1x_2+y_1y_2+z_1z_2$, $|PQ|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$.\n\n$|\\vec a|=\\sqrt{4+4+1}=3$\n\n$\\vec a\\cdot\\vec b=2\\cdot(-4)+2\\cdot(-2)+1\\cdot2=-10$\n\n$|PQ|=\\sqrt{81+4+36}=11$\n\n1 → A;  2 → C;  3 → F",
+          "mistake_note_md": "Uzınlıq ornına onıń kvadratın yamasa koordinatalar qosındısın jazıw; skalyar kóbeymede belgini qáte qoyıw."
+        },
+        "en": {
+          "stem_md": "Match each quantity with its value.",
+          "payload": {
+            "options": {
+              "A": "$3$",
+              "B": "$1$",
+              "C": "$-10$",
+              "D": "$5$",
+              "E": "$17$",
+              "F": "$11$"
+            },
+            "items": [
+              {
+                "id": "1",
+                "text_md": "The length of the vector $\\vec a=(2;\\,2;\\,1)$"
+              },
+              {
+                "id": "2",
+                "text_md": "The dot product of the vectors $\\vec a=(2;\\,2;\\,1)$ and $\\vec b=(-4;\\,-2;\\,2)$"
+              },
+              {
+                "id": "3",
+                "text_md": "The distance between the points $P(-2;\\,3;\\,-2)$ and $Q(7;\\,1;\\,-8)$"
+              }
+            ]
+          },
+          "solution_md": "Formulas: $|\\vec a|=\\sqrt{x^2+y^2+z^2}$, $\\vec a\\cdot\\vec b=x_1x_2+y_1y_2+z_1z_2$, $|PQ|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}$.\n\n$|\\vec a|=\\sqrt{4+4+1}=3$\n\n$\\vec a\\cdot\\vec b=2\\cdot(-4)+2\\cdot(-2)+1\\cdot2=-10$\n\n$|PQ|=\\sqrt{81+4+36}=11$\n\n1 → A;  2 → C;  3 → F",
+          "mistake_note_md": "Writing the square of the length or the sum of coordinates instead of the length, or making a sign error in the dot product."
+        }
+      },
+      "pool": "practice"
+    },
+    {
+      "external_id": "gen-P030-41",
+      "type": "o",
+      "block": "geometriya",
+      "topic": 81,
+      "extra_topics": [
+        73,
+        80
+      ],
+      "difficulty": "L3",
+      "est_seconds": 330,
+      "source": "gen:pool-v1",
+      "stem_md": "Koordinata tekisligida $A(1;-6)$, $B(1;0)$ va $C(9;0)$ nuqtalar berilgan. $ABC$ uchburchak uchun quyidagilarni toping.",
+      "payload": {
+        "parts": {
+          "a": {
+            "prompt_md": "Uchburchakning yuzini toping.",
+            "hint": "Javobni butun son, oddiy kasr yoki o'nli kasr (nuqta bilan) ko'rinishida yozing."
+          },
+          "b": {
+            "prompt_md": "Uchburchakka ichki chizilgan aylananing radiusini toping.",
+            "hint": "Javobni butun son, oddiy kasr yoki o'nli kasr (nuqta bilan) ko'rinishida yozing."
+          }
+        },
+        "figure": {
+          "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"80,170 80,50 240,50\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><circle cx=\"80\" cy=\"170\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"80\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"240\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"66.7\" y=\"190\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A(1;-6)</text><text x=\"59.2\" y=\"34.4\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B(1;0)</text><text x=\"264.3\" y=\"40.9\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C(9;0)</text></svg>",
+          "alt": "Koordinata tekisligidagi ABC uchburchak: A(1; -6), B(1; 0), C(9; 0)."
+        }
+      },
+      "key": {
+        "a": [
+          "24"
+        ],
+        "b": [
+          "2"
+        ]
+      },
+      "solution_md": "$B$ va $C$ nuqtalarning ordinatalari teng ($0$), shuning uchun $BC\\parallel Ox$ va $BC=|9-1|=8$. $A$ nuqtadan $BC$ gacha masofa $h=|-6-0|=6$.\n\na) $S=\\dfrac12\\cdot BC\\cdot h=\\dfrac12\\cdot 8\\cdot 6=24$.\n\nb) Tomonlar: $AB=\\sqrt{(1-1)^2+(-6-0)^2}=6$, $AC=\\sqrt{(1-9)^2+(-6-0)^2}=10$. Yarim perimetr $p=\\dfrac{6+8+10}{2}=12$.\n\nIchki chizilgan aylana radiusi: $r=\\dfrac{S}{p}=\\dfrac{24}{12}=2$.",
+      "mistake_note_md": "$r=\\dfrac{S}{p}$ da $p$ — yarim perimetr ekanini unutib, butun perimetrni qo'yish; yoki $BC$ ga balandlikni noto'g'ri hisoblash.",
+      "i18n": {
+        "ru": {
+          "stem_md": "На координатной плоскости заданы точки $A(1;-6)$, $B(1;0)$ и $C(9;0)$. Для треугольника $ABC$ найдите следующее.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Найдите площадь треугольника.",
+                "hint": "Запишите ответ целым числом, обыкновенной или десятичной дробью (через точку)."
+              },
+              "b": {
+                "prompt_md": "Найдите радиус вписанной в треугольник окружности.",
+                "hint": "Запишите ответ целым числом, обыкновенной или десятичной дробью (через точку)."
+              }
+            },
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"80,170 80,50 240,50\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><circle cx=\"80\" cy=\"170\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"80\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"240\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"66.7\" y=\"190\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A(1;-6)</text><text x=\"59.2\" y=\"34.4\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B(1;0)</text><text x=\"264.3\" y=\"40.9\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C(9;0)</text></svg>",
+              "alt": "Треугольник ABC на координатной плоскости: A(1; -6), B(1; 0), C(9; 0)."
+            }
+          },
+          "solution_md": "Ординаты точек $B$ и $C$ равны ($0$), поэтому $BC\\parallel Ox$ и $BC=|9-1|=8$. Расстояние от $A$ до $BC$: $h=|-6-0|=6$.\n\nа) $S=\\dfrac12\\cdot BC\\cdot h=\\dfrac12\\cdot 8\\cdot 6=24$.\n\nб) Стороны: $AB=\\sqrt{(1-1)^2+(-6-0)^2}=6$, $AC=\\sqrt{(1-9)^2+(-6-0)^2}=10$. Полупериметр $p=\\dfrac{6+8+10}{2}=12$.\n\nРадиус вписанной окружности: $r=\\dfrac{S}{p}=\\dfrac{24}{12}=2$.",
+          "mistake_note_md": "В формуле $r=\\dfrac{S}{p}$ подставляют весь периметр вместо полупериметра либо неверно находят высоту к $BC$."
+        },
+        "kaa": {
+          "stem_md": "Koordinata tegisliginde $A(1;-6)$, $B(1;0)$ hám $C(9;0)$ noqatları berilgen. $ABC$ úshmúyeshlik ushın tómendegilerdi tabıń.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Úshmúyeshliktiń maydanın tabıń.",
+                "hint": "Juwaptı pútin san, ápiwayı bólshek yamasa onlıq bólshek (noqat penen) kórinisinde jazıń."
+              },
+              "b": {
+                "prompt_md": "Úshmúyeshlikke ishine sızılǵan sheńberdiń radiusın tabıń.",
+                "hint": "Juwaptı pútin san, ápiwayı bólshek yamasa onlıq bólshek (noqat penen) kórinisinde jazıń."
+              }
+            },
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"80,170 80,50 240,50\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><circle cx=\"80\" cy=\"170\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"80\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"240\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"66.7\" y=\"190\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A(1;-6)</text><text x=\"59.2\" y=\"34.4\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B(1;0)</text><text x=\"264.3\" y=\"40.9\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C(9;0)</text></svg>",
+              "alt": "Koordinata tegisligindegi ABC úshmúyeshlik: A(1; -6), B(1; 0), C(9; 0)."
+            }
+          },
+          "solution_md": "$B$ hám $C$ noqatlarınıń ordinataları teń ($0$), sonlıqtan $BC\\parallel Ox$ hám $BC=|9-1|=8$. $A$ noqattan $BC$ ǵa shekemgi aralıq $h=|-6-0|=6$.\n\na) $S=\\dfrac12\\cdot BC\\cdot h=\\dfrac12\\cdot 8\\cdot 6=24$.\n\nb) Táreplar: $AB=\\sqrt{(1-1)^2+(-6-0)^2}=6$, $AC=\\sqrt{(1-9)^2+(-6-0)^2}=10$. Yarım perimetr $p=\\dfrac{6+8+10}{2}=12$.\n\nIshine sızılǵan sheńber radiusı: $r=\\dfrac{S}{p}=\\dfrac{24}{12}=2$.",
+          "mistake_note_md": "$r=\\dfrac{S}{p}$ da $p$ — yarım perimetr ekenin umıtıp, pútin perimetrdi qoyıw; yamasa $BC$ ǵa biyiklikti qate esaplaw."
+        },
+        "en": {
+          "stem_md": "The points $A(1;-6)$, $B(1;0)$ and $C(9;0)$ are given in the coordinate plane. For triangle $ABC$, find the following.",
+          "payload": {
+            "parts": {
+              "a": {
+                "prompt_md": "Find the area of the triangle.",
+                "hint": "Write the answer as an integer, a common fraction or a decimal (with a point)."
+              },
+              "b": {
+                "prompt_md": "Find the radius of the circle inscribed in the triangle.",
+                "hint": "Write the answer as an integer, a common fraction or a decimal (with a point)."
+              }
+            },
+            "figure": {
+              "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 220\" width=\"320\" height=\"220\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"80,170 80,50 240,50\" fill=\"none\" stroke=\"#1e1b39\" stroke-width=\"1.8\"/><circle cx=\"80\" cy=\"170\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"80\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><circle cx=\"240\" cy=\"50\" r=\"2.6\" fill=\"#1e1b39\" stroke=\"none\"/><text x=\"66.7\" y=\"190\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">A(1;-6)</text><text x=\"59.2\" y=\"34.4\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">B(1;0)</text><text x=\"264.3\" y=\"40.9\" dy=\"0.35em\" font-size=\"13\" font-family=\"sans-serif\" fill=\"#1e1b39\" stroke=\"none\" text-anchor=\"middle\" font-weight=\"bold\">C(9;0)</text></svg>",
+              "alt": "Triangle ABC in the coordinate plane: A(1; -6), B(1; 0), C(9; 0)."
+            }
+          },
+          "solution_md": "The ordinates of $B$ and $C$ are equal ($0$), so $BC\\parallel Ox$ and $BC=|9-1|=8$. The distance from $A$ to $BC$ is $h=|-6-0|=6$.\n\na) $S=\\dfrac12\\cdot BC\\cdot h=\\dfrac12\\cdot 8\\cdot 6=24$.\n\nb) Sides: $AB=\\sqrt{(1-1)^2+(-6-0)^2}=6$, $AC=\\sqrt{(1-9)^2+(-6-0)^2}=10$. Semiperimeter $p=\\dfrac{6+8+10}{2}=12$.\n\nInradius: $r=\\dfrac{S}{p}=\\dfrac{24}{12}=2$.",
+          "mistake_note_md": "Using the whole perimeter instead of the semiperimeter in $r=\\dfrac{S}{p}$, or computing the height to $BC$ incorrectly."
+        }
+      },
+      "pool": "practice"
+    }
+  ]
+}
